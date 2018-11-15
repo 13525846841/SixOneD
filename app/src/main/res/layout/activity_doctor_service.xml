@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/service_1_st"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/white"
+        app:sDividerLineColor="@color/divider"
+        app:sDividerLineHeight="@dimen/dp_0_5"
+        app:sDividerLineType="bottom"
+        app:sLeftIconHeight="@dimen/dp_25"
+        app:sLeftIconRes="@drawable/picandcul"
+        app:sLeftIconWidth="@dimen/dp_25"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_14"
+        app:sLeftTextString="图文咨询"
+        app:sRightIconRes="@drawable/ic_arrow_right" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/service_2_st"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/white"
+        app:sDividerLineColor="@color/divider"
+        app:sDividerLineHeight="@dimen/dp_0_5"
+        app:sDividerLineType="bottom"
+        app:sLeftIconHeight="@dimen/dp_25"
+        app:sLeftIconRes="@drawable/phone"
+        app:sLeftIconWidth="@dimen/dp_25"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_14"
+        app:sLeftTextString="电话咨询"
+        app:sRightIconRes="@drawable/ic_arrow_right" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/service_3_st"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/white"
+        app:sDividerLineColor="@color/divider"
+        app:sDividerLineHeight="@dimen/dp_0_5"
+        app:sDividerLineType="bottom"
+        app:sLeftIconHeight="@dimen/dp_25"
+        app:sLeftIconRes="@drawable/consul"
+        app:sLeftIconWidth="@dimen/dp_25"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_14"
+        app:sLeftTextString="包月咨询"
+        app:sRightIconRes="@drawable/ic_arrow_right" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/service_4_st"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/white"
+        app:sDividerLineColor="@color/divider"
+        app:sDividerLineHeight="@dimen/dp_0_5"
+        app:sDividerLineType="bottom"
+        app:sLeftIconHeight="@dimen/dp_25"
+        app:sLeftIconRes="@drawable/video"
+        app:sLeftIconWidth="@dimen/dp_25"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_14"
+        app:sLeftTextString="视频咨询"
+        app:sRightIconRes="@drawable/ic_arrow_right" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/service_5_st"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/white"
+        app:sDividerLineColor="@color/divider"
+        app:sDividerLineHeight="@dimen/dp_0_5"
+        app:sDividerLineType="bottom"
+        app:sLeftIconHeight="@dimen/dp_25"
+        app:sLeftIconRes="@drawable/addnum"
+        app:sLeftIconWidth="@dimen/dp_25"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_14"
+        app:sLeftTextString="门诊预约"
+        app:sRightIconRes="@drawable/ic_arrow_right" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/service_6_st"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/white"
+        app:sDividerLineColor="@color/divider"
+        app:sDividerLineHeight="@dimen/dp_0_5"
+        app:sDividerLineType="bottom"
+        app:sLeftIconHeight="@dimen/dp_25"
+        app:sLeftIconRes="@drawable/online2"
+        app:sLeftIconWidth="@dimen/dp_25"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_14"
+        app:sLeftTextString="在线会诊"
+        app:sRightIconRes="@drawable/ic_arrow_right" />
+
+</LinearLayout>

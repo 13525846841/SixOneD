@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="30dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/add_template"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/newmo" />
+            <!--<TextView-->
+            <!--android:id="@+id/add_template"-->
+            <!--android:layout_width="110dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:background="@drawable/cormer_bg"-->
+            <!--android:drawableLeft="@drawable/v"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:padding="10dp"-->
+            <!--android:text="新建模板"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="16sp" />-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/temp_lib"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/mlib" />
+            <!--<TextView-->
+            <!--android:id="@+id/temp_lib"-->
+            <!--android:layout_width="110dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:background="@drawable/cormer_bg"-->
+            <!--android:drawableLeft="@drawable/v"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:padding="10dp"-->
+            <!--android:text="模板库"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="16sp" />-->
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="已有模板"
+        android:textColor="@color/gray_text"
+        android:textSize="16sp" />
+
+</LinearLayout>

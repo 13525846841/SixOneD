@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/gray_title_layout" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/addplan_image_head"
+            android:src="@drawable/head_img"
+            android:layout_margin="10dp"
+            android:layout_width="84dp"
+            android:padding="4dp"
+            android:layout_height="84dp"
+            android:layout_centerVertical="true"/>
+
+        <LinearLayout
+            android:id="@+id/ll_laoshi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/addplan_image_head">
+
+            <TextView
+                android:id="@+id/tv_addplan_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="小华老师"
+                android:textColor="#666666"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/tv_addplan_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="男"
+                android:textColor="@color/gray_text"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/ll_laoshi" />
+
+            <TextView
+                android:id="@+id/tv_addplan_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18"
+                android:textColor="@color/gray_text"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:hint="计划标题"
+        android:padding="5dp"
+        android:textSize="16sp"
+        android:textColor="@color/gray_text"
+        android:singleLine="false"
+        android:paddingLeft="10dp"
+        android:maxLength="50"
+        android:background="#ffffff"
+        android:imeOptions="actionSearch"/>
+    <EditText
+        android:id="@+id/et_target"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:hint="计划目标"
+        android:textColor="@color/gray_text"
+        android:padding="5dp"
+        android:maxLength="1000"
+        android:minLines="6"
+        android:singleLine="false"
+        android:background="#ffffff"
+        android:gravity="top|left"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_name"
+        android:layout_height="40dp"
+        style="@style/text_check_relativeLayout"
+        android:background="#ffffff"
+        android:padding="5dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            style="@style/info_text_left_sec"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:text="计划周期"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/plan_time"
+            style="@style/info_text_left_sec"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="1星期"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mloopview"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+    </RelativeLayout>
+
+</LinearLayout>

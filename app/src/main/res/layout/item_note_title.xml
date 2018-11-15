@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_marginTop="10dp">
+
+    <com.yksj.healthtalk.views.zlistview.widget.ZSwipeItem
+        android:id="@+id/swipe_item1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <LinearLayout
+            android:id="@+id/ll_delect"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#ffff4444"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:src="@drawable/trash" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:background="@color/color_gray_bg" />
+
+            <TextView
+                android:id="@+id/tv_tomorrow_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:text="明日计划"
+                android:textColor="@color/tab_txt_gray"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </com.yksj.healthtalk.views.zlistview.widget.ZSwipeItem>
+
+</LinearLayout>

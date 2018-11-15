@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/gray_title_layout" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingLeft="1dp" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <!-- 头像 -->
+
+            <RelativeLayout
+                android:id="@+id/head_action"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_8" >
+
+                <TextView
+                    style="@style/doctor_regist_input_left_style"
+                    android:layout_centerVertical="true"
+                    android:text="真实照片" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <com.library.base.widget.CircleImageView
+                        android:id="@+id/doctor_icon"
+                        android:layout_width="50.0dp"
+                        android:layout_height="50.0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginRight="10dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_arrow_right"
+                        android:paddingLeft="5dp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View style="@style/common_split_line" />
+            <!-- 名字 -->
+
+            <LinearLayout
+                android:id="@+id/name_action"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_8" >
+
+                <TextView
+                    style="@style/doctor_regist_input_left_style"
+                    android:text="名字" />
+
+                <EditText
+                    android:id="@+id/doctor_name"
+                    style="@style/doctor_regist_input_right_style"
+                    android:background="@null"
+                    android:drawableRight="@null"
+                    android:hint="请输入"
+                    android:maxLength="15" />
+            </LinearLayout>
+
+            <View style="@style/common_split_line" />
+            <!-- 所在医院 -->
+
+            <LinearLayout
+                android:id="@+id/sex_action"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_8" >
+
+                <TextView
+                    style="@style/doctor_regist_input_left_style"
+                    android:text="医院" />
+
+                <EditText
+                    android:id="@+id/doctor_hos"
+                    style="@style/doctor_regist_input_right_style"
+                    android:drawableRight="@null"
+                    android:hint="@string/input"
+                    android:maxLength="15" />
+            </LinearLayout>
+
+            <View style="@style/common_split_line" />
+            <!-- 工作地点 -->
+            <LinearLayout
+                android:id="@+id/work_city"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_8"
+                 >
+
+                <TextView
+                    style="@style/doctor_regist_input_left_style"
+                    android:text="工作地点" />
+
+                <TextView
+                    android:id="@+id/workcity_selete"
+                    style="@style/doctor_regist_input_right_style"
+                    android:hint="请选择"
+                    android:textColor="#4B4B4B" />
+            </LinearLayout>
+
+            <View style="@style/common_split_line" />
+            <!-- 科室 -->
+
+            <LinearLayout
+                android:id="@+id/doctorKeShiPop"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_8" >
+
+                <TextView
+                    style="@style/doctor_regist_input_left_style"
+                    android:text="科室" />
+
+                <TextView
+                    android:id="@+id/doctor_keshi"
+                    style="@style/doctor_regist_input_right_style"
+                    android:hint="请选择"
+                    android:textColor="#4B4B4B" />
+            </LinearLayout>
+
+            <View style="@style/common_split_line" />
+            <!-- 职称 -->
+
+            <LinearLayout
+                android:id="@+id/doctorZhiChengPop"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_8" >
+
+                <TextView
+                    style="@style/doctor_regist_input_left_style"
+                    android:text="职称" />
+
+                <TextView
+                    android:id="@+id/doctor_zhicheng"
+                    style="@style/doctor_regist_input_right_style"
+                    android:hint="请选择"
+                    android:textColor="#4B4B4B" />
+            </LinearLayout>
+
+            <View style="@style/common_split_line" />
+            <!-- 介绍 -->
+
+            <LinearLayout
+                android:id="@+id/doctor_special_view"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_8" >
+
+                <TextView
+                    android:id="@+id/special_text"
+                    style="@style/doctor_regist_input_left_style"
+                    android:layout_width="fill_parent"
+                    android:layout_marginRight="10dp"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/special" />
+
+                <EditText
+                    android:id="@+id/doctor_special"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.0"
+                    android:background="#00000000"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:hint="@string/input"
+                    android:maxLength="1000"
+                    android:minHeight="35dp"
+                    android:textColor="#4B4B4B"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="15sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <View style="@style/common_split_line" />
+            <!-- 职务 -->
+            <LinearLayout
+                android:id="@+id/doctor_duty_view"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_8" >
+
+                <TextView
+                    android:id="@+id/duty_text"
+                    style="@style/doctor_regist_input_left_style"
+                    android:layout_width="fill_parent"
+                    android:layout_marginRight="10dp"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/duty" />
+
+                <EditText
+                    android:id="@+id/doctor_duty"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.0"
+                    android:background="#00000000"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:hint="@string/input"
+                    android:maxLength="1000"
+                    android:minHeight="35dp"
+                    android:textColor="#4B4B4B"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="15sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+            <View style="@style/common_split_line" />
+            <!-- 经历 -->
+            <LinearLayout
+                android:id="@+id/doctor_experience_view"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_8" >
+
+                <TextView
+                    android:id="@+id/experience_text"
+                    style="@style/doctor_regist_input_left_style"
+                    android:layout_width="fill_parent"
+                    android:layout_marginRight="10dp"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="@string/experience" />
+
+                <EditText
+                    android:id="@+id/doctor_experience"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.0"
+                    android:background="#00000000"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:hint="@string/input"
+                    android:maxLength="1000"
+                    android:minHeight="35dp"
+                    android:textColor="#4B4B4B"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="15sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/doctor_regist_input_left_style"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:background="@color/white"
+                    android:text="职业医生证+\n身份证合拍"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/doctor_sum"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="fitXY" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignRight="@id/doctor_sum"
+                        android:background="@drawable/ic_arrow_right" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:paddingBottom="3dp"
+                android:paddingLeft="18dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3dp"
+                android:text="保密信息"
+                android:textColor="#939393"
+                android:textSize="14sp" />
+
+            <View style="@style/common_split_line" />
+            <!-- 邮箱 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_8" >
+
+                <TextView
+                    style="@style/doctor_regist_input_left_style"
+                    android:text="邮箱" />
+
+                <EditText
+                    android:id="@+id/doctor_email"
+                    style="@style/doctor_regist_input_right_style"
+                    android:layout_marginLeft="10dp"
+                    android:drawableRight="@null"
+                    android:hint="@string/input"
+                    android:singleLine="true"
+                     />
+            </LinearLayout>
+
+            <View style="@style/common_split_line" />
+            <!-- 电话 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_8" >
+
+                <TextView
+                    style="@style/doctor_regist_input_left_style"
+                    android:text="固定电话" />
+
+                <EditText
+                    android:id="@+id/doctor_tele"
+                    style="@style/doctor_regist_input_right_style"
+                    android:layout_marginLeft="10dp"
+                    android:drawableRight="@null"
+                    android:hint="@string/input"
+                    android:inputType="phone"
+                    android:maxLength="20" />
+            </LinearLayout>
+
+            <View style="@style/common_split_line" />
+            <!-- 手机 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_8" >
+
+                <TextView
+                    style="@style/doctor_regist_input_left_style"
+                    android:layout_centerVertical="true"
+                    android:text="常用手机" />
+
+                <EditText
+                    android:id="@+id/doctor_mobile"
+                    style="@style/doctor_regist_input_right_style"
+                    android:layout_marginLeft="10dp"
+                    android:drawableRight="@null"
+                    android:hint="@string/input"
+                    android:inputType="phone"
+                    android:maxLength="11" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:paddingBottom="3dp"
+                android:paddingLeft="18dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3dp"
+                android:text="账号信息"
+                android:textColor="#939393"
+                android:textSize="14sp" />
+
+            <View style="@style/common_split_line" />
+            <!-- 收款人 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_8" >
+
+                <TextView
+                    style="@style/doctor_regist_input_left_style"
+                    android:text="收款人" />
+
+                <EditText
+                    android:id="@+id/pay_name"
+                    style="@style/doctor_regist_input_right_style"
+                    android:layout_marginLeft="10dp"
+                    android:drawableRight="@null"
+                    android:hint="@string/input"
+                    android:maxLength="20" />
+            </LinearLayout>
+
+            <View style="@style/common_split_line" />
+            <!-- 银行卡(账)号 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_8" >
+
+                <TextView
+                    style="@style/doctor_regist_input_left_style"
+                    android:text="银行卡(账)号" />
+
+                <EditText
+                    android:id="@+id/pay_number"
+                    style="@style/doctor_regist_input_right_style"
+                    android:layout_marginLeft="10dp"
+                    android:drawableRight="@null"
+                    android:hint="@string/input"
+                    android:inputType="phone" />
+            </LinearLayout>
+
+            <View style="@style/common_split_line" />
+            <!-- 开户银行 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_8" >
+
+                <TextView
+                    style="@style/doctor_regist_input_left_style"
+                    android:text="开户银行" />
+
+                <EditText
+                    android:id="@+id/bank_this"
+                    style="@style/doctor_regist_input_right_style"
+                    android:layout_marginLeft="10dp"
+                    android:drawableRight="@null"
+                    android:hint="@string/input"
+                    android:maxLength="20" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:id="@+id/doctor_protocol_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:button="@null"
+                    android:checked="true"
+                    android:drawableLeft="@drawable/new_checkbox" />
+
+                <TextView
+                    android:id="@+id/agreetment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="同意医生服务协议"
+                    android:textColor="@color/color_blue" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="20dp"
+                    android:background="@color/transparent" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

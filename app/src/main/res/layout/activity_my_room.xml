@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:orientation="vertical"
+    tools:activity="com.yksj.consultation.doctor.MyRoomActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_person_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/icon"
+                    android:singleLine="true"
+                    android:text="个人信息"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow_right" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:divider="@drawable/divider_line"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+                <TextView
+                    android:id="@+id/txt_album3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:background="#ffffff"
+                    android:divider="@drawable/divider_line"
+                    android:dividerPadding="16dp"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle"
+                    android:text="服务开通"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_picandcul"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/image_addnum"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/picandcul" />
+
+                        <TextView
+                            style="@style/info_text_left_sec"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="18dp"
+                            android:layout_toRightOf="@+id/image_addnum"
+                            android:text="图文咨询"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            style="@style/text_check_imageview"
+                            android:layout_marginRight="10dp" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#ebeff7" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:padding="10dp"
+                        android:visibility="visible">
+
+                        <ImageView
+                            android:id="@+id/image_consul"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/phone" />
+
+                        <TextView
+                            style="@style/info_text_left_sec"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="18dp"
+                            android:layout_toRightOf="@+id/image_consul"
+                            android:text="电话咨询"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            style="@style/text_check_imageview"
+                            android:layout_marginRight="10dp" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#ebeff7" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_consul"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/image_consul2"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/consul" />
+
+                        <TextView
+                            style="@style/info_text_left_sec"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="18dp"
+                            android:layout_toRightOf="@+id/image_consul2"
+                            android:text="包月咨询"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            style="@style/text_check_imageview"
+                            android:layout_marginRight="10dp" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#ebeff7" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_video"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:padding="10dp"
+                        android:visibility="visible">
+
+                        <ImageView
+                            android:id="@+id/image_consul3"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/video" />
+
+                        <TextView
+                            style="@style/info_text_left_sec"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="18dp"
+                            android:layout_toRightOf="@+id/image_consul3"
+                            android:text="视频咨询"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            style="@style/text_check_imageview"
+                            android:layout_marginRight="10dp" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#ebeff7" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_addnum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/image_consul4"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/addnum" />
+
+                        <TextView
+                            style="@style/info_text_left_sec"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="18dp"
+                            android:layout_toRightOf="@+id/image_consul4"
+                            android:text="门诊预约"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            style="@style/text_check_imageview"
+                            android:layout_marginRight="10dp" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#ebeff7"
+                        android:visibility="visible" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_online2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:padding="10dp"
+                        android:visibility="visible">
+
+                        <ImageView
+                            android:id="@+id/image_consul1"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/online2" />
+
+                        <TextView
+                            style="@style/info_text_left_sec"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="18dp"
+                            android:layout_toRightOf="@+id/image_consul1"
+                            android:text="在线会诊"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            style="@style/text_check_imageview"
+                            android:layout_marginRight="10dp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_comments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="#ffffff"
+                        android:padding="10dp"
+                        android:visibility="visible">
+
+
+                        <TextView
+                            style="@style/info_text_left_sec"
+                            android:layout_centerVertical="true"
+                            android:text="我的评价"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            style="@style/text_check_imageview"
+                            android:layout_marginRight="10dp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/tool"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="#ffffff"
+                        android:padding="10dp"
+                        android:visibility="visible">
+
+                        <ImageView
+                            android:id="@+id/image_tool"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/tools" />
+
+                        <TextView
+                            style="@style/info_text_left_sec"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="18dp"
+                            android:layout_toRightOf="@+id/image_tool"
+                            android:text="工具箱"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            style="@style/text_check_imageview"
+                            android:layout_marginRight="10dp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View style="@style/common_split_line_1dp" />
+            </LinearLayout>
+
+            <com.yksj.consultation.sonDoc.views.MyListView2
+                android:id="@+id/remen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:listSelector="@color/white">
+
+            </com.yksj.consultation.sonDoc.views.MyListView2>
+
+        </LinearLayout>
+
+    </ScrollView>
+    <!--<TextView-->
+    <!--android:id="@+id/txt_album4"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:background="#ffffff"-->
+    <!--android:divider="@drawable/divider_line"-->
+    <!--android:dividerPadding="16dp"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:drawableRight="@drawable/arrows"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:paddingLeft="16dp"-->
+    <!--android:paddingRight="16dp"-->
+    <!--android:showDividers="middle"-->
+    <!--android:text="图文咨询"-->
+    <!--android:padding="12dp"-->
+    <!--android:textColor="@color/color_text1"-->
+    <!--android:textSize="16sp" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/txt_album5"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:background="#ffffff"-->
+    <!--android:divider="@drawable/divider_line"-->
+    <!--android:dividerPadding="16dp"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:drawableRight="@drawable/arrows"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:paddingLeft="16dp"-->
+    <!--android:paddingRight="16dp"-->
+    <!--android:showDividers="middle"-->
+    <!--android:text="电话咨询"-->
+    <!--android:padding="12dp"-->
+    <!--android:textColor="@color/color_text1"-->
+    <!--android:textSize="16sp" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/txt_album6"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:background="#ffffff"-->
+    <!--android:divider="@drawable/divider_line"-->
+    <!--android:dividerPadding="16dp"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:drawableRight="@drawable/arrows"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:paddingLeft="16dp"-->
+    <!--android:paddingRight="16dp"-->
+    <!--android:showDividers="middle"-->
+    <!--android:text="包月咨询"-->
+    <!--android:padding="12dp"-->
+    <!--android:textColor="@color/color_text1"-->
+    <!--android:textSize="16sp" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/txt_album"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:background="#ffffff"-->
+    <!--android:divider="@drawable/divider_line"-->
+    <!--android:dividerPadding="16dp"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:drawableRight="@drawable/arrows"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:paddingLeft="16dp"-->
+    <!--android:paddingRight="16dp"-->
+    <!--android:showDividers="middle"-->
+    <!--android:text="视频咨询"-->
+    <!--android:padding="12dp"-->
+    <!--android:textColor="@color/color_text1"-->
+    <!--android:textSize="16sp" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/txt_album1"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:background="#ffffff"-->
+    <!--android:divider="@drawable/divider_line"-->
+    <!--android:dividerPadding="16dp"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:drawableRight="@drawable/arrows"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:paddingLeft="16dp"-->
+    <!--android:paddingRight="16dp"-->
+    <!--android:showDividers="middle"-->
+    <!--android:text="门诊预约"-->
+    <!--android:padding="12dp"-->
+    <!--android:textColor="@color/color_text1"-->
+    <!--android:textSize="16sp" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/txt_album8"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:background="#ffffff"-->
+    <!--android:divider="@drawable/divider_line"-->
+    <!--android:dividerPadding="16dp"-->
+    <!--android:drawablePadding="10dp"-->
+    <!--android:drawableRight="@drawable/arrows"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:paddingLeft="16dp"-->
+    <!--android:paddingRight="16dp"-->
+    <!--android:showDividers="middle"-->
+    <!--android:text="在线会诊"-->
+    <!--android:padding="12dp"-->
+    <!--android:textColor="@color/color_text1"-->
+    <!--android:textSize="16sp" />-->
+
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:background="@color/white">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="服务开通"-->
+    <!--android:textSize="16sp"-->
+    <!--android:padding="10dp"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:textColor="@color/color_text1"/>-->
+
+    <!--<GridView-->
+    <!--android:id="@+id/gv_three"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:listSelector="@android:color/transparent"-->
+    <!--android:numColumns="3"-->
+    <!--android:padding="20dp">-->
+    <!--</GridView>-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:padding="20dp">-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_weight="1">-->
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/order_consult"-->
+    <!--android:paddingLeft="20dp"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<com.yksj.healthtalk.views.RoundImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@drawable/select_bg"/>-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_centerInParent="true">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="预约就诊"-->
+    <!--android:textSize="16sp"-->
+    <!--android:textColor="@color/color_text1"/>-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="未开通"-->
+    <!--android:textColor="@color/color_text1"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:layout_marginTop="5dp"/>-->
+    <!--</LinearLayout>-->
+
+    <!--</RelativeLayout>-->
+    <!--</LinearLayout>-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_weight="1">-->
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/online_consult"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<com.yksj.healthtalk.views.RoundImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@drawable/select_bg"/>-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_centerInParent="true">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="在线会诊"-->
+    <!--android:textSize="16sp"-->
+    <!--android:textColor="@color/color_text1"/>-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="未开通"-->
+    <!--android:textColor="@color/color_text1"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:layout_marginTop="5dp"/>-->
+
+    <!--</LinearLayout>-->
+
+    <!--</RelativeLayout>-->
+    <!--</LinearLayout>-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_weight="1">-->
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/power_doctor"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<com.yksj.healthtalk.views.RoundImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@drawable/select_bg"/>-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_centerInParent="true">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="授权医生"-->
+    <!--android:textSize="16sp"-->
+    <!--android:textColor="@color/color_text1"/>-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="未开通"-->
+    <!--android:textColor="@color/color_text1"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:layout_marginTop="5dp"/>-->
+
+    <!--</LinearLayout>-->
+
+    <!--</RelativeLayout>-->
+    <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:background="@color/white">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="工具箱"-->
+    <!--android:textSize="16sp"-->
+    <!--android:padding="10dp"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:textColor="@color/color_text1"/>-->
+
+    <!--<GridView-->
+    <!--android:id="@+id/gv_myroon"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:listSelector="@android:color/transparent"-->
+    <!--android:numColumns="3"-->
+    <!--android:padding="20dp">-->
+    <!--</GridView>-->
+
+    <!--</LinearLayout>-->
+
+</LinearLayout>

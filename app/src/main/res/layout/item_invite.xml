@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/headView_w"
+            android:layout_height="@dimen/headView_h"
+            android:layout_centerVertical="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/chat_head" />
+
+        <LinearLayout
+            android:id="@+id/ll_laoshi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/image"
+            android:orientation="vertical"
+            android:paddingBottom="6dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="6dp"
+            android:paddingTop="6dp">
+
+            <TextView
+                android:id="@+id/doc_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="liming"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/doc_room"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="疼痛科"
+                android:textColor="@color/tab_txt_gray"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/iv_choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:button="@drawable/selector_right" />
+        <TextView
+            android:id="@+id/choice_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/text_mid_color"
+      />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:activity="com.yksj.consultation.doctor.ShareSubmitActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/addreword"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_170"
+            android:gravity="top|left"
+            android:hint="您要分享的内容"
+            android:maxLength="1000"
+            android:padding="15dp"
+            android:background="@color/transparent"
+            android:textColorHint="@color/gray_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_18" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/picture_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="android.support.v7.widget.GridLayoutManager"
+            app:spanCount="4" />
+
+    </LinearLayout>
+
+</LinearLayout>

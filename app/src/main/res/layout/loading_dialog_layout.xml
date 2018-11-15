@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/alert_bg"
+    android:paddingBottom="10dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/loadingProgress"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@android:style/Widget.Holo.ProgressBar"/>
+
+        <TextView
+            android:id="@+id/loadingTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/loadingProgress"
+            android:textColor="@color/white"
+            tools:text="登陆中..."
+            android:textSize="@dimen/sp_12" />
+
+    </LinearLayout>
+
+</RelativeLayout>

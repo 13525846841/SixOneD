@@ -1,0 +1,131 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api rootProject.ext.dependencies.appcompat_v7
+    api rootProject.ext.dependencies.support_v4
+    testImplementation rootProject.ext.dependencies.junit
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //网络请求
+    api rootProject.ext.dependencies.okHttp
+
+    // butterknife
+    api rootProject.ext.dependencies.butterknife
+    annotationProcessor rootProject.ext.dependencies.butterknife_compiler
+
+    //Adapter适配器库
+    api rootProject.ext.dependencies.baseAdapter
+
+    //工具库
+    api rootProject.ext.dependencies.utils
+
+    // 刷新控件
+    api rootProject.ext.dependencies.smartRefreshLayout
+
+    // rxjava2
+    api rootProject.ext.dependencies.rxjava2
+
+    // rxandroid2
+    api rootProject.ext.dependencies.rxandroid2
+
+    // rxpermission
+    api rootProject.ext.dependencies.rxpermission
+
+    // constraint_layout布局
+    api rootProject.ext.dependencies.constraint_layout
+
+    // 图片加载框架
+    api rootProject.ext.dependencies.picasso
+    api rootProject.ext.dependencies.glide
+    api rootProject.ext.dependencies.glide_transformations
+    annotationProcessor rootProject.ext.dependencies.glide_compiler
+    api rootProject.ext.dependencies.glide_okhttp
+
+    //  日志打印
+    api rootProject.ext.dependencies.logger
+
+    // RecyclerView
+    api rootProject.ext.dependencies.recyclerview
+
+    // Gson库
+    api rootProject.ext.dependencies.gson
+
+    // 64k
+    api rootProject.ext.dependencies.multidex
+
+    // 事件框架
+    api rootProject.ext.dependencies.eventbus
+    api rootProject.ext.dependencies.banner
+
+    // 友盟
+    api(name: 'libShareUmeng', ext: 'aar')
+    api(name: 'libGestureViews', ext: 'aar')
+
+    // 网易视频播放
+
+    //api(name: 'libPlayer', ext: 'aar')
+
+    // 支付宝
+    api files('libs/alipaySdk.jar')
+
+    // 银联
+    api(name: 'libraryPayUnionpay', ext: 'aar')
+
+    //  网易云视频上传
+    api(name: 'LibVCloudUpload', ext: 'aar')
+
+    // okhttp3 日志打印
+
+    //    api(name: 'libConnectInterceptor', ext: 'aar')
+
+    // 图片、视频选择库
+    api rootProject.ext.dependencies.choose
+
+    // 网易云通信SDK
+    api rootProject.ext.dependenciesWangYi.wy_basesdk
+    api rootProject.ext.dependenciesWangYi.wy_nrtc
+    api rootProject.ext.dependenciesWangYi.wy_avchat
+
+    // kotlin
+    api rootProject.ext.kotlin.kotlin
+    api rootProject.ext.kotlin.stdlib
+
+    // 视频播放
+    api(name: 'libPlayer', ext: 'aar')
+    api(name: 'libPlayer_armv7a', ext: 'aar')
+    api(name: 'libPlayer_ijkplayer', ext: 'aar')
+    api(name: 'libPlayer_cache', ext: 'aar')
+
+    //百度地图
+    api(name: 'libBaiduMap', ext: 'aar')
+}
+

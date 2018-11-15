@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/gray_title_layout" />
+
+    <RadioGroup
+        android:id="@+id/radgroup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:divider="@drawable/line"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/nerver"
+            android:layout_width="fill_parent"
+            android:layout_height="42dp"
+            android:button="@null"
+            android:drawableRight="@drawable/bt_reply_selected"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="永不"
+            android:textColor="@color/color_text1" />
+
+        <RadioButton
+            android:id="@+id/day"
+            android:layout_width="fill_parent"
+            android:layout_height="42dp"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="每天"
+            android:textColor="@color/color_text1" />
+
+        <RadioButton
+            android:id="@+id/gzuori"
+            android:layout_width="fill_parent"
+            android:layout_height="42dp"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="工作日(周一~周五)"
+            android:textColor="@color/color_text1" />
+
+        <RadioButton
+            android:id="@+id/meizhou"
+            android:layout_width="fill_parent"
+            android:layout_height="42dp"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="每周"
+            android:textColor="@color/color_text1" />
+
+        <RadioButton
+            android:id="@+id/customer"
+            android:layout_width="fill_parent"
+            android:layout_height="42dp"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="自定义(自己选择日历)"
+            android:textColor="@color/color_text1" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/customer_content"
+        android:layout_width="fill_parent"
+        android:layout_height="42dp"
+        android:background="@color/white"
+        android:drawableRight="@drawable/ic_arrow_right"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="无自定义日期点击添加"
+        android:textColor="@color/color_text1" />
+
+    <View style="@style/common_split_line" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="温馨提示:\n1.重复默认时间3个月\n2.自定义默认时间为1个月"
+        android:textColor="@color/color_text_gray" />
+</LinearLayout>

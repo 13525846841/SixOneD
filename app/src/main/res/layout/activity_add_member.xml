@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/gray_title_layout" />
+
+    <EditText
+        android:id="@+id/phone_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_8"
+        android:layout_marginTop="10dp"
+        android:padding="@dimen/dp_8"
+        android:textSize="14sp"
+        android:singleLine="true"
+        android:imeOptions="actionSearch"
+        android:background="@drawable/shape_edittext_search"
+        android:drawableLeft="@drawable/ig_search_grey"
+        android:drawablePadding="15dp"/>
+
+    <ListView
+        android:id="@+id/phone_lv_member"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+    </ListView>
+
+</LinearLayout>

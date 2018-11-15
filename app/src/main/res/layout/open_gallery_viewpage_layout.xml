@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/black"
+     >
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+    <com.yksj.consultation.sonDoc.views.CirclePageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="10dip" />
+
+    <com.yksj.consultation.sonDoc.views.BaseHeaderBar
+        android:id="@+id/headerbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/white"
+        android:visibility="gone" />
+
+    <com.yksj.consultation.sonDoc.views.BaseFooterBar
+        android:id="@+id/footerbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone" />
+       <Button
+        android:id="@+id/fl_button"
+        android:layout_width="fill_parent"
+        android:background="#00000000"
+        android:layout_height="fill_parent" >
+    </Button>
+
+</RelativeLayout>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:orientation="vertical"
+    tools:activity="com.yksj.consultation.station.StationMemberActivity">
+
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/gray_title_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_option"
+        android:layout_below="@+id/title"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/lecture_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="@color/white"
+                android:padding="16dp"
+                android:textColor="@color/text_max_color"
+                android:textSize="@dimen/sp_18" />
+
+            <LinearLayout
+                android:id="@+id/ll_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lecture_name"
+                android:background="@color/white"
+                android:gravity="right"
+                android:orientation="vertical"
+                android:paddingBottom="12dp"
+                android:paddingRight="24dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/pre_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/textview_bg"
+                    android:gravity="center"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="6dp"
+                    android:text="预览视频"
+                    android:textColor="@color/text_mid_color"
+                    android:textSize="@dimen/sp_12"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_title"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:paddingBottom="12dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="12dp"
+                android:visibility="gone">
+
+                <RelativeLayout
+                    android:id="@+id/ll_price_w"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+                    <TextView
+                        android:id="@+id/tv_price_w"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:text="站外价格："
+                        android:textColor="@color/red_text"
+                        android:textSize="@dimen/sp_18" />
+
+
+                    <CheckBox
+                        android:id="@+id/check1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:button="@drawable/check_box2"
+                        android:checked="true"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:padding="6dp"
+                        android:text="站外可见"
+                        android:textColor="@color/text_mid_color"
+                        android:textSize="@dimen/sp_18" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/ll_price_n"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll_price_w"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6dp">
+
+                    <TextView
+                        android:id="@+id/tv_price_n"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:text="站内价格："
+                        android:textColor="@color/text_max_color"
+                        android:textSize="@dimen/sp_18" />
+
+
+                    <CheckBox
+                        android:id="@+id/check2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:button="@drawable/check_box2"
+                        android:checked="false"
+                        android:clickable="false"
+                        android:padding="6dp"
+                        android:text="站内可见"
+                        android:textColor="@color/text_mid_color"
+                        android:textSize="@dimen/sp_18" />
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_introduce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_price"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="12dp"
+                android:background="@color/white"
+                android:paddingBottom="6dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="6dp"
+                android:text="简介"
+                android:textColor="@color/text_max_color"
+                android:textSize="@dimen/sp_18"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:id="@+id/tv_introduce_detail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tv_introduce"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:background="@color/white"
+                android:lineSpacingExtra="4dp"
+                android:paddingBottom="12dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="16dp"
+                android:paddingTop="6dp"
+                android:textColor="@color/text_min_color"
+                android:textSize="@dimen/sp_16"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <com.yksj.healthtalk.views.progress.NumberProgressBar
+            android:id="@+id/loadingProgress"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="6dp"
+            android:indeterminateDrawable="@drawable/loading2_tip"
+            android:visibility="gone"
+            custom:progress_current="0" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_red_bg"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp"
+                android:text="通过"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_18"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_gray_bg"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp"
+                android:text="不通过"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_18"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--<com.yksj.healthtalk.views.DrawableCenterButton-->
+    <!--android:id="@+id/lecture_upload"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:background="@drawable/bt_short_green"-->
+    <!--android:drawableLeft="@drawable/icon_upload"-->
+    <!--android:drawablePadding="5dp"-->
+    <!--android:paddingBottom="16dp"-->
+    <!--android:paddingTop="16dp"-->
+    <!--android:text="上传新课件"-->
+    <!--android:textColor="@color/white"-->
+    <!--android:textSize="16sp" />-->
+</RelativeLayout>

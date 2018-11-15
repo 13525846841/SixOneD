@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="10dp" />
+
+            <ImageView
+                android:id="@+id/select_expert_list_item_headicon"
+                android:layout_width="78dp"
+                android:layout_height="78dp"
+                android:layout_marginRight="@dimen/dp_8"
+                android:contentDescription="@string/desc"
+                android:paddingLeft="@dimen/dp_8" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/select_expert_list_item_textlayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/select_expert_list_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="TextView"
+                android:textColor="@color/color_text1"
+                android:textSize="16sp" />
+
+            <!--<TextView-->
+            <!--android:id="@+id/select_expert_list_item_doctitle"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="@color/color_text_gray"-->
+            <!--android:textSize="14sp" />-->
+
+            <TextView
+                android:id="@+id/select_expert_list_item_hospital"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/color_text_gray"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/select_expert_list_item_spetical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/color_text_gray"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/select_expert_list_item_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="6dp"
+            android:button="@drawable/checkbox_style1"
+            android:padding="2dp" />
+
+    </LinearLayout>
+
+    <View style="@style/common_split_line_10dp" />
+</LinearLayout>

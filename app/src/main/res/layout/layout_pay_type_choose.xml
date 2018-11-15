@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_gray">
+
+    <TextView
+        android:id="@+id/tv_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dp_8"
+        android:paddingLeft="@dimen/padding_left"
+        android:paddingTop="@dimen/dp_18"
+        android:text="选择支付方式"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/overage_pay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_55"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label"
+        app:sDividerLineColor="@color/line_color"
+        app:sDividerLineHeight="@dimen/dp_1"
+        app:sDividerLineType="bottom"
+        app:sLeftIconRes="@drawable/yu_e2"
+        app:sLeftTextColor="@color/red"
+        app:sLeftTextSize="@dimen/sp_14"
+        app:sLeftTopTextColor="@color/black"
+        app:sLeftTopTextSize="@dimen/sp_16"
+        app:sLeftTopTextString="测试"
+        app:sRightViewType="radioBtn" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/union_pay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_55"
+        android:background="@color/white"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/overage_pay"
+        app:sDividerLineColor="@color/line_color"
+        app:sDividerLineHeight="@dimen/dp_1"
+        app:sDividerLineType="bottom"
+        app:sLeftIconRes="@drawable/back2"
+        app:sLeftTopTextColor="@color/black"
+        app:sLeftTopTextSize="@dimen/sp_16"
+        app:sLeftTopTextString="银联支付"
+        app:sRightViewType="radioBtn" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/wechat_pay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_55"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/union_pay"
+        app:sDividerLineColor="@color/line_color"
+        app:sDividerLineHeight="@dimen/dp_1"
+        app:sDividerLineType="bottom"
+        app:sLeftIconRes="@drawable/weixin"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="微信支付"
+        app:sRightViewType="radioBtn" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/ali_pay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_55"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/wechat_pay"
+        app:sDividerLineColor="@color/line_color"
+        app:sDividerLineHeight="@dimen/dp_0_5"
+        app:sDividerLineType="bottom"
+        app:sLeftIconRes="@drawable/zhifubao"
+        app:sLeftTopTextColor="@color/black"
+        app:sLeftTopTextSize="@dimen/sp_16"
+        app:sLeftTopTextString="支付宝支付"
+        app:sRightViewType="radioBtn" />
+
+</merge>

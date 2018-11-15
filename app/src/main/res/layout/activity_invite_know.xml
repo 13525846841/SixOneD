@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_color"
+    android:orientation="vertical"
+    tools:activity="com.yksj.consultation.sonDoc.consultation.consultationorders.InviteKnowActivity">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/gray_title_layout" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1.可以邀请一人或多人；\n2.从您的收入中，扣除百分之三十给被邀专家，邀请多人则由多人平均分配；\n3.被邀请的专家，可能会拒绝您的邀请"
+        android:padding="18dp"
+        android:textSize="16sp"
+        android:textColor="@color/gray_text"/>
+
+    <TextView
+        android:id="@+id/inviting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="邀  请"
+        android:gravity="center_horizontal"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/cormer_bg"
+        android:layout_gravity="center"
+        android:padding="12dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+
+</LinearLayout>

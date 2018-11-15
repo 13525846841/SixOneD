@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">六一健康医生端</string>
+    <string name="consultation_flow_text1">提交申请</string>
+    <string name="consultation_flow_text2">会诊医生接诊</string>
+    <string name="consultation_flow_text3">填写病历</string>
+    <string name="consultation_flow_text4">等待专家接诊</string>
+    <string name="consultation_flow_text5">付款</string>
+    <string name="consultation_flow_text6">等待专家意见</string>
+    <string name="consultation_flow_hine">继续会诊请点击“下一步”，开始填写会诊</string>
+    <string name="setPrivacy">修改密码</string>
+    <string name="complete">完成</string>
+    <string name="desc" />
+    <string name="auth">验证码 ：</string>
+    <string name="sure">确定</string>
+    <string name="accept">接受</string>
+    <string name="who">谁关注我</string>
+    <string name="dataload">正在加载数据...</string>
+    <string name="address">所在地</string>
+    <string name="hospital">医院</string>
+    <string name="json_error">数据解析错误</string>
+    <string name="office">科室</string>
+    <string name="loading">马上来了</string>
+    <string name="opinion_null">请输入您的意见</string>
+    <string name="most_five_hundred">最多可输入500个字符</string>
+    <string name="cancel">取消</string>
+    <string name="address_seach">地区</string>
+    <string name="all">全部</string>
+    <string name="limit_no">全部</string>
+    <!-- 设置界面 -->
+    <string name="setting">设置</string>
+    <string name="setting_feedbackText">请输入你的宝贵意见</string>
+    <string name="setting_leave_qingchuhuancun">清除缓存</string>
+    <string name="changeAccount">退  出  登  录</string>
+    <string name="setting_feedback">意见反馈</string>
+    <string name="phone_bound_success">绑定新手机成功</string>
+    <string name="bound_new_phone_fall">绑定新手机失败</string>
+    <string name="setting_leave_quxiao">取消</string>
+    <string name="ok_button">确 定</string>
+    <string name="age2">年龄：</string>
+    <string name="sdcard_not_enough">您的SD卡空间不足</string>
+    <string name="setting_health_down">六一健康下载</string>
+    <string name="setting_health_update">六一健康升级</string>
+    <string name="setting_health_downed_progres">已下载</string>
+    <string name="setting_health_downloaded">下载完成,点击安装</string>
+    <string name="setting_health_down_fail">六一健康下载失败</string>
+    <string name="setting_tijiao">提交</string>
+    <string name="setting_mobile_number">手 机 号 ：</string>
+    <string name="setting_please_bound_email">请输入要绑定的邮箱号码</string>
+    <string name="setting_bound_mobile_miaoshu">绑定手机可直接用手机号登录\n可以用于找回密码\n也可以让朋友更快的找到你\n\n\n</string>
+    <string name="setting_bound_mobile_miaoshu_befor">绑定手机可直接用手机号登录\n可以用于找回密码\n也可以让朋友更快的找到你\n</string>
+    <string name="setting_next">下一步</string>
+    <string name="setting_huoqu_yanzhengma">获取</string>
+    <string name="setting_input_psd">请输入密码</string>
+    <string name="setting_input_new_psd">请输入6-12位新密码</string>
+    <string name="setting_input_new_psd_agin">请再次输入密码</string>
+    <string name="setting_login_password"> 设置您的登录密码</string>
+    <string name="getway_error_note">六一健康网络连接无效，请检查网络连接</string>
+    <string name="psw_toastNull">密码不能为空</string>
+    <string name="psw_toastDiscord">两次密码输入不一致</string>
+    <string name="psw_toastSpecialcharter">密码不能包含特殊字符</string>
+    <!-- 好友列表 -->
+    <string name="friend_recentContact">最近联系人</string>
+    <string name="friend_friendList">我关注的人</string>
+    <string name="friend_stranger">关注我的人</string>
+    <string name="friend_blacklist">黑名单</string>
+    <string name="phone_toastSpecialcharter">请输入正确的手机号码</string>
+    <string name="tishi">提示</string>
+    <string name="please_choise">请选择</string>
+    <string name="time_out">当前网络出现故障，请稍后重新连接</string>
+    <string name="login_agin">您的账号在别处登录，当前登录下线</string>
+    <string name="login_force">您的账号已在别处登录，需要重新登录</string>
+    <string name="knoweSearch">搜索结果</string>
+
+    <!-- 个人资料 -->
+    <string name="birthday2">生日：</string>
+    <string name="sex2">性别:</string>
+    <string name="zhiye2">职业:</string>
+    <string name="nechengchairoutside">呢称请输入1~20个汉字，字母或数字</string>
+    <string name="chatting_sd_uninstall">SD卡拔出,六一健康用户头像,语音,图片等功能不可用</string>
+    <string name="explanchairoutside">请输入1~30个字符</string>
+    <string name="paizhao">拍照</string>
+    <string name="bendiwenjian">本地文件</string>
+    <string name="do_that_later">取消</string>
+
+    <!-- 医生资料 -->
+    <string name="input">请输入</string>
+    <string name="special">专       长</string>
+    <string name="duty">职       务(非必填)</string>
+    <string name="experience">经       历(非必填)</string>
+    <string name="login_out_error_note">您当前处于离线状态，正在重新连接</string>
+
+    <!-- 话题 -->
+    <string name="refuse">拒绝</string>
+    <string name="clinical_reception">接诊</string>
+    <string name="inputDescLength">描述过长</string>
+    <string name="inputThemeLength">输入话题名称过长</string>
+    <string name="inputAddDesc">请添加描述</string>
+    <string name="is_message_setting">接受消息推送</string>
+    <string name="cancelCollect">取消关注</string>
+    <string name="inputThemeName">请输入话题名称</string>
+    <string name="inputTitle">请输入标题</string>
+    <string name="groupNew">创建话题</string>
+    <string name="create_salon_success">创建成功</string>
+    <string name="select_interest">选择分类</string>
+    <string name="groupNewFail">操作失败，请您稍后重试！</string>
+    <string name="day_ticket_price">日票\t￥</string>
+    <string name="month_ticket_price">月票\t￥</string>
+
+    <!-- 朋友 -->
+    <string name="jiaru_black_note">加入黑名单后会自动解除关注关系</string>
+    <string name="zhicheng">职称</string>
+
+    <!-- 树 -->
+    <string name="chatting_send">发送</string>
+    <string name="speaking">按住说话</string>
+    <string name="read_finish">看完了</string>
+
+    <!-- 我的空间 -->
+    <string name="please_write_miaoshu">请输入描述</string>
+
+    <!-- 兴趣墙 -->
+    <string name="cameraadd">拍照</string>
+    <string name="galleryadd">从相册选择</string>
+    <string name="crop_not_image">选择的不是图片</string>
+    <string name="crop_running_face_detection">"请稍候..."</string>
+    <string name="crop_saving_image">"正在保存照片..."</string>
+    <string name="crop_multiface_crop_help">"轻点一张脸开始裁剪。"</string>
+    <string name="crop_save_text">"确定"</string>
+    <string name="crop_discard_text">"取消"</string>
+    <string name="loadmore">加载更多. . .</string>
+
+    <!-- 我的多美币 -->
+    <string name="charge_payment">支付方式</string>
+
+    <!-- 话题升级参考指标| -->
+
+    <string name="request_location">获取位置中&#8230;</string>
+    <string name="request_location_fail">当前无法定位</string>
+    <string name="input_name">请输入医院名称</string>
+    <string name="not_free">收费</string>
+    <string name="free_of_charge">免费</string>
+    <string name="agree">同意</string>
+    <string name="request_error">请求错误</string>
+    <string name="tag">个性标签</string>
+    <string name="att_blacklist">关注后,该客户将从黑名单中移除</string>
+    <string name="att_client">注意:该用户是您的客户,执行该操作则取消对该用户关注的状态.</string>
+    <string name="choice_type">请选择要添加的类型</string>
+    <string name="choice_image">请选择要上传的图片</string>
+    <string name="against__blacklist_operations">当前客户购买了您的付费咨询服务，服务时间内，禁止拉黑!</string>
+    <string name="specialty_doctor">医生专长</string>
+    <string name="specialty">专长</string>
+    <string name="msg_camera_bug">系统相机异常</string>
+    <string name="photo_album">相册</string>
+    <string name="my_zxing">我的二维码</string>
+    <string name="canot_find_image">没有获取到图片</string>
+    <string name="wrong_format">选择的图片格式不正确</string>
+    <string name="code_share_message">哇塞！有一个地儿你听说了吗？六一健康，知道那是干嘛的吗？想拥有健康赶紧去吧......\n扫一扫下面的二维码，能和我成为朋友哦~~\nhttp://yijiankangv.mobi/SJ/download.html</string>
+    <string name="save">保存</string>
+    <string name="buy_salon_ticket">进入此话题需要购买\n日票或月票,请选择购买:</string>
+    <string name="refund_message">客户您好,您的订单由于超时支付或其他原因,已经失效.请您填写您的退款账号及电话号码，我们核实信息后，将在3个工作日内退回您的咨询费用。</string>
+    <string name="note5">设置说明：\n1、设置该人群对此项服务享受特殊服务价格，群内成员购买服务时以特殊服务价格为准；\n2、人群名称：医生对该人群定义的名称；\n3、日票和月票：医生设定该人群享受的特殊日票和月票价格。</string>
+    <string name="doctor_registe_complet">为了更方便使用六一健康,建议您进入 &#060;&#060;设置&#062;&#062;绑定您手机\n(用手机登录或找回密码)</string>
+    <string name="orders_str_notserve">待服务</string>
+    <string name="orders_str_serving">服务中</string>
+    <string name="orders_str_isserved">已服务</string>
+    <string name="seedetail">查看详细</string>
+    <string name="add_follow">加关注</string>
+    <string name="leave_message">留言</string>
+
+
+    <string name="doctor_notice1">职务</string>
+    <string name="doctor_notice2">经历</string>
+    <string name="general_service">普通服务</string>
+    <string name="order_service">订制服务</string>
+    <string name="go_buy">去购买</string>
+    <string name="go_pay">去支付</string>
+    <string name="yuan">元</string>
+    <string name="topic_of_doctor">医生话题</string>
+    <string name="topic_of_friend">病友话题</string>
+    <string name="please_input">请输入</string>
+    <string name="select_service">选择服务</string>
+    <string name="is_free">是否收费</string>
+    <string name="upload_image">上传图片</string>
+    <string name="title">标题</string>
+    <string name="description">描述</string>
+    <string name="delete">删除</string>
+    <string name="open_ticket">开通门票</string>
+    <string name="ticket_day">日票收费价格(元)</string>
+    <string name="ticket_month">月票收费价格(元)</string>
+    <string name="ticket_special">特殊人群收费</string>
+    <string name="confirm_to_open_ticket">您是否要开通话题门票</string>
+    <string name="topic_ticket_seeting">话题门票</string>
+    <string name="confirm_open">开通</string>
+    <string name="confirm_not_open">不开通</string>
+    <string name="ticket_setting_error">网络错误，门票设置失败</string>
+    <string name="doctor_clinic">医生诊所</string>
+    <string name="input_patientname_or_duomei_id">输入患者姓名/账号</string>
+    <string name="input_topicname_or_partname">请输入话题全称或部分名称</string>
+    <string name="search_doctor_history">历史搜索:</string>
+    <string name="search_topic_category">分类搜索:</string>
+    <string name="clear_history">清空历史记录</string>
+    <string name="name">姓\t\t\t名 ：</string>
+    <string name="remark">备\t\t\t注 ：</string>
+    <string name="wallet_balance">钱包余额</string>
+    <string name="still_need_pay">还需支付</string>
+    <string name="pay_by_zhifubao">支付宝支付</string>
+    <string name="pay_by_yinlian">银联支付</string>
+    <string name="pay_by_wallet">钱包支付</string>
+    <string name="pay">支付</string>
+    <string name="kindly_remander">温馨提示:</string>
+    <string name="pay_tip_1">订单在60分钟内未支付将会失效</string>
+    <string name="pay_tip_2">取消预约需要提前两个小时</string>
+    <string name="please_input_name">请输入您的姓名</string>
+    <string name="please_input_phone_number">请输入您的手机号</string>
+    <string name="please_input_something_to_doctor">请输入备注(非必填最多200字)</string>
+    <string name="delete_current_duration">仅删除本时段</string>
+    <string name="delete_repeat_durations">删除重复时段</string>
+    <string name="dynimicmess_publish_hint">提交成功，进入审核阶段，审核时间为3-5个工作日</string>
+    <string name="member">成员</string>
+    <item name="tag_normal" type="id"></item>
+    <item name="tag_press" type="id"></item>
+    <string name="pingl">评论</string>
+    <string name="evaluate">评价</string>
+    <string name="evaluate_andsoon">评价...</string>
+    <string name="evaluate_expert_assistant">评价此次服务的会诊医生</string>
+    <string name="myevaluation">我的评价(可空)</string>
+    <string name="pleasecontent">请您添加动态消息内容</string>
+    <string name="titletoomuch">标题不能超过20个字哦！</string>
+    <string name="contentpic">请您上传图片</string>
+    <string name="fill_title">填写标题</string>
+    <string name="please_fill_title">请您填写标题</string>
+    <string name="whocansee">请您选择谁可以看</string>
+    <string name="preview">预览</string>
+    <string name="no_photo">相册没有图片</string>
+    <string name="only_choose_num">超出可选图片张数</string>
+    <string name="apply">申请会诊</string>
+    <string name="rmb">￥</string>
+    <string name="clinic_illness">会诊疾病</string>
+    <string name="apply_time">申请时间</string>
+    <string name="clinic_area">就诊地区</string>
+    <string name="check_cancel_reasons">查看取消原因</string>
+    <string name="go_paying">去支付</string>
+    <string name="waiting_refund">待退款</string>
+    <string name="refundto_zhifubao">退款到支付宝</string>
+    <string name="refundto_bankcards">退款到银行卡</string>
+    <string name="refundto_purse">退款到钱包</string>
+    <string name="cancel_server">取消服务</string>
+    <string name="input_consult_opinions">输入会诊意见</string>
+    <string name="click_and_addpic">点击加号添加图片</string>
+    <string name="save_and_submit">保存并提交</string>
+    <string name="other_choice">您也可以输入其他原因（0~1000字）</string>
+    <string name="please_chose_template">请选择病历模板</string>
+    <string name="please_wait_patiently">专家还未给出会诊意见，请耐心等待！</string>
+    <string name="any_question_to_ask_healthhelper">如有问题，请咨询会诊医生。</string>
+    <string name="zero">0元</string>
+    <string name="payby_purse">钱包支付</string>
+    <string name="payby_bankcards">银联支付</string>
+    <string name="payby_zfb">支付宝支付</string>
+    <string name="submit_to_expert">提交给专家</string>
+    <string name="help_to_add">帮Ta补充</string>
+    <string name="cancel_person">取消人:</string>
+    <string name="cancel_time">取消时间:</string>
+    <string name="cancel_reasons">取消原因:</string>
+    <string name="warm_prompt">温馨提示：</string>
+    <string name="refund_hint">工作人员正在为您办理退款,请耐心等待,如有疑问,请咨询客户代表（010-51668809）</string>
+    <string name="have_refund">已退款</string>
+    <string name="text_count">0/1000</string>
+    <string name="upload_pic">上传图片</string>
+    <string name="please_fill">请输入标题</string>
+    <string name="fill_words">填写文字</string>
+    <string name="please_fill_content">请输入内容</string>
+    <string name="show_for_whom">谁可以看</string>
+    <string name="Doctor">医生</string>
+    <string name="patient">患者</string>
+    <string name="illness_introduction">病情简介</string>
+    <string name="illness_introduction1">病情说明</string>
+    <string name="copyright">Copyright© 2010-2012 Dummy.All rights reserved.京ICP备120588号 京公网安备110102006099</string>
+
+    <string name="head_icon">头像</string>
+    <string name="consultation_doctor">会诊医生</string>
+    <string name="share_case">共享病历</string>
+    <string name="select_patient">选择会诊患者</string>
+    <string name="select_expert">选择会诊专家</string>
+    <string name="patient_info">患者信息</string>
+    <string name="key_words">关键字</string>
+    <string name="name2">姓名：</string>
+    <string name="id_card_num">身份证号：</string>
+    <string name="please_input_name_or_account">请输入名称或账号</string>
+    <string name="patient_condition">基本病情</string>
+    <string name="click_add_item">点击添加项目</string>
+    <string name="add_case_item">添加病历项</string>
+    <string name="iamge_data">影像资料</string>
+    <string name="myup">我上传的</string>
+    <string name="myattention">我关注的</string>
+    <string name="please_input_case_item">请输入病历项</string>
+    <string name="phone_num">手机：</string>
+    <string name="consultmaney">此次会诊费用为</string>
+    <string name="image_video_audio">影像资料</string>
+    <string name="image_video_audio1">病情影像资料（0-12张）</string>
+    <string name="phone_code">发送验证码</string>
+    <string name="patient_location">患者位置：</string>
+    <string name="select_him">选择他</string>
+    <string name="please_input_phone">请输入手机号码</string>
+    <string name="please_input_verify_code">请输入验证码</string>
+    <string name="user_protocol_clause">用户协议及隐私条款</string>
+    <string name="register">注册</string>
+    <string name="discount_coupon">优惠券</string>
+    <string name="search_expert_hint">请输入专家姓名、所在医院、专长等</string>
+    <string name="jianjie">简介</string>
+
+
+    <!-- 语音云官网申请的appid -->
+    <string name="app_id">55a5e1f7</string>
+    <!--<string name="app_id">59a654a0</string>-->
+    <string name="my_massage">我的信息</string>
+    <string name="forgot_password">找回密码</string>
+    <string name="land_doctor">系统要安排一个会诊医生帮你联系专家、整理病历，您也可以选择熟悉的医生,您要自己选择吗?</string>
+    <string name="cancel_order">取消预约</string>
+    <!--状态值-->
+    <string name="canceled">已取消</string>
+    <string name="flow_hint">为了让医生了解您的情况,请您填写以下信息.</string>
+    <string name="condiss">会诊病历</string>
+    <string name="edit_my_info">编辑信息</string>
+    <string name="con_ok">你正在为患者创建会诊,请确认信息无误后,\n点击"确认"按钮,完成创建会诊.</string>
+    <string name="quit_tip">"您确定要退出登录吗?"</string>
+    <string name="weixin_login">微信登录</string>
+    <string name="qq_login">QQ登录</string>
+    <string name="sina_login">微博登录</string>
+    <string name="so_boundphone">绑定手机</string>
+    <string name="sod_news_center">信息中心</string>
+    <string name="sod_patient_manage">患者管理</string>
+    <string name="sod_liuyi_class">六一班</string>
+    <string name="sod_share">名医分享</string>
+    <string name="sod_erweima">二维码</string>
+
+
+    <string name="error_login_info_none">账号异常,请尝试重新登录</string>
+    <string name="string_share_title">六一健康快车</string>
+    <string name="string_share_content">我正在六一健康App，浏览新闻、探讨学术、为儿童患者会诊、义诊，邀请你一起来参加：＋网址。。。</string>
+    <string name="string_share_website">http://www.61120.net</string>
+    <string name="more_expert">更多专家</string>
+    <string name="code_tip1">可以关注我的微信工作室</string>
+    <string name="code_tip2">长按识别二维码</string>
+    <string name="video_app_url">"https://fs-im-package.7moor.com/7moor_android_cc_new.apk"</string>
+
+
+    <string name="avchat_hangup">结束通话</string>
+    <string name="avchat_switch_to_video">切换视频</string>
+    <string name="avchat_switch_to_audio">切换语音</string>
+    <string name="avchat_video_call_request">请求视频聊天…</string>
+    <string name="avchat_audio_call_wifi_unavailable_tip">当前非WiFi环境，每分钟将产生约0.5M的流量</string>
+    <string name="avchat_network_grade_0">网络通畅：</string>
+    <string name="avchat_network_grade_1">网络正常：</string>
+    <string name="avchat_network_grade_2">网络一般：</string>
+    <string name="avchat_network_grade_3">网络较差：</string>
+    <string name="avchat_refuse">拒绝</string>
+    <string name="avchat_receive">开启</string>
+    <string name="avchat_pickup">接听</string>
+    <string name="avchat_net_error_then_quit">网络异常，通话结束</string>
+    <string name="avchat_call_finish">通话结束</string>
+    <string name="avchat_peer_protocol_low_version">对方版本过低，请提示对方升级</string>
+    <string name="avchat_local_protocol_low_version">版本过低，请升级后使用</string>
+    <string name="avchat_invalid_channel_id">对方已挂断</string>
+    <string name="avchat_local_call_busy">本地通话中，无法使用易信进行通话。</string>
+    <string name="avchat_peer_busy">对方正在通话中，请稍后再拨。</string>
+    <string name="avchat_wait_recieve">等待对方接听…</string>
+    <string name="avchat_audio_call_request">请求通话</string>
+    <string name="avchat_connecting">连接中…</string>
+    <string name="avchat_audio_to_video_invitation">对方邀请你开启视频聊天…</string>
+    <string name="avchat_network_unstable_notificaton">当前网络不稳定</string>
+    <string name="avchat_peer_close_camera">对方关闭了摄像头</string>
+    <string name="avchat_local_close_camera">你关闭了摄像头</string>
+    <string name="avchat_audio_to_video_wait">正在等待对方开启摄像头…</string>
+    <string name="avchat_no_pick_up">未接听</string>
+    <string name="avchat_has_hangup">已挂断</string>
+    <string name="avchat_switch_video_reject">对方不同意音频切换为视频！</string>
+    <string name="avchat_notification">正在与%1$s通话中，点击继续</string>
+    <string name="avchat_call">网络通话</string>
+    <string name="avchat_call_failed">发起通话失败</string>
+    <string name="avchat_no_permission">暂无权限，请开通音视频服务</string>
+    <string name="avchat_in_switch">请耐心等待！</string>
+
+    <!-- team video call -->
+    <string name="t_avchat_not_start_with_less_member">无法发起，人数少于2人</string>
+    <string name="t_avchat_start">发起了视频聊天</string>
+    <string name="t_avchat_create_room_fail">创建房间失败</string>
+    <string name="t_avchat_push_content">"[网络通话]"</string>
+    <string name="t_avchat_join_fail_not_exist">"加入房间失败，房间不存在"</string>
+    <string name="empty"></string>
+
+
+    <string name="network_is_not_available">网络连接失败，请检查你的网络设置</string>
+
+    <string name="login_failed">帐号或密码错误</string>
+    <string name="login_exception">无效输入</string>
+
+    <!-- session -->
+    <string name="input_panel_audio_call">语音通话</string>
+    <string name="input_panel_video_call">视频通话</string>
+
+    <!-- 通讯录 -->
+
+    <!-- 群 -->
+
+    <!-- 消息提醒 -->
+
+    <!-- 自定义通知 -->
+
+    <!-- 消息类型 -->
+
+    <!-- location -->
+
+    <!-- about -->
+
+    <!-- 云信SDK所需文案 -->
+
+    <!--RTS白板-->
+
+    <!-- setting -->
+    <!-- 多端登录 -->
+
+    <!-- 多端在线类型 -->
+
+    <!-- 阅后即焚 -->
+
+    <!-- 个人名片 -->
+
+    <!-- JsBridge -->
+
+    <!--机器人-->
+
+    <!-- NRTC -->
+
+    <string name="nrtc_setting_vie_crop_ratio_key">nrtc_setting_vie_crop_ratio_key</string>
+
+
+    <string name="nrtc_setting_vie_quality_key">nrtc_setting_vie_quality_key</string>
+    <string name="nrtc_setting_other_device_default_rotation_key">nrtc_setting_other_device_default_rotation_key</string>
+    <string name="nrtc_setting_other_device_rotation_fixed_offset_key">nrtc_setting_other_device_rotation_fixed_offset_key</string>
+    <string name="nrtc_setting_vie_rotation_key">nrtc_setting_vie_rotation_key</string>
+    <string name="nrtc_setting_vie_default_front_camera_key">nrtc_setting_vie_default_front_camera_key</string>
+    <string name="nrtc_setting_vie_hw_encoder_key">nrtc_setting_vie_hw_encoder_key</string>
+    <string name="nrtc_setting_vie_hw_decoder_key">nrtc_setting_vie_hw_decoder_key</string>
+    <string name="nrtc_setting_other_server_record_audio_key">nrtc_setting_other_server_record_audio_key</string>
+    <string name="nrtc_setting_other_webrtc_compat_key">setting_other_webrtc_compat_key</string>
+    <string name="nrtc_setting_other_server_record_video_key">nrtc_setting_other_server_record_video_key</string>
+    <string name="nrtc_setting_voe_call_proximity_key">nrtc_setting_voe_call_proximity_key</string>
+    <string name="nrtc_setting_vie_fps_reported_key">nrtc_setting_vie_fps_reported_key</string>
+    <string name="nrtc_setting_vie_max_bitrate_key">nrtc_setting_vie_max_bitrate_key</string>
+    <string name="nrtc_setting_voe_audio_aec_key">nrtc_setting_voe_audio_aec_key</string>
+    <string name="nrtc_setting_voe_audio_ns_key">nrtc_setting_voe_audio_ns_key</string>
+    <string name="nrtc_setting_voe_high_quality_key">nrtc_setting_voe_high_quality_key</string>
+    <string name="nrtc_setting_voe_dtx_key">nrtc_setting_voe_dtx_key</string>
+    <string name="title_lecture_room">健康讲堂</string>
+
+    <string name="category_all">所有</string>
+    <string name="category_music">音乐</string>
+    <string name="category_video">视频</string>
+    <string name="category_picture">图片</string>
+    <string name="category_theme">主题</string>
+    <string name="category_document">文档</string>
+    <string name="category_zip">压缩包</string>
+    <string name="category_apk">安装包</string>
+    <string name="category_other">其它</string>
+    <string name="category_favorite">收藏夹</string>
+    <string name="favorite_photo">照片</string>
+    <string name="favorite_sdcard">SD卡</string>
+    <string name="favorite_screen_cap">MIUI截屏</string>
+    <string name="favorite_ringtone">铃声</string>
+    <string name="multi_select_title">已选择 <xliff:g id="number">%1$s</xliff:g> 个</string>
+
+
+    <string name="permission_cancel">取消</string>
+    <string name="permission_setting">去设置</string>
+    <string name="permission_title_permission_failed">权限申请失败</string>
+    <string name="permission_message_permission_failed">我们需要的一些权限被您拒绝或者系统发生错误申请失败，请您到设置页面手动授权，否则功能无法正常使用！</string>
+
+    <string name="permission_resume">继续</string>
+    <string name="permission_title_permission_rationale">权限已被拒绝</string>
+    <string name="permission_message_permission_rationale">您已经拒绝过我们申请授权，请您同意授权，否则功能无法正常使用！</string>
+
+    <string name="finish">完成</string>
+    <string name="share">分享</string>
+
+    <!--strings-chatroom-->
+    <string name="online">正在直播</string>
+    
+    <!--不知道怎么会有这么多用户协议和隐私条款-->
+    <string name="agent_path_1">http://www.yijiankangv.com/JumpPage/ETYY_Doctor_Agreement_100.html</string>
+    <string name="agent_path_2">http://www.yijiankangv.com/JumpPage/Consultation_Agreement_Cus_1_100.html</string>
+    <string name="agent_path_3">http://yijiankangv.com/JumpPage/ETYY_Doctor_Agreement_100.html</string>
+</resources>
+
+
+
+
+
+
+
+
+
+

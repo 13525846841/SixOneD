@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/padding_bottom"
+    android:paddingLeft="@dimen/padding_left"
+    android:paddingRight="@dimen/padding_right"
+    android:paddingTop="@dimen/padding_top">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center_vertical"
+        android:text="活动名称"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16" />
+
+    <EditText
+        android:id="@+id/active_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_gray_bg"
+        android:gravity="center_vertical"
+        android:hint="请输入活动名称"
+        android:maxLines="1"
+        android:textColor="@color/color_text1"
+        android:textColorHint="@color/doctor_info_hint"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintLeft_toRightOf="@+id/tv_title"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_picture" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/start_time"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        app:sDividerLineHeight="0dp"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="开始时间"
+        app:sLeftViewMarginLeft="0dp"
+        app:sRightIconMarginRight="0dp"
+        app:sRightIconRes="@drawable/ic_arrow_right"
+        app:sRightTextColor="@color/gray_text"
+        app:sRightTextSize="@dimen/sp_16" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/end_time"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        app:sDividerLineHeight="0dp"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="结束时间"
+        app:sLeftViewMarginLeft="0dp"
+        app:sRightIconMarginRight="0dp"
+        app:sRightIconRes="@drawable/ic_arrow_right"
+        app:sRightTextColor="@color/gray_text"
+        app:sRightTextSize="@dimen/sp_16" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center_vertical"
+        android:text="活动介绍"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16" />
+
+    <EditText
+        android:id="@+id/active_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_gray_bg"
+        android:gravity="left"
+        android:hint="请输入活动介绍"
+        android:lines="5"
+        android:textColor="@color/color_text1"
+        android:textColorHint="@color/doctor_info_hint"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintLeft_toRightOf="@+id/tv_title"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_picture" />
+
+    <com.library.base.widget.SuperButton
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginTop="@dimen/dp_12"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:sCornersRadius="@dimen/dp_4"
+        app:sSelectorNormalColor="@color/main_color"
+        app:sSelectorPressedColor="@color/main_color"
+        app:sUseSelector="true" />
+
+</LinearLayout>

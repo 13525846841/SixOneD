@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="c80000000">#80000000</color> <!--50%-->
+    <!--白色-->
+    <color name="white">#FFFFFF</color>
+    <!--黑色-->
+    <color name="black">#000000</color>
+    <!--app主题颜色-->
+    <color name="main_color">#41b8b6</color>
+    <!--不可点击主题颜色-->
+    <color name="main_enable_color">#6641b8b6</color>
+    <!--点击主题颜色-->
+    <color name="main_color_pressed">#35a09e</color>
+    <!--title 颜色-->
+    <color name="title_color">@color/main_color</color>
+    <!--头部颜色  -->
+    <color name="color_blue">@color/main_color</color>
+    <!--分割线  -->
+    <color name="divider">@color/bg_gray</color>
+    <!--activity背景颜色-->
+    <color name="bg_gray">#EBEFF7</color>
+
+    <color name="text_black_two">#565656</color>
+
+    <color name="gray_color">#eeeded</color>
+
+    <color name="s_normal_color">@color/white</color>
+    <!--dialog文字颜色-->
+    <color name="dialog_message">#666666</color>
+    <!--dialog按钮文字颜色-->
+    <color name="dialog_button">#333333</color>
+    <!--inputdialog发送文字颜色-->
+    <color name="input_dialog_send">#999999</color>
+</resources>

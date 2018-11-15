@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+    <include layout="@layout/title_layout"/>
+    <com.yksj.healthtalk.utils.ClearEditText
+        android:id="@+id/edit_search_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_8"
+        android:padding="@dimen/dp_8"
+        android:textSize="14sp"
+        android:singleLine="true"
+        android:imeOptions="actionSearch"
+        android:background="@drawable/shape_edittext_search"
+        android:drawableLeft="@drawable/ig_search_grey"
+        android:drawablePadding="15dp"
+        android:hint="@string/please_input_case_item"
+        />
+
+    <View style="@style/common_split_line"/>
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/white">
+        <ListView
+            android:id="@+id/multiple_choise_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:scrollbars="none"
+            ></ListView>
+        <com.yksj.healthtalk.function.sortlistview.SideBar
+            android:id="@+id/select_persion_sidrbar"
+            android:layout_width="30.0dip"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right|center" />
+    </FrameLayout>
+
+</LinearLayout>

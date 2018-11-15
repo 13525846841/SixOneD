@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/lay_join"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/lay_cover"
+                layout="@layout/layout_union_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:id="@+id/lay_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_18"
+                android:background="@drawable/shape_union_notification_bg"
+                android:paddingBottom="@dimen/dp_8"
+                android:paddingLeft="@dimen/dp_12"
+                android:paddingRight="@dimen/dp_12"
+                android:paddingTop="@dimen/dp_8"
+                app:layout_constraintTop_toBottomOf="@+id/lay_cover">
+
+                <ImageView
+                    android:id="@+id/iv_notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_12"
+                    android:src="@drawable/ic_union_notification" />
+
+                <TextView
+                    android:id="@+id/tv_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_notification"
+                    android:text="这几天出去玩耍，请多多包涵～～～"
+                    android:textColor="@color/gray_text"
+                    android:textSize="@dimen/sp_16" />
+
+            </RelativeLayout>
+
+            <include
+                android:id="@+id/lay_action"
+                layout="@layout/layout_union_action"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/lay_notification" />
+
+            <com.yksj.consultation.widget.StationExpandableDescView
+                android:id="@+id/exp_speciality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/lay_action" />
+
+            <com.yksj.consultation.widget.StationExpandableDescView
+                android:id="@+id/exp_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/exp_speciality" />
+
+            <RelativeLayout
+                android:id="@+id/lay_incident_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp_12"
+                android:paddingTop="@dimen/dp_8"
+                app:layout_constraintTop_toBottomOf="@+id/exp_desc">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableLeft="@drawable/xing"
+                    android:drawablePadding="6dp"
+                    android:text="联盟大事件"
+                    android:textColor="@color/text_max_color"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/iv_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/bianji"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <com.yksj.consultation.union.view.UnionIncidentTreeView
+                android:id="@+id/lay_incident_tree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                app:layout_constraintTop_toBottomOf="@+id/lay_incident_title" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <FrameLayout
+        android:id="@+id/lay_join"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_join"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_marginRight="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_8"
+            android:background="@drawable/cormer_bg"
+            android:gravity="center"
+            android:text="加入联盟"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold" />
+
+        <View
+            style="@style/common_split_line"
+            android:layout_gravity="top" />
+
+    </FrameLayout>
+
+</merge>

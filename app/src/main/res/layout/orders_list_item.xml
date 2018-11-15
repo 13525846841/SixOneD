@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/listview_item_selector"
+    android:descendantFocusability="blocksDescendants" >
+
+    <com.library.base.widget.CircleImageView
+        android:id="@+id/orders_list_item_headicon"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:contentDescription="@string/desc" />
+    
+    <View 
+        android:layout_width="20dp"
+        android:layout_height="0dp"
+        android:layout_below="@id/orders_list_item_headicon"
+        />
+
+    <TextView
+        android:id="@+id/orders_list_item_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/orders_list_item_headicon"
+        android:layout_toRightOf="@+id/orders_list_item_headicon"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/orders_list_item_duomeiid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/orders_list_item_nickname"
+        android:layout_alignBottom="@+id/orders_list_item_nickname"
+        android:layout_toRightOf="@+id/orders_list_item_nickname"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/orders_list_item_serveTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/orders_list_item_nickname"
+        android:layout_below="@+id/orders_list_item_nickname"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/orders_list_item_serveCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/orders_list_item_serveTime"
+        android:layout_below="@+id/orders_list_item_serveTime"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/orders_list_item_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/orders_list_item_duomeiid"
+        android:layout_alignBottom="@+id/orders_list_item_duomeiid"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/orders_list_item_seedetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:paddingRight="5dp"
+        android:layout_centerVertical="true"
+        android:text="@string/seedetail" />
+
+</RelativeLayout>

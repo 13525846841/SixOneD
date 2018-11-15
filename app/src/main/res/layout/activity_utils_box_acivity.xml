@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_color"
+    android:orientation="vertical"
+    tools:activity="com.yksj.consultation.doctor.DoctorAddToolsActivity">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/gray_title_layout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="常用工具名称"
+        android:textColor="@color/tab_txt_gray"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/tool_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:hint="请输入"
+        android:imeOptions="actionSearch"
+        android:maxLength="50"
+        android:padding="10dp"
+        android:singleLine="false"
+        android:textColor="@color/tab_txt_gray"
+        android:textSize="14sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="链接地址"
+            android:textColor="@color/tab_txt_gray"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/copy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:autoLink="all"
+            android:padding="10dp"
+            android:text="复制"
+            android:textColor="@color/color_blue"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/tool_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:background="#ffffff"
+        android:hint="请输入网址链接"
+        android:imeOptions="actionSearch"
+        android:maxLength="50"
+        android:padding="10dp"
+        android:singleLine="false"
+        android:textColor="@color/tab_txt_gray"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/close"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/red_btn"
+        android:text="关 闭"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/delect"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/org_btn"
+        android:text="删 除"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:visibility="visible" />
+
+</LinearLayout>

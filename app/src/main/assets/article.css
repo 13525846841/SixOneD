@@ -1,0 +1,22 @@
+#article .article-note .article-title {
+    margin: 12px 0;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #2f2f2f;
+}
+
+#article .article-note .article-content {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #2f2f2f;
+    margin-top: 12px;
+}
+
+#article .article-note .article-content img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+}

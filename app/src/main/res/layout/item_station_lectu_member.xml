@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingBottom="@dimen/dp_8"
+    android:paddingLeft="@dimen/dp_14"
+    android:paddingRight="@dimen/dp_14"
+    android:paddingTop="@dimen/dp_8">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:layout_marginLeft="6dp">
+
+            <ImageView
+                android:id="@+id/file_pic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:padding="6dp" />
+
+            <ImageView
+                android:id="@+id/file_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_type_file" />
+
+            <TextView
+                android:id="@+id/tv_lecture_mark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/red_text"
+                android:gravity="center"
+                android:text="审核不通过"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_16"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_laoshi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="12dp"
+            android:paddingLeft="6dp"
+            android:paddingTop="12dp">
+
+
+            <TextView
+                android:id="@+id/tv_lecture_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/common_color_gray_max"
+                android:textSize="@dimen/sp_16" />
+
+            <TextView
+                android:id="@+id/tv_lecture_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/charge_red"
+                android:textSize="@dimen/sp_12"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_140"
+        android:layout_height="@dimen/dp_80"
+        android:scaleType="centerCrop"
+        android:src="@drawable/waterfall_default" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_cover"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_left">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:textColor="@color/text_black_two"
+            android:textSize="@dimen/sp_16" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/iv_cover"
+        android:paddingLeft="@dimen/padding_left">
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018-05-24"
+            android:textColor="@color/color_text_gray"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_toRightOf="@+id/tv_time"
+            android:textColor="@color/color_text_gray"
+            android:textSize="@dimen/sp_14" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

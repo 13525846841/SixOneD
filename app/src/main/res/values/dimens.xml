@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="search_height">@dimen/dp_42</dimen>
+    <dimen name="padding_left">@dimen/dp_12</dimen>
+    <dimen name="padding_right">@dimen/dp_12</dimen>
+    <dimen name="padding_top">@dimen/dp_8</dimen>
+    <dimen name="padding_bottom">@dimen/dp_8</dimen>
+    <dimen name="tab_text_size">@dimen/sp_14</dimen>
+    <dimen name="tab_height">@dimen/dp_36</dimen>
+</resources>

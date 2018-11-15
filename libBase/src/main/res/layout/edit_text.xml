@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.library.base.widget.richEditor.DeletableEditText xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:cursorVisible="true"
+    android:gravity="center_vertical"
+    android:textSize="@dimen/sp_18"
+    android:lineSpacingExtra="@dimen/dp_20"
+    android:textColor="#444">
+    <!--android:textCursorDrawable="@drawable/cursor_shape" -->
+
+</com.library.base.widget.richEditor.DeletableEditText>

@@ -1,0 +1,178 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    useLibrary 'org.apache.http.legacy'
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        multiDexEnabled true
+        ndk {
+            //设置支持的SO库架构
+            abiFilters "armeabi-v7a"/*, "x86", "arm64-v8a", "x86_64"*/
+        }
+    }
+
+//    设置签名文件信息
+    signingConfigs {
+        debug{
+            storeFile file("../signing/childDoc.jks")
+            storePassword "yijiankang518"
+            keyAlias "childhospitaldoc"
+            keyPassword "yijiankang518"
+        }
+        shanghaiRelease {
+            storeFile file("../signing/childPatient.jks")
+            storePassword "yijiankang518"
+            keyAlias "childhospital"
+            keyPassword "yijiankang518"
+        }
+        marketRelease {
+            storeFile file("../signing/childDoc.jks")
+            storePassword "yijiankang518"
+            keyAlias "childhospitaldoc"
+            keyPassword "yijiankang518"
+        }
+        localhostRelease {
+            storeFile file("../signing/childDoc.jks")
+            storePassword "yijiankang518"
+            keyAlias "childhospitaldoc"
+            keyPassword "yijiankang518"
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+
+            buildConfigField "String", "WEB_IP", '"http://220.194.46.204"'
+            buildConfigField "String", "SOCKET_IP", '"220.194.46.204"'
+            buildConfigField "int", "SOCKET_PORT", '8014'
+            buildConfigField "String", "SHARE_WEB", '"http://220.194.46.204"'
+        }
+
+        release {
+            shrinkResources false
+            zipAlignEnabled true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
+
+//    设置渠道包信息
+    flavorDimensions "dimensions"
+    productFlavors {
+        shanghai {
+            applicationId "com.yksj.consultation.sonDoc"
+            versionCode rootProject.ext.android.versionCode
+            versionName rootProject.ext.android.versionName
+            buildConfigField "String", "WEB_IP", '"http://220.194.46.204"'
+            buildConfigField "String", "SOCKET_IP", '"220.194.46.204"'
+            buildConfigField "int", "SOCKET_PORT", '8014'
+            buildConfigField "String", "SHARE_WEB", '"http://220.194.46.204"'
+            signingConfig signingConfigs.shanghaiRelease
+        }
+
+        market {
+            applicationId "com.yksj.consultation.sonDoc"
+            versionCode rootProject.ext.android.versionCode
+            versionName rootProject.ext.android.versionName
+            buildConfigField "String", "WEB_IP", '"https://www.61120.cn"'
+            buildConfigField "String", "SOCKET_IP", '"www.61120.cn"'
+            buildConfigField "int", "SOCKET_PORT", '8014'
+            buildConfigField "String", "SHARE_WEB", '"www.61120.cn"'
+            signingConfig signingConfigs.marketRelease
+        }
+
+        localhost {
+            applicationId "com.yksj.consultation.sonDoc"
+            versionCode rootProject.ext.android.versionCode
+            versionName rootProject.ext.android.versionName
+            buildConfigField "String", "WEB_IP", '"http://192.168.1.110:8080"'
+            buildConfigField "String", "SOCKET_IP", '"192.168.1.110"'
+            buildConfigField "int", "SOCKET_PORT", '8014'
+            buildConfigField "String", "SHARE_WEB", '"http://192.168.1.110"'
+            signingConfig signingConfigs.localhostRelease
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${variant.productFlavors[0].name}-${variant.productFlavors[0].versionName}-${nowDate()}.apk"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation files('libs/android_api_1.1_forsdk.jar')
+    implementation files('libs/commons-lang-2.4.jar')
+    implementation files('libs/commons-logging-1.1.1.jar')
+    implementation files('libs/core.jar')
+    implementation files('libs/jdom.jar')
+    implementation files('libs/mframework.jar')
+    implementation files('libs/netty-3.2.2.Final.jar')
+    implementation files('libs/pinyin4android1.0.jar')
+    implementation files('libs/slf4j-api-1.6.1.jar')
+    implementation files('libs/slf4j-simple-1.6.1.jar')
+    implementation files('libs/nineoldandroids-2.4.0.jar')
+    implementation files('libs/Msc.jar')
+    implementation files('libs/Sunflower.jar')
+    implementation files('libs/fastjson-1.2.6.jar')
+    implementation files('libs/xSocket-2.8.15.jar')
+    implementation 'org.adw.library:discrete-seekbar:1.0.1'
+    implementation 'me.leolin:ShortcutBadger:1.1.17@aar'
+    implementation files('libs/nama.jar')
+    implementation 'com.googlecode.mp4parser:isoparser:1.1.21'
+    debugImplementation rootProject.ext.dependencies.leakcanary
+    releaseImplementation rootProject.ext.dependencies.leakcanary_no_op
+    debugImplementation rootProject.ext.dependencies.debug_db
+    implementation rootProject.ext.dependencies.butterknife
+    annotationProcessor rootProject.ext.dependencies.butterknife_compiler
+    implementation rootProject.ext.dependenciesBugly.crashreport
+    implementation rootProject.ext.dependencies.cardview
+    implementation project(':libBase')
+}
+
+/**
+ * 获取当前时间(用于打包)
+ * @return
+ */
+static def nowDate(){
+    return new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("GMT+8"))
+}

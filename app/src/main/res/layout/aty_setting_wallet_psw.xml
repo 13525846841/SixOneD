@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/gray_title_layout"/>
+
+    <TextView
+        android:id="@+id/setting_wallet_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text="输入六位密码作为提现密码"/>
+
+    <com.yksj.healthtalk.views.gridpasswordview.GridPasswordView
+        android:id="@+id/setting_wallet_gpv"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp" />
+    <com.yksj.healthtalk.views.gridpasswordview.GridPasswordView
+        android:id="@+id/setting_wallet_gpv2"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:visibility="gone"
+        android:layout_marginTop="20dp" />
+
+
+
+
+
+</LinearLayout>

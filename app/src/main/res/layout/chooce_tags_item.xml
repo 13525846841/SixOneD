@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <CheckBox
+        android:id="@+id/tag_name"
+        android:singleLine="true"
+        android:layout_weight="1"
+        android:button="@null"
+        android:gravity="center"
+        android:textColor="#A1A1A1"
+        android:background="@drawable/biaoqian_bg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
+</LinearLayout>

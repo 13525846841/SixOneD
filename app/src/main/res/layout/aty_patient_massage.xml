@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollView_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <com.library.base.widget.CircleImageView
+                    android:id="@+id/patient_header"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/pname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/color_text1"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/sex_age"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_text1"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/p_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_text1"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/paddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_text1"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/select_p"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="@dimen/dp_8"
+                    android:background="@drawable/bt_short_double_green"
+                    android:text="@string/select_him"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <View style="@style/common_split_line_10dp" />
+
+            <include
+                android:id="@+id/include_sex"
+                layout="@layout/item_mode" />
+
+            <View style="@style/common_split_line" />
+
+            <include
+                android:id="@+id/include_age"
+                layout="@layout/item_mode" />
+
+            <View style="@style/common_split_line" />
+
+            <include
+                android:id="@+id/include_phone"
+                layout="@layout/item_mode" />
+
+            <View style="@style/common_split_line" />
+
+            <include
+                android:id="@+id/include_address"
+                layout="@layout/item_mode" />
+
+            <View style="@style/common_split_line" />
+
+            <View style="@style/common_split_line_10dp" />
+
+            <com.library.base.widget.SuperTextView
+                android:id="@+id/follow_up_content"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                app:sDividerLineColor="@color/divider"
+                app:sDividerLineHeight="@dimen/dp_1"
+                app:sDividerLineType="bottom"
+                app:sLeftTextColor="@color/black"
+                app:sLeftTextSize="@dimen/sp_16"
+                app:sLeftTextString="随访计划"
+                app:sLeftViewMarginLeft="@dimen/dp_12"
+                app:sRightIconRes="@drawable/ic_arrow_right"
+                app:sRightViewMarginRight="@dimen/dp_12" />
+
+            <com.library.base.widget.SuperTextView
+                android:id="@+id/follow_up_content2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                app:sDividerLineColor="@color/divider"
+                app:sDividerLineHeight="@dimen/dp_1"
+                app:sDividerLineType="bottom"
+                app:sLeftTextColor="@color/black"
+                app:sLeftTextSize="@dimen/sp_16"
+                app:sLeftTextString="会诊记录"
+                app:sLeftViewMarginLeft="@dimen/dp_12"
+                app:sRightIconRes="@drawable/ic_arrow_right"
+                app:sRightViewMarginRight="@dimen/dp_12" />
+
+            <com.library.base.widget.SuperTextView
+                android:id="@+id/follow_up_content3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                app:sLeftTextColor="@color/black"
+                app:sLeftTextSize="@dimen/sp_16"
+                app:sLeftTextString="病历记录"
+                app:sLeftViewMarginLeft="@dimen/dp_12"
+                app:sRightIconRes="@drawable/ic_arrow_right"
+                app:sRightViewMarginRight="@dimen/dp_12" />
+
+            <View style="@style/common_split_line_10dp" />
+
+            <LinearLayout
+                android:id="@+id/clinic_layout_item1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <View style="@style/common_split_line" />
+
+                <TextView
+                    android:id="@+id/clinic_specialty"
+                    style="@style/clinic_layout_title_style"
+                    android:text="@string/illness_introduction1" />
+
+                <com.library.base.widget.ExpandableDescView
+                    android:id="@+id/clinic_specialty_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:paddingRight="@dimen/dp_12"
+                    android:paddingTop="@dimen/dp_2"
+                    android:paddingBottom="@dimen/dp_8"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/clinic_layout_item2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <View style="@style/common_split_line" />
+
+                <TextView
+                    android:id="@+id/clinic_specialty2"
+                    style="@style/clinic_layout_title_style"
+                    android:text="过敏史" />
+
+                <com.library.base.widget.ExpandableDescView
+                    android:id="@+id/clinic_specialty_content2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_8"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:paddingRight="@dimen/dp_12"
+                    android:paddingTop="@dimen/dp_2" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.yksj.consultation.sonDoc"
+    android:installLocation="auto">
+
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.WRITE_OWNER_DATA" />
+    <uses-permission android:name="android.permission.READ_OWNER_DATA" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission
+        android:name="android.permission.CHANGE_CONFIGURATION"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <!-- SDK权限申明, 第三方APP接入时，请将com.netease.nim.demo替换为自己的包名 -->
+    <!-- 和下面的uses-permission一起加入到你的AndroidManifest文件中。 -->
+    <permission
+        android:name="com.yksj.consultation.sonDoc.permission.RECEIVE_MSG"
+        android:protectionLevel="signature" />
+
+    <!-- 接受SDK消息广播权限， 第三方APP接入时，请将com.netease.nim.demo替换为自己的包名 -->
+    <uses-permission android:name="com.yksj.consultation.sonDoc.permission.RECEIVE_MSG" />
+
+    <!-- 小米推送 -->
+    <permission
+        android:name="com.yksj.consultation.sonDoc.MIPUSH_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.yksj.consultation.sonDoc.permission.MIPUSH_RECEIVE" />
+
+    <application
+        android:name="com.yksj.consultation.app.AppContext"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:persistent="true"
+        android:theme="@style/AppTheme">
+        <!--百度地图第三方AK-->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="UQijNPYN4O3VV03QApXQRhetIIcWrUnP" />
+        <!-- 移动统计分析 -->
+        <meta-data
+            android:name="IFLYTEK_APPKEY"
+            android:value="55a5e1f7" />
+        <meta-data
+            android:name="IFLYTEK_CHANNEL"
+            android:value="Android_Demo" />
+        <meta-data
+            android:name="com.netease.nim.appKey"
+            android:value="@string/nim_appkey" />
+        <!--友盟 start-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="@string/umeng_app_key" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="@string/umeng_channel" />
+        <!--友盟 end-->
+        <activity
+            android:name="com.yksj.consultation.login.InitializeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 主页 -->
+        <activity
+            android:name="com.yksj.consultation.main.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </activity>
+
+        <!-- 登录 -->
+        <activity
+            android:name="com.yksj.consultation.login.UserLoginActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name="org.cropimage.CropImage"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <!-- 百度地图 -->
+        <activity
+            android:name="com.yksj.consultation.im.ChatMapActivity"
+            android:hardwareAccelerated="true" />
+        <!-- 画廊 -->
+        <activity
+            android:name="com.yksj.consultation.comm.ImageGalleryActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.comm.ImageOpenActivity"
+            android:exported="false"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".friend.FriendSearchResultActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".friend.FriendSearchAboutZxingActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- 核心服务 -->
+        <service
+            android:name="com.yksj.consultation.service.CoreService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.yksj.healthtalk.services.CoreService" />
+            </intent-filter>
+        </service>
+
+        <!--app更新服务-->
+        <service
+            android:name="com.yksj.consultation.service.AppUpdataService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":remote" />
+
+        <activity
+            android:name="com.yksj.consultation.setting.SettingFeedbackUI"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.setting.SettingPhoneBound"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.setting.SettingPassWordUI"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.im.ChatActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.yksj.consultation.login.LoginOutDialogActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/dialog_activity" />
+        <activity
+            android:name=".home.ChooseTagsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <!-- 我的医生详情列表 -->
+        <activity
+            android:name="com.yksj.consultation.doctor.MyFaceOrder"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.setting.SettingQrCodeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.setting.SettingWebUIActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.setting.SettingAboutHealthActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.doctor.ContentActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".friend.QrCodeResultActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.comm.PayActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.comm.SalonPayActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.ConsultationAliPayActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.ConsultationBackPayActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".friend.DoctorClinicMainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".friend.ServicePayMainUi"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".doctorstation.DoctorSpecialServiceListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".doctorstation.DoctorCreateTalkGroup"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".doctorstation.DoctorServiceAddTimeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".salon.SalonSpecialPeoplsListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.comm.CommonExplainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.healthtalk.wallet.PwdSettingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yksj.healthtalk.wallet.PwdChangeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yksj.healthtalk.wallet.PwdForgetActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".doctorstation.active.MyFansListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".salon.SalonSelectPaymentOptionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yksj.consultation.login.DoctorRegisteUI"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.login.UserRegisteComplet"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.PersonInfoEditActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.PersonInfoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".message.MessageNotifyActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.im.SystemMessageActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".message.DcotorMessage"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.doctor.DoctorSeeServiceActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".doctorstation.DoctorReplySetActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".doctorstation.DoctorServiceSetAddressActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".friend.BuyServiceListFromPatientActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.login.NavigationActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBaseTheme.GuiDeUitwo" />
+        <activity
+            android:name="com.yksj.consultation.login.SplashActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBaseTheme.Fullscreen" />
+        <activity
+            android:name=".friend.ServiceAddInfoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.healthtalk.function.photoutil.AlbumActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.healthtalk.function.photoutil.GalleryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.TemplateItemMultipleChoiceActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.DAtyConsultDetails"
+            android:configChanges="mcc|mnc|locale|touchscreen|orientation|keyboard|screenSize|keyboardHidden|navigation|orientation|screenLayout|fontScale"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".consultation.PConsultApplyActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.PConsultApplyFlowActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.consultationorders.AtyConsultReject"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.DAtyConsultSuggestion"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale|screenSize"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".consultation.DAtyConsultMessageEdit"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name=".consultation.DAtyConslutDynMesContent"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.news.NewsInfoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.PAtyConsultEvaluale"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.DAtyConsultCancelReason"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.PAtyAlreadyApply"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.PAtyConsultGoPaying"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.PAtyDynamicMessage"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.DAtyAssistantConsultService"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".dossier.DoctorCreateCaseActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".dossier.DoctorSelectPatientActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".dossier.DoctorSelectDoctorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".dossier.DoctorAddCaseItemActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".consultation.DAtyCasehistoryDiscussion"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.DAtyCommonTools"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".doctor.HospitalListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".dossier.AtyLookHistoryDossier"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".dossier.AtyDossierSearch"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".dossier.AtyDossierDetails"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.DAtyCommonTool"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".dossier.AtyAddKey"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.im.AtyChatMembers"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".dossier.AtyDossierSearchResult"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.AtyConsultServer"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".doctor.SelectExpertMainUI"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!-- 科室列表 -->
+        <activity
+            android:name=".consultation.PConsultMainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".doctor.SearchExpertActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".doctor.SearchExpertResultActivity"
+            android:screenOrientation="portrait" />
+        <!-- 填写个人资料 -->
+        <activity
+            android:name=".consultation.member.FlowMassageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.login.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <!--个人中心-->
+        <activity
+            android:name="com.yksj.consultation.doctor.PersonCenterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBaseTheme.PersonCenter" />
+        <!--我的服务-->
+        <activity
+            android:name="com.yksj.consultation.doctor.DoctorServiceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.consultationorders.MyConsultationActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.PConsultCouponActivity"
+            android:screenOrientation="portrait" />
+        <!-- 查看医生个人信息 -->
+        <activity
+            android:name=".doctor.AtyDoctorMassage"
+            android:screenOrientation="portrait" />
+
+        <!-- 病历讨论列表 -->
+        <activity
+            android:name=".dossier.DiscussCaseListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <!-- 患者个人信息 -->
+        <activity
+            android:name=".consultation.AtyPatientMassage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".wallet.WalletPswSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".wallet.WalletPswChangeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".wallet.FindWithdrawPassword"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.AtyOutPatientDetail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.AtyCancelOutPatient"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".casehistory.DoctorWriteCaseActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".casehistory.DoctorEditCaseActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!-- 我的患者 -->
+        <activity
+            android:name=".friend.MyCustomerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.login.RegisterDoctorActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".consultation.consultationorders.AtyOrderDetails"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.consultationorders.AtyOrdersDetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.consultationorders.AtyOrdersDetails2"
+            android:screenOrientation="portrait" />
+        <!-- 医生发起确认信息 -->
+        <activity
+            android:name=".friend.ConsultMessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".friend.SeatchCustomerAty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.consultationorders.AtyExpertOpinion"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".doctor.MyInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".doctor.DoctorCommentListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".doctor.MyInfoEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".casehistory.CaseDiscussDetailsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".casehistory.CaseShowActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".casehistory.ExpertUploadCaseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".casehistory.MyCaseListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".casehistory.CaseShowSuggestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".casehistory.CaseUploadconfirmActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.consultationorders.AtyConsultOpinion"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.consultationorders.AtyConsultOpinionD"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.consultationorders.AtyCaseDetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.consultationorders.AtyCaseOpinion"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.outpatient.AtyCancelReasons"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.consultationorders.AtyOrderRecord"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.login.AtyLoginBound"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.NewStudyNewsAty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.RecordMadeAty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.RecordShowAty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.PlayVideoActiviy"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.FloatActivity" />
+        <activity
+            android:name=".consultation.PlayVideoActiviy2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.news.NewsCenterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.doctor.MyOutpatientActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.doctor.MyOrdersMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".doctor.RecommendPatientActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.consultationorders.ConLogActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.InternetVideoDemo"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.yksj.consultation.doctor.MyRoomActivity"
+            android:launchMode="standard" />
+        <activity android:name="com.yksj.consultation.doctor.MyNoteBookActivity" />
+        <activity android:name=".home.AddNoteActivity" />
+        <activity android:name="com.yksj.consultation.doctor.MyCommentActivity" />
+        <activity android:name="com.yksj.consultation.main.SixOneClassActivity" />
+        <activity android:name="com.yksj.consultation.main.AddDoctorActivity" />
+        <activity android:name="com.yksj.consultation.im.GroupChatActivity" />
+        <activity android:name="com.yksj.consultation.im.AddGroupChatActivity" />
+        <activity android:name=".chatting.sixoneclass.group.GroupDataActivity" />
+        <activity android:name="com.yksj.consultation.doctor.DoctorAddToolsActivity" />
+        <activity android:name="com.yksj.consultation.comm.AddTextActivity" />
+        <activity
+            android:name="com.yksj.consultation.doctor.OnLineConsultActivity"
+            android:launchMode="standard" />
+        <activity android:name=".home.PowerDoctorActivity" />
+        <activity android:name=".home.AddPowerDoctor" />
+        <activity android:name=".consultation.consultationorders.AddConLogActivity" />
+        <activity
+            android:name=".consultation.salon.ui.HealthTopicMainUi"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.salon.ui.TopicSearchMainUi"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.salon.ui.TopicSearchResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.salon.ui.BaseViewPagerActivtiy"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.salon.ui.TopicTicketSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.salon.ui.SalonSpecialPeoplesGroupListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.salon.ui.SalonSpecialPeoplesGroupCreateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.salon.ui.SelectLabelActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.salon.ui.CreateTopicInfoUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".chatting.sixoneclass.SixOneAddClassActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.im.AddGroupChatMemberActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".chatting.sixoneclass.group.ContactInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.plan.PlanListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.MemberActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.AddPlayActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.plan.SeePlanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.doctor.AtyAccountInfo"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.yksj.consultation.plan.WritePlanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.healthtalk.permission.PermissionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.AddMemberActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.doctor.MyDoctorPlan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.plan.AddBabyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.main.AccountList"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.main.RechargeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.main.GetMoney"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.main.GmNexeActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 微信start -->
+        <activity
+            android:name="com.yksj.consultation.sonDoc.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.yksj.consultation.sonDoc.wxapi.WXPayEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--微信end-->
+        <!--新浪start-->
+        <activity
+            android:name="com.umeng.socialize.media.WBShareCallBackActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+        <activity
+            android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+        <!--新浪end-->
+        <!--QQstart-->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/qq_auth_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--QQend-->
+        <activity
+            android:name="com.yksj.consultation.doctor.MyOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.station.StationOrderPagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.main.BarCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.doctor.DoctorServiceSettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.im.FUTemplateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.TemplatelibAty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.NewTemplateAty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.AtyFollowUpPlan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.AtyFollowUpPlan2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.AtyFollowUpPlan3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.consultationorders.ExpertMainUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.main.CommonwealAidAty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.im.ReduceGroupChatMemberActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.main.WarnActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.consultationorders.InviteKnowActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".consultation.consultationorders.InviteActivity" />
+        <activity android:name="com.yksj.consultation.im.AddTmpPlanActivity" />
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+
+        <activity android:name=".consultation.main.FamousDocShareAty" />
+        <activity android:name="com.yksj.consultation.doctor.ShareSubmitActivity" />
+        <activity android:name=".consultation.SeeTemplateActivity" />
+        <activity android:name="com.yksj.consultation.station.StationHomeActivity" />
+        <activity
+            android:name="com.yksj.consultation.comm.ImageBrowserActivity"
+            android:theme="@style/AppBaseTheme.Transparent" />
+        <activity android:name="com.yksj.consultation.doctor.ShareListActivity" />
+
+
+        <!--工作站 start-->
+        <activity
+            android:name="com.yksj.consultation.station.StationCommentListActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yksj.consultation.station.StationListActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yksj.consultation.station.StationCreateActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yksj.consultation.doctor.DoctorToolsListActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yksj.consultation.station.StationMemberActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yksj.consultation.station.StationMemberChoiceAty"
+            android:screenOrientation="portrait" />
+        <!--医生主页-->
+        <activity
+            android:name="com.yksj.consultation.doctor.DoctorHomeActivity"
+            android:screenOrientation="portrait" />
+        <!--个人讲堂-->
+        <activity
+            android:name="com.yksj.consultation.doctor.DoctorLectureListActivity"
+            android:screenOrientation="portrait" />
+        <!--课程评论列表-->
+        <activity
+            android:name="com.yksj.consultation.station.LectureCommentListActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yksj.consultation.doctor.DoctorStationListActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".consultation.main.InviteMemActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".consultation.main.QueryDoctorActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yksj.consultation.station.StationPriceSettingActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yksj.consultation.station.LectureReleaseArticleActivity"
+            android:screenOrientation="portrait" />
+        <!--工作站 end-->
+
+        <!--医生联盟 start-->
+        <activity
+            android:name="com.yksj.consultation.union.UnionListActivity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yksj.consultation.union.UnionHomeActivity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yksj.consultation.union.UnionMemberListActivity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yksj.consultation.union.UnionIncidentActivity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+        <!--医生联盟 end-->
+        <!--图片剪切-->
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
+            android:name=".shopping.ShopActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".shopping.ProductDetailAty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".shopping.SearchShopActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.station.StationInvitedActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.station.StationInvitedDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <!-- 健康讲堂首页 -->
+        <activity
+            android:name="com.yksj.consultation.station.LectureHomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.im.GroupFileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.library.base.docloader.DocChooseActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yksj.consultation.im.GroupFileTypeChooseActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.yksj.consultation.im.GroupStartUploadActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <!-- 健康讲堂上传 -->
+        <activity
+            android:name="com.yksj.consultation.station.LectureReleaseVideoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!--健康讲堂 发布设置-->
+        <activity
+            android:name="com.yksj.consultation.station.LectureReleaseSetupActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <!--健康讲堂 课件支付-->
+        <activity
+            android:name="com.yksj.consultation.station.LectureDescActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <!--健康讲堂 视频详情-->
+        <activity
+            android:name="com.yksj.consultation.station.LectureVideoInfoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <!--健康讲堂 图文详情-->
+        <activity
+            android:name="com.yksj.consultation.station.LectureArticleInfoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <!--健康讲堂 图文详情-->
+        <activity
+            android:name="com.yksj.consultation.station.LecturePayActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".consultation.main.UploadLectureAty2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <!-- 健康讲堂上传选择 -->
+        <activity
+            android:name="com.yksj.consultation.station.StationUploadLectureChoiceActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.TemplateLibDetailAty"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.main.FileChoiceAty"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.main.ChoiceFileAty"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.main.LectureDetailAty2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".consultation.main.PAtyLectureGoPaying"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".chatting.avchat.activity.TeamAVChatActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat" />
+
+        <!--机构start-->
+        <activity
+            android:name="com.yksj.consultation.agency.AgencyHomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.agency.AgencyInfoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.agency.AgencySelfActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.agency.AgencyCategroyActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.agency.AgencyApplyActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.yksj.consultation.agency.AgencyAddActiveActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!--机构end-->
+
+        <!--支付宝 start-->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+        <!--支付宝end-->
+
+        <!--网易IM start-->
+        <!-- 音视频 -->
+        <activity
+            android:name=".chatting.avchat.AVChatActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBaseTheme.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!-- 声明云信后台服务 -->
+        <service
+            android:name="com.netease.nimlib.service.NimService"
+            android:process=":core" />
+        <!-- 运行后台辅助服务 -->
+        <service
+            android:name="com.netease.nimlib.service.NimService$Aux"
+            android:process=":core" />
+        <!-- 声明网易云通信后台辅助服务 -->
+        <service
+            android:name="com.netease.nimlib.job.NIMJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":core" />
+        <!-- 网易云通信SDK的监视系统启动和网络变化的广播接收器，用户开机自启动以及网络变化时候重新登录,保持和 NimService 同一进程-->
+        <receiver
+            android:name="com.netease.nimlib.service.NimReceiver"
+            android:exported="false"
+            android:process=":core">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <!-- 网易云通信进程间通信 Receiver -->
+        <receiver android:name="com.netease.nimlib.service.ResponseReceiver" />
+        <!-- 网易云通信进程间通信service -->
+        <service android:name="com.netease.nimlib.service.ResponseService" />
+        <provider
+            android:name="com.netease.nimlib.ipc.NIMContentProvider"
+            android:authorities="com.yksj.consultation.sonDoc.ipc.provider"
+            android:exported="false"
+            android:process=":core" />
+        <!--网易Im end-->
+
+        <!-- 申明本地电话状态（通话状态）的广播接收器，第三方APP集成时音视频模块时，如果需要在App中处理网络通话与本地电话的交互请加上此接收器 -->
+        <!-- 在Demo的示例代码中是在Application进行了网络通话与本地电话的互斥处理 -->
+        <receiver android:name=".chatting.avchat.receiver.IncomingCallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+
+        <!--适配android7.0应用私有目录被限制的访问-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.yksj.consultation.sonDoc.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/util_code_provider_paths" />
+        </provider>
+
+        <activity
+            android:name="com.yksj.consultation.station.StationServiceActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

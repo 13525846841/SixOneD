@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+    <include layout="@layout/gray_title_layout"/>
+    <include layout="@layout/commn_freash_for_bottom_list_layout"/>
+    <TextView 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:text="还没有成员哦，您可以点击右上角添加成员。"
+	    android:layout_marginTop="20dp"
+	    android:id="@+id/text_clear"
+	    android:gravity="center_horizontal"
+	    />
+</LinearLayout>

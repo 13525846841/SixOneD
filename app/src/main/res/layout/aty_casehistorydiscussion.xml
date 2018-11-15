@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/gray_title_layout"></include>
+
+    <RadioGroup
+        android:id="@+id/dossier_rg"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@color/color_selectorbar_gray_bg"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/dossier_rb1"
+            style="@style/common_viewpage_radiobutton"
+            android:checked="true"
+            android:drawablePadding="2dp"
+            android:text="@string/condiss" />
+
+        <RadioButton
+            android:id="@+id/dossier_rb2"
+            style="@style/common_viewpage_radiobutton"
+            android:text="@string/myup" />
+
+        <RadioButton
+            android:id="@+id/dossier_rb3"
+            style="@style/common_viewpage_radiobutton"
+            android:text="@string/myattention" />
+    </RadioGroup>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/dossier_vp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+</LinearLayout>

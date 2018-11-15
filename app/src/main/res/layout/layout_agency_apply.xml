@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/padding_bottom"
+    android:paddingLeft="@dimen/padding_left"
+    android:paddingRight="@dimen/padding_right"
+    android:paddingTop="@dimen/padding_top">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center_vertical"
+        android:text="机构名称"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16" />
+
+    <EditText
+        android:id="@+id/agency_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_gray_bg"
+        android:gravity="center_vertical"
+        android:hint="请输入名称"
+        android:maxLines="3"
+        android:textColor="@color/color_text1"
+        android:textColorHint="@color/doctor_info_hint"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintLeft_toRightOf="@+id/tv_title"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_picture" />
+
+    <TextView
+        android:id="@+id/tv_picture"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center_vertical"
+        android:text="机构背景图："
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_picture"
+        app:layout_constraintTop_toTopOf="@+id/iv_picture" />
+
+    <ImageView
+        android:id="@+id/agency_picture"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:background="@drawable/addman"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toRightOf="@+id/tv_picture"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center_vertical"
+        android:text="机构介绍"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_picture"
+        app:layout_constraintTop_toTopOf="@+id/iv_picture" />
+
+    <EditText
+        android:id="@+id/agency_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_gray_bg"
+        android:gravity="left"
+        android:hint="请输入标题"
+        android:lines="4"
+        android:textColor="@color/color_text1"
+        android:textColorHint="@color/doctor_info_hint"
+        android:textSize="@dimen/sp_16" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="机构类型"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_16" />
+
+        <TextView
+            android:id="@+id/agency_type"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:text="选择类型"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/sp_16" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="机构地区"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_16" />
+
+        <TextView
+            android:id="@+id/agency_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="选择地区"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/sp_16" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center_vertical"
+        android:text="地址详情"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_picture"
+        app:layout_constraintTop_toTopOf="@+id/iv_picture" />
+
+    <EditText
+        android:id="@+id/agency_location_detile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_gray_bg"
+        android:gravity="left"
+        android:hint="请输入地址详情"
+        android:lines="4"
+        android:textColor="@color/color_text1"
+        android:textColorHint="@color/doctor_info_hint"
+        android:textSize="@dimen/sp_16" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center_vertical"
+        android:text="联系电话"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_picture"
+        app:layout_constraintTop_toTopOf="@+id/iv_picture" />
+
+    <EditText
+        android:id="@+id/agency_telephone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_gray_bg"
+        android:gravity="center_vertical"
+        android:hint="请输入联系电话"
+        android:inputType="phone"
+        android:lines="1"
+        android:textColor="@color/color_text1"
+        android:textColorHint="@color/doctor_info_hint"
+        android:textSize="@dimen/sp_16" />
+
+    <com.library.base.widget.SuperButton
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginTop="@dimen/dp_12"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:sCornersRadius="@dimen/dp_4"
+        app:sSelectorNormalColor="@color/main_color"
+        app:sSelectorPressedColor="@color/main_color"
+        app:sUseSelector="true" />
+
+</LinearLayout>

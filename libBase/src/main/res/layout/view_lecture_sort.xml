@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/label_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/search_layout"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dp_8"
+    android:paddingTop="@dimen/dp_8">
+
+    <com.yksj.consultation.station.view.LectureLabelView
+        android:id="@+id/one_level_label"
+        android:layout_width="match_parent"
+        android:layout_height="35dp" />
+
+    <com.yksj.consultation.station.view.LectureLabelView
+        android:id="@+id/two_level_label"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="@dimen/dp_8" />
+
+    <com.yksj.consultation.station.view.LectureLabelView
+        android:id="@+id/three_level_label"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="@dimen/dp_8" />
+
+</LinearLayout>

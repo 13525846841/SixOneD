@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/register_input_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_edittext_input_bg_white"
+        android:hint="@string/please_input_phone"
+        android:inputType="phone"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColorHint="@color/gray_color2" />
+
+    <EditText
+        android:id="@+id/register_input_psw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_edittext_input_bg_white"
+        android:hint="@string/setting_input_psd"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColorHint="@color/gray_color2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/register_input_verifycode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_edittext_input_bg_white"
+            android:hint="@string/please_input_verify_code"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:inputType="number"
+            android:textColorHint="@color/gray_color2" />
+
+        <com.library.base.widget.SuperButton
+            android:id="@+id/register_btn_verifycode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:text="@string/phone_code"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            app:sCornersRadius="@dimen/dp_8"
+            app:sSelectorDisableColor="#66ff8b8b"
+            app:sSelectorNormalColor="@color/pink"
+            app:sUseSelector="true" />
+
+    </LinearLayout>
+
+    <com.library.base.widget.SuperButton
+        android:id="@+id/register_btn_complete"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:enabled="false"
+        android:text="@string/complete"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        app:sCornersRadius="@dimen/dp_8"
+        app:sSelectorDisableColor="@color/main_enable_color"
+        app:sSelectorNormalColor="@color/main_color"
+        app:sSelectorPressedColor="@color/main_color_pressed"
+        app:sUseSelector="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45">
+
+        <TextView
+            android:id="@+id/register_ptotocol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dp_8"
+            android:text="@string/user_protocol_clause"
+            android:textColor="@color/main_color"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/register_checkbox"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@id/register_ptotocol"
+            android:background="@drawable/register_checkbox_selector"
+            android:button="@null"
+            android:checked="true" />
+    </RelativeLayout>
+
+</LinearLayout>

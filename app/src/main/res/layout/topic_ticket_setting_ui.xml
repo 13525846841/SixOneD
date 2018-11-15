@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/linear_layout_style"
+        android:layout_marginTop="0dp">
+
+        <LinearLayout style="@style/linear_layout_hor_center_style">
+
+            <TextView
+                android:id="@+id/health_topic_info_ticket_day"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ticket_day" />
+
+            <EditText
+                android:id="@+id/topic_ticket_day_price"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="5"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_layout_hor_center_style">
+
+            <TextView
+                android:id="@+id/health_topic_info_ticket_month"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ticket_month" />
+
+            <EditText
+                android:id="@+id/topic_ticket_monrh_price"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="5"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/topic_ticket_special_layout"
+            style="@style/linear_layout_hor_center_style"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/health_topic_info_ticket_special"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/ticket_special" />
+
+            <ImageView
+                android:id="@+id/health_topic_info_special_index"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/calender_right" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

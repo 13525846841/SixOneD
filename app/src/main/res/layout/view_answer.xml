@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_talk"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_gray"
+    android:padding="6dp">
+
+    <ImageView
+        android:id="@+id/image_voice2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/icon_voice" />
+
+    <EditText
+        android:id="@+id/edit_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_toLeftOf="@+id/btn_send2"
+        android:layout_toRightOf="@+id/image_voice2"
+        android:background="@drawable/icon_white_bg_64"
+        android:maxLines="5" />
+
+    <Button
+        android:id="@+id/btn_send2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:background="@drawable/btn_selector"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/chatting_send"
+        android:textColor="@color/white" />
+</RelativeLayout>

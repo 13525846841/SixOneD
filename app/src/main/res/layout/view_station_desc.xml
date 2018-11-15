@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hosptial_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dp_14"
+    android:paddingRight="@dimen/dp_14"
+    android:paddingTop="@dimen/dp_8">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/xing"
+            android:textColor="@color/text_max_color"
+            tools:text="123123"
+            android:drawablePadding="6dp"
+            android:textSize="@dimen/sp_18" />
+
+        <ImageView
+            android:id="@+id/iv_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:src="@drawable/bianji" />
+
+    </RelativeLayout>
+
+    <com.library.base.widget.ExpandableDescView
+        android:id="@+id/desc_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8" />
+
+    <View
+        style="@style/common_split_line_1dp"
+        android:layout_marginTop="@dimen/dp_8" />
+
+</LinearLayout>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:orientation="vertical">
+
+    <View style="@style/common_split_line" />
+
+    <org.handmark.pulltorefresh.library.PullToRefreshScrollView xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/pull_refresh_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fadingEdge="none"
+        android:fillViewport="false"
+        ptr:ptrMode="pullDownFromTop">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/linear_layout_style"
+                android:layout_marginTop="0dp">
+
+                <TextView
+                    android:id="@+id/health_topic_info_upload"
+                    style="@style/title_grey_textview_style"
+                    android:text="@string/upload_image" />
+
+                <View
+                    style="@style/common_split_line"
+                    android:layout_marginBottom="5dp" />
+
+                <com.library.base.widget.CircleImageView
+                    android:id="@+id/health_topic_info_headicon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="@string/desc"
+                    android:src="@drawable/img_create_topic_add_icon" />
+
+                <ImageView
+                    android:id="@+id/health_topic_info_headicon_click"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="@string/desc"
+                    android:src="@drawable/img_create_topic_add_icon"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linear_layout_style">
+
+                <TextView
+                    android:id="@+id/health_topic_info_title"
+                    style="@style/title_grey_textview_style"
+                    android:text="@string/title" />
+
+                <View style="@style/common_split_line" />
+
+                <EditText
+                    android:id="@+id/health_topic_info_title2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/textfield_activated_holo_dark"
+                    android:hint="@string/inputTitle"
+                    android:maxLength="10"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linear_layout_style">
+
+                <TextView
+                    android:id="@+id/health_topic_info_des"
+                    style="@style/title_grey_textview_style"
+                    android:text="@string/description" />
+
+                <View style="@style/common_split_line" />
+
+                <EditText
+                    android:id="@+id/health_topic_info_des2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/textfield_activated_holo_dark"
+                    android:gravity="top"
+                    android:hint="@string/please_write_miaoshu"
+                    android:lines="3"
+                    android:paddingTop="@dimen/dp_8" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/linear_layout_style"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:id="@+id/health_topic_info_category"
+                    style="@style/title_grey_textview_style"
+                    android:text="@string/select_interest" />
+
+                <View style="@style/common_split_line" />
+
+                <Button
+                    android:id="@+id/health_topic_info_category2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/img_create_topic_add_label" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/health_topic_modify_layout0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="5dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/health_topic_info_ticket"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/open_ticket" />
+
+                <ToggleButton
+                    android:id="@+id/health_topic_open_ticket_toggleButton"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/check_on_off"
+                    android:checked="true"
+                    android:textOff=""
+                    android:textOn="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/health_topic_modify_layout1"
+                style="@style/linear_layout_style"
+                android:layout_marginTop="0dp"
+                android:visibility="gone">
+
+                <LinearLayout style="@style/linear_layout_hor_center_style">
+
+                    <TextView
+                        android:id="@+id/health_topic_info_ticket_day"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/ticket_day" />
+
+                    <EditText
+                        android:id="@+id/health_topic_info_day_price"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/linear_layout_hor_center_style">
+
+                    <TextView
+                        android:id="@+id/health_topic_info_ticket_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/ticket_month" />
+
+                    <EditText
+                        android:id="@+id/health_topic_info_monrh_price"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/health_topic_info_special_layout"
+                    style="@style/linear_layout_hor_center_style">
+
+                    <TextView
+                        android:id="@+id/health_topic_info_ticket_special"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/ticket_special" />
+
+                    <ImageView
+                        android:id="@+id/health_topic_info_special_index"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/calender_right" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/health_topic_modify_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="3dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="3dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/health_topic_info_receive"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/is_message_setting" />
+
+                <ToggleButton
+                    android:id="@+id/health_topic_receive_toggleButton"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/check_on_off"
+                    android:checked="true"
+                    android:textOff=""
+                    android:textOn="" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/health_topic_info_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/modify_btn_delete_topic_bg"
+                android:text="@string/delete"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+        </LinearLayout>
+    </org.handmark.pulltorefresh.library.PullToRefreshScrollView>
+
+</LinearLayout>

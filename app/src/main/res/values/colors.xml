@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 灰色背景 -->
+    <color name="color_gray_bg">#EAEEF6</color>
+    <!--文字颜色-->
+    <color name="color_text1">#626262</color>
+    <color name="color_text_gray">#999999</color>
+    <!--固定颜色-->
+    <color name="red">#FF0033</color>
+    <color name="pink">#ff8b8b</color>
+    <color name="text_gray">#939393</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="blue">#64C6F7</color>
+    <color name="orange">#f1b674</color>
+    <color name="transparent">#00000000</color>
+    <color name="news_readed_color">#c7c5c5</color>
+    <!-- 账号和密码的字体颜色 -->
+
+    <!--colors-chatroom-->
+    <color name="color_gray_alpha40">#66000000</color>
+
+    <color name="info_text">#738994</color>
+    <color name="doctor_info_hint">#b5b5b5</color>
+    <color name="dark_black">#535d73</color>
+    <color name="refresh_bottom_color">#b1b3b4</color>
+    <color name="tab_txt_gray">#8c8c8c</color>
+    <color name="tab_txt_name">#535353</color>
+    <color name="tab_txt_orange">#fa7805</color>
+    <color name="gray_color">#eeeded</color>
+    <color name="gray_color2">#dcdbdb</color>
+    <color name="red_text">#fff97f6a</color>
+    <color name="tag_note">#cacaca</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="viewfinder_laser">#39CED8</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="text_blue">#136dd7</color>
+    <color name="text_green">#7abc25</color>
+    <color name="gray_text">#ff969696</color>
+    <color name="charge_title_center">#2e2c2c</color>
+    <color name="charge_red">#fb3d42</color>
+    <!--头部颜色  -->
+    <color name="color_blue">#41b8b6</color>
+    <!--服务日历颜色  -->
+    <color name="calader_color_common">#2d2d2d</color>
+    <color name="calader_color_today">#27c4bd</color>
+    <color name="calader_color_write">#ffffffff</color>
+
+    <color name="text_gray_color">#666666</color>
+    <color name="text_gray_999999">#999999</color>
+
+    <!-- 找专家下拉popopWindow灰色背景 -->
+    <color name="color_index_gray_bg">#f8f8f8</color>
+    <!-- 找专家selectorBar下拉 -->
+    <color name="color_selectorbar_gray_bg">#fbfbfb</color>
+    <!-- EditText  的hint的Color的颜色 -->
+    <color name="color_hint">#B3B3B3</color>
+    <!-- Selector index 的TextView Color的颜色 -->
+    <color name="selector_index_color">#676767</color>
+    <!-- 弹出的popupWindow的红色文字的颜色 -->
+    <color name="pop_red_tv_color">#FE4C4C</color>
+
+    <color name="radio_group_bg">#FBFBFB</color>
+    <color name="press_back">#f3f3f3</color>
+    <color name="unpress_back">#ffffff</color>
+    <color name="background_gray">#EBEFF7</color>
+    <color name="text_black_two">#565656</color>
+
+    <color name="text_max_color">#282828</color>
+    <color name="text_min_color">#989898</color>
+    <color name="text_mid_color">#656565</color>
+    <color name="common_color_gray_mid">#656565</color>
+    <color name="common_color_gray_max">#282828</color>
+    <color name="color_black_333333">#333333</color>
+    <color name="color_red_f04c62">#f04c62</color>
+    <color name="color_f2f7fc">#F2F7FC</color>
+    <color name="color_c2364b">#C2364B</color>
+    <color name="color_f5455e">#F5455E</color>
+
+
+
+    <color name="colorTranslucent">#00000000</color>
+    <color name="colorWhite">#ffffffff</color>
+
+    <color name="faceunityYellow">#ffcb15</color>
+    <color name="unselect_gray">#48ffffff</color>
+
+    <color name="c80000000">#80000000</color> <!--50%-->
+    <!--40%-->
+    <color name="percent60translucentBlack">#99000000</color>
+
+
+    <!-- Whites -->
+
+    <!-- Grays -->
+
+    <!-- Blues -->
+
+    <!-- Greens -->
+
+    <!-- Reds -->
+
+    <!-- Purples -->
+
+    <!-- Yellows -->
+
+    <!-- Oranges -->
+
+    <!-- Browns -->
+
+    <color name="video_call_peer_close_cameral_text_shadow">#484848</color>
+    <color name="video_call_peer_close_cameral_text_color">#f1f1f1</color>
+
+
+    <color name="color_green_01d9ae">#01D9AE</color>
+    <color name="color_activity_blue_bg">#f7389fff</color>
+    <color name="split_line_grey_color_d9d9d9">#D9D9D9</color>
+    <color name="color_b3b3b3">#b3b3b3</color>
+    <color name="color_grey_999999">#999999</color>
+
+    <!-- main bg color -->
+    <color name="main_bg_color">#FFFFFF</color>
+
+    <!-- session -->
+
+    <!-- image picker -->
+
+    <!-- contact -->
+
+    <!-- setting -->
+
+    <color name="color_blue_3a9efb">#3a9efb</color>
+    <color name="color_grey_d0d0d0">#d0d0d0</color>
+    <color name="t_av_chat_setting_bar">#3C4149</color>
+    <color name="praise_item_default">#333333</color>
+    <color name="praise_item_selector_default">#cccccc</color>
+    <color name="praise_item">#8290AF</color>
+    <color name="default_clickable_color">#cccccc</color>
+    <color name="color_8290AF">#8290AF</color>
+
+    <color name="windowBackground">#FFFFFF</color>
+</resources>

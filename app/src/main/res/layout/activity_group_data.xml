@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <com.yksj.healthtalk.views.MyGridView
+                        android:id="@+id/number_head"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:listSelector="#0000"
+                        android:numColumns="4"
+                        android:padding="6dp"
+                        android:verticalSpacing="16dp">
+
+                    </com.yksj.healthtalk.views.MyGridView>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ebeff7" />
+            </LinearLayout>
+
+            <com.library.base.widget.SuperTextView
+                android:id="@+id/group_name_stv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginTop="20dp"
+                app:sDividerLineColor="@color/divider"
+                app:sDividerLineHeight="@dimen/dp_0_5"
+                app:sDividerLineType="top"
+                app:sLeftIconMarginLeft="@dimen/dp_16"
+                app:sLeftTextColor="@color/text_black_two"
+                app:sLeftTextSize="@dimen/sp_16"
+                app:sLeftTextString="群名称"
+                app:sLeftViewMarginLeft="@dimen/dp_16"
+                app:sRightIconMarginRight="@dimen/dp_16"
+                app:sRightIconRes="@drawable/ic_arrow_right"
+                app:sRightTextColor="@color/gray_text"
+                app:sRightTextSize="@dimen/sp_16"
+                app:sTextViewDrawablePadding="@dimen/dp_3" />
+
+            <com.library.base.widget.SuperTextView
+                android:id="@+id/group_file_stv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                app:sDividerLineColor="@color/divider"
+                app:sDividerLineHeight="@dimen/dp_0_5"
+                app:sDividerLineType="top"
+                app:sLeftIconMarginLeft="@dimen/dp_16"
+                app:sLeftTextColor="@color/text_black_two"
+                app:sLeftTextSize="@dimen/sp_16"
+                app:sLeftTextString="群文件"
+                app:sLeftViewMarginLeft="@dimen/dp_16"
+                app:sRightIconMarginRight="@dimen/dp_16"
+                app:sRightIconRes="@drawable/ic_arrow_right"
+                app:sRightTextColor="@color/gray_text"
+                app:sRightTextSize="@dimen/sp_16"
+                app:sTextViewDrawablePadding="@dimen/dp_3" />
+
+            <com.library.base.widget.SuperTextView
+                android:id="@+id/group_notice_stv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                app:sDividerLineColor="@color/divider"
+                app:sDividerLineHeight="@dimen/dp_0_5"
+                app:sDividerLineType="top"
+                app:sLeftIconMarginLeft="@dimen/dp_16"
+                app:sLeftTextColor="@color/text_black_two"
+                app:sLeftTextSize="@dimen/sp_16"
+                app:sLeftTextString="群公告"
+                app:sLeftViewMarginLeft="@dimen/dp_16"
+                app:sRightIconMarginRight="@dimen/dp_16"
+                app:sRightIconRes="@drawable/ic_arrow_right"
+                app:sRightTextColor="@color/gray_text"
+                app:sRightTextSize="@dimen/sp_16"
+                app:sTextViewDrawablePadding="@dimen/dp_3" />
+
+            <com.library.base.widget.SuperTextView
+                android:id="@+id/group_quiet_stv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:layout_marginTop="@dimen/dp_20"
+                app:sDividerLineColor="@color/divider"
+                app:sDividerLineHeight="@dimen/dp_0_5"
+                app:sDividerLineType="top"
+                app:sLeftIconMarginLeft="@dimen/dp_16"
+                app:sLeftTextColor="@color/text_black_two"
+                app:sLeftTextSize="@dimen/sp_16"
+                app:sLeftTextString="群消息免打扰"
+                app:sLeftViewMarginLeft="@dimen/dp_16"
+                app:sRightViewType="switchBtn"
+                app:sSwitchCheckedColor="@color/main_color"
+                app:sTextViewDrawablePadding="@dimen/dp_3" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/out"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:background="@color/pink"
+            android:text="退  出"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16" />
+    </LinearLayout>
+
+</RelativeLayout>

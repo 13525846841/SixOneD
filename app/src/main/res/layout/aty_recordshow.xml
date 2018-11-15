@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:activity=".consultation.RecordMadeAty">
+
+    <com.yksj.consultation.sonDoc.views.MovieRecorderView
+        android:id="@+id/moive_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+    </com.yksj.consultation.sonDoc.views.MovieRecorderView>
+
+    <RelativeLayout
+        android:id="@+id/record_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/moive_rv"
+        android:layout_centerInParent="true"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/start_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始" />
+
+        <Button
+            android:id="@+id/stop_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/start_btn"
+            android:text="停止" />
+    </RelativeLayout>
+
+    <SurfaceView
+        android:id="@+id/play_surfaceV"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/record_rl"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:id="@+id/play_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/play_surfaceV"
+        android:layout_centerInParent="true"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/play_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="播放" />
+
+        <Button
+            android:id="@+id/pause_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/play_btn"
+            android:text="暂停" />
+    </RelativeLayout>
+
+</RelativeLayout>

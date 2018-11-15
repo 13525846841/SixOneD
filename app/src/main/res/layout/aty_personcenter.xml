@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/person_stv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_80"
+            android:layout_marginTop="@dimen/dp_5"
+            app:sLeftBottomTextColor="@color/gray_text"
+            app:sLeftBottomTextSize="@dimen/sp_14"
+            app:sLeftIconHeight="@dimen/dp_50"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftIconShowCircle="true"
+            app:sLeftIconWidth="@dimen/dp_50"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextGravity="left"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right"
+            app:sRightTextColor="@color/gray_text"
+            app:sRightTextSize="@dimen/sp_12" />
+
+        <View style="@style/common_split_line_6dp" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/rl_workstation"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftIconRes="@drawable/icon_station"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="医生集团"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/rl_union"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftIconRes="@drawable/icon_station"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="医生联盟"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/rl_agency"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftIconRes="@drawable/icon_station"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="找机构"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <View style="@style/common_split_line_6dp" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/rl_mywallet"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftIconRes="@drawable/icon_wallet"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="我的钱包"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/rl_myorders"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftIconRes="@drawable/icon_mycase"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="我的订单"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/my_evaluate1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftIconRes="@drawable/icon_evaluate"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="我的分享"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/my_servers"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftIconRes="@drawable/icon_evaluate"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="我的服务"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/my_comments"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftIconRes="@drawable/icon_evaluate"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="我的评价"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <View style="@style/common_split_line_6dp" />
+
+        <RelativeLayout
+            android:id="@+id/rl_commontools"
+            style="@style/text_check_relativeLayout"
+            android:background="#ffffff"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_comtools" />
+
+            <TextView
+                style="@style/info_text_left_sec"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dp"
+                android:layout_toRightOf="@+id/image4"
+                android:text="常用工具" />
+
+            <ImageView style="@style/text_check_imageview" />
+        </RelativeLayout>
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/rl_plan"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftIconRes="@drawable/icon_plan"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="医教计划"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/rl_notebook"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftIconRes="@drawable/icon_notebook"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="记事本"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/rl_tools"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftIconRes="@drawable/icon_notebook"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="工具箱"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/rl_settings"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftIconRes="@drawable/icon_setting"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="设置"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/logout_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_14"
+                android:layout_marginLeft="@dimen/dp_14"
+                android:layout_marginRight="@dimen/dp_14"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="@drawable/bt_pic_number_bg"
+                android:text="@string/changeAccount"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

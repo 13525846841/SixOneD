@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.library.base.widget.ScrollableLayout
+        android:id="@+id/scrollableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dp_56">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_220"
+            android:scaleType="centerCrop"
+            android:src="@drawable/waterfall_default" />
+
+        <com.library.base.widget.SlidingTabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/title_root"
+            app:tl_indicator_color="@color/color_blue"
+            app:tl_indicator_height="@dimen/dp_3"
+            app:tl_tab_space_equal="true"
+            app:tl_textSelectColor="@color/color_blue"
+            app:tl_textUnselectColor="@color/gray_text"
+            app:tl_textsize="@dimen/sp_16" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.library.base.widget.ScrollableLayout>
+
+    <FrameLayout
+        android:id="@+id/fixed_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <com.library.base.widget.SuperButton
+            android:id="@+id/add_active"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_marginRight="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_8"
+            android:gravity="center"
+            android:text="添加活动"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:sCornersRadius="@dimen/dp_8"
+            app:sSelectorNormalColor="@color/main_color"
+            app:sSelectorPressedColor="@color/main_color"
+            app:sUseSelector="true" />
+
+        <View
+            style="@style/common_split_line"
+            android:layout_gravity="top" />
+
+    </FrameLayout>
+
+</merge>

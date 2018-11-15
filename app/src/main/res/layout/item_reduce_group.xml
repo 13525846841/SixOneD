@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_addnum"
+        style="@style/text_check_relativeLayout"
+        android:layout_height="75dp"
+        android:background="#ffffff"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/image_addnum"
+            android:layout_width="@dimen/headView_w"
+            android:layout_height="@dimen/headView_h"
+            android:layout_centerVertical="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/chat_head" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/image_addnum"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/info_text_left_sec"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dp"
+                android:layout_toRightOf="@+id/image_addnum"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/project"
+                style="@style/info_text_left_sec"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/image_addnum"
+                android:textColor="#ff969696"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/image_choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_check" />
+    </RelativeLayout>
+
+    <View style="@style/common_split_line" />
+</LinearLayout>

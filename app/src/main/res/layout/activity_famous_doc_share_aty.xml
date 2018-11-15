@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:activity="com.yksj.consultation.sonDoc.consultation.main.FamousDocShareAty">
+
+
+    <include layout="@layout/gray_title_layout" />
+
+    <RelativeLayout
+        android:id="@+id/bodyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <org.handmark.pulltorefresh.library.PullToRefreshListView xmlns:ptr="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/my_share_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:divider="@color/divider"
+            android:dividerHeight="3px"
+            android:scrollbars="none"
+            ptr:ptrMode="both" />
+        <include
+            android:id="@+id/empty_view_famous"
+            android:visibility="gone"
+            layout="@layout/loading_fail_data_null" />
+
+        <include
+            layout="@layout/layout_editview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</LinearLayout>

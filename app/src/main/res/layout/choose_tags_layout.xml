@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+	<include layout="@layout/title_layout" 
+	    android:id="@+id/title" 
+	    />
+	<TextView android:textColor="#C6C6C6" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="我的标签" android:layout_margin="5dp"/>
+	<View style="@style/common_split_line"/>
+	<include layout="@layout/tags_gridview_layout" android:layout_height="fill_parent" android:layout_width="fill_parent" android:layout_weight="1.0"/>
+    
+	<TextView android:textColor="#C6C6C6" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="所有标签" android:layout_margin="5dp"/>
+	<View style="@style/common_split_line"/>
+	
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_weight="1.0"
+        android:layout_height="wrap_content">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        <com.yksj.consultation.sonDoc.views.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:padding="10dip" />
+    </FrameLayout>
+
+</LinearLayout>

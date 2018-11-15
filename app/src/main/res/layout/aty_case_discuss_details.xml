@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <include layout="@layout/gray_title_layout" />
+
+    <TextView
+        android:id="@+id/case_discuss_details_name"
+        style="@style/case_discuss_title_tv_style"
+        android:layout_marginTop="50dp" />
+
+    <View
+        android:id="@+id/view1"
+        style="@style/common_split_line"
+        android:layout_below="@id/case_discuss_details_name" />
+
+    <TextView
+        android:id="@+id/case_discuss_details_case"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view1"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/color_text1"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp" />
+
+    <View
+        android:id="@+id/view2"
+        style="@style/common_split_line_6dp"
+        android:layout_below="@+id/case_discuss_details_case" />
+
+
+    <TextView
+        android:id="@+id/tv_conE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view2"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:text="会诊意见:"
+        android:textColor="@color/red" />
+
+    <TextView
+        android:id="@+id/case_discuss_details_expert"
+        style="@style/case_discuss_title_tv_style"
+        android:layout_below="@+id/view2"
+        android:layout_toRightOf="@+id/tv_conE" />
+
+    <View
+        android:id="@+id/view3"
+        style="@style/common_split_line"
+        android:layout_below="@+id/tv_conE" />
+
+    <TextView
+        android:id="@+id/case_discuss_details_suggest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view3"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textColor="@color/color_text1"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp" />
+
+    <View
+        android:id="@+id/view4"
+        style="@style/common_split_line_6dp"
+        android:layout_below="@+id/case_discuss_details_suggest" />
+
+    <TextView
+        android:id="@+id/case_discuss_details_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp"
+        android:paddingRight="16dp"
+        android:paddingTop="12dp"
+        android:paddingLeft="16dp"
+        android:layout_below="@id/view4" />
+
+    <View
+        android:id="@+id/view5"
+        style="@style/common_split_line"
+        android:layout_below="@+id/case_discuss_details_comment" />
+
+    <org.handmark.pulltorefresh.library.PullToRefreshListView xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/case_discuss_comment_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/view5"
+        android:layout_marginBottom="48dp"
+        android:scrollbars="none"
+        ptr:ptrMode="pullFromEnd" />
+
+    <LinearLayout
+        android:id="@+id/case_discuss_comment_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bg_gray"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <EditText
+            android:id="@+id/case_discuss_comment_edittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/color_text1"
+            android:background="@drawable/icon_white_bg_64"
+            android:maxLines="4" />
+
+        <Button
+            android:id="@+id/case_discuss_comment_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:background="@drawable/icon_btn_bg_80"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/chatting_send"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</RelativeLayout>

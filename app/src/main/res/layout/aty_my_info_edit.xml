@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dp_14"
+                android:paddingRight="@dimen/dp_14"
+                android:paddingTop="@dimen/dp_14">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="姓名:"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/my_info_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="8"
+                    android:background="@drawable/edittext_gray_bg"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingLeft="@dimen/dp_14"
+                android:paddingRight="@dimen/dp_14"
+                android:paddingTop="@dimen/dp_14">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="所在地:"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/my_info_addr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_gray_bg"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dp_14"
+                android:paddingRight="@dimen/dp_14"
+                android:paddingTop="@dimen/dp_14">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="医院:"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/my_info_hospital"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_gray_bg"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dp_14"
+                android:paddingRight="@dimen/dp_14"
+                android:paddingTop="@dimen/dp_14">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="科室:"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/my_info_office"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_gray_bg"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp_14">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="职称:"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/my_info_doc_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_gray_bg"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_special"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_14"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/my_info_specialty"
+                    style="@style/clinic_layout_title_style"
+                    android:text="医生专长"
+                    android:textColor="@color/color_text_gray" />
+
+                <View
+                    style="@style/common_split_line"
+                    android:layout_below="@id/my_info_specialty" />
+
+                <TextView
+                    android:id="@+id/my_info_specialty_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/my_info_specialty"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="10dp"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/my_info_specialty_index"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/my_info_specialty_content"
+                    android:layout_centerHorizontal="true"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="@dimen/dp_8"
+                    android:src="@drawable/gengduos" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_jianjie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_14"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/my_info_resume"
+                    style="@style/clinic_layout_title_style"
+                    android:text="@string/jianjie"
+                    android:textColor="@color/color_text_gray" />
+
+                <View
+                    style="@style/common_split_line"
+                    android:layout_below="@id/my_info_resume" />
+
+                <TextView
+                    android:id="@+id/my_info_resume_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/my_info_resume"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="10dp"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/my_info_resume_index"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/my_info_resume_content"
+                    android:layout_centerHorizontal="true"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="@dimen/dp_8"
+                    android:src="@drawable/gengduos" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <ImageView
+                    android:id="@+id/my_info_img_real"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/icon_upload_doc_head" />
+
+                <ImageView
+                    android:id="@+id/my_info_img_qualification"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/icon_upload_doc_paper" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dp_14"
+                android:paddingRight="@dimen/dp_14"
+                android:paddingTop="@dimen/dp_14">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="收款人:"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_transfer_getname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_gray_bg"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dp_14"
+                android:paddingRight="@dimen/dp_14"
+                android:paddingTop="@dimen/dp_14">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="收款人手机:"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_transfer_gettele"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="18"
+                    android:inputType="number"
+                    android:background="@drawable/edittext_gray_bg"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dp_14"
+                android:paddingRight="@dimen/dp_14"
+                android:paddingTop="@dimen/dp_14">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="银行卡(账)号:"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_transfer_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:background="@drawable/edittext_gray_bg"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dp_14"
+                android:paddingRight="@dimen/dp_14"
+                android:paddingTop="@dimen/dp_14">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="开户银行:"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_transfer_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_gray_bg"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="@dimen/dp_14">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="开户支行:"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_transfer_addr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_gray_bg"
+                    android:textColor="@color/color_text1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/my_info_edit_btn_commit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bt_regist_sure"
+                android:text="@string/setting_tijiao"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

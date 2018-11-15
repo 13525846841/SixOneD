@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:orientation="vertical"
+    tools:activity="com.yksj.consultation.station.StationMemberActivity">
+
+    <org.handmark.pulltorefresh.library.PullToRefreshListView xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/my_station_member__pulllist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn2"
+        android:layout_below="@id/title"
+        android:horizontalSpacing="2dp"
+        android:listSelector="#00000000"
+        android:scrollbars="none"
+        ptr:ptrMode="both"></org.handmark.pulltorefresh.library.PullToRefreshListView>
+
+    <include
+        android:id="@+id/empty_view_famous1"
+        layout="@layout/loading_fail_data_null"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:background="@drawable/bt_short_green"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:text="确 定"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_18" />
+
+</RelativeLayout>
+

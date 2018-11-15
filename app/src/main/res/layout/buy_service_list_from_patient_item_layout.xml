@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+    
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_vertical"
+	    android:orientation="horizontal" >
+	    <TextView android:layout_centerVertical="true" android:gravity="center_vertical" android:textSize="16sp" android:textColor="#4B4B4B" android:text="09:00-11:00" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/time"/>
+	    
+	    <Button android:layout_alignParentRight="true" android:layout_centerVertical="true" android:textColor="@color/white"   android:background="@drawable/bt_short_double_orange" android:text="去支付" android:textSize="16sp"  android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/delete"/>
+		<LinearLayout android:layout_centerHorizontal="true" android:layout_centerVertical="true" android:layout_width="wrap_content" android:layout_height="wrap_content">
+			<TextView  android:layout_width="wrap_content" android:layout_height="wrap_content"  android:layout_marginRight="5dp"  android:textColor="#FF6449" android:text="20" android:textSize="16sp"   android:id="@+id/edit" />
+			<TextView  android:layout_width="wrap_content" android:layout_height="wrap_content"  android:layout_marginRight="5dp"  android:textColor="#4B4B4B" android:text="元" android:textSize="16sp" />
+		</LinearLayout>
+	</RelativeLayout>
+	<TextView android:visibility="gone" android:textSize="16sp"  android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/address" android:textColor="#4B4B4B"/>
+	<View  style="@style/common_split_line" android:layout_marginTop="5dp"/>
+	
+</LinearLayout>

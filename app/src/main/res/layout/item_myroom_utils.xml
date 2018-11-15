@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/utils_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="douyu"
+        android:textSize="16sp"
+        android:padding="18dp"
+        android:background="@color/white"
+        android:drawableRight="@drawable/ic_arrow_right"/>
+
+    <View style="@style/common_split_line_1dp"/>
+
+    <!--<com.yksj.healthtalk.views.RoundImageView-->
+        <!--android:id="@+id/image_bg"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:background="@drawable/select_bg" />-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/utils_name"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="预约就诊"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:textColor="@color/color_text1"-->
+            <!--android:textSize="16sp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/true_false"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:text="未开通"-->
+            <!--android:textColor="@color/color_text1" />-->
+    <!--</LinearLayout>-->
+
+</LinearLayout>

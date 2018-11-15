@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_gray_bg"
+        android:orientation="vertical">
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/experience_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="0.5dp"
+            app:sLeftIconHeight="25dp"
+            app:sLeftIconRes="@drawable/free"
+            app:sLeftIconWidth="25dp"
+            app:sLeftTextSize="16sp"
+            app:sLeftTextString="体验咨询"
+            app:sRightIconMarginRight="@dimen/dp_14"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/picandcul_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="0.5dp"
+            app:sLeftIconHeight="25dp"
+            app:sLeftIconRes="@drawable/picandcul"
+            app:sLeftIconWidth="25dp"
+            app:sLeftTextSize="16sp"
+            app:sLeftTextString="图文咨询"
+            app:sRightIconMarginRight="@dimen/dp_14"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/phone_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="0.5dp"
+            app:sLeftIconHeight="25dp"
+            app:sLeftIconRes="@drawable/phone"
+            app:sLeftIconWidth="25dp"
+            app:sLeftTextSize="16sp"
+            app:sLeftTextString="电话咨询"
+            app:sRightIconMarginRight="@dimen/dp_14"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/consul_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="0.5dp"
+            app:sLeftIconHeight="25dp"
+            app:sLeftIconRes="@drawable/consul"
+            app:sLeftIconWidth="25dp"
+            app:sLeftTextSize="16sp"
+            app:sLeftTextString="包月咨询"
+            app:sRightIconMarginRight="@dimen/dp_14"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="0.5dp"
+            app:sLeftIconHeight="25dp"
+            app:sLeftIconRes="@drawable/video"
+            app:sLeftIconWidth="25dp"
+            app:sLeftTextSize="16sp"
+            app:sLeftTextString="视频咨询"
+            app:sRightIconMarginRight="@dimen/dp_14"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/order4_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="0.5dp"
+            app:sLeftIconHeight="25dp"
+            app:sLeftIconRes="@drawable/addnum"
+            app:sLeftIconWidth="25dp"
+            app:sLeftTextSize="16sp"
+            app:sLeftTextString="门诊预约"
+            app:sRightIconMarginRight="@dimen/dp_14"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/order3_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="0.5dp"
+            app:sLeftIconHeight="25dp"
+            app:sLeftIconRes="@drawable/online2"
+            app:sLeftIconWidth="25dp"
+            app:sLeftTextSize="16sp"
+            app:sLeftTextString="在线会诊"
+            app:sRightIconMarginRight="@dimen/dp_14"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

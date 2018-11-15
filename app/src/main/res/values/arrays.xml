@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <string-array name="smailey_txt">
+        <item>[爱死你啦]</item>
+        <item>[悲伤]</item>
+        <item>[被吓到]</item>
+        <item>[别说话]</item>
+        <item>[不会吧]</item>
+        <item>[不爽]</item>
+        <item>[不赞同]</item>
+        <item>[惭愧]</item>
+        <item>[呆]</item>
+        <item>[得瑟]</item>
+        <item>[叼烟]</item>
+        <item>[屌丝笑]</item>
+        <item>[饿啦]</item>
+        <item>[嗯哼]</item>
+        <item>[翻白眼]</item>
+        <item>[愤怒]</item>
+        <item>[哈哈]</item>
+        <item>[好！]</item>
+        <item>[好困啊]</item>
+        <item>[好无聊啊]</item>
+        <item>[挥挥]</item>
+        <item>[挤眉弄眼]</item>
+        <item>[骷髅头]</item>
+        <item>[雷人]</item>
+        <item>[流泪了]</item>
+        <item>[卖萌]</item>
+        <item>[美梦中]</item>
+        <item>[你好]</item>
+        <item>[努力ing]</item>
+        <item>[求解释]</item>
+        <item>[傻笑]</item>
+        <item>[伤心了]</item>
+        <item>[失望]</item>
+        <item>[受不鸟啦]</item>
+        <item>[太委屈]</item>
+        <item>[讨厌啦]</item>
+        <item>[哇哦]</item>
+        <item>[我勒个去]</item>
+        <item>[我呕]</item>
+        <item>[无语]</item>
+        <item>[捂嘴笑]</item>
+        <item>[眼馋]</item>
+        <item>[要疯了]</item>
+        <item>[阴笑]</item>
+        <item>[右不屑]</item>
+        <item>[晕了]</item>
+        <item>[找打]</item>
+        <item>[找骂啊]</item>
+        <item>[真尴尬]</item>
+        <item>[真糗]</item>
+        <item>[中指]</item>
+        <item>[住嘴]</item>
+        <item>[装可爱]</item>
+        <item>[装酷]</item>
+        <item>[左不屑]</item>
+        <item>[爱你]</item>
+        <item>[棒]</item>
+        <item>[不]</item>
+        <item>[好的]</item>
+        <item>[弱]</item>
+    </string-array>
+
+    <string-array name="choose_item">
+        <item>本地照片</item>
+        <item>拍摄</item>
+    </string-array>
+
+    <integer-array name="smiley_drawable_ids">
+
+        <!-- <item >@drawable/emo0</item> -->
+        <!-- <item >@drawable/emo1</item> -->
+        <!-- <item >@drawable/emo2</item> -->
+        <!-- <item >@drawable/emo3</item> -->
+        <!-- <item >@drawable/emo4</item> -->
+        <!-- <item >@drawable/emo5</item> -->
+        <!-- <item >@drawable/emo6</item> -->
+        <!-- <item >@drawable/emo7</item> -->
+        <!-- <item >@drawable/emo8</item> -->
+        <!-- <item >@drawable/emo9</item> -->
+        <!-- <item >@drawable/emo10</item> -->
+        <!-- <item >@drawable/emo11</item> -->
+        <!-- <item >@drawable/emo12</item> -->
+        <!-- <item >@drawable/emo13</item> -->
+        <!-- <item >@drawable/emo14</item> -->
+        <!-- <item >@drawable/emo15</item> -->
+        <!-- <item >@drawable/emo16</item> -->
+        <!-- <item >@drawable/emo17</item> -->
+        <!-- <item >@drawable/emo18</item> -->
+        <!-- <item >@drawable/emo19</item> -->
+        <!-- <item >@drawable/emo20</item> -->
+        <!-- <item >@drawable/emo21</item> -->
+        <!-- <item >@drawable/emo22</item> -->
+        <!-- <item >@drawable/emo23</item> -->
+        <!-- <item >@drawable/emo24</item> -->
+        <!-- <item >@drawable/emo25</item> -->
+        <!-- <item >@drawable/emo26</item> -->
+        <!-- <item >@drawable/emo27</item> -->
+        <!-- <item >@drawable/emo28</item> -->
+        <!-- <item >@drawable/emo29</item> -->
+        <!-- <item >@drawable/emo30</item> -->
+        <!-- <item >@drawable/emo31</item> -->
+        <!-- <item >@drawable/emo32</item> -->
+        <!-- <item >@drawable/emo33</item> -->
+        <!-- <item >@drawable/emo34</item> -->
+        <!-- <item >@drawable/emo35</item> -->
+        <!-- <item >@drawable/emo36</item> -->
+        <!-- <item >@drawable/emo37</item> -->
+        <!-- <item >@drawable/emo38</item> -->
+        <!-- <item >@drawable/emo39</item> -->
+        <!-- <item >@drawable/emo40</item> -->
+        <!-- <item >@drawable/emo41</item> -->
+        <!-- <item >@drawable/emo42</item> -->
+        <!-- <item >@drawable/emo43</item> -->
+        <!-- <item >@drawable/emo44</item> -->
+        <!-- <item >@drawable/emo45</item> -->
+        <!-- <item >@drawable/emo46</item> -->
+        <!-- <item >@drawable/emo47</item> -->
+        <!-- <item >@drawable/emo48</item> -->
+        <!-- <item >@drawable/emo49</item> -->
+        <!-- <item >@drawable/emo50</item> -->
+        <!-- <item >@drawable/emo51</item> -->
+        <!-- <item >@drawable/emo52</item> -->
+        <!-- <item >@drawable/emo53</item> -->
+        <!-- <item >@drawable/emo54</item> -->
+        <item>@drawable/emo55</item>
+        <item>@drawable/emo56</item>
+        <item>@drawable/emo57</item>
+        <item>@drawable/emo58</item>
+        <item>@drawable/emo59</item>
+        <item>@drawable/emo60</item>
+        <item>@drawable/emo61</item>
+        <item>@drawable/emo62</item>
+        <item>@drawable/emo63</item>
+        <item>@drawable/emo64</item>
+        <item>@drawable/emo65</item>
+        <item>@drawable/emo66</item>
+        <item>@drawable/emo67</item>
+        <item>@drawable/emo68</item>
+        <item>@drawable/emo69</item>
+        <item>@drawable/emo70</item>
+        <item>@drawable/emo71</item>
+        <item>@drawable/emo72</item>
+        <item>@drawable/emo73</item>
+        <item>@drawable/emo74</item>
+        <item>@drawable/emo75</item>
+        <item>@drawable/emo76</item>
+        <item>@drawable/emo77</item>
+        <item>@drawable/emo78</item>
+        <item>@drawable/emo79</item>
+        <item>@drawable/emo80</item>
+        <item>@drawable/emo81</item>
+        <item>@drawable/emo82</item>
+        <item>@drawable/emo83</item>
+        <item>@drawable/emo84</item>
+        <item>@drawable/emo85</item>
+        <item>@drawable/emo86</item>
+        <item>@drawable/emo87</item>
+        <item>@drawable/emo88</item>
+        <item>@drawable/emo89</item>
+        <item>@drawable/emo90</item>
+        <item>@drawable/emo91</item>
+        <item>@drawable/emo92</item>
+        <item>@drawable/emo93</item>
+        <item>@drawable/emo94</item>
+        <item>@drawable/emo95</item>
+        <item>@drawable/emo96</item>
+        <item>@drawable/emo97</item>
+        <item>@drawable/emo98</item>
+        <item>@drawable/emo99</item>
+        <item>@drawable/emo100</item>
+        <item>@drawable/emo101</item>
+        <item>@drawable/emo102</item>
+        <item>@drawable/emo103</item>
+        <item>@drawable/emo104</item>
+        <item>@drawable/emo105</item>
+        <item>@drawable/emo106</item>
+        <item>@drawable/emo107</item>
+        <item>@drawable/emo108</item>
+        <item>@drawable/emo109</item>
+        <item>@drawable/emo110</item>
+        <item>@drawable/emo111</item>
+        <item>@drawable/emo112</item>
+        <item>@drawable/emo113</item>
+        <item>@drawable/emo114</item>
+    </integer-array>
+
+    <string-array name="zhiye">
+        <item>求职</item>
+        <item>政府公务员</item>
+        <item>IT行业</item>
+        <item>自由职业</item>
+        <item>市场营销</item>
+        <item>个人和家庭用品</item>
+        <item>广告行业</item>
+        <item>服务行业</item>
+        <item>教育</item>
+        <item>法律</item>
+        <item>媒体行业</item>
+        <item>医疗医药 </item>
+        <item>学生</item>
+        <item>航天航空</item>
+        <item>退休</item>
+        <item>餐饮旅游</item>
+        <item>打工族</item>
+        <item>能源矿业</item>
+        <item>制造行业</item>
+        <item>零售贸易</item>
+        <item>财务</item>
+        <item>房产建筑</item>
+        <item>艺术设计</item>
+    </string-array>
+    <string-array name="sex">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+
+    <!-- 求医 -->
+    <!-- 问药 -->
+
+    <!-- 疾病 -->
+
+    <!-- 情感 -->
+
+    <!-- 两性 -->
+
+    <!-- 养生 -->
+
+    <!-- 美食 -->
+
+    <!-- 运动 -->
+
+    <!-- 娱乐 -->
+
+    <!-- 生活点滴 -->
+
+    <!-- 美容美妆 -->
+    <!-- 心理 -->
+    <!-- 女人 -->
+    <!-- 摄影 -->
+    <!-- 绘画 -->
+    <!-- 收藏 -->
+    <!-- 时尚 -->
+    <!-- 旅游 -->
+    <!-- 社会 -->
+    <!-- 职场 -->
+    <!-- 居住 -->
+    <!-- 婚庆 -->
+    <!-- 购物 -->
+    <!-- 汽车 -->
+
+    <string-array name="permissions">
+        <item>@string/permission_recode_audio_hint</item>
+        <item>@string/permission_get_accounts_hint</item>
+        <item>@string/permission_read_phone_hint</item>
+        <item>@string/permission_call_phone_hint</item>
+        <item>@string/permission_camera_hint</item>
+        <item>@string/permission_access_fine_location_hint</item>
+        <item>@string/permission_access_coarse_location_hint</item>
+        <item>@string/permission_read_external_hint</item>
+        <item>@string/permission_white_external_hint</item>
+    </string-array>
+
+
+    <string name="permission_get_accounts_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_GET_ACCOUNTS</string>
+    <string name="permission_read_phone_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_READ_PHONE_STATE</string>
+    <string name="permission_call_phone_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_CALL_PHONE</string>
+    <string name="permission_camera_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_CAMERA</string>
+    <string name="permission_access_fine_location_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_ACCESS_FINE_LOCATION</string>
+    <string name="permission_access_coarse_location_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_ACCESS_COARSE_LOCATION</string>
+    <string name="permission_read_external_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_READ_EXTERNAL_STORAGE</string>
+    <string name="permission_white_external_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_WRITE_EXTERNAL_STORAGE</string>
+    <string name="permission_recode_audio_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_RECORD_AUDIO</string>
+
+</resources>

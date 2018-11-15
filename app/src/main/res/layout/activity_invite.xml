@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:activity="com.yksj.consultation.sonDoc.consultation.consultationorders.InviteActivity">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/gray_title_layout" />
+
+    <TextView
+        android:id="@+id/tv_moreExpert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_color"
+        android:drawableRight="@drawable/ic_arrow_right"
+        android:padding="12dp"
+        android:text="@string/more_expert"
+        android:textColor="@color/text_mid_color" />
+
+    <View style="@style/common_split_line" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include layout="@layout/loading_fail_data_null" />
+
+        <ListView
+            android:id="@+id/my_invite_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:divider="@null"
+            android:scrollbars="none" />
+
+    </FrameLayout>
+
+
+</LinearLayout>

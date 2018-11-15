@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_gray_bg"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:activity="com.yksj.consultation.sonDoc.consultation.NewTemplateAty">
+
+    <include layout="@layout/gray_title_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"
+                android:padding="7dp">
+
+                <EditText
+                    android:id="@+id/et_template_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:background="#ffffff"
+                    android:hint="请输入模板名称"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/text_check_relativeLayout"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"
+                android:padding="7dp">
+
+                <TextView
+                    style="@style/info_text_left_sec"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:text="随访开始时间"
+                    android:textColor="@color/gray_text"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/detail_time"
+                    style="@style/info_text_left_sec"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:text="随访开始时间"
+                    android:padding="5dp"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/gray_text"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#ebeff7" />
+            <!--<LinearLayout-->
+            <!--android:id="@+id/ll_addyizhen"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<RelativeLayout-->
+            <!--style="@style/text_check_relativeLayout"-->
+            <!--android:id="@+id/rl_star"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:background="#ffffff"-->
+            <!--android:padding="7dp">-->
+
+            <!--<TextView-->
+            <!--style="@style/info_text_left_sec"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="@dimen/dp_8"-->
+            <!--android:text="具体开始时间"-->
+            <!--android:textColor="@color/gray_text"-->
+            <!--android:textSize="16sp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/star"-->
+            <!--style="@style/info_text_left_sec"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="38dp"-->
+            <!--android:text="未填写"-->
+            <!--android:textColor="@color/gray_text"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:textSize="15sp" />-->
+
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:src="@drawable/arrows" />-->
+            <!--</RelativeLayout>-->
+
+            <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0.5dp"-->
+            <!--android:background="#ebeff7" />-->
+
+            <!--<RelativeLayout-->
+
+            <!--style="@style/text_check_relativeLayout"-->
+            <!--android:id="@+id/rl_stop"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:background="#ffffff"-->
+            <!--android:padding="7dp">-->
+
+            <!--<TextView-->
+            <!--style="@style/info_text_left_sec"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="@dimen/dp_8"-->
+            <!--android:text="向患者发送"-->
+            <!--android:textColor="@color/gray_text"-->
+            <!--android:textSize="16sp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/stop"-->
+            <!--style="@style/info_text_left_sec"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="38dp"-->
+            <!--android:text="复诊位置"-->
+            <!--android:textColor="@color/gray_text"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:textSize="15sp" />-->
+
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:src="@drawable/arrows" />-->
+            <!--</RelativeLayout>-->
+
+            <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0.5dp"-->
+            <!--android:background="#ebeff7" />-->
+
+            <!--</LinearLayout>-->
+
+            <com.yksj.consultation.sonDoc.views.MyListView2
+                android:id="@+id/newfollowuplist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:listSelector="@color/white">
+
+            </com.yksj.consultation.sonDoc.views.MyListView2>
+
+            <TextView
+                android:id="@+id/add_plan_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/cormer_bg"
+                android:drawableLeft="@drawable/addtempnum"
+                android:drawablePadding="@dimen/dp_8"
+                android:padding="10dp"
+                android:text="添加随访次数"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

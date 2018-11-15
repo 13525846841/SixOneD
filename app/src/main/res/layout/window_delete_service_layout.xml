@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="删除服务后，请继续为已购买的患者服务"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <LinearLayout 
+        android:id="@+id/delete_viewgroup_layout"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_margin="6dp"
+    	android:background="@drawable/shape_share_gridview_bg"
+    	android:orientation="vertical"
+        >
+	    
+	    <TextView
+	        android:id="@+id/delete_current"
+	        android:layout_width="match_parent"
+	        android:layout_height="50dp"
+	        android:textSize="18sp"
+	        android:gravity="center"
+	        android:textColor="@color/pop_red_tv_color"
+	        android:text="@string/delete_current_duration"  />
+		<View 
+		    android:layout_width="fill_parent"
+		    android:layout_height="1dp"
+		    android:layout_marginLeft="2dp"
+		    android:layout_marginRight="2dp"
+		    android:clickable="false"
+		    android:background="@drawable/line"
+		    />
+	    <TextView
+	        android:id="@+id/delete_repeat"
+	        android:layout_width="match_parent"
+	        android:layout_height="50dp"
+	        android:textSize="18sp"
+	        android:gravity="center"
+	        android:textColor="@color/pop_red_tv_color"
+	        android:text="@string/delete_repeat_durations" 
+	         />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/delete_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+         android:textSize="18sp"
+        android:layout_margin="6dp"
+        android:background="@drawable/shape_share_gridview_bg"
+        android:textColor="@color/color_text_gray"
+        android:text="@string/cancel"
+          />  
+</LinearLayout>

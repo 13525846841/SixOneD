@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/replace"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<FrameLayout android:id="@+id/advert_fragment_frame" android:layout_width="fill_parent" android:layout_height="100dp">
+    </FrameLayout>    
+    
+    <Button android:id="@+id/login_btn" android:text="Login" android:layout_width="fill_parent" android:layout_height="wrap_content"/>
+    <Button android:id="@+id/logout_btn" android:text="Logout" android:layout_width="fill_parent" android:layout_height="wrap_content"/>
+	<Button android:id="@+id/upload" android:text="upload" android:layout_width="fill_parent" android:layout_height="wrap_content"/>
+	
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+	     <Button android:id="@+id/title_back" android:text="back" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+	    <TextView
+	        android:textSize="20sp"
+	        android:id="@+id/editText1"
+	        android:text="ok"
+	        android:clickable="true"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content">
+	    </TextView>
+	    
+<!-- 	    <ListView
+	        android:id="@+id/listView1"
+	        android:focusableInTouchMode="false"
+	        android:cacheColorHint="#00000000"
+	        android:listSelector="@null"
+	        android:layout_width="match_parent"
+	        android:layout_height="fill_parent" >
+	    </ListView> -->
+	    
+	    <org.staggered.lib.MultiColumnListView
+	        xmlns:pla="http://schemas.android.com/apk/res-auto"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:scrollbars="vertical"
+	        android:id="@+id/listView1"
+	        pla:plaColumnNumber="3"
+	        pla:plaLandscapeColumnNumber="1"
+	        >
+	        
+	    </org.staggered.lib.MultiColumnListView>
+	    
+    </FrameLayout>
+    
+        
+</LinearLayout>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/titleLay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_heigth"
+        android:background="@color/main_color"
+        android:gravity="center_vertical">
+
+        <include
+            android:id="@+id/title_back"
+            layout="@layout/layout_title_white_arrow" />
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/title_heigth"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/title_back"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14" />
+
+        <ImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_location"
+            android:layout_marginRight="@dimen/dp_12"
+            android:layout_marginLeft="@dimen/dp_6"
+            android:src="@drawable/ic_agency_location_arrow"/>
+
+        <com.yksj.consultation.widget.SearchBarLayout
+            android:id="@+id/search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/search_height"
+            android:layout_toLeftOf="@+id/title_more"
+            android:layout_toRightOf="@+id/iv_arrow"/>
+
+        <include
+            android:id="@+id/title_more"
+            layout="@layout/layout_title_white_more" />
+
+    </RelativeLayout>
+
+    <com.library.base.widget.ScrollableLayout
+        android:id="@+id/scrollable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_agency_banner" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/padding_top"
+                android:paddingTop="@dimen/padding_bottom">
+
+                <TextView
+                    android:id="@+id/experience_active"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/dp_6"
+                    android:drawableTop="@drawable/ic_agency_experience"
+                    android:gravity="center"
+                    android:text="体验中心"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/expand_active"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/dp_6"
+                    android:drawableTop="@drawable/ic_agency_expand"
+                    android:gravity="center"
+                    android:text="拓展中心"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/rehabilitation_active"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/dp_6"
+                    android:drawableTop="@drawable/ic_agency_rehabilitation"
+                    android:gravity="center"
+                    android:text="康复中心"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/interest_active"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/dp_6"
+                    android:drawableTop="@drawable/ic_agency_interest"
+                    android:gravity="center"
+                    android:text="兴趣中心"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_gray"
+                android:gravity="center_vertical"
+                android:paddingBottom="@dimen/dp_6"
+                android:paddingLeft="@dimen/padding_left"
+                android:paddingTop="@dimen/dp_12"
+                android:text="机构推荐"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+        </LinearLayout>
+
+        <com.library.base.widget.SlidingTabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_height"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/title_root"
+            app:tl_indicator_color="@color/color_blue"
+            app:tl_indicator_height="@dimen/dp_3"
+            app:tl_tab_space_equal="true"
+            app:tl_textSelectColor="@color/color_blue"
+            app:tl_textUnselectColor="@color/gray_text"
+            app:tl_textsize="@dimen/tab_text_size" />
+
+        <com.yksj.consultation.agency.view.AgencyCategroyView
+            android:id="@+id/categroy_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.library.base.widget.ScrollableLayout>
+
+</merge>

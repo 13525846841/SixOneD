@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/editTextBodyLl"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center"
+    android:padding="@dimen/dp_8">
+
+    <EditText
+        android:id="@+id/circleEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/btn_send"
+        android:padding="@dimen/dp_6"
+        android:background="@drawable/shape_input_dialog"
+        android:textSize="@dimen/sp_14"
+        android:hint="说点什么..." />
+
+    <TextView
+        android:id="@+id/btn_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_14"
+        android:enabled="false"
+        android:text="发送"
+        android:textColor="@color/input_send_color"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold" />
+
+</RelativeLayout>

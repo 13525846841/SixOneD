@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:orientation="vertical"
+    tools:activity="com.yksj.consultation.sonDoc.home.AddNoteActivity">
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/rl_select_data"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        app:sDividerLineHeight="@dimen/dp_1"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="提醒日期"
+        app:sLeftViewMarginLeft="@dimen/padding_left"
+        app:sRightIconRes="@drawable/ic_arrow_right"
+        app:sRightTextColor="@color/gray_text"
+        app:sRightTextSize="@dimen/sp_14"
+        app:sRightViewMarginRight="@dimen/padding_right" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/rl_select_time"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        app:sDividerLineHeight="@dimen/dp_1"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="提醒时间"
+        app:sLeftViewMarginLeft="@dimen/padding_left"
+        app:sRightIconRes="@drawable/ic_arrow_right"
+        app:sRightTextColor="@color/gray_text"
+        app:sRightTextSize="@dimen/sp_14"
+        app:sRightViewMarginRight="@dimen/padding_right" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/rl_write_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        app:sDividerLineHeight="@dimen/dp_1"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="提醒内容"
+        app:sLeftViewMarginLeft="@dimen/padding_left"
+        app:sRightIconRes="@drawable/ic_arrow_right"
+        app:sRightTextColor="@color/gray_text"
+        app:sRightTextSize="@dimen/sp_14"
+        app:sRightViewMarginRight="@dimen/padding_right" />
+
+</LinearLayout>

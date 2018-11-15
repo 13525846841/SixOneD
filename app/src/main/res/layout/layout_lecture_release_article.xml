@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="图片："
+        android:textColor="@color/text_black_two"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_picture"
+        app:layout_constraintTop_toTopOf="@+id/iv_picture" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="标题："
+        android:textColor="@color/text_black_two"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintBottom_toBottomOf="@+id/et_title"
+        app:layout_constraintTop_toTopOf="@+id/et_title" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="正文："
+        android:textColor="@color/text_black_two"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintTop_toTopOf="@+id/et_content" />
+
+    <ImageView
+        android:id="@+id/iv_picture"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginTop="@dimen/dp_12"
+        android:background="@drawable/addman"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="@+id/barrier"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:background="@drawable/edittext_gray_bg"
+        android:gravity="center_vertical"
+        android:hint="请输入标题"
+        android:maxLines="3"
+        android:textColor="@color/color_text1"
+        android:textColorHint="@color/doctor_info_hint"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintLeft_toLeftOf="@+id/barrier"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_picture" />
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:background="@drawable/edittext_gray_bg"
+        android:gravity="left|top"
+        android:hint="简介...."
+        android:maxHeight="200dp"
+        android:maxLength="1000"
+        android:maxLines="6"
+        android:minHeight="120dp"
+        android:textColor="@color/color_text1"
+        android:textColorHint="@color/doctor_info_hint"
+        app:layout_constraintLeft_toLeftOf="@+id/barrier"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_title" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="tv_picture,tv_title,tv_content" />
+
+</merge>

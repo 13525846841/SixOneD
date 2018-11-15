@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--腾讯Bugly-->
+    <string name="bugly">5e4bfcc26a</string>
+
+    <!--友盟-->
+    <string name="umeng_app_key">5b2b58358f4a9d25dc000013</string>
+    <string name="umeng_channel">umeng</string>
+
+    <!--微信-->
+    <string name="wx_app_id">wxdc1e388c3822c80b</string>
+    <string name="wx_app_secret">3baf1193c85774b3fd9d18447d76cab0</string>
+
+    <!--QQ-->
+    <string name="qq_app_id">1105678050</string>
+    <string name="qq_app_key">y1auXrTkAWvlCR3V</string>
+    <string name="qq_auth_scheme"></string>
+
+    <!--新浪-->
+    <string name="sina_app_key">3921700954</string>
+    <string name="sina_app_secret">04b48b094faeb16683c32669824ebdad</string>
+
+    <!--网易云-->
+    <string name="nim_appkey">7c18989bf89a5e6f29691cde49dcc2f6</string>
+    <string name="nim_appsecret">ec230f7a10e0</string>
+</resources>

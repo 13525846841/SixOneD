@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.yksj.consultation.station.view.LectureDoctorInfoView
+            android:id="@+id/doctor_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View style="@style/common_split_line_6dp" />
+
+        <TextView
+            android:id="@+id/tv_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_gray"
+            android:gravity="center_vertical"
+            android:paddingBottom="@dimen/dp_8"
+            android:paddingLeft="@dimen/dp_12"
+            android:paddingRight="@dimen/dp_12"
+            android:paddingTop="@dimen/dp_8"
+            android:text="文章介绍"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/dp_60"
+            android:paddingBottom="@dimen/padding_bottom"
+            android:paddingLeft="@dimen/padding_left"
+            android:paddingRight="@dimen/padding_right"
+            android:paddingTop="@dimen/padding_top"
+            android:textColor="@color/text_black_two"
+            android:textSize="@dimen/sp_16" />
+
+        <View style="@style/common_split_line_6dp" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/padding_bottom"
+            android:paddingLeft="@dimen/padding_left"
+            android:paddingRight="@dimen/padding_right"
+            android:paddingTop="@dimen/padding_top">
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:textSize="@dimen/sp_18" />
+
+            <ImageView
+                android:id="@+id/join_avatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_price" />
+
+            <TextView
+                android:id="@+id/pay_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray_text"
+                android:textSize="@dimen/sp_14"
+                android:layout_marginLeft="@dimen/dp_12"
+                app:layout_constraintTop_toTopOf="@+id/join_avatar"
+                app:layout_constraintBottom_toBottomOf="@+id/join_avatar"
+                app:layout_constraintLeft_toRightOf="@+id/join_avatar" />
+
+            <TextView
+                android:id="@+id/tv_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_20"
+                android:layout_marginTop="@dimen/dp_8"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/join_avatar" />
+
+            <RatingBar
+                android:id="@+id/rating"
+                style="@style/MyRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:isIndicator="true"
+                android:max="10"
+                android:numStars="5"
+                android:progress="1"
+                android:stepSize="0.5"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_mark"
+                app:layout_constraintLeft_toRightOf="@+id/tv_mark"
+                app:layout_constraintTop_toTopOf="@+id/tv_mark" />
+
+            <TextView
+                android:id="@+id/comment_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp_8"
+                android:drawableRight="@drawable/ic_arrow_right"
+                android:text="0条评论"
+                android:textColor="@color/gray_text"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintBottom_toBottomOf="@+id/rating"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/rating" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:animateLayoutChanges="true">
+
+        <com.library.base.widget.SuperButton
+            android:id="@+id/look_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_marginRight="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="查看"
+            app:sSelectorNormalColor="@color/main_color"
+            app:sSelectorPressedColor="@color/main_color"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:sCornersRadius="@dimen/dp_8"
+            app:sUseSelector="true"
+            android:visibility="gone" />
+
+        <com.library.base.widget.SuperButton
+            android:id="@+id/pay_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_marginRight="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="去购买"
+            android:visibility="gone"
+            app:sSelectorNormalColor="@color/pink"
+            app:sSelectorPressedColor="@color/pink"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:sCornersRadius="@dimen/dp_8"
+            app:sUseSelector="true" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

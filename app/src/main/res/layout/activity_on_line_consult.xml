@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:orientation="vertical"
+    android:animateLayoutChanges="true"
+    tools:activity="com.yksj.consultation.doctor.OnLineConsultActivity">
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/is_open_stv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="开通会诊"
+        app:sRightViewType="switchBtn"
+        app:sSwitchCheckedColor="@color/main_color"
+        app:sSwitchIsChecked="false" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/price_stv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:visibility="gone"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="咨询价格(元)"
+        app:sRightEditColor="@color/gray_text"
+        app:sRightEditHintString="请输入价格"
+        app:sRightEditInputType="price"
+        app:sRightEditSize="@dimen/sp_16"
+        app:sRightViewType="editText" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/count_stv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:visibility="gone"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="咨询价格(元)"
+        app:sRightEditColor="@color/gray_text"
+        app:sRightEditHintString="请输入价格"
+        app:sRightEditInputType="price"
+        app:sRightEditSize="@dimen/sp_16"
+        app:sRightViewType="editText" />
+
+    <View style="@style/common_split_line_6dp" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/is_free_stc"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="参加义诊"
+        app:sRightViewType="switchBtn"
+        app:sSwitchCheckedColor="@color/main_color"
+        app:sSwitchIsChecked="false" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/free_start_time_stv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:visibility="gone"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="义诊开始时间"
+        app:sRightIconRes="@drawable/ic_arrow_right" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/free_end_time_stv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:visibility="gone"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="义诊结束时间"
+        app:sRightIconRes="@drawable/ic_arrow_right" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/free_price_stv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:visibility="gone"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="义诊价格(元)"
+        app:sRightEditColor="@color/gray_text"
+        app:sRightEditHintString="请输入价格"
+        app:sRightEditInputType="price"
+        app:sRightEditSize="@dimen/sp_16"
+        app:sRightViewType="editText" />
+
+</LinearLayout>

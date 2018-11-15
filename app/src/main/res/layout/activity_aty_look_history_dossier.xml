@@ -1,0 +1,20 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:activity="com.yksj.consultation.sonDoc.dossier.AtyLookHistoryDossier">
+
+    <include layout="@layout/title_layout" />
+    <org.handmark.pulltorefresh.library.PullToRefreshListView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/look_history_dossier"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:divider="@null"
+        ptr:ptrMode="both" />
+
+    <include
+        android:id="@+id/null_view_look"
+        layout="@layout/loading_fail_data_null"
+        android:visibility="gone" />
+</RelativeLayout>

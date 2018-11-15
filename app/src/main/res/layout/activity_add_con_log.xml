@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:orientation="vertical"
+    tools:activity="com.yksj.consultation.sonDoc.consultation.consultationorders.AddConLogActivity">
+
+    <include layout="@layout/gray_title_layout" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15.0dp"
+        android:layout_marginRight="15.0dp"
+        android:layout_marginTop="10.0dp"
+        android:background="@drawable/text_content_background_normal"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10.0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:gravity="top|left"
+            android:hint="请输入文字内容"
+            android:maxHeight="400dip"
+            android:maxLines="20"
+            android:minLines="7"
+            android:maxLength="1000"
+            android:textColor="@color/color_text1"
+            android:textColorHint="@color/doctor_info_hint"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/icon_btn_bg_80"
+        android:padding="12dp"
+        android:text="确    定"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+</LinearLayout>

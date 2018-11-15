@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/gray_title_layout" />
+
+    <com.yksj.consultation.sonDoc.views.DrawableCenterCheckBox
+        android:id="@+id/navigationbar_hospital"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_below="@+id/title"
+        android:button="@null"
+        android:drawablePadding="@dimen/dp_8"
+        android:drawableRight="@drawable/navigationbar_drawable"
+        android:ellipsize="end"
+        android:maxLength="6"
+        android:padding="16dp"
+        android:singleLine="true"
+        android:text="分类"
+        android:textColor="@drawable/selector_find_doctor_text_color"
+        android:textSize="12sp"
+        android:checked="false" />
+
+    <include
+        android:id="@+id/include_search"
+        layout="@layout/edit_search_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/navigationbar_hospital" />
+
+    <org.handmark.pulltorefresh.library.PullToRefreshListView xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/case_discuss_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/include_search"
+        ptr:ptrMode="both" />
+
+    <LinearLayout
+        android:id="@+id/popwindow_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/navigationbar_hospital"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View style="@style/common_split_line" />
+
+        <ListView
+            android:id="@+id/pop_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:cacheColorHint="#00000000"
+            android:divider="@color/gray_color"
+            android:dividerHeight="0.6dp"
+            android:fadingEdge="none" />
+        <View style="@style/common_split_line" />
+
+    </LinearLayout>
+
+</RelativeLayout>

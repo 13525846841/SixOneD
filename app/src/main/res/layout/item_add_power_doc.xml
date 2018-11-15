@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/chat_head"/>
+
+        <LinearLayout
+            android:id="@+id/ll_laoshi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/image">
+
+            <TextView
+                android:id="@+id/doc_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="张医生"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/doc_position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="神经外科"
+                android:textSize="14sp"
+                android:textColor="@color/tab_txt_gray"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/ll_laoshi" />
+            <TextView
+                android:id="@+id/doc_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="中日友好医院"
+                android:textSize="14sp"
+                android:textColor="@color/tab_txt_gray"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/ll_laoshi" />
+            <TextView
+                android:id="@+id/doc_goodat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="擅长小儿内科疾病"
+                android:textSize="14sp"
+                android:textColor="@color/tab_txt_gray"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/ll_laoshi" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/selector_right"/>
+
+    </RelativeLayout>
+</LinearLayout>

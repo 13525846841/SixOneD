@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/title_double_radiogroup_layout" />
+    
+    <RadioGroup 
+        android:id="@+id/health_topic_radiogroup_selector"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@color/color_selectorbar_gray_bg"
+        android:orientation="horizontal"
+        >
+	    <RadioButton 
+	        android:id="@+id/health_topic_selector_all"
+	        style="@style/common_viewpage_radiobutton"
+	        android:checked="true"
+	        android:text="@string/all"
+	        />
+	    <RadioButton 
+	        android:id="@+id/health_topic_selector_free"
+	        style="@style/common_viewpage_radiobutton"
+	        android:text="@string/free_of_charge"
+	        
+	        />
+	    <RadioButton 
+	        android:id="@+id/health_topic_selector_charge"
+	        style="@style/common_viewpage_radiobutton"
+	        android:text="@string/not_free"
+	        android:drawableRight="@color/transparent"
+	        />
+    </RadioGroup>
+	<View style="@style/common_split_line"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/health_topic_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </android.support.v4.view.ViewPager>
+    
+    <!-- 存放病友话题的布局 -->
+    <FrameLayout 
+        android:id="@+id/health_topic_friend_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        
+    </FrameLayout>
+    
+
+</LinearLayout>

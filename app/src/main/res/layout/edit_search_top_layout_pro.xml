@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:background="#FBFBFB" >
+	<com.yksj.healthtalk.utils.ClearEditText
+		android:id="@+id/edit_search_top"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="@dimen/dp_8"
+		android:padding="@dimen/dp_8"
+		android:textSize="14sp"
+		android:singleLine="true"
+		android:imeOptions="actionSearch"
+		android:background="@drawable/shape_edittext_search"
+		android:drawableLeft="@drawable/ig_search_grey"
+		android:drawablePadding="15dp"
+		android:hint="@string/please_input_case_item"
+		/>
+
+</RelativeLayout>

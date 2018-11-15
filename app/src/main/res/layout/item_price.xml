@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_40">
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:background="@drawable/selector_dialog_price_bg"
+        android:gravity="center"
+        android:textColor="@color/dialog_price"
+        android:textSize="@dimen/sp_18" />
+
+    <RelativeLayout
+        android:id="@+id/custom_price_lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/selector_dialog_price_bg"
+        android:visibility="visible">
+
+        <EditText
+            android:id="@+id/et_custom_price"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@+id/tv_suffix"
+            android:background="@null"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:maxLength="5"
+            android:maxLines="1"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:id="@+id/tv_suffix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginRight="@dimen/dp_4"
+            android:text="元"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/sp_16" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

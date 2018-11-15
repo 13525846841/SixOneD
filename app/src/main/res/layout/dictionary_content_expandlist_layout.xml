@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+        >
+        <ExpandableListView
+	        android:id="@android:id/list"
+	        android:groupIndicator="@null"
+	        android:choiceMode="singleChoice"
+	        android:cacheColorHint="#00000000"
+	        android:listSelector="#00000000"
+	        android:layout_width="match_parent"
+	        android:layout_height="fill_parent" >
+    	</ExpandableListView>
+        <TextView android:id="@+id/list_empty" android:text="内容近期更新,请随时关注!" android:visibility="gone"  android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:textSize="16sp"/>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/indexView" android:orientation="vertical" android:layout_gravity="right" android:layout_height="fill_parent" android:layout_width="40dp">
+    </LinearLayout>
+ </FrameLayout>

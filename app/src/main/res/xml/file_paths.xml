@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<imagePaths>
+
+    <!--表示Context.getFilesDir()目录或者其子目录。-->
+    <files-path
+        name="name"
+        path="path" />
+
+    <!--表示Context.getCacheDir()目录或者其子目录。-->
+    <cache-path
+        name="name"
+        path="path" />
+
+    <!--表示Environment.getExternalStorageDirectory()目录或者其子目录。-->
+    <external-path
+        name="name"
+        path="path" />
+
+    <!--表示Context.getExternalFilesDir(null)目录或者其子目录。-->
+    <external-files-path
+        name="name"
+        path="path" />
+
+    <!--表示Context.getExternalCacheDir()目录或者其子目录。-->
+    <external-cache-path
+        name="name"
+        path="path" />
+
+    <external-path path="Android/data/com.yksj.consultation.sonDoc/" name="files_root" />
+    <external-path path="." name="external_storage_root" />
+</imagePaths>

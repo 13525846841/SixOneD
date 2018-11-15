@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_gray">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <fragment
+                android:id="@+id/frg"
+                android:name="com.yksj.consultation.main.MainBannerFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                tools:layout="@layout/main_top_view_layout" />
+
+            <fragment
+                android:id="@+id/menu"
+                android:name="com.yksj.consultation.main.MainMenuFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                tools:layout="@layout/fragment_main_menu" />
+
+            <fragment
+                android:id="@+id/fgt_myorders"
+                android:name="com.yksj.consultation.main.MainOrdersFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_weight="0.4"
+                tools:layout="@layout/fgt_mainorders" />
+
+            <View style="@style/common_split_line" />
+
+            <fragment
+                android:id="@+id/fgt_mymsg"
+                android:name="com.yksj.consultation.main.MainMessagePointFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.4"
+                tools:layout="@layout/fgt_mainmsg" />
+
+            <RelativeLayout
+                android:id="@+id/rl_consult"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_weight="0.4"
+                android:background="@color/white"
+                android:padding="@dimen/dp_14"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/btn_consult"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/btn_selector"
+                    android:gravity="center"
+                    android:text="发 起 会 诊"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_18" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_case"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_weight="0.4"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dp_14"
+                android:paddingRight="@dimen/dp_14"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/btn_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60"
+                    android:layout_marginTop="@dimen/dp_14"
+                    android:layout_marginBottom="@dimen/dp_14"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/btn_selector"
+                    android:gravity="center"
+                    android:text="上 传 病 例"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_18" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

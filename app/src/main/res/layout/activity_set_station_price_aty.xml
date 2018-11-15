@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_bg"
+    android:orientation="vertical">
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/st_switch"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        app:sLeftTextColor="@color/color_text1"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="是否开通"
+        app:sLeftViewMarginLeft="@dimen/dp_16"
+        app:sRightViewType="switchBtn"
+        app:sSwitchCheckedColor="@color/main_color" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/price_stv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_12"
+        app:sLeftTextColor="@color/color_text1"
+        app:sLeftTextSize="@dimen/sp_16"
+        app:sLeftTextString="咨询价格(元)"
+        app:sLeftViewMarginLeft="@dimen/dp_16"
+        app:sRightEditColor="@color/color_text1"
+        app:sRightEditHintString="请输入价格"
+        app:sRightEditInputType="price"
+        app:sRightEditSize="@dimen/sp_16"
+        app:sRightTextSize="@dimen/sp_16"
+        app:sRightViewType="editText"
+        app:sSwitchIsChecked="false" />
+
+    <RelativeLayout
+        android:id="@+id/rl_time"
+        style="@style/text_check_relativeLayout"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_12"
+        android:background="#ffffff"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="7dp"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/info_text_left_sec"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:text="时间(小时)"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/hour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:gravity="right"
+            android:hint="请输入"
+            android:inputType="number"
+            android:textColor="@color/gray_text"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
+

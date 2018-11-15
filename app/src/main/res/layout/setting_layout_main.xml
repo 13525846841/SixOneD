@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/bound"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="@string/so_boundphone"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/setting_password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="@string/setPrivacy"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <View style="@style/common_split_line_6dp" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/setting_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="@string/setting_feedback"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/setting_clear_cache"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="@string/setting_leave_qingchuhuancun"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right"
+            app:sRightTextColor="@color/gray_text"
+            app:sRightTextSize="@dimen/sp_14" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/wifi_updata_stv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftBottomTextColor="@color/text_black_two"
+            app:sLeftBottomTextSize="@dimen/sp_12"
+            app:sLeftBottomTextString="wifi下自动下载安装包"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="自动更新"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightViewType="switchBtn"
+            app:sSwitchCheckedColor="@color/main_color"
+            app:sSwitchIsChecked="true" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/check_updata_stv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="检查更新"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right"
+            app:sTextViewDrawablePadding="@dimen/dp_3"
+            app:sRightTextColor="@color/gray_text"
+            app:sRightTextSize="@dimen/sp_16" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/setting_update"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sDividerLineColor="@color/divider"
+            app:sDividerLineHeight="@dimen/dp_0_5"
+            app:sDividerLineType="top"
+            app:sLeftIconMarginLeft="@dimen/dp_16"
+            app:sLeftTextColor="@color/text_black_two"
+            app:sLeftTextSize="@dimen/sp_16"
+            app:sLeftTextString="关于我们"
+            app:sLeftViewMarginLeft="@dimen/dp_16"
+            app:sRightIconMarginRight="@dimen/dp_16"
+            app:sRightIconRes="@drawable/ic_arrow_right" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
