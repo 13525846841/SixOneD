@@ -218,6 +218,7 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements CompoundBut
                     }
                 }
                 break;
+
         }
     }
 
