@@ -86,7 +86,7 @@ public class SystemMessageAdapter extends BaseQuickAdapter<MessageEntity, BaseVi
         helper.setText(R.id.chat_content, content);
         ((TextView) helper.getView(R.id.chat_content)).setMovementMethod(LinkMovementMethod.getInstance());
         int position = helper.getAdapterPosition();
-        ViewHelper.setTextForView(helper.getView(R.id.chat_time), TimeUtil.getChatTime(position <= 0 ? 0 : getItem(--position).getDate(), item.getDate()), true);
+        ViewHelper.setTextForView(helper.getView(R.id.chat_time), TimeUtil.getChatTime(position <= 0 ? 0 : getItem(--position).getDate(), item.getDate()));
     }
 
     /**

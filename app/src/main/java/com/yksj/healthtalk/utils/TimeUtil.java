@@ -51,31 +51,6 @@ public class TimeUtil {
         return calendar.getTimeInMillis();
     }
 
-    /**
-     * 计算工作站订单结束时间
-     * @param endServiceTime
-     * @return
-     */
-    public static String computeStationOrderTime(Long endServiceTime) {
-        long nowTime = System.currentTimeMillis();
-        long diff = endServiceTime - nowTime;
-        int day = (int) (diff / TimeConstants.DAY);//天
-        int hours = (int) ((diff - day * TimeConstants.DAY) / TimeConstants.HOUR);//时
-        int minutes = (int) ((diff - day * TimeConstants.DAY - hours * TimeConstants.HOUR) / TimeConstants.MIN);//分
-        int second = (int) ((diff - day * TimeConstants.DAY - hours * TimeConstants.HOUR - minutes * TimeConstants.MIN) / 1000);//秒
-        if (day > 0) {
-            return String.format("%d天%d时%d分%d秒", day, hours, minutes, second);
-        } else if (hours > 0) {
-            return String.format("%d时%d分%d秒", hours, minutes, second);
-        } else if (minutes > 0) {
-            return String.format("%d分%d秒", minutes, second);
-        } else if (second > 0) {
-            return String.format("%d秒", second);
-        } else {
-            return "";
-        }
-    }
-
     public static String getTimeStr() {
         return String.valueOf(System.currentTimeMillis());
     }
@@ -287,6 +262,9 @@ public class TimeUtil {
     }
 
     public static String getFormatDate(String str) {
+        if (TextUtils.isEmpty(str)){
+            return "";
+        }
         return getYear(str) + "-" + str.subSequence(4, 6) + "-" + str.subSequence(6, 8) + " " + getTime2(str);
     }
 

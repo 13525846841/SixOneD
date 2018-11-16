@@ -68,11 +68,11 @@ public class StationMemberAdapter extends RecyclerView.Adapter {
         int itemViewType = getItemViewType(position);
         if (itemViewType == NORMAL_TYPE) {
             StationMemberBean item = getItem(position);
-            ViewHelper.setTextForView(helper.getView(R.id.tv_name), item.DOCTOR_REAL_NAME, true);
-            ViewHelper.setTextForView(helper.getView(R.id.tv_address), item.WORK_LOCATION_DESC, true);
-            ViewHelper.setTextForView(helper.getView(R.id.tv_job), item.TITLE_NAME, true);
-            ViewHelper.setTextForView(helper.getView(R.id.tv_departments), item.OFFICE_NAME, true);
-            ViewHelper.setTextForView(helper.getView(R.id.tv_type), item.MEMBER_TYPE_NAME, true);
+            ViewHelper.setTextForView(helper.getView(R.id.tv_name), item.DOCTOR_REAL_NAME);
+            ViewHelper.setTextForView(helper.getView(R.id.tv_address), item.WORK_LOCATION_DESC);
+            ViewHelper.setTextForView(helper.getView(R.id.tv_job), item.TITLE_NAME);
+            ViewHelper.setTextForView(helper.getView(R.id.tv_departments), item.OFFICE_NAME);
+            ViewHelper.setTextForView(helper.getView(R.id.tv_type), item.MEMBER_TYPE_NAME);
             helper.setImageResource(R.id.iv_type, item.getTypeIcon());
             String url = AppContext.getApiRepository().URL_QUERYHEADIMAGE_NEW
                     + (TextUtils.isEmpty(item.BIG_ICON_BACKGROUND) ? item.DOCTOR_PICTURE : item.BIG_ICON_BACKGROUND);

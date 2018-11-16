@@ -5,22 +5,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.List;
-
 public class ViewHelper {
 
-    public static void setTextForView(View view, String text, boolean isGone) {
+    /**
+     * 设置文字（如果文字未空隐藏view）
+     * @param view
+     * @param text
+     */
+    public static void setTextForView(View view, String text) {
         if (view instanceof TextView) {
-            if (isGone) view.setVisibility(TextUtils.isEmpty(text) ? View.GONE : View.VISIBLE);
+            view.setVisibility(TextUtils.isEmpty(text) ? View.GONE : View.VISIBLE);
             ((TextView) view).setText(text);
         } else if (view instanceof Button) {
-            if (isGone) view.setVisibility(TextUtils.isEmpty(text) ? View.GONE : View.VISIBLE);
+            view.setVisibility(TextUtils.isEmpty(text) ? View.GONE : View.VISIBLE);
             ((Button) view).setText(text);
         }
-    }
-
-    public static void setVisibalForDatas(View contentView, View emptyView, List result) {
-        contentView.setVisibility(result == null || result.isEmpty() ? View.GONE : View.VISIBLE);
-        emptyView.setVisibility(result == null || result.isEmpty() ? View.VISIBLE : View.GONE);
     }
 }

@@ -50,7 +50,7 @@ public class Constant {
     }
 
     /**
-     * 0是抢单列表(待分配) 1是抢单成功(待服务)   2是站长分配 3是服务中  4 已完成服务
+     * 0待分配(是抢单列表) 1待服务(是抢单成功) 2待分配(站长分配) 3服务中  4已完成
      */
     public static class StationOrderStatus {
         public static final String QD = "0";

@@ -24,10 +24,10 @@ public class NewsCommentAdapter extends BaseQuickAdapter<NewsCommentBean, BaseVi
     @Override
     protected void convert(BaseViewHolder helper, NewsCommentBean item) {
         ViewHelper.setTextForView(helper.getView(R.id.case_dis_comment_item_name), TextUtils.isEmpty(item.customer.CUSTOMER_NICKNAME) ?
-                item.customer.CUSTOMER_ACCOUNTS : item.customer.CUSTOMER_NICKNAME, true);
-        ViewHelper.setTextForView(helper.getView(R.id.case_dis_comment_item_time), TimeUtil.format(item.COMMENT_TIME), true);
-        ViewHelper.setTextForView(helper.getView(R.id.case_dis_comment_item_img), item.COMMENT_CONTENT, true);
-        ViewHelper.setTextForView(helper.getView(R.id.case_dis_comment_item_content), item.COMMENT_CONTENT, true);
+                item.customer.CUSTOMER_ACCOUNTS : item.customer.CUSTOMER_NICKNAME);
+        ViewHelper.setTextForView(helper.getView(R.id.case_dis_comment_item_time), TimeUtil.format(item.COMMENT_TIME));
+        ViewHelper.setTextForView(helper.getView(R.id.case_dis_comment_item_img), item.COMMENT_CONTENT);
+        ViewHelper.setTextForView(helper.getView(R.id.case_dis_comment_item_content), item.COMMENT_CONTENT);
         //图片展示
         String url = AppContext.getApiRepository().URL_QUERYHEADIMAGE_NEW + item.customer.CLIENT_ICON_BACKGROUND;
         ImageLoader.loadAvatar(url).into((ImageView) helper.getView(R.id.iv_avatar));

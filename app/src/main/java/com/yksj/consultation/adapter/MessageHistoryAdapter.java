@@ -76,7 +76,7 @@ public class MessageHistoryAdapter extends BaseQuickAdapter<MessageHistoryBean, 
         helper.setText(R.id.name, item.getName());
         helper.setText(R.id.message, item.getContent());
         helper.setText(R.id.time, item.SEND_TIME);
-        ViewHelper.setTextForView(helper.getView(R.id.messagecount), item.NUMS == 0 ? "" : String.valueOf(item.NUMS), true);
+        ViewHelper.setTextForView(helper.getView(R.id.messagecount), item.NUMS == 0 ? "" : String.valueOf(item.NUMS));
     }
 
     /**

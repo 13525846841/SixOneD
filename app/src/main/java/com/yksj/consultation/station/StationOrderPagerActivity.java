@@ -58,10 +58,10 @@ public class StationOrderPagerActivity extends BaseTabActivity {
         // 待分配|待抢单
         fragment = mType == StationType.STATION_HOME_CREATE ?
                 StationOrderSubFragment.newInstance(mServiceType, Constant.StationOrderStatus.ZZFP, mStationId) :
-                StationOrderSubFragment.newInstance(mServiceType, Constant.StationOrderStatus.QDSUCESS, mStationId);
+                StationOrderSubFragment.newInstance(mServiceType, Constant.StationOrderStatus.QD, mStationId);
         fragments.add(fragment);
         // 待服务
-        fragment = StationOrderSubFragment.newInstance(mServiceType, Constant.StationOrderStatus.QD, mStationId);
+        fragment = StationOrderSubFragment.newInstance(mServiceType, Constant.StationOrderStatus.QDSUCESS, mStationId);
         fragments.add(fragment);
         // 服务中
         fragment = StationOrderSubFragment.newInstance(mServiceType, Constant.StationOrderStatus.FWZ, mStationId);
@@ -69,6 +69,7 @@ public class StationOrderPagerActivity extends BaseTabActivity {
         // 已完成
         fragment = StationOrderSubFragment.newInstance(mServiceType, Constant.StationOrderStatus.OVER, mStationId);
         fragments.add(fragment);
+
         mPagerAdapter.bindFragment(fragments);
         mTabLayout.setViewPager(viewpager, titles);
         //加载页面全部数据

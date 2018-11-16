@@ -26,7 +26,7 @@ public class ServiceOrderBean {
     public String ENJOY_CUSTOMER_ID;
     public String differenceTime;
     public int adapterInPosition;
-    public int waitTime;//等待时间
+//    public int waitTime;//等待时间
     public int isBack;
     public String LASTTIME;
     public String cycle;

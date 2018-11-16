@@ -55,7 +55,7 @@ public class StationOrderSubFragment extends BaseFragment implements StationOrde
     @BindView(R.id.empty_layout)
     View mEmptyView;
 
-    private String site_id;
+    private String mStationId;
 
     public static StationOrderSubFragment newInstance(String serviceTypeId, String type, String stationId) {
 
@@ -78,15 +78,14 @@ public class StationOrderSubFragment extends BaseFragment implements StationOrde
     public void initialize(View view) {
         super.initialize(view);
         mType = getArguments().getString(Constant.Station.ORDER_TYPE);
-        site_id = getArguments().getString(Constant.Station.STATION_ID);
+        mStationId = getArguments().getString(Constant.Station.STATION_ID);
         initView(view);
     }
 
     private void initView(View view) {
-        mRefreshLayout
-                .setOnRefreshListener(refreshLayout -> requestData())
-                .setEnableLoadMore(false)
-                .autoRefresh();
+        mRefreshLayout.setOnRefreshListener(refreshLayout -> requestData())
+                      .setEnableLoadMore(false)
+                      .autoRefresh();
 
         mRecyclerView.setAdapter(mAdapter = new StationOrderAdapter(mType));
         mRecyclerView.addItemDecoration(new DividerListItemDecoration(LinearLayoutManager.VERTICAL, ResourceHelper.getDimens(R.dimen.dp_6)));
@@ -132,7 +131,7 @@ public class StationOrderSubFragment extends BaseFragment implements StationOrde
     }
 
     private void requestData() {
-        ApiService.OkHttpStationOrder(DoctorHelper.getId(), site_id, mType, new ApiCallbackWrapper<ResponseBean<List<ServiceOrderBean>>>() {
+        ApiService.OkHttpStationOrder(DoctorHelper.getId(), mStationId, mType, new ApiCallbackWrapper<ResponseBean<List<ServiceOrderBean>>>() {
 
             @Override
             public void onError(Request request, Exception e) {
@@ -244,7 +243,7 @@ public class StationOrderSubFragment extends BaseFragment implements StationOrde
      */
     @Override
     public void onDispatchClick(ServiceOrderBean item) {
-        Intent intent = StationMemberChoiceAty.getCallingIntent(getContext(), Constant.ChoiceType.FP, site_id, String.valueOf(item.ORDER_ID), item.GROUP_ID);
+        Intent intent = StationMemberChoiceAty.getCallingIntent(getContext(), Constant.ChoiceType.FP, mStationId, String.valueOf(item.ORDER_ID), item.GROUP_ID);
         startActivity(intent);
     }
 
@@ -279,7 +278,7 @@ public class StationOrderSubFragment extends BaseFragment implements StationOrde
      */
     @Override
     public void onInviteClick(ServiceOrderBean item) {
-        Intent intent = StationMemberChoiceAty.getCallingIntent(getContext(), Constant.ChoiceType.YQ, site_id, String.valueOf(item.ORDER_ID), item.GROUP_ID);
+        Intent intent = StationMemberChoiceAty.getCallingIntent(getContext(), Constant.ChoiceType.YQ, mStationId, String.valueOf(item.ORDER_ID), item.GROUP_ID);
         startActivity(intent);
     }
 }
