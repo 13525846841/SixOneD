@@ -126,8 +126,6 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements CompoundBut
         mainView = getLayoutInflater().inflate(R.layout.activity_new_template_aty, null);
 
         initTemplate();
-
-
     }
 
     /**
