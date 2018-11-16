@@ -132,7 +132,7 @@ public class StationOrderSubFragment extends BaseFragment implements StationOrde
     }
 
     private void requestData() {
-        ApiService.OkHttpStationOrder(site_id, mType, new ApiCallbackWrapper<ResponseBean<List<ServiceOrderBean>>>() {
+        ApiService.OkHttpStationOrder(DoctorHelper.getId(), site_id, mType, new ApiCallbackWrapper<ResponseBean<List<ServiceOrderBean>>>() {
 
             @Override
             public void onError(Request request, Exception e) {

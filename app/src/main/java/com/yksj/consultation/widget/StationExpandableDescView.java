@@ -56,6 +56,10 @@ public class StationExpandableDescView extends BaseView {
         return this;
     }
 
+    public String getContent(){
+        return mDescView.getContent();
+    }
+
     public StationExpandableDescView setOnEditClickListener(View.OnClickListener listener){
         mEditView.setOnClickListener(listener);
         return this;

@@ -77,6 +77,10 @@ public class ExpandableDescView extends LinearLayout {
         });
     }
 
+    public String getContent(){
+        return mContent;
+    }
+
     /**
      * 设置最大多少行显示more
      * @param maxLine

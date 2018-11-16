@@ -3494,11 +3494,12 @@ public class ApiService {
      * @param type
      * @param callback
      */
-    public static void OkHttpStationOrder(String stationId, String type, ApiCallbackWrapper callback) {
+    public static void OkHttpStationOrder(String doctorId, String stationId, String type, ApiCallbackWrapper callback) {
         Map<String, String> params = new HashMap<>();
         params.put("op", "queryWorkSiteOrderList");
         params.put("site_id", stationId);
         params.put("status", type);
+        params.put("customer_id", doctorId);
         ApiConnection.postAsyn(mRepository.COMMONURL, params, callback);
     }
 

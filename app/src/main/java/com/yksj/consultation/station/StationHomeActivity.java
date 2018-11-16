@@ -161,11 +161,12 @@ public class StationHomeActivity extends BaseTitleActivity implements StationMem
      */
     private void onHosptialDescEditClick(View v) {
         AddTextActivity.from(this)
-                .setTitle("医院介绍")
-                .setListener((v1, content, activity) -> {
-                    requestUpdataStation(null, null, content, null);
-                    activity.finish();
-                }).startActivity();
+                       .setTitle("医院介绍")
+                       .setContent(mHosptialDescView.getContent())
+                       .setListener((v1, content, activity) -> {
+                           requestUpdataStation(null, null, content, null);
+                           activity.finish();
+                       }).startActivity();
     }
 
     /**
@@ -174,11 +175,12 @@ public class StationHomeActivity extends BaseTitleActivity implements StationMem
      */
     private void onStationDescEditClick(View v) {
         AddTextActivity.from(this)
-                .setTitle("工作站介绍")
-                .setListener((v1, content, activity) -> {
-                    requestUpdataStation(content, null, null, null);
-                    activity.finish();
-                }).startActivity();
+                       .setTitle("工作站介绍")
+                       .setContent(mStationDescView.getContent())
+                       .setListener((v1, content, activity) -> {
+                           requestUpdataStation(content, null, null, null);
+                           activity.finish();
+                       }).startActivity();
     }
 
     /**
@@ -187,11 +189,12 @@ public class StationHomeActivity extends BaseTitleActivity implements StationMem
      */
     private void onFounderDescEditClick(View v) {
         AddTextActivity.from(this)
-                .setTitle("站长介绍")
-                .setListener((v1, content, activity) -> {
-                    requestUpdataStation(null, null, null, content);
-                    activity.finish();
-                }).startActivity();
+                       .setTitle("站长介绍")
+                       .setContent(mFounderDescView.getContent())
+                       .setListener((v1, content, activity) -> {
+                           requestUpdataStation(null, null, null, content);
+                           activity.finish();
+                       }).startActivity();
     }
 
     /**
@@ -283,32 +286,32 @@ public class StationHomeActivity extends BaseTitleActivity implements StationMem
     public boolean onCoverLongClick(View v) {
         if (mHomeType == StationType.STATION_HOME_CREATE) {
             SelectorDialog.newInstance(new String[]{"本地照片", "拍摄"})
-                    .setOnItemClickListener(new SelectorDialog.OnMenuItemClickListener() {
-                        @Override
-                        public void onItemClick(SelectorDialog dialog, int position) {
-                            switch (position) {
-                                case 1:
-                                    RxChooseHelper.captureImage(StationHomeActivity.this, 3, 2)
-                                                  .subscribe(new Consumer<String>() {
-                                                      @Override
-                                                      public void accept(String capturePath) throws Exception {
-                                                          requestUpdataBg(capturePath);
-                                                      }
-                                                  });
-                                    break;
-                                case 0:
-                                    RxChooseHelper.chooseImage(StationHomeActivity.this, 3, 2)
-                                                  .subscribe(new Consumer<String>() {
-                                                      @Override
-                                                      public void accept(String s) throws Exception {
-                                                          requestUpdataBg(s);
-                                                      }
-                                                  });
-                                    break;
-                            }
-                        }
-                    })
-                    .show(getSupportFragmentManager());
+                          .setOnItemClickListener(new SelectorDialog.OnMenuItemClickListener() {
+                              @Override
+                              public void onItemClick(SelectorDialog dialog, int position) {
+                                  switch (position) {
+                                      case 1:
+                                          RxChooseHelper.captureImage(StationHomeActivity.this, 3, 2)
+                                                        .subscribe(new Consumer<String>() {
+                                                            @Override
+                                                            public void accept(String capturePath) throws Exception {
+                                                                requestUpdataBg(capturePath);
+                                                            }
+                                                        });
+                                          break;
+                                      case 0:
+                                          RxChooseHelper.chooseImage(StationHomeActivity.this, 3, 2)
+                                                        .subscribe(new Consumer<String>() {
+                                                            @Override
+                                                            public void accept(String s) throws Exception {
+                                                                requestUpdataBg(s);
+                                                            }
+                                                        });
+                                          break;
+                                  }
+                              }
+                          })
+                          .show(getSupportFragmentManager());
         }
         return true;
     }
@@ -320,12 +323,12 @@ public class StationHomeActivity extends BaseTitleActivity implements StationMem
     @OnClick(R.id.look_station_barcode)
     public void onStationBarcode(View v) {
         BarCodeActivity.from(this)
-                .setId(mStationData.siteInfo.SITE_CREATEOR)
-                .setQrPath(mStationData.qrCodeUrl)
-                .setName(mStationData.siteInfo.SITE_NAME)
-                .setAvatarPath(mCoverPath)
-                .setTitle(mStationData.siteInfo.SITE_NAME)
-                .toStart();
+                       .setId(mStationData.siteInfo.SITE_CREATEOR)
+                       .setQrPath(mStationData.qrCodeUrl)
+                       .setName(mStationData.siteInfo.SITE_NAME)
+                       .setAvatarPath(mCoverPath)
+                       .setTitle(mStationData.siteInfo.SITE_NAME)
+                       .toStart();
     }
 
     /**
@@ -346,15 +349,15 @@ public class StationHomeActivity extends BaseTitleActivity implements StationMem
     @OnClick(R.id.tv_join_station)
     public void onJoinStation(View v) {
         AddTextActivity.from(this)
-                .setTitle("申请加入")
-                .setListener(new AddTextActivity.OnAddTextClickListener() {
-                    @Override
-                    public void onConfrimClick(View v, String content, AddTextActivity activity) {
-                        activity.finish();
-                        requestApplyJoin(content);
-                    }
-                })
-                .startActivity();
+                       .setTitle("申请加入")
+                       .setListener(new AddTextActivity.OnAddTextClickListener() {
+                           @Override
+                           public void onConfrimClick(View v, String content, AddTextActivity activity) {
+                               activity.finish();
+                               requestApplyJoin(content);
+                           }
+                       })
+                       .startActivity();
     }
 
     /**

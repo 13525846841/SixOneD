@@ -188,7 +188,8 @@
                     android:drawableLeft="@drawable/xing"
                     android:drawablePadding="6dp"
                     android:text="用户评价"
-                    android:textSize="18sp" />
+                    android:textColor="@color/gray_text"
+                    android:textSize="@dimen/sp_16" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -245,7 +246,8 @@
                         android:drawableLeft="@drawable/xing"
                         android:drawablePadding="6dp"
                         android:text="成员介绍"
-                        android:textSize="18sp" />
+                        android:textColor="@color/gray_text"
+                        android:textSize="@dimen/sp_16" />
 
                     <View
                         android:layout_width="0dp"
