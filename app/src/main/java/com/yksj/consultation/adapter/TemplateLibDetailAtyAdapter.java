@@ -44,7 +44,7 @@ public class TemplateLibDetailAtyAdapter extends SimpleBaseAdapter<JSONObject> {
 
     @Override
     public int getItemResource() {
-        return R.layout.item_addtemp;
+        return R.layout.item_temp;
     }
 
     @Override

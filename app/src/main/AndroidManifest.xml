@@ -894,7 +894,7 @@
             android:name=".consultation.TemplatelibAty"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".consultation.NewTemplateAty"
+            android:name=".consultation.CreateTempleteActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".consultation.AtyFollowUpPlan"

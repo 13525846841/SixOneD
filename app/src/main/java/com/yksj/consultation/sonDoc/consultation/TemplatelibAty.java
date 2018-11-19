@@ -1,7 +1,6 @@
 package com.yksj.consultation.sonDoc.consultation;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -63,8 +62,6 @@ public class TemplatelibAty extends BaseTitleActivity implements BaseQuickAdapte
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         FollowTemplateBean item = mAdapter.getItem(position);
-        Intent intent = new Intent(this, TemplateLibDetailAty.class);
-        intent.putExtra("template_id", item.id);
-        startActivity(intent);
+        startActivity(TemplateLibDetailAty.getCallingIntent(this, item.id));
     }
 }

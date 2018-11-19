@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/color_gray_bg"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:activity="com.yksj.consultation.sonDoc.consultation.NewTemplateAty">
+    android:orientation="vertical"
+    tools:activity="com.yksj.consultation.sonDoc.consultation.CreateTempleteActivity">
 
-    <include layout="@layout/gray_title_layout" />
-
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -20,159 +19,46 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="10dp"
-                android:background="#ffffff"
-                android:padding="7dp">
+            <View style="@style/common_split_line_6dp" />
 
-                <EditText
-                    android:id="@+id/et_template_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_8"
-                    android:background="#ffffff"
-                    android:hint="请输入模板名称"
-                    android:textSize="16sp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                style="@style/text_check_relativeLayout"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="#ffffff"
-                android:padding="7dp">
-
-                <TextView
-                    style="@style/info_text_left_sec"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/dp_8"
-                    android:text="随访开始时间"
-                    android:textColor="@color/gray_text"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/detail_time"
-                    style="@style/info_text_left_sec"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/dp_8"
-                    android:text="随访开始时间"
-                    android:padding="5dp"
-                    android:layout_alignParentRight="true"
-                    android:textColor="@color/gray_text"
-                    android:textSize="14sp" />
-
-            </RelativeLayout>
-
-            <View
+            <com.library.base.widget.SuperTextView
+                android:id="@+id/name_stv"
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="#ebeff7" />
-            <!--<LinearLayout-->
-            <!--android:id="@+id/ll_addyizhen"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical">-->
+                android:layout_height="@dimen/dp_45"
+                app:sLeftTextColor="@color/black"
+                app:sLeftTextSize="@dimen/sp_15"
+                app:sLeftTextString="模板名称"
+                app:sRightIconRes="@drawable/arrows"
+                app:sRightTextColor="@color/doctor_info_text_color"
+                app:sRightTextSize="@dimen/sp_15" />
 
-            <!--<RelativeLayout-->
-            <!--style="@style/text_check_relativeLayout"-->
-            <!--android:id="@+id/rl_star"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:background="#ffffff"-->
-            <!--android:padding="7dp">-->
+            <com.library.base.widget.SuperTextView
+                android:id="@+id/start_time_stv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:visibility="gone"
+                app:sLeftTextColor="@color/black"
+                app:sLeftTextSize="@dimen/sp_15"
+                app:sLeftTextString="开始时间"
+                app:sRightIconRes="@drawable/arrows"
+                app:sRightTextColor="@color/doctor_info_text_color"
+                app:sRightTextSize="@dimen/sp_15" />
 
-            <!--<TextView-->
-            <!--style="@style/info_text_left_sec"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginLeft="@dimen/dp_8"-->
-            <!--android:text="具体开始时间"-->
-            <!--android:textColor="@color/gray_text"-->
-            <!--android:textSize="16sp" />-->
+            <View style="@style/common_split_line_6dp" />
 
-            <!--<TextView-->
-            <!--android:id="@+id/star"-->
-            <!--style="@style/info_text_left_sec"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginRight="38dp"-->
-            <!--android:text="未填写"-->
-            <!--android:textColor="@color/gray_text"-->
-            <!--android:gravity="center_vertical"-->
-            <!--android:textSize="15sp" />-->
-
-            <!--<ImageView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginRight="20dp"-->
-            <!--android:src="@drawable/arrows" />-->
-            <!--</RelativeLayout>-->
-
-            <!--<View-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0.5dp"-->
-            <!--android:background="#ebeff7" />-->
-
-            <!--<RelativeLayout-->
-
-            <!--style="@style/text_check_relativeLayout"-->
-            <!--android:id="@+id/rl_stop"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:background="#ffffff"-->
-            <!--android:padding="7dp">-->
-
-            <!--<TextView-->
-            <!--style="@style/info_text_left_sec"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginLeft="@dimen/dp_8"-->
-            <!--android:text="向患者发送"-->
-            <!--android:textColor="@color/gray_text"-->
-            <!--android:textSize="16sp" />-->
-
-            <!--<TextView-->
-            <!--android:id="@+id/stop"-->
-            <!--style="@style/info_text_left_sec"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginRight="38dp"-->
-            <!--android:text="复诊位置"-->
-            <!--android:textColor="@color/gray_text"-->
-            <!--android:gravity="center_vertical"-->
-            <!--android:textSize="15sp" />-->
-
-            <!--<ImageView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginRight="20dp"-->
-            <!--android:src="@drawable/arrows" />-->
-            <!--</RelativeLayout>-->
-
-            <!--<View-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0.5dp"-->
-            <!--android:background="#ebeff7" />-->
-
-            <!--</LinearLayout>-->
-
-            <com.yksj.consultation.sonDoc.views.MyListView2
-                android:id="@+id/newfollowuplist"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
-                android:listSelector="@color/white">
-
-            </com.yksj.consultation.sonDoc.views.MyListView2>
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
             <TextView
                 android:id="@+id/add_plan_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_margin="20dp"
                 android:background="@drawable/cormer_bg"
                 android:drawableLeft="@drawable/addtempnum"
@@ -182,6 +68,7 @@
                 android:textColor="@color/white"
                 android:textSize="16sp" />
         </LinearLayout>
-    </ScrollView>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>

@@ -14,7 +14,7 @@ import com.yksj.consultation.bean.FollowTemplateBean;
 import com.yksj.consultation.bean.ResponseBean;
 import com.yksj.consultation.bean.serializer.GsonSerializer;
 import com.yksj.consultation.sonDoc.R;
-import com.yksj.consultation.sonDoc.consultation.NewTemplateAty;
+import com.yksj.consultation.sonDoc.consultation.CreateTempleteActivity;
 import com.yksj.consultation.sonDoc.consultation.TemplatelibAty;
 import com.yksj.consultation.utils.DoctorHelper;
 import com.yksj.healthtalk.net.http.ApiCallbackWrapper;
@@ -50,7 +50,6 @@ public class FUTemplateActivity extends BaseTitleActivity implements BaseQuickAd
         super.initialize(bundle);
         setTitle("随访模板");
         initView();
-        requestTemplateData();
     }
 
     private void initView() {
@@ -63,12 +62,18 @@ public class FUTemplateActivity extends BaseTitleActivity implements BaseQuickAd
         headView.findViewById(R.id.temp_lib).setOnClickListener(this::onTemplateLibs);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        requestTemplateData();
+    }
+
     /**
      * 添加模块
      * @param v
      */
     private void onAddTemplate(View v){
-        Intent intent = new Intent(FUTemplateActivity.this, NewTemplateAty.class);
+        Intent intent = new Intent(FUTemplateActivity.this, CreateTempleteActivity.class);
         startActivity(intent);
     }
 
@@ -93,7 +98,7 @@ public class FUTemplateActivity extends BaseTitleActivity implements BaseQuickAd
         } else {// 编辑完成
             setRight("编辑");
             mTemplateAdapter.setEditable(false);
-            mDeleteIds = mTemplateAdapter.getDeleteTemplate();
+            mDeleteIds = mTemplateAdapter.getSelectTemplate();
             if (!mDeleteIds.isEmpty()){
                 requestDeleteTemplate();
             }
@@ -113,6 +118,7 @@ public class FUTemplateActivity extends BaseTitleActivity implements BaseQuickAd
                         // 有模版才能编辑
                         setRight("编辑",FUTemplateActivity.this::onEditTemplate);
                         mTemplateAdapter.setNewData(templates);
+                        mTemplateAdapter.setEditable(false);
                     }
                 }
             }

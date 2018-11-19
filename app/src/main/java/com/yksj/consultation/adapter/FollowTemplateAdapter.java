@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class FollowTemplateAdapter extends BaseQuickAdapter<FollowTemplateBean, BaseViewHolder> {
 
-    private List<CompoundButton> deleteViewsCache = new ArrayList<>();
+    private List<CompoundButton> selectViewsCache;
 
     public FollowTemplateAdapter() {
         super(R.layout.item_futemp);
@@ -24,9 +24,14 @@ public class FollowTemplateAdapter extends BaseQuickAdapter<FollowTemplateBean, 
 
     @Override
     protected void convert(BaseViewHolder helper, FollowTemplateBean item) {
+        if (helper.getAdapterPosition() == 1) {
+            selectViewsCache = new ArrayList<>();//清空缓存
+        }
         helper.setText(R.id.plan_name, item.name);
-        CompoundButton deleteRb = helper.getView(R.id.delete_rg);
-        deleteViewsCache.add(deleteRb);
+        CompoundButton selectView = helper
+                .setChecked(R.id.delete_rg, false)//默认设置未选中
+                .getView(R.id.delete_rg);
+        selectViewsCache.add(selectView);
     }
 
     /**
@@ -34,16 +39,22 @@ public class FollowTemplateAdapter extends BaseQuickAdapter<FollowTemplateBean, 
      * @param editable
      */
     public void setEditable(boolean editable) {
-        for (int i = 0; i < deleteViewsCache.size(); i++) {
-            CompoundButton deleteView = deleteViewsCache.get(i);
-            deleteView.setVisibility(editable ? View.VISIBLE : View.GONE);
+        if (null != selectViewsCache && !selectViewsCache.isEmpty()) {
+            for (int i = 0; i < selectViewsCache.size(); i++) {
+                CompoundButton deleteView = selectViewsCache.get(i);
+                deleteView.setVisibility(editable ? View.VISIBLE : View.GONE);
+            }
         }
     }
 
-    public List<String> getDeleteTemplate(){
+    /**
+     * 获取选中的模版id
+     * @return
+     */
+    public List<String> getSelectTemplate() {
         List<String> temp = new ArrayList<>();
-        for (int i = 0; i < deleteViewsCache.size(); i++) {
-            CompoundButton rb = deleteViewsCache.get(i);
+        for (int i = 0; i < selectViewsCache.size(); i++) {
+            CompoundButton rb = selectViewsCache.get(i);
             if (rb.isChecked()) {
                 temp.add(getData().get(i).id);
             }

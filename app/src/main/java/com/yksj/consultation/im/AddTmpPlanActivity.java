@@ -1,22 +1,23 @@
 package com.yksj.consultation.im;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.ListView;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.SizeUtils;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.library.base.base.BaseTitleActivity;
-import com.yksj.consultation.adapter.AddTmpPlanAdapter;
+import com.library.base.dialog.SelectorDialog;
+import com.library.base.widget.DividerListItemDecoration;
+import com.library.base.widget.SuperTextView;
+import com.yksj.consultation.adapter.TmpPlanAdapter;
 import com.yksj.consultation.sonDoc.R;
-import com.yksj.consultation.sonDoc.listener.TemplateOnClickListener;
 import com.yksj.consultation.utils.DoctorHelper;
 import com.yksj.healthtalk.net.http.ApiCallbackWrapper;
 import com.yksj.healthtalk.net.http.ApiService;
@@ -33,24 +34,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.OnClick;
 import okhttp3.Request;
 
 /**
  * 添加随访计划
  */
-public class AddTmpPlanActivity extends BaseTitleActivity implements CompoundButton.OnCheckedChangeListener, TemplateOnClickListener {
+public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAdapter.OnItemChildClickListener {
 
     public final static String TYPE = "TYPE";
     public static int LOOKTYPE = 1;//1 不可修改 2 可修改
-    private ListView mListView;
-    private AddTmpPlanAdapter adapter;
+
+    @BindView(R.id.start_time_stv) SuperTextView mStartTimeStv;
+    @BindView(R.id.remind_me_stv) SuperTextView mRemindMeStv;
+    @BindView(R.id.remind_patient_stv) SuperTextView mRemindPatientStv;
+    @BindView(R.id.remind_time_stv) SuperTextView mRemindTimeStv;
+    @BindView(R.id.patient_visiable_stv) SuperTextView mRemindVisiableStv;
+    @BindView(R.id.followuplist) RecyclerView mRecyclerView;
+
+    private String sRemindme = "0";//提醒我
+    private String sRemindcus = "0";//提醒患者
+    private String sCusseeplan = "0";//患者可见不可见
+
+    private TmpPlanAdapter mAdapter;
     private String follow_id;
     private List<JSONObject> mList;
-    private TextView temp_time;//随访开始时间
-    private ToggleButton remindme;//提醒我
-    private ToggleButton remindcus;//提醒患者
-    private ToggleButton cusseeplan;//患者是否可见
-    private TextView remindtime;//提醒时间
 
     private String customer_id;
     private String doctor_id = DoctorHelper.getId();
@@ -59,7 +68,7 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements CompoundBut
 
     private List<JSONObject> list = new ArrayList<>();//存储的内容
     private JSONObject object = new JSONObject();
-    private Map<String,String> map=new HashMap<>();
+    private Map<String, String> map = new HashMap<>();
     public int pos;
     private View wheelView;
     private View mainView;
@@ -69,7 +78,6 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements CompoundBut
     private List<Map<String, String>> mUnit = null;
     private String remindContent;//提醒内容
     private String remindTime;//提醒时间
-    public  TextView template_time;
 
     private boolean REMINDTYPE = true;
 
@@ -85,38 +93,21 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements CompoundBut
     @Override
     public void initialize(Bundle bundle) {
         super.initialize(bundle);
+        follow_id = getIntent().getStringExtra("follow_id");
+        customer_id = getIntent().getStringExtra("customer_id");
+        setRight("保存", v -> AddTemplatePlan());
         setTitle("随访计划");
         initView();
     }
 
     private void initView() {
-        findViewById(R.id.rl_temp_time).setOnClickListener(this);
-        findViewById(R.id.rl_remind_time).setOnClickListener(this);
-        temp_time = (TextView) findViewById(R.id.temp_time);
-
-        remindme = (ToggleButton) findViewById(R.id.remindme);
-        remindcus = (ToggleButton) findViewById(R.id.remindcus);
-        cusseeplan = (ToggleButton) findViewById(R.id.cusseeplan);
-        remindme.setOnCheckedChangeListener(this);
-        remindcus.setOnCheckedChangeListener(this);
-        cusseeplan.setOnCheckedChangeListener(this);
-
-        remindtime = (TextView) findViewById(R.id.remind_time);
-        setRight("保存", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AddTemplatePlan();
-            }
-        });
-
-        if (getIntent().hasExtra("follow_id"))
-            follow_id = getIntent().getStringExtra("follow_id");
-            customer_id = getIntent().getStringExtra("customer_id");
-
-        mListView = (ListView) findViewById(R.id.followuplist);
-        adapter = new AddTmpPlanAdapter(this,this);
-        mListView.setAdapter(adapter);
-
+        mRemindMeStv.setSwitchCheckedChangeListener((buttonView, isChecked) -> sRemindme = isChecked ? "1" : "0");
+        mRemindPatientStv.setSwitchCheckedChangeListener((buttonView, isChecked) -> sRemindcus = isChecked ? "1" : "0");
+        mRemindVisiableStv.setSwitchCheckedChangeListener((buttonView, isChecked) -> sCusseeplan = isChecked ? "1" : "0");
+        mAdapter = new TmpPlanAdapter();
+        mRecyclerView.addItemDecoration(new DividerListItemDecoration(LinearLayoutManager.VERTICAL, SizeUtils.dp2px(8)));
+        mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemChildClickListener(this);
 
         wheelView = getLayoutInflater().inflate(R.layout.wheel, null);
         wheelView.findViewById(R.id.wheel_cancel).setOnClickListener(this);
@@ -153,7 +144,7 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements CompoundBut
                             item = array.getJSONObject(i);
                             mList.add(item);
                         }
-                        adapter.onBoundData(mList);
+                        mAdapter.setNewData(mList);
                         mTemplateName = object.optJSONObject("template").optString("TEMPLATE_NAME");
                         setTitle(mTemplateName);
                     }
@@ -161,72 +152,67 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements CompoundBut
                     e.printStackTrace();
                 }
             }
-        },this);
+        }, this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.rl_temp_time:
-                initTime();
-                break;
-            case R.id.rl_remind_time:
-                remindTime();
-                break;
             case R.id.wheel_cancel:
                 if (mAddressWindow != null)
                     mAddressWindow.dismiss();
                 break;
             case R.id.wheel_sure:
-                if (REMINDTYPE) {
-                    if (mAddressWindow != null)
-                        mAddressWindow.dismiss();
-                    if (WheelUtils.getCurrent() != null) {
-                        try {
+                try {
+                    if (REMINDTYPE) {
+                        if (mAddressWindow != null)
+                            mAddressWindow.dismiss();
+                        if (WheelUtils.getCurrent() != null) {
                             if (WheelUtils.getCurrent2().equals("天")) {
-                                adapter.datas.get(pos).put("TEMPLATE_SUB_TIMETYPE", "10");
+                                mAdapter.getItem(pos).put("TEMPLATE_SUB_TIMETYPE", "10");
                             } else if (WheelUtils.getCurrent2().equals("周")) {
-                                adapter.datas.get(pos).put("TEMPLATE_SUB_TIMETYPE", "20");
+                                mAdapter.getItem(pos).put("TEMPLATE_SUB_TIMETYPE", "20");
                             } else if (WheelUtils.getCurrent2().equals("月")) {
-                                adapter.datas.get(pos).put("TEMPLATE_SUB_TIMETYPE", "30");
+                                mAdapter.getItem(pos).put("TEMPLATE_SUB_TIMETYPE", "30");
                             } else if (WheelUtils.getCurrent2().equals("年")) {
-                                adapter.datas.get(pos).put("TEMPLATE_SUB_TIMETYPE", "40");
+                                mAdapter.getItem(pos).put("TEMPLATE_SUB_TIMETYPE", "40");
                             }
+                            mAdapter.getItem(pos).put("TIMETYPE_COUNT", WheelUtils.getCurrent1());
+                            mAdapter.notifyDataSetChanged();
 
-                            adapter.datas.get(pos).put("TIMETYPE_COUNT", WheelUtils.getCurrent1());
-                            adapter.notifyDataSetChanged();
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                        }
+                    } else {
+                        if (mAddressWindow != null)
+                            mAddressWindow.dismiss();
+                        if (WheelUtils.getCurrent() != null) {
+                            alert_timeCount = WheelUtils.getCurrent1();
+                            mRemindTimeStv.setRightString(WheelUtils.getCurrentt());
+                            if (WheelUtils.getCurrent2().equals("天")) {
+                                alert_timeType = "10";
+                            } else if (WheelUtils.getCurrent2().equals("周")) {
+                                alert_timeType = "20";
+                            } else if (WheelUtils.getCurrent2().equals("月")) {
+                                alert_timeType = "30";
+                            } else if (WheelUtils.getCurrent2().equals("年")) {
+                                alert_timeType = "40";
+                            }
+                            mAdapter.getItem(pos).put("TEMPLATE_SUB_TIMETYPE", alert_timeType);
+                            mAdapter.getItem(pos).put("TIMETYPE_COUNT", WheelUtils.getCurrent1());
+                            mAdapter.notifyDataSetChanged();
                         }
                     }
-                } else {
-                    if (mAddressWindow != null)
-                        mAddressWindow.dismiss();
-                    if (WheelUtils.getCurrent() != null) {
-                        alert_timeCount = WheelUtils.getCurrent1();
-                        remindtime.setText(WheelUtils.getCurrentt());
-                        if (WheelUtils.getCurrent2().equals("天")) {
-                            alert_timeType = "10";
-                        } else if (WheelUtils.getCurrent2().equals("周")) {
-                            alert_timeType = "20";
-                        } else if (WheelUtils.getCurrent2().equals("月")) {
-                            alert_timeType = "30";
-                        } else if (WheelUtils.getCurrent2().equals("年")) {
-                            alert_timeType = "40";
-                        }
-                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 break;
-
         }
     }
 
     /**
      * 提醒时间
      */
-    private void remindTime() {
-
+    @OnClick(R.id.remind_time_stv)
+    public void remindTime(View v) {
         REMINDTYPE = false;
         numberList = new ArrayList<Map<String, String>>();
         mUnit = new ArrayList<Map<String, String>>();
@@ -252,32 +238,31 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements CompoundBut
             mUnit.add(map);
         }
 
-        WheelUtils.setDoubleWheel1(AddTmpPlanActivity.this, numberList, mUnit, mainView, mAddressWindow,
-                wheelView);
+        WheelUtils.setDoubleWheel1(AddTmpPlanActivity.this, numberList, mUnit, mainView, mAddressWindow, wheelView);
     }
-
 
     /**
      * 获取提醒时间
      */
-    private void initTime() {
-        if(birPop == null ){
-            birPop= WheelUtils.showThreeDateWheel(this, getLayoutInflater().inflate(R.layout.activity_add_tmp_plan, null), new View.OnClickListener() {
+    @OnClick(R.id.start_time_stv)
+    public void initTime(View v) {
+        if (birPop == null) {
+            birPop = WheelUtils.showThreeDateWheel(this, getLayoutInflater().inflate(R.layout.activity_add_tmp_plan, null), new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     switch (v.getId()) {
                         case R.id.wheel_sure_age:
                             String[] str = (String[]) v.getTag();
                             tempTime = TimeUtil.getFormatDate3(str[0] + str[1] + str[2]);
-                            temp_time.setText(str[0] + str[1] + str[2]);
+                            mStartTimeStv.setRightString(str[0] + str[1] + str[2]);
 
                             break;
                     }
                 }
             });
-        }else if(birPop.isShowing()){
+        } else if (birPop.isShowing()) {
             birPop.dismiss();
-        }else{
+        } else {
             birPop.showAtLocation(getLayoutInflater().inflate(R.layout.activity_add_tmp_plan, null), Gravity.BOTTOM, 0, 0);
         }
     }
@@ -286,24 +271,24 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements CompoundBut
      * 添加随访计划给患者
      */
     private void AddTemplatePlan() {
-        JSONArray array=new JSONArray();
+        JSONArray array = new JSONArray();
 
-        for (int j = 0; j <adapter.datas.size() ; j++) {
+        for (int j = 0; j < mAdapter.getData().size(); j++) {
             JSONObject object = new JSONObject();
 
-            LogUtils.d("M++++++++==========",String.valueOf(adapter.datas.get(j).optString("TIMETYPE_COUNT")));
-            LogUtils.d("OM+++++++=========",String.valueOf(adapter.datas.get(j).optString("TEMPLATE_SUB_TIMETYPE")));
-            LogUtils.d("OMOM+++++==========",String.valueOf(adapter.datas.get(j).optString("TEMPLATE_SUB_CONTENT")));
+            LogUtils.d("M++++++++==========", String.valueOf(mAdapter.getData().get(j).optString("TIMETYPE_COUNT")));
+            LogUtils.d("OM+++++++=========", String.valueOf(mAdapter.getData().get(j).optString("TEMPLATE_SUB_TIMETYPE")));
+            LogUtils.d("OMOM+++++==========", String.valueOf(mAdapter.getData().get(j).optString("TEMPLATE_SUB_CONTENT")));
 
             try {
-                object.put("follow_seq",j);
-                object.put("timetype_count",adapter.datas.get(j).optString("TIMETYPE_COUNT"));
-                object.put("follow_sub_timetype",adapter.datas.get(j).optString("TEMPLATE_SUB_TIMETYPE"));
-                object.put("follow_content",adapter.datas.get(j).optString("TEMPLATE_SUB_CONTENT"));
+                object.put("follow_seq", j);
+                object.put("timetype_count", mAdapter.getData().get(j).optString("TIMETYPE_COUNT"));
+                object.put("follow_sub_timetype", mAdapter.getData().get(j).optString("TEMPLATE_SUB_TIMETYPE"));
+                object.put("follow_content", mAdapter.getData().get(j).optString("TEMPLATE_SUB_CONTENT"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-           array.put(object);
+            array.put(object);
         }
 
         if (TextUtils.isEmpty(alert_timeCount)) {
@@ -330,65 +315,31 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements CompoundBut
         map.put("sick_see_flag", sCusseeplan);//患者可见不可见
         map.put("template_id", follow_id);//模板ID
         map.put("template_name", mTemplateName);//模板名称
-        map.put("createtime",tempTime);//tempTime
+        map.put("createtime", tempTime);//tempTime
         map.put("data", array.toString());
 
-        ApiService.OKHttpAddFollow(map, new ApiCallbackWrapper<String>(this) {
+        ApiService.OKHttpAddFollow(map, new ApiCallbackWrapper<String>(true) {
 
             @Override
             public void onResponse(String content) {
                 try {
                     JSONObject obj = new JSONObject(content);
                     if ("0".equals(obj.optString("code"))) {
-                       ToastUtil.showShort(obj.optString("message"));
+                        ToastUtil.showShort(obj.optString("message"));
                         finish();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
-        },this);
-    }
-
-    private String sRemindme = "0";//提醒我
-    private String sRemindcus = "0";//提醒患者
-    private String sCusseeplan = "0";//患者可见不可见
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        switch (buttonView.getId()){
-            case R.id.remindme:
-                if (isChecked){
-                    sRemindme = "1";
-                }else {
-                    sRemindme = "0";
-                }
-                break;
-            case R.id.remindcus:
-                if (isChecked){
-                    sRemindcus = "1";
-                }else {
-                    sRemindcus = "0";
-                }
-                break;
-            case R.id.cusseeplan:
-                if (isChecked){
-                    sCusseeplan = "1";
-                }else {
-                    sCusseeplan = "0";
-                }
-                break;
-
-        }
+        }, this);
     }
 
     @Override
-    public void onStarClick(View view, int position, int id) {
+    public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
         pos = position;
-        switch (id) {
-            case R.id.rl_consul:
-                template_time = (TextView) view.findViewById(R.id.template_time);
-                RelativeLayout times = (RelativeLayout) view.findViewById(R.id.rl_consul);
-
+        switch (view.getId()) {
+            case R.id.time_stv:
                 numberList = new ArrayList<Map<String, String>>();
                 mUnit = new ArrayList<Map<String, String>>();
 
@@ -410,43 +361,25 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements CompoundBut
                     map.put("name", contentUnit[i]);
                     mUnit.add(map);
                 }
-                WheelUtils.setDoubleWheel1(AddTmpPlanActivity.this, numberList, mUnit, mainView, mAddressWindow,
-                        wheelView);
+                WheelUtils.setDoubleWheel1(AddTmpPlanActivity.this, numberList, mUnit, mainView, mAddressWindow, wheelView);
                 break;
-            case R.id.rl_add_template:
-
-                RelativeLayout template = (RelativeLayout) view.findViewById(R.id.rl_add_template);
-                final TextView template_content = (TextView) view.findViewById(R.id.template_content);
-
-                contentList = new ArrayList<Map<String, String>>();
+            case R.id.action_stv:
                 String[] content = {"复诊提醒", "用药提醒", "换药提醒", "手术提醒", "其他"};
-                for (int i = 0; i < content.length; i++) {
-                    HashMap<String, String> map = new HashMap<String, String>();
-                    map.put("name", content[i]);
-                    contentList.add(map);
-                }
-                mPopupWindow = WheelUtils.showSingleWheel(AddTmpPlanActivity.this, contentList, template_content, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        int index1 = (Integer) v.getTag(R.id.wheel_one);
-                        Map<String, String> map1 = contentList.get(index1);
-                        remindContent = map1.get("name");
-                        template_content.setText(remindContent);
-
-                        List<Map<String, String>> map2 = adapter.list;
-                        try {
-                            adapter.datas.get(pos).put("TEMPLATE_SUB_CONTENT", remindContent);
-                            List<Map<String, String>> map3 = adapter.list;
-                            adapter.notifyDataSetChanged();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        //map.put("template_sub_content", remindContent);
-                    }
-                });
-
+                SelectorDialog.newInstance(content)
+                              .setOnItemClickListener(new SelectorDialog.OnMenuItemClickListener() {
+                                  @Override
+                                  public void onItemClick(SelectorDialog dialog, int position) {
+                                      try {
+                                          remindContent = content[position];
+                                          mAdapter.getItem(pos).put("TEMPLATE_SUB_CONTENT", remindContent);
+                                          ((SuperTextView) view).setRightString(remindContent);
+                                      } catch (JSONException e) {
+                                          e.printStackTrace();
+                                      }
+                                  }
+                              })
+                              .show(getSupportFragmentManager());
                 break;
         }
-
     }
 }
