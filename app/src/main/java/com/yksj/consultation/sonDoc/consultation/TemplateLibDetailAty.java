@@ -3,12 +3,15 @@ package com.yksj.consultation.sonDoc.consultation;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ListView;
 
 import com.blankj.utilcode.util.ActivityUtils;
+import com.blankj.utilcode.util.SizeUtils;
 import com.library.base.base.BaseTitleActivity;
-import com.yksj.consultation.adapter.TemplateLibDetailAtyAdapter;
+import com.library.base.widget.DividerListItemDecoration;
+import com.yksj.consultation.adapter.TmpPlanAdapter;
 import com.yksj.consultation.sonDoc.R;
 import com.yksj.consultation.utils.DoctorHelper;
 import com.yksj.healthtalk.net.http.ApiCallbackWrapper;
@@ -31,8 +34,8 @@ import okhttp3.Request;
  */
 public class TemplateLibDetailAty extends BaseTitleActivity {
 
-    private ListView mListView;
-    private TemplateLibDetailAtyAdapter adapter;
+    private RecyclerView mRecyclerView;
+    private TmpPlanAdapter adapter;
     private String templateId;
     private List<JSONObject> mList;
     private String mTemplateName;
@@ -57,9 +60,10 @@ public class TemplateLibDetailAty extends BaseTitleActivity {
     }
 
     private void initView() {
-        mListView = (ListView) findViewById(R.id.followuplist);
-        adapter = new TemplateLibDetailAtyAdapter(this);
-        mListView.setAdapter(adapter);
+        mRecyclerView = findViewById(R.id.recycler_view);
+        mRecyclerView.addItemDecoration(new DividerListItemDecoration(LinearLayoutManager.VERTICAL, SizeUtils.dp2px(8)));
+        adapter = new TmpPlanAdapter();
+        mRecyclerView.setAdapter(adapter);
         findViewById(R.id.add_lib).setOnClickListener(this);
 
         initData();
@@ -122,7 +126,7 @@ public class TemplateLibDetailAty extends BaseTitleActivity {
                             item = array.getJSONObject(i);
                             mList.add(item);
                         }
-                        adapter.onBoundData(mList);
+                        adapter.setNewData(mList);
                         mTemplateName = object.optJSONObject("template").optString("TEMPLATE_NAME");
                         setTitle(mTemplateName);
                     }

@@ -189,11 +189,13 @@ public class CreateTempleteActivity extends BaseTitleActivity implements BaseQui
                 JSONObject object = new JSONObject();
                 String templateSubTimetype = mAdapter.getData().get(i).getString("template_sub_timetype");
                 if (HStringUtil.isEmpty(templateSubTimetype)) {
-                    continue;
+                    ToastUtil.showToastPanl("请填写完整信息");
+                    return;
                 }
                 String templateSubContent = mAdapter.getData().get(i).getString("template_sub_content");
                 if (HStringUtil.isEmpty(templateSubContent)) {
-                    continue;
+                    ToastUtil.showToastPanl("请填写完整信息");
+                    return;
                 }
                 object.put("template_seq", i);
                 object.put("timetype_count", mAdapter.getData().get(i).get("timetype_count"));

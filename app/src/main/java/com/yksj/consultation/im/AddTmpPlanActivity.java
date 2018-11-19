@@ -72,7 +72,7 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
     public int pos;
     private View wheelView;
     private View mainView;
-    PopupWindow mPopupWindow, mAddressWindow;
+    private PopupWindow mPopupWindow, mAddressWindow;
     private List<Map<String, String>> contentList = null;
     private List<Map<String, String>> numberList = null;
     private List<Map<String, String>> mUnit = null;
