@@ -897,7 +897,7 @@
             android:name=".consultation.CreateTempleteActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".consultation.AtyFollowUpPlan"
+            android:name=".consultation.FollowPlanListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".consultation.AtyFollowUpPlan2"
@@ -921,7 +921,7 @@
             android:name=".consultation.consultationorders.InviteKnowActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".consultation.consultationorders.InviteActivity" />
-        <activity android:name="com.yksj.consultation.im.AddTmpPlanActivity" />
+        <activity android:name="com.yksj.consultation.im.AddFollowPlanActivity" />
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.

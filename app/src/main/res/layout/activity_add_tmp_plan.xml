@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/color_gray_bg"
-    android:orientation="vertical"
-    tools:activity="com.yksj.consultation.im.AddTmpPlanActivity">
+    android:layout_height="wrap_content"
+    android:background="@color/color_gray_bg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,6 +43,7 @@
             android:layout_height="wrap_content"
             android:nestedScrollingEnabled="false"
             android:orientation="vertical"
+            android:overScrollMode="never"
             app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
         <View style="@style/common_split_line_6dp" />
@@ -102,10 +101,4 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </ScrollView>
-
-</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

@@ -44,7 +44,7 @@ import okhttp3.Request;
 /**
  * 添加随访计划
  */
-public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAdapter.OnItemChildClickListener {
+public class AddFollowPlanActivity extends BaseTitleActivity implements BaseQuickAdapter.OnItemChildClickListener {
 
     public final static String TYPE = "TYPE";
     public static int LOOKTYPE = 1;//1 不可修改 2 可修改
@@ -65,31 +65,22 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
     private String mFollowId;//随访模版Id
     private String mSickId;//患者Id
     private List<JSONObject> mList;
-
     private String mTemplateName;
     private PopupWindow birPop;
-
-    private List<JSONObject> list = new ArrayList<>();//存储的内容
-    private JSONObject object = new JSONObject();
-    private Map<String, String> map = new HashMap<>();
     public int pos;
     private View wheelView;
     private View mainView;
-    private PopupWindow mPopupWindow, mAddressWindow;
-    private List<Map<String, String>> contentList = null;
+    private PopupWindow mAddressWindow;
     private List<Map<String, String>> numberList = null;
     private List<Map<String, String>> mUnit = null;
     private String remindContent;//提醒内容
-    private String remindTime;//提醒时间
-
     private boolean REMINDTYPE = true;
-
     private String alert_timeCount;//提示时间
     private String alert_timeType;//提醒时间类型，天，周，月，年
     private String tempTime;//随访开始时间
 
     public static Intent getCallingIntent(Context context, String sickId, String followId) {
-        Intent intent = new Intent(context, AddTmpPlanActivity.class);
+        Intent intent = new Intent(context, AddFollowPlanActivity.class);
         intent.putExtra("sick_id", sickId);
         intent.putExtra("follow_id", followId);
         return intent;
@@ -122,7 +113,6 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
         wheelView = getLayoutInflater().inflate(R.layout.wheel, null);
         wheelView.findViewById(R.id.wheel_cancel).setOnClickListener(this);
         wheelView.findViewById(R.id.wheel_sure).setOnClickListener(this);
-        mPopupWindow = new PopupWindow(wheelView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         mAddressWindow = new PopupWindow(wheelView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         mainView = getLayoutInflater().inflate(R.layout.activity_new_template_aty, null);
 
@@ -156,6 +146,7 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
                         }
                         mAdapter.setNewData(mList);
                         mTemplateName = object.optJSONObject("template").optString("TEMPLATE_NAME");
+                        mNameStv.setRightString(mTemplateName);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -266,7 +257,7 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
             mUnit.add(map);
         }
 
-        WheelUtils.setDoubleWheel1(AddTmpPlanActivity.this, numberList, mUnit, mainView, mAddressWindow, wheelView);
+        WheelUtils.setDoubleWheel1(AddFollowPlanActivity.this, numberList, mUnit, mainView, mAddressWindow, wheelView);
     }
 
     /**
@@ -382,7 +373,7 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
                     map.put("name", contentUnit[i]);
                     mUnit.add(map);
                 }
-                WheelUtils.setDoubleWheel1(AddTmpPlanActivity.this, numberList, mUnit, mainView, mAddressWindow, wheelView);
+                WheelUtils.setDoubleWheel1(AddFollowPlanActivity.this, numberList, mUnit, mainView, mAddressWindow, wheelView);
                 break;
             case R.id.action_stv:
                 String[] content = {"复诊提醒", "用药提醒", "换药提醒", "手术提醒", "其他"};

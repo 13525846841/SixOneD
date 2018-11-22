@@ -74,6 +74,10 @@ public abstract class BaseListActivity extends BaseTitleActivity {
         return mAdapter;
     }
 
+    public SmartRefreshLayout getRefreshLayout() {
+        return mRefreshLayout;
+    }
+
     public boolean getLoadMoreEnable(){
         return true;
     }

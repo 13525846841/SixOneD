@@ -1,211 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/color_gray_bg">
+    android:layout_height="match_parent">
 
-    <include layout="@layout/gray_title_layout" />
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <View style="@style/common_split_line_6dp" />
 
-        <LinearLayout
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/name_stv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextSize="@dimen/sp_15"
+            app:sLeftTextString="随访名称"
+            app:sRightIconRes="@drawable/arrows"
+            app:sRightTextColor="@color/doctor_info_text_color"
+            app:sRightTextSize="@dimen/sp_15" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/start_time_stv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextSize="@dimen/sp_15"
+            app:sLeftTextString="随访开始时间"
+            app:sRightIconRes="@drawable/arrows"
+            app:sRightTextColor="@color/doctor_info_text_color"
+            app:sRightTextSize="@dimen/sp_15" />
+
+        <View style="@style/common_split_line_6dp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/followuplist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:nestedScrollingEnabled="false"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
-            <TextView
-                android:id="@+id/template_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="外科手术术后模板"
-                android:textColor="@color/gray_text"
-                android:textSize="16sp" />
+        <View style="@style/common_split_line_6dp" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="horizontal"
-                android:padding="10dp">
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/remind_me_stv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextSize="@dimen/sp_15"
+            app:sLeftTextString="提醒我"
+            app:sRightViewType="switchBtn"
+            app:sSwitchCheckedColor="@color/main_color" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="随访开始时间"
-                    android:textColor="@color/gray_text"
-                    android:textSize="14sp" />
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/remind_patient_stv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextSize="@dimen/sp_15"
+            app:sLeftTextString="提醒患者"
+            app:sRightViewType="switchBtn"
+            app:sSwitchCheckedColor="@color/main_color" />
 
-                <TextView
-                    android:id="@+id/temp_time"
-                    style="@style/info_text_left_sec"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="26dp"
-                    android:ellipsize="end"
-                    android:maxEms="10"
-                    android:maxLines="1"
-                    android:textColor="@color/gray_text"
-                    android:textSize="14sp" />
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/remind_time_stv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextSize="@dimen/sp_15"
+            app:sLeftTextString="提醒时间"
+            app:sRightIconRes="@drawable/arrows"
+            app:sRightTextColor="@color/doctor_info_text_color"
+            app:sRightTextSize="@dimen/sp_15" />
 
+        <View style="@style/common_split_line_6dp" />
 
-                <ImageView
-                    style="@style/text_check_imageview"
-                    android:layout_marginRight="10dp"/>
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/patient_visiable_stv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextSize="@dimen/sp_15"
+            app:sLeftTextString="患者可见整个计划"
+            app:sRightViewType="switchBtn"
+            app:sSwitchCheckedColor="@color/main_color" />
 
-            </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="如果关闭，患者可以收到提醒消息，但是不能看到随访计划"
+            android:textColor="@color/gray_text"
+            android:textSize="@dimen/sp_14" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/gray_color" />
+    </LinearLayout>
 
-            <com.yksj.consultation.sonDoc.views.MyListView2
-                android:id="@+id/followuplist"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:listSelector="@color/white">
-
-            </com.yksj.consultation.sonDoc.views.MyListView2>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:text="提醒我"
-                        android:textColor="@color/gray_text"
-                        android:textSize="16sp" />
-
-                    <ToggleButton
-                        android:id="@+id/remindme"
-                        android:layout_width="40dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="12dp"
-                        android:background="@drawable/check_on_off"
-                        android:checked="false"
-                        android:textOff=""
-                        android:textOn="" />
-                </RelativeLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/gray_color" />
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:text="提醒患者"
-                        android:textColor="@color/gray_text"
-                        android:textSize="16sp" />
-
-                    <ToggleButton
-                        android:id="@+id/remindcus"
-                        android:layout_width="40dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="12dp"
-                        android:background="@drawable/check_on_off"
-                        android:checked="false"
-                        android:textOff=""
-                        android:textOn="" />
-                </RelativeLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/gray_color" />
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:text="提醒时间"
-                        android:textColor="@color/gray_text"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/remind_time"
-                        style="@style/info_text_left_sec"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="18dp"
-                        android:ellipsize="end"
-                        android:maxEms="10"
-                        android:maxLines="1"
-                        android:textColor="@color/gray_text"
-                        android:textSize="15sp" />
-
-                    <ImageView style="@style/text_check_imageview" />
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            <!--<RelativeLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginBottom="10dp"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:background="@color/white"-->
-                <!--android:orientation="horizontal">-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:padding="10dp"-->
-                    <!--android:text="患者可见整个计划"-->
-                    <!--android:textColor="@color/gray_text"-->
-                    <!--android:textSize="16sp" />-->
-
-                <!--<ToggleButton-->
-                    <!--android:id="@+id/cusseeplan"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_alignParentRight="true"-->
-                    <!--android:layout_centerVertical="true"-->
-                    <!--android:layout_marginRight="12dp"-->
-                    <!--android:background="@drawable/check_on_off"-->
-                    <!--android:checked="false"-->
-                    <!--android:textOff=""-->
-                    <!--android:textOn="" />-->
-            <!--</RelativeLayout>-->
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="如果关闭，患者可以收到提醒消息，但是不能看到随访计划"
-                android:textColor="@color/gray_text"
-                android:textSize="14sp" />
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

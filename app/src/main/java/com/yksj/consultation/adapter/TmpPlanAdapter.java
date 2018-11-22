@@ -29,8 +29,8 @@ public class TmpPlanAdapter extends BaseQuickAdapter<JSONObject, BaseViewHolder>
         String timeHint = "0".equals(item.optString("TEMPLATE_SEQ")) ? "首次" : "距上次";
         mTimeStv.setLeftString(timeHint);
 
-        SuperTextView mActionStv = helper.getView(R.id.action_stv);
-        mActionStv.setRightString(item.optString("TEMPLATE_SUB_CONTENT"));
+        SuperTextView actionStv = helper.getView(R.id.action_stv);
+        actionStv.setRightString(item.optString("TEMPLATE_SUB_CONTENT"));
 
         String time = "";
         if ("10".equals(item.optString("TEMPLATE_SUB_TIMETYPE"))) {

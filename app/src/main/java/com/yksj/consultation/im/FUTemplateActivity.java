@@ -165,6 +165,6 @@ public class FUTemplateActivity extends BaseTitleActivity implements BaseQuickAd
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         FollowTemplateBean item = mTemplateAdapter.getItem(position);
-        startActivity(AddTmpPlanActivity.getCallingIntent(this, mSickId, item.id));
+        startActivity(AddFollowPlanActivity.getCallingIntent(this, mSickId, item.id));
     }
 }

@@ -258,9 +258,7 @@ public class AtyPatientMassage extends BaseTitleActivity implements View.OnClick
         Intent intent = null;
         switch (view.getId()) {
             case R.id.follow_up_content://随访计划
-                intent = new Intent(this, AtyFollowUpPlan.class);
-                intent.putExtra("customer_id", pid);
-                startActivity(intent);
+                startActivity(FollowPlanListActivity.getCallingIntent(this, pid));
                 break;
             case R.id.follow_up_content2://会诊记录
                 intent = new Intent(this, AtyFollowUpPlan2.class);

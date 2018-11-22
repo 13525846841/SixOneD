@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@id/iv_delect"
+    android:orientation="vertical">
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/time_stv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_15"
+        app:sRightIconRes="@drawable/arrows"
+        app:sRightTextColor="@color/doctor_info_text_color"
+        app:sRightTextSize="@dimen/sp_15" />
+
+    <com.library.base.widget.SuperTextView
+        android:id="@+id/action_stv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        app:sLeftTextColor="@color/black"
+        app:sLeftTextSize="@dimen/sp_15"
+        app:sLeftTextString="向患者发送"
+        app:sRightIconRes="@drawable/arrows"
+        app:sRightTextColor="@color/doctor_info_text_color"
+        app:sRightTextSize="@dimen/sp_15" />
+
+</LinearLayout>

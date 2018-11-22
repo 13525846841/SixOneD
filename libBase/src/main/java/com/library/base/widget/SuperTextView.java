@@ -1859,6 +1859,15 @@ public class SuperTextView extends RelativeLayout {
         return isChecked;
     }
 
+    public SuperTextView setSwitchEnable(boolean enable) {
+        if (mMDSwitch != null) {
+            mMDSwitch.setEnabled(enable);
+        } else if (mSwitch != null) {
+            mSwitch.setEnabled(enable);
+        }
+        return this;
+    }
+
     /**
      * @param checked Switch是否选中
      * @return 返回值
