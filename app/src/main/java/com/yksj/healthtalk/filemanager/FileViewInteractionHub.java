@@ -234,7 +234,7 @@ public class FileViewInteractionHub implements FileOperationHelper.IOperationPro
 //            try {
 //                mContext.startActivity(intent);
 //            } catch (ActivityNotFoundException e) {
-//                Log.e(LOG_TAG, "fail to start setting: " + e.toString());
+//                Log.e(LOG_TAG, "fail to startRecorder setting: " + e.toString());
 //            }
 //        }
     }

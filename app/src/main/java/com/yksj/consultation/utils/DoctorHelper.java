@@ -2,6 +2,8 @@ package com.yksj.consultation.utils;
 
 import android.text.TextUtils;
 
+import com.blankj.utilcode.util.EncryptUtils;
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
 import com.library.base.utils.BeanCacheHelper;
 import com.library.base.utils.EventManager;

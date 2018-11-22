@@ -78,7 +78,7 @@ public class SingleBtnFragmentDialog extends DialogFragment {
         return show(manager, "六一健康", "您的账号在别处登录,当前登录下线", "确定", new OnClickSureBtnListener() {
             @Override
             public void onClickSureHander() {
-                Intent intent = new Intent(context,UserLoginActivity.class);
+                Intent intent = UserLoginActivity.getCallingIntent(context);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }

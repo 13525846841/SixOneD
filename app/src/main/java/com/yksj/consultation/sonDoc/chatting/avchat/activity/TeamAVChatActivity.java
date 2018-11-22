@@ -265,7 +265,7 @@ public class TeamAVChatActivity extends UI {
         // rtc initialize
         AVChatManager.getInstance().enableRtc();
         AVChatManager.getInstance().enableVideo();
-        LogUtil.i(TAG, "start rtc done");
+        LogUtil.i(TAG, "startRecorder rtc done");
 
         mVideoCapturer = AVChatVideoCapturerFactory.createCameraCapturer();
         AVChatManager.getInstance().setupVideoCapturer(mVideoCapturer);
@@ -343,7 +343,7 @@ public class TeamAVChatActivity extends UI {
                 LogUtil.i(TAG, "join room failed, e=" + exception.getMessage() + ", roomId=" + roomId);
             }
         });
-        LogUtil.i(TAG, "start join room, roomId=" + roomId);
+        LogUtil.i(TAG, "startRecorder join room, roomId=" + roomId);
     }
 
     private void onJoinRoomSuccess() {

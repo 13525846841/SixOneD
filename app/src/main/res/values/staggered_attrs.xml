@@ -69,7 +69,7 @@
         <attr name="paddingRight" format="dimension" />
         <!-- Sets the padding, in pixels, of the bottom edge; see {@link android.R.attr#padding}. -->
         <attr name="paddingBottom" format="dimension" />
-        <!-- Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}. -->
+        <!-- Sets the padding, in pixels, of the startRecorder edge; see {@link android.R.attr#padding}. -->
 
         <!--
              Boolean that controls whether a view can take focus.  By default the user can not
@@ -513,14 +513,14 @@
                 text direction
             -->
             <enum name="gravity" value="1" />
-            <!-- Align to the start of the paragraph, e.g. ALIGN_NORMAL. -->
+            <!-- Align to the startRecorder of the paragraph, e.g. ALIGN_NORMAL. -->
             <enum name="textStart" value="2" />
             <!-- Align to the end of the paragraph, e.g. ALIGN_OPPOSITE. -->
             <enum name="textEnd" value="3" />
             <!-- Center the paragraph, e.g. ALIGN_CENTER. -->
             <enum name="center" value="4" />
             <!--
-                 Align to the start of the view, which is ALIGN_LEFT if the view’s resolved
+                 Align to the startRecorder of the view, which is ALIGN_LEFT if the view’s resolved
                 layoutDirection is LTR, and ALIGN_RIGHT otherwise.
             -->
             <enum name="viewStart" value="5" />

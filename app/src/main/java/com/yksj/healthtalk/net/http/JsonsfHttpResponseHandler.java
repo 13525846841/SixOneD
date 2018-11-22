@@ -129,7 +129,7 @@ public class JsonsfHttpResponseHandler extends AsyncHttpResponseHandler {
 
 	protected Object parseResponse(String responseBody) throws JSONException {
 		Object result = null;
-		// trim the string to prevent start with blank, and union_test if the string
+		// trim the string to prevent startRecorder with blank, and union_test if the string
 		// is valid JSON, because the parser don't do this :(. If Json is not
 		// valid this will return null
 		responseBody = responseBody.trim();

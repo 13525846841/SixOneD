@@ -163,14 +163,11 @@ public final class StorageUtils {
      * @return
      * @throws Exception
      */
-    public static File createVoiceFile() throws Exception {
+    public static File createVoiceFile() {
         String path = getVoicePath();
-        File dir = createRootFileDir(path);
-        UUID uid = UUID.randomUUID();
-        dir = File.createTempFile(uid.toString(), ".arm", dir);
-        return dir;
+        String armName = System.currentTimeMillis() + ".arm";
+        return new File(path, armName);
     }
-
 
     /**
      * 创建语音文件
@@ -491,11 +488,6 @@ public final class StorageUtils {
         int separatorIndex = path.lastIndexOf("/");
         path = (separatorIndex < 0) ? path : path.substring(separatorIndex + 1, path.length());
         return path;
-    }
-
-    public static String getMIMEType(File file) {//获取文件类型
-
-        return null;
     }
 
     /**

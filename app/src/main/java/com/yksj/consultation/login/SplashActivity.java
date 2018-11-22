@@ -92,7 +92,7 @@ public class SplashActivity extends BaseActivity {
      * 到登陆界面
      */
     private void start2Login() {
-        Intent intent = new Intent(SplashActivity.this, UserLoginActivity.class);
+        Intent intent = UserLoginActivity.getCallingIntent(this);
         startActivity(intent);
         finish();
     }

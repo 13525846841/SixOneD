@@ -238,9 +238,9 @@ public final class NimUIKit {
 //    public static void startChatting(Context context, String id, SessionTypeEnum sessionType, SessionCustomization
 //            customization, IMMessage anchor) {
 //        if (sessionType == SessionTypeEnum.P2P) {
-//            P2PMessageActivity.start(context, id, customization, anchor);
+//            P2PMessageActivity.startRecorder(context, id, customization, anchor);
 //        } else if (sessionType == SessionTypeEnum.Team) {
-//            TeamMessageActivity.start(context, id, customization, null, anchor);
+//            TeamMessageActivity.startRecorder(context, id, customization, null, anchor);
 //        }
 //    }
 //
@@ -257,7 +257,7 @@ public final class NimUIKit {
 //    public static void startChatting(Context context, String id, SessionTypeEnum sessionType, SessionCustomization customization,
 //                                     Class<? extends Activity> backToClass, IMMessage anchor) {
 //        if (sessionType == SessionTypeEnum.Team) {
-//            TeamMessageActivity.start(context, id, customization, backToClass, anchor);
+//            TeamMessageActivity.startRecorder(context, id, customization, backToClass, anchor);
 //        }
 //    }
 //
@@ -284,9 +284,9 @@ public final class NimUIKit {
 //            return;
 //        }
 //        if (team.getType() == TeamTypeEnum.Advanced) {
-//            AdvancedTeamInfoActivity.start(context, teamId); // 启动固定群资料页
+//            AdvancedTeamInfoActivity.startRecorder(context, teamId); // 启动固定群资料页
 //        } else if (team.getType() == TeamTypeEnum.Normal) {
-//            NormalTeamInfoActivity.start(context, teamId); // 启动讨论组资料页
+//            NormalTeamInfoActivity.startRecorder(context, teamId); // 启动讨论组资料页
 //        }
 //
 //    }

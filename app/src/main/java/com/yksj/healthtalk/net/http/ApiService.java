@@ -3461,14 +3461,39 @@ public class ApiService {
         ApiConnection.postAsyn(mRepository.ADDSELFTEMPLATE, map, callback, tag);
     }
 
+
     /**
      * 添加随访计划
-     * @param map
+     * @param sRemindme
+     * @param sRemindcus
+     * @param alert_timeCount
+     * @param alert_timeType
+     * @param mSickId
+     * @param doctorId
+     * @param sCusseeplan
+     * @param mFollowId
+     * @param mFollowName
+     * @param tempTime
+     * @param data
      * @param callback
-     * @param tag
      */
-    public static void OKHttpAddFollow(Map<String, String> map, ApiCallback callback, Object tag) {
-        ApiConnection.postAsyn(mRepository.ADDFOLLOW, map, callback, tag);
+    public static void OKHttpAddFollow(String sRemindme, String sRemindcus, String alert_timeCount, String alert_timeType,
+                                       String mSickId, String doctorId, String sCusseeplan, String mFollowId, String mFollowName,
+                                       String tempTime, String data, ApiCallbackWrapper callback) {
+        Map<String, String> map = new HashMap<>();
+        map.put("op", "addFollow");
+        map.put("alert_me", sRemindme);//提醒医生
+        map.put("alert_sick", sRemindcus);//提醒患者
+        map.put("alert_timecount", alert_timeCount);
+        map.put("alert_timetype", alert_timeType);
+        map.put("customer_id", mSickId);//
+        map.put("doctor_id", doctorId);//
+        map.put("sick_see_flag", sCusseeplan);//患者可见不可见
+        map.put("template_id", mFollowId);//模板ID
+        map.put("template_name", mFollowName);//模板名称
+        map.put("createtime", tempTime);//tempTime
+        map.put("data", data);
+        ApiConnection.postAsyn(mRepository.ADDFOLLOW, map, callback, callback);
     }
 
 

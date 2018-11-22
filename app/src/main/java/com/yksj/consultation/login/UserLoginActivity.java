@@ -1,11 +1,11 @@
 package com.yksj.consultation.login;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.EditText;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.library.base.base.BaseTitleActivity;
@@ -19,16 +19,17 @@ import com.yksj.consultation.dialog.WaitDialog;
 import com.yksj.consultation.main.MainActivity;
 import com.yksj.consultation.sonDoc.R;
 import com.yksj.consultation.sonDoc.wallet.FindWithdrawPassword;
+import com.yksj.consultation.widget.ClearEditView;
 
 import java.util.concurrent.TimeoutException;
 
+import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.OnTextChanged;
 
 public class UserLoginActivity extends BaseTitleActivity implements OnClickListener {
-    private EditText mPhoneView;
-    private EditText mPwdView;
-    private SuperButton mLoginView;
+    @BindView(R.id.account_cev) ClearEditView mPhoneView;
+    @BindView(R.id.password_cev) ClearEditView mPwdView;
+    @BindView(R.id.login) SuperButton mLoginView;
     private WaitDialog mWaitDialog;
     private String mAccount;
     private String mPassword;
@@ -50,14 +51,14 @@ public class UserLoginActivity extends BaseTitleActivity implements OnClickListe
         public void onLoginError(Exception e) {
             if (e instanceof TimeoutException) {
                 DialogManager.getConfrimDialog(e.getMessage())
-                        .addListener(new ConfirmDialog.SimpleConfirmDialogListener() {
-                            @Override
-                            public void onPositiveClick(ConfirmDialog dialog, View v) {
-                                super.onPositiveClick(dialog, v);
-                                LoginBusiness.getInstance().loginOut();//防止 时间到了,正好登上了,那就退出
-                            }
-                        })
-                        .show(getSupportFragmentManager());
+                             .addListener(new ConfirmDialog.SimpleConfirmDialogListener() {
+                                 @Override
+                                 public void onPositiveClick(ConfirmDialog dialog, View v) {
+                                     super.onPositiveClick(dialog, v);
+                                     LoginBusiness.getInstance().loginOut();//防止 时间到了,正好登上了,那就退出
+                                 }
+                             })
+                             .show(getSupportFragmentManager());
             } else {
                 ToastUtils.showShort(e.getMessage());
             }
@@ -70,6 +71,16 @@ public class UserLoginActivity extends BaseTitleActivity implements OnClickListe
         }
     };
 
+    public static Intent getCallingIntent(Context context) {
+        Intent intent = new Intent(context, UserLoginActivity.class);
+        LoginBean loginBean = BeanCacheHelper.load(context, LoginBean.class);
+        if (loginBean != null) {
+            intent.putExtra("account", loginBean.getAccount());
+            intent.putExtra("password", loginBean.getPassword());
+        }
+        return intent;
+    }
+
     @Override
     public int createLayoutRes() {
         return R.layout.user_login_layout;
@@ -80,6 +91,7 @@ public class UserLoginActivity extends BaseTitleActivity implements OnClickListe
         super.initialize(bundle);
         setTitle("登录");
         setLeft(R.drawable.icon_cancel_delete, null);
+        setRight("忘记密码?", this::onForgetPaswdClick);
         initView();
     }
 
@@ -87,14 +99,14 @@ public class UserLoginActivity extends BaseTitleActivity implements OnClickListe
         findViewById(R.id.rl_weixin).setOnClickListener(this);
         findViewById(R.id.rl_qq).setOnClickListener(this);
         findViewById(R.id.rl_sina).setOnClickListener(this);
-        mPhoneView = findViewById(R.id.phone);
-        mPwdView = findViewById(R.id.pswd);
-        mLoginView = findViewById(R.id.login);
-        LoginBean loginBean = BeanCacheHelper.load(this, LoginBean.class);
-        if (loginBean != null) {
-            mPhoneView.setText(loginBean.getAccount());
-            mPwdView.setText(loginBean.getPassword());
-        }
+        mPhoneView.setOnEditTextChangeListener(this::onTextChange);
+        mPwdView.setOnEditTextChangeListener(this::onTextChange);
+        String account = getIntent().getStringExtra("account");
+        String password = getIntent().getStringExtra("password");
+        mPhoneView.setEditText(account);
+        mPwdView.setEditText(password);
+        boolean enable = !TextUtils.isEmpty(account) && !TextUtils.isEmpty(password);
+        mLoginView.setEnabled(enable);
     }
 
     private void showWait() {
@@ -116,7 +128,6 @@ public class UserLoginActivity extends BaseTitleActivity implements OnClickListe
      * 忘记密码
      * @param v
      */
-    @OnClick(R.id.forget_pswd)
     public void onForgetPaswdClick(View v) {
         Intent intent;
         intent = new Intent(UserLoginActivity.this, FindWithdrawPassword.class);
@@ -141,23 +152,14 @@ public class UserLoginActivity extends BaseTitleActivity implements OnClickListe
      */
     @OnClick(R.id.login)
     public void onLoginClick(View v) {
-        mAccount = mPhoneView.getEditableText().toString();
-        mPassword = mPwdView.getEditableText().toString();
-        if (mAccount.length() == 0) {
-            mPhoneView.setError("账号不能为空");
-            return;
-        }
-        if (mPassword.length() == 0) {
-            mPwdView.setError("密码不能为空");
-            return;
-        }
+        mAccount = mPhoneView.getEditText();
+        mPassword = mPwdView.getEditText();
         LoginBusiness.getInstance().login(mAccount, mPassword, "0", mLoginCallback);
     }
 
-    @OnTextChanged(value = {R.id.phone, R.id.pswd}, callback = OnTextChanged.Callback.TEXT_CHANGED)
-    public void onTextChange(CharSequence s, int start, int before, int count){
-        final String phone = mPhoneView.getText().toString().trim();
-        final String psw = mPwdView.getText().toString().trim();
+    public void onTextChange(CharSequence s, int start, int before, int count) {
+        final String phone = mPhoneView.getEditText().trim();
+        final String psw = mPwdView.getEditText().trim();
         boolean enable = !TextUtils.isEmpty(phone) && !TextUtils.isEmpty(psw);
         mLoginView.setEnabled(enable);
     }

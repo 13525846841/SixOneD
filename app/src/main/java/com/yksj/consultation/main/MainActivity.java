@@ -80,7 +80,7 @@ public class MainActivity extends BaseTitleActivity implements View.OnClickListe
             }
         } else {
             ToastUtil.showShort(ResourceHelper.getString(R.string.error_login_info_none));
-            Intent intent = new Intent(this, UserLoginActivity.class);
+            Intent intent = UserLoginActivity.getCallingIntent(this);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
@@ -95,7 +95,7 @@ public class MainActivity extends BaseTitleActivity implements View.OnClickListe
                          @Override
                          public void onNegativeClick(ConfirmDialog dialog, View v) {
                              super.onNegativeClick(dialog, v);
-                             Intent intent = new Intent(getApplicationContext(), UserLoginActivity.class);
+                             Intent intent = UserLoginActivity.getCallingIntent(MainActivity.this);
                              startActivity(intent);
                              MainActivity.this.finish();
                          }

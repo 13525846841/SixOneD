@@ -240,7 +240,7 @@ public class CoreService extends Service implements XsocketHanlder.XsocketHanlde
     /**
      * 注册通知
      */
-    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver mNetworkReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             // 网络连接
             if (intent.getAction().equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
@@ -507,14 +507,14 @@ public class CoreService extends Service implements XsocketHanlder.XsocketHanlde
     }
 
     private synchronized void start() {
-        registerNotificationReceiver();
+        registerNetworkChangeReceiver();
     }
 
     private synchronized void stop() {
         setStarted(false);
         stopKeepConnection();
         cancelReconnect();
-        unregisterNotificationReceiver();
+        unregisterNetworkChangeReceiver();
         mControlClient.disconnect();
         stopSelf();
     }
@@ -625,16 +625,22 @@ public class CoreService extends Service implements XsocketHanlder.XsocketHanlde
 
     private boolean isRegisterReceiver;
 
-    private synchronized void registerNotificationReceiver() {
+    /**
+     * 注册网络变化广播
+     */
+    private void registerNetworkChangeReceiver(){
         IntentFilter filter = new IntentFilter();
         filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
-        registerReceiver(mReceiver, filter);
+        registerReceiver(mNetworkReceiver, filter);
         isRegisterReceiver = true;
     }
 
-    private void unregisterNotificationReceiver() {
+    /**
+     * 注销网络变化广播
+     */
+    private void unregisterNetworkChangeReceiver() {
         if (isRegisterReceiver) {
-            unregisterReceiver(mReceiver);
+            unregisterReceiver(mNetworkReceiver);
             isRegisterReceiver = false;
         }
     }

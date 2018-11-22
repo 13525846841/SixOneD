@@ -72,9 +72,9 @@ public class InternetVideoDemo extends Activity {
 //        VideoView videoView = (VideoView) findViewById(R.id.vv_show);
 //        videoView.setMediaController(new MediaController(this));
 //        videoView.setVideoURI(uri);
-//        //videoView.start();
+//        //videoView.startRecorder();
 //        videoView.requestFocus();
-//        videoView.start();
+//        videoView.startRecorder();
 
 //        WebView mWebView = (WebView) findViewById(R.id.vv_show);
 //        mWebView.getSettings().setJavaScriptEnabled(true);

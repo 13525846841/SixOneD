@@ -1,5 +1,7 @@
 package com.yksj.consultation.im;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
-import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.SizeUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.library.base.base.BaseTitleActivity;
@@ -17,6 +18,8 @@ import com.library.base.dialog.SelectorDialog;
 import com.library.base.widget.DividerListItemDecoration;
 import com.library.base.widget.SuperTextView;
 import com.yksj.consultation.adapter.TmpPlanAdapter;
+import com.yksj.consultation.bean.ResponseBean;
+import com.yksj.consultation.comm.AddTextActivity;
 import com.yksj.consultation.sonDoc.R;
 import com.yksj.consultation.utils.DoctorHelper;
 import com.yksj.healthtalk.net.http.ApiCallbackWrapper;
@@ -46,6 +49,7 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
     public final static String TYPE = "TYPE";
     public static int LOOKTYPE = 1;//1 不可修改 2 可修改
 
+    @BindView(R.id.name_stv) SuperTextView mNameStv;
     @BindView(R.id.start_time_stv) SuperTextView mStartTimeStv;
     @BindView(R.id.remind_me_stv) SuperTextView mRemindMeStv;
     @BindView(R.id.remind_patient_stv) SuperTextView mRemindPatientStv;
@@ -58,11 +62,10 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
     private String sCusseeplan = "0";//患者可见不可见
 
     private TmpPlanAdapter mAdapter;
-    private String follow_id;
+    private String mFollowId;//随访模版Id
+    private String mSickId;//患者Id
     private List<JSONObject> mList;
 
-    private String customer_id;
-    private String doctor_id = DoctorHelper.getId();
     private String mTemplateName;
     private PopupWindow birPop;
 
@@ -85,6 +88,13 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
     private String alert_timeType;//提醒时间类型，天，周，月，年
     private String tempTime;//随访开始时间
 
+    public static Intent getCallingIntent(Context context, String sickId, String followId) {
+        Intent intent = new Intent(context, AddTmpPlanActivity.class);
+        intent.putExtra("sick_id", sickId);
+        intent.putExtra("follow_id", followId);
+        return intent;
+    }
+
     @Override
     public int createLayoutRes() {
         return R.layout.activity_add_tmp_plan;
@@ -93,10 +103,10 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
     @Override
     public void initialize(Bundle bundle) {
         super.initialize(bundle);
-        follow_id = getIntent().getStringExtra("follow_id");
-        customer_id = getIntent().getStringExtra("customer_id");
-        setRight("保存", v -> AddTemplatePlan());
-        setTitle("随访计划");
+        mFollowId = getIntent().getStringExtra("follow_id");
+        mSickId = getIntent().getStringExtra("sick_id");
+        setRight("保存", v -> addTemplatePlan());
+        setTitle("添加随访计划");
         initView();
     }
 
@@ -124,7 +134,7 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
      */
     private void initTemplate() {
         Map<String, String> map = new HashMap<>();
-        map.put("template_id", follow_id);
+        map.put("template_id", mFollowId);
         ApiService.OKHttpFindSubFollowTemplate(map, new ApiCallbackWrapper<String>(this) {
             @Override
             public void onError(Request request, Exception e) {
@@ -146,7 +156,6 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
                         }
                         mAdapter.setNewData(mList);
                         mTemplateName = object.optJSONObject("template").optString("TEMPLATE_NAME");
-                        setTitle(mTemplateName);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -209,6 +218,25 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
     }
 
     /**
+     * 随访模版名称
+     * @param v
+     */
+    @OnClick(R.id.name_stv)
+    public void onNameClick(View v) {
+        AddTextActivity.from(this)
+                       .setTitle("随访名称")
+                       .setListener(new AddTextActivity.OnAddTextClickListener() {
+                           @Override
+                           public void onConfrimClick(View v, String content, AddTextActivity activity) {
+                               activity.finish();
+                               mTemplateName = content;
+                               mNameStv.setRightString(content);
+                           }
+                       })
+                       .startActivity();
+    }
+
+    /**
      * 提醒时间
      */
     @OnClick(R.id.remind_time_stv)
@@ -255,7 +283,6 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
                             String[] str = (String[]) v.getTag();
                             tempTime = TimeUtil.getFormatDate3(str[0] + str[1] + str[2]);
                             mStartTimeStv.setRightString(str[0] + str[1] + str[2]);
-
                             break;
                     }
                 }
@@ -270,16 +297,32 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
     /**
      * 添加随访计划给患者
      */
-    private void AddTemplatePlan() {
-        JSONArray array = new JSONArray();
+    private void addTemplatePlan() {
+        if (!checkParam()) {
+            return;
+        }
 
+        ApiService.OKHttpAddFollow(
+                sRemindme, sRemindcus, alert_timeCount, alert_timeType, mSickId,
+                DoctorHelper.getId(), sCusseeplan, mFollowId, mTemplateName, tempTime,
+                getDataParam(), new ApiCallbackWrapper<ResponseBean>(true) {
+                    @Override
+                    public void onResponse(ResponseBean resp) {
+                        if (resp.code == 0) {
+                            finish();
+                        }
+                    }
+                });
+    }
+
+    /**
+     * 获取data参数
+     * @return
+     */
+    private String getDataParam() {
+        JSONArray array = new JSONArray();
         for (int j = 0; j < mAdapter.getData().size(); j++) {
             JSONObject object = new JSONObject();
-
-            LogUtils.d("M++++++++==========", String.valueOf(mAdapter.getData().get(j).optString("TIMETYPE_COUNT")));
-            LogUtils.d("OM+++++++=========", String.valueOf(mAdapter.getData().get(j).optString("TEMPLATE_SUB_TIMETYPE")));
-            LogUtils.d("OMOM+++++==========", String.valueOf(mAdapter.getData().get(j).optString("TEMPLATE_SUB_CONTENT")));
-
             try {
                 object.put("follow_seq", j);
                 object.put("timetype_count", mAdapter.getData().get(j).optString("TIMETYPE_COUNT"));
@@ -290,49 +333,27 @@ public class AddTmpPlanActivity extends BaseTitleActivity implements BaseQuickAd
             }
             array.put(object);
         }
+        return array.toString();
+    }
 
+    /**
+     * 检测输入的参数
+     * @return
+     */
+    private boolean checkParam() {
         if (TextUtils.isEmpty(alert_timeCount)) {
             ToastUtil.showToastPanl("请填写提醒时间");
-            return;
+            return false;
         }
         if (TextUtils.isEmpty(alert_timeType)) {
             ToastUtil.showToastPanl("请填写提醒时间");
-            return;
+            return false;
         }
         if (TextUtils.isEmpty(tempTime)) {
             ToastUtil.showToastPanl("请填写开始时间");
-            return;
+            return false;
         }
-
-        Map<String, String> map = new HashMap<>();
-        map.put("op", "addFollow");
-        map.put("alert_me", sRemindme);//提醒医生
-        map.put("alert_sick", sRemindcus);//提醒患者
-        map.put("alert_timecount", alert_timeCount);
-        map.put("alert_timetype", alert_timeType);
-        map.put("customer_id", customer_id);//
-        map.put("doctor_id", doctor_id);//
-        map.put("sick_see_flag", sCusseeplan);//患者可见不可见
-        map.put("template_id", follow_id);//模板ID
-        map.put("template_name", mTemplateName);//模板名称
-        map.put("createtime", tempTime);//tempTime
-        map.put("data", array.toString());
-
-        ApiService.OKHttpAddFollow(map, new ApiCallbackWrapper<String>(true) {
-
-            @Override
-            public void onResponse(String content) {
-                try {
-                    JSONObject obj = new JSONObject(content);
-                    if ("0".equals(obj.optString("code"))) {
-                        ToastUtil.showShort(obj.optString("message"));
-                        finish();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, this);
+        return true;
     }
 
     @Override

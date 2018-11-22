@@ -321,7 +321,7 @@ public class LectureDetailAty2 extends BaseActivity {
 
                     @Override
                     public void onUIProgressChanged(long numBytes, long totalBytes, float percent, float speed) {
-//                        Log.e("TAG", "=============start===============");
+//                        Log.e("TAG", "=============startRecorder===============");
 //                        Log.e("TAG", "numBytes:" + numBytes);
 //                        Log.e("TAG", "totalBytes:" + totalBytes);
 //                        Log.e("TAG", "percent:" + percent);

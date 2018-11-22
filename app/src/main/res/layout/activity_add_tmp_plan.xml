@@ -13,6 +13,19 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <View style="@style/common_split_line_6dp" />
+
+        <com.library.base.widget.SuperTextView
+            android:id="@+id/name_stv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:sLeftTextColor="@color/black"
+            app:sLeftTextSize="@dimen/sp_15"
+            app:sLeftTextString="随访名称"
+            app:sRightIconRes="@drawable/arrows"
+            app:sRightTextColor="@color/doctor_info_text_color"
+            app:sRightTextSize="@dimen/sp_15" />
+
         <com.library.base.widget.SuperTextView
             android:id="@+id/start_time_stv"
             android:layout_width="match_parent"

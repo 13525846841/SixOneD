@@ -415,7 +415,7 @@ ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListe
 
 		/**
 		 * The user had previously been scrolling using touch and had performed a fling. The
-		 * animation is now coasting to a stop
+		 * animation is now coasting to a stopRecorder
 		 */
 		public static int SCROLL_STATE_FLING = 2;
 
@@ -1366,7 +1366,7 @@ ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListe
 				motionView.setPressed(false);
 			}
 			reportScrollStateChange(OnScrollListener.SCROLL_STATE_TOUCH_SCROLL);
-			// Time to start stealing events! Once we've stolen them, don't let anyone
+			// Time to startRecorder stealing events! Once we've stolen them, don't let anyone
 			// steal from us
 			requestDisallowInterceptTouchEvent(true);
 			return true;
@@ -1488,7 +1488,7 @@ ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListe
 					// Check to see if we have bumped into the scroll limit
 					if (atEdge && getChildCount() > 0) {
 						// Treat this like we're starting a new scroll from the current
-						// position. This will let the user start scrolling back into
+						// position. This will let the user startRecorder scrolling back into
 						// content immediately rather than needing to scroll back to the
 						// point where they hit the limit first.
 						int motionPosition = findMotionRow(y);
@@ -2162,7 +2162,7 @@ ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListe
 	/**
 	 * Smoothly scroll to the specified adapter position. The view will
 	 * scroll such that the indicated position is displayed, but it will
-	 * stop early if scrolling further would scroll boundPosition out of
+	 * stopRecorder early if scrolling further would scroll boundPosition out of
 	 * view. 
 	 * @param position Scroll to this adapter position.
 	 * @param boundPosition Do not scroll if it would move this adapter
@@ -2800,7 +2800,7 @@ ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListe
 	/**
 	 * The RecycleBin facilitates reuse of views across layouts. The RecycleBin has two levels of
 	 * storage: ActiveViews and ScrapViews. ActiveViews are those views which were onscreen at the
-	 * start of a layout. By construction, they are displaying current information. At the end of
+	 * startRecorder of a layout. By construction, they are displaying current information. At the end of
 	 * layout, all views in ActiveViews are demoted to ScrapViews. ScrapViews are old views that
 	 * could potentially be used by the adapter to avoid allocating views unnecessarily.
 	 *
@@ -2816,7 +2816,7 @@ ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListe
 		private int mFirstActivePosition;
 
 		/**
-		 * Views that were on screen at the start of layout. This array is populated at the start of
+		 * Views that were on screen at the startRecorder of layout. This array is populated at the startRecorder of
 		 * layout, and at the end of layout all view in mActiveViews are moved to mScrapViews.
 		 * Views in mActiveViews represent a contiguous range of Views, with position of the first
 		 * view store in mFirstActivePosition.

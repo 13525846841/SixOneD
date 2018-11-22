@@ -102,7 +102,7 @@ public class NumberProgressBar extends View {
     private float mDrawTextWidth;
 
     /**
-     * The drawn text start.
+     * The drawn text startRecorder.
      */
     private float mDrawTextStart;
 

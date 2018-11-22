@@ -153,9 +153,7 @@ public class AtyFollowUpPlan2 extends BaseActivity implements PullToRefreshBase.
                 break;
             case R.id.tianjiaplan:
             case R.id.main_listmenuP:
-                intent = new Intent(this, FUTemplateActivity.class);
-                intent.putExtra("customer_id", mCustonerId);
-                startActivity(intent);
+                startActivity(FUTemplateActivity.getCallingIntent(this, mCustonerId));
                 break;
         }
     }

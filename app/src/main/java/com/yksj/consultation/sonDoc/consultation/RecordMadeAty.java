@@ -141,7 +141,7 @@ public class RecordMadeAty extends BaseActivity implements View.OnClickListener 
 //            //如果正在播放我们就先保存这个播放位置
 //            position=player.getCurrentPosition()
 //            ;
-//            player.stop();
+//            player.stopRecorder();
 //        }
         super.onPause();
         movieRV.stop();

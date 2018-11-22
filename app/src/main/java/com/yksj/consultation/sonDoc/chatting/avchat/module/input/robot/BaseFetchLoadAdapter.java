@@ -1004,7 +1004,7 @@ public abstract class BaseFetchLoadAdapter<T, K extends BaseViewHolder> extends 
     }
 
     /**
-     * set anim to start when loading
+     * set anim to startRecorder when loading
      *
      * @param anim
      * @param index

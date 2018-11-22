@@ -53,8 +53,8 @@ import com.yksj.consultation.sonDoc.shopping.ShopActivity;
 import com.yksj.consultation.sonDoc.views.VUMeterView;
 import com.yksj.healthtalk.media.ArmMediaPlay;
 import com.yksj.healthtalk.media.ArmMediaRecord;
-import com.yksj.healthtalk.media.ArmMediaRecord.ArmMediaRecordListener;
-import com.yksj.healthtalk.media.ArmMediaRecord.MediaState;
+import com.yksj.healthtalk.media.ArmMediaRecordListener;
+import com.yksj.healthtalk.media.RecorderState;
 import com.yksj.healthtalk.net.http.ApiCallbackWrapper;
 import com.yksj.healthtalk.net.http.ApiService;
 import com.yksj.healthtalk.net.http.HttpResult;
@@ -102,7 +102,6 @@ public class ChatInputControlFragment extends BaseFragment implements OnClickLis
     ImageButton mSendMsg;//发送消息
 
     ArmMediaPlay mediaPlay;
-    ArmMediaRecord mediaRecord;
 
     ChatInputControlListener mInputControlListener;//消息处理接口
     File mChatImageFile;//当前相册或相机调用返回的图片
@@ -157,8 +156,7 @@ public class ChatInputControlFragment extends BaseFragment implements OnClickLis
         }
         ChatActivity chatActivity = (ChatActivity) activity;
         this.mediaPlay = chatActivity.mediaPlay;
-        this.mediaRecord = chatActivity.mediaRecord;
-        this.mediaRecord.setmRecordListener(this);
+        ArmMediaRecord.getInstance().setRecordListener(this);
         mChatVm = chatActivity.mChatVm;
         if (SmartControlClient.helperId.equals(chatActivity.mChatId)) {
             mArrowCheckBox.setVisibility(View.GONE);
@@ -222,8 +220,7 @@ public class ChatInputControlFragment extends BaseFragment implements OnClickLis
             }
 
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count,
-                                          int after) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
@@ -254,10 +251,8 @@ public class ChatInputControlFragment extends BaseFragment implements OnClickLis
 
 
         mEditText.setOnEditorActionListener(new OnEditorActionListener() {
-
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-
                 if (actionId == KeyEvent.ACTION_DOWN || actionId == EditorInfo.IME_ACTION_SEND) {
                     //登录
                     onSendTxtMessage();
@@ -275,27 +270,16 @@ public class ChatInputControlFragment extends BaseFragment implements OnClickLis
                 switch (action) {
                     case MotionEvent.ACTION_MOVE:
                         if (event.getY() < -10) {
-                            mediaRecord.changeCancelState(true);
+                            ArmMediaRecord.getInstance().changeCancelState(true);
                         } else {
-                            mediaRecord.changeCancelState(false);
+                            ArmMediaRecord.getInstance().changeCancelState(false);
                         }
                         break;
                     case MotionEvent.ACTION_DOWN:
-                        if (!StorageUtils.isSDMounted()) {
-                            return true;
-                        }
-                        File file;
-                        try {
-                            file = StorageUtils.createVoiceFile();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            ToastUtil.showCreateFail();
-                            return true;
-                        }
-                        mediaRecord.start(file);
-                        break;
+                        ArmMediaRecord.getInstance().startRecorder();
+                        return true;
                     case MotionEvent.ACTION_UP:
-                        mediaRecord.stop();
+                        ArmMediaRecord.getInstance().stopRecorder();
                         break;
                 }
                 return false;
@@ -421,10 +405,10 @@ public class ChatInputControlFragment extends BaseFragment implements OnClickLis
     @Override
     public void onRecordError(ArmMediaRecord record, int error) {//录音错误
         switch (error) {
-            case MediaState.ERROR_SHORT:
+            case RecorderState.ERROR_SHORT:
                 ToastUtil.showToastPanl("录音时间太短");
                 break;
-            case MediaState.ERROR_UNKNOWN:
+            case RecorderState.ERROR_UNKNOWN:
                 ToastUtil.showToastPanl("录音错误");
                 mChatVm.setVisibility(View.GONE);
                 break;
@@ -434,13 +418,13 @@ public class ChatInputControlFragment extends BaseFragment implements OnClickLis
     @Override
     public void onRecordStateChnage(int state) {//录音状态改变
         switch (state) {
-            case MediaState.STATE_IDLE:
+            case RecorderState.STATE_IDLE:
                 mChatVm.setVisibility(View.GONE);
                 break;
-            case MediaState.STATE_START:
+            case RecorderState.STATE_START:
                 mChatVm.setVisibility(View.VISIBLE);
                 break;
-            case MediaState.STATE_PARE:
+            case RecorderState.STATE_PARE:
                 mChatVm.setVisibility(View.VISIBLE);
                 break;
         }
@@ -450,8 +434,7 @@ public class ChatInputControlFragment extends BaseFragment implements OnClickLis
      * 录音完成
      */
     @Override
-    public void onRecordOver(ArmMediaRecord record, File file, String time,
-                             long durationTime) {//1410598912.0
+    public void onRecordOver(ArmMediaRecord record, File file, String time, long durationTime) {//1410598912.0
         if (mInputControlListener != null) {
             mInputControlListener.onSendVoiceMsg(file.getAbsolutePath(), time, (int) durationTime);
         }

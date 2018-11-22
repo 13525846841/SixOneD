@@ -71,7 +71,7 @@ public final class CaptureActivityHandler extends Handler {
         switch (message.what) {
             case R.id.auto_focus:
                 //Log.d(TAG, "Got auto-focus message");
-                // When one auto focus pass finishes, start another. This is the closest thing to
+                // When one auto focus pass finishes, startRecorder another. This is the closest thing to
                 // continuous AF. It does seem to hunt a bit, but I'm not sure what else to do.
                 if (state == State.PREVIEW) {
                     CameraManager.get().requestAutoFocus(this, R.id.auto_focus);
@@ -90,7 +90,7 @@ public final class CaptureActivityHandler extends Handler {
                 activity.handleDecode((Result) message.obj, barcode);
                 break;
             case R.id.decode_failed:
-                // We're decoding as fast as possible, so when one decode fails, start another.
+                // We're decoding as fast as possible, so when one decode fails, startRecorder another.
                 state = State.PREVIEW;
                 CameraManager.get().requestPreviewFrame(decodeThread.getHandler(), R.id.decode);
                 break;

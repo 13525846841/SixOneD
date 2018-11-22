@@ -8,9 +8,11 @@ import android.view.View;
 import com.library.base.base.BaseTitleActivity;
 import com.library.base.dialog.ConfirmDialog;
 import com.library.base.imageLoader.ImageLoader;
+import com.library.base.utils.BeanCacheHelper;
 import com.library.base.widget.SuperTextView;
 import com.yksj.consultation.agency.AgencyHomeActivity;
 import com.yksj.consultation.app.AppContext;
+import com.yksj.consultation.bean.LoginBean;
 import com.yksj.consultation.business.LoginBusiness;
 import com.yksj.consultation.constant.Constant;
 import com.yksj.consultation.event.EDoctorUpdata;
@@ -176,19 +178,24 @@ public class PersonCenterActivity extends BaseTitleActivity implements View.OnCl
                 startActivity(intent);
                 break;
             case R.id.logout_btn://退出登录
-                ConfirmDialog.newInstance("", getResources().getString(R.string.quit_tip))
-                        .addListener(new ConfirmDialog.SimpleConfirmDialogListener(){
-                            @Override public void onPositiveClick(ConfirmDialog dialog, View v) {
-                                super.onPositiveClick(dialog, v);
-                                LoginBusiness.getInstance().loginOut();
-                                Intent intent = new Intent(getApplicationContext(), UserLoginActivity.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(intent);
-                                PersonCenterActivity.this.finish();
-                            }
-                        }).show(getSupportFragmentManager());
+                exitAccount();
                 break;
         }
+    }
+
+    /**
+     * 退出账号
+     */
+    private void exitAccount() {
+        ConfirmDialog.newInstance("", getResources().getString(R.string.quit_tip))
+                     .addListener(new ConfirmDialog.SimpleConfirmDialogListener(){
+                    @Override public void onPositiveClick(ConfirmDialog dialog, View v) {
+                        super.onPositiveClick(dialog, v);
+                        startActivity(UserLoginActivity.getCallingIntent(PersonCenterActivity.this));
+                        LoginBusiness.getInstance().loginOut();
+                        PersonCenterActivity.this.finish();
+                    }
+                }).show(getSupportFragmentManager());
     }
 
     @Subscribe

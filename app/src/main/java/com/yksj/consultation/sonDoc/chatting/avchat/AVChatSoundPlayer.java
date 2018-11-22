@@ -91,7 +91,7 @@ public class AVChatSoundPlayer {
     }
 
     public void stop() {
-        LogUtil.d(TAG, "stop");
+        LogUtil.d(TAG, "stopRecorder");
         if (soundPool != null) {
             if (streamId != 0) {
                 soundPool.stop(streamId);

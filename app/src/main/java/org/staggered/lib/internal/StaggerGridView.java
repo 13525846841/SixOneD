@@ -781,7 +781,7 @@ public class StaggerGridView extends StaggerAbsListView {
 		}
 
 		if (heightMode == MeasureSpec.AT_MOST) {
-			// TODO: after first layout we should maybe start at the first visible position, not 0
+			// TODO: after first layout we should maybe startRecorder at the first visible position, not 0
 			heightSize = measureHeightOfChildren(widthMeasureSpec, 0, NO_POSITION, heightSize, -1);
 		}
 
@@ -824,7 +824,7 @@ public class StaggerGridView extends StaggerAbsListView {
 	/**
 	 * Measures the height of the given range of children (inclusive) and
 	 * returns the height with this ListView's padding and divider heights
-	 * included. If maxHeight is provided, the measuring will stop when the
+	 * included. If maxHeight is provided, the measuring will stopRecorder when the
 	 * current height reaches maxHeight.
 	 *
 	 * @param widthMeasureSpec The width measure spec to be given to a child's

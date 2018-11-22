@@ -687,7 +687,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 
 	/**
 	 * Implemented by derived class to return whether the View is in a state
-	 * where the user can Pull to Refresh by scrolling from the start.
+	 * where the user can Pull to Refresh by scrolling from the startRecorder.
 	 * 
 	 * @return true if the View is currently the correct state (for example, top
 	 *         of a ListView)
@@ -1403,21 +1403,21 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 		DISABLED(0x0),
 
 		/**
-		 * Only allow the user to Pull from the start of the Refreshable View to
-		 * refresh. The start is either the Top or Left, depending on the
+		 * Only allow the user to Pull from the startRecorder of the Refreshable View to
+		 * refresh. The startRecorder is either the Top or Left, depending on the
 		 * scrolling direction.
 		 */
 		PULL_FROM_START(0x1),
 
 		/**
 		 * Only allow the user to Pull from the end of the Refreshable View to
-		 * refresh. The start is either the Bottom or Right, depending on the
+		 * refresh. The startRecorder is either the Bottom or Right, depending on the
 		 * scrolling direction.
 		 */
 		PULL_FROM_END(0x2),
 
 		/**
-		 * Allow the user to both Pull from the start, from the end to refresh.
+		 * Allow the user to both Pull from the startRecorder, from the end to refresh.
 		 */
 		BOTH(0x3),
 
@@ -1549,7 +1549,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 	public static interface OnRefreshListener<V extends View> {
 
 		/**
-		 * onRefresh will be called for both a Pull from start, and Pull from
+		 * onRefresh will be called for both a Pull from startRecorder, and Pull from
 		 * end
 		 */
 		public void onRefresh(final PullToRefreshBase<V> refreshView);
@@ -1568,7 +1568,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 
 		/**
 		 * onPullDownToRefresh will be called only when the user has Pulled from
-		 * the start, and released.
+		 * the startRecorder, and released.
 		 */
 		public void onPullDownToRefresh(final PullToRefreshBase<V> refreshView);
 

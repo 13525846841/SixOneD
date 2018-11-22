@@ -314,7 +314,7 @@ public class PhotoViewAttacher implements IPhotoView, View.OnTouchListener,
 			checkAndDisplayMatrix();
 
 			/**
-			 * Here we decide whether to let the ImageView's parent to start
+			 * Here we decide whether to let the ImageView's parent to startRecorder
 			 * taking over the touch event.
 			 * 
 			 * First we check whether this function is enabled. We never want

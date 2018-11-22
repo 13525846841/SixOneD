@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="ClearEditView">
+        <attr name="ceEditTextSize" format="dimension" />
+        <attr name="ceEditTextColor" format="color" />
+        <attr name="ceEditHint" format="string" />
+        <attr name="ceClearDrawable" format="reference" />
+        <attr name="ceEditInputType" format="enum">
+            <enum name="text" value="0" />
+            <enum name="number" value="1" />
+            <enum name="password" value="2" />
+        </attr>
+    </declare-styleable>
+
     <declare-styleable name="scaleStyle">
         <attr name="scalableType">
             <enum name="none" value="0" />

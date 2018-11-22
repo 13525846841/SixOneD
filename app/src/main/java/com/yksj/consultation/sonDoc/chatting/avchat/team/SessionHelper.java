@@ -233,7 +233,7 @@ public class SessionHelper {
 //                @Override
 //                public void onClick(Context context, View view, String sessionId) {
 //
-//                    RobotProfileActivity.start(context, sessionId); //打开聊天信息
+//                    RobotProfileActivity.startRecorder(context, sessionId); //打开聊天信息
 //                }
 //            };
 //
@@ -356,11 +356,11 @@ public class SessionHelper {
 //                if (message.getMsgType() == MsgTypeEnum.robot && message.getDirect() == MsgDirectionEnum.In) {
 //                    RobotAttachment attachment = (RobotAttachment) message.getAttachment();
 //                    if (attachment.isRobotSend()) {
-//                        RobotProfileActivity.start(context, attachment.getFromRobotAccount());
+//                        RobotProfileActivity.startRecorder(context, attachment.getFromRobotAccount());
 //                        return;
 //                    }
 //                }
-//                UserProfileActivity.start(context, message.getFromAccount());
+//                UserProfileActivity.startRecorder(context, message.getFromAccount());
 //            }
 //
 //            @Override
@@ -451,10 +451,10 @@ public class SessionHelper {
 //        public void onItemClick(final PopupMenuItem item) {
 //            switch (item.getTag()) {
 //                case ACTION_HISTORY_QUERY:
-//                    MessageHistoryActivity.start(item.getContext(), item.getSessionId(), item.getSessionTypeEnum()); // 漫游消息查询
+//                    MessageHistoryActivity.startRecorder(item.getContext(), item.getSessionId(), item.getSessionTypeEnum()); // 漫游消息查询
 //                    break;
 //                case ACTION_SEARCH_MESSAGE:
-//                    SearchMessageActivity.start(item.getContext(), item.getSessionId(), item.getSessionTypeEnum());
+//                    SearchMessageActivity.startRecorder(item.getContext(), item.getSessionId(), item.getSessionTypeEnum());
 //                    break;
 //                case ACTION_CLEAR_MESSAGE:
 //                    EasyAlertDialogHelper.createOkCancelDiolag(item.getContext(), null, "确定要清空吗？", true, new EasyAlertDialogHelper.OnDialogActionListener() {

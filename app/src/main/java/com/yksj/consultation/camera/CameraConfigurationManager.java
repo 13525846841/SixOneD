@@ -200,7 +200,7 @@ final class CameraConfigurationManager {
 		* @Title: getFlashMode 
 		* @Description: 获取闪光灯模式
 		* @param @param parameters 
-		* @param @param start true为开,false为关
+		* @param @param startRecorder true为开,false为关
 		* @param @return 支持返回模式,不支持返回空
 		 */
 		public String getFlashMode(Camera.Parameters parameters, boolean start) {

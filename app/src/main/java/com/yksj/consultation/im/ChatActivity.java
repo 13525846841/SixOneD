@@ -40,6 +40,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.FileIOUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.library.base.base.BaseTitleActivity;
@@ -102,7 +103,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -125,7 +125,6 @@ public class ChatActivity extends BaseTitleActivity implements OnClickListener, 
     private PopupWindow mPopupWindow;
     private PopupWindow mOptionWindow;
     public ArmMediaPlay mediaPlay;
-    public ArmMediaRecord mediaRecord;
     PullToRefreshListView mPullToRefreshListView;
     private ImageView imgExpert, imgDoctor, imgPatient;
     private ImageView mChatBgImageV;//聊天背景
@@ -192,7 +191,6 @@ public class ChatActivity extends BaseTitleActivity implements OnClickListener, 
 
         //录音,播放初始化
         mediaPlay = new ArmMediaPlay();
-        mediaRecord = new ArmMediaRecord();
         mediaPlay.setMediaPlayListener(this);
 
         //缓存数据
@@ -257,7 +255,7 @@ public class ChatActivity extends BaseTitleActivity implements OnClickListener, 
     private void initializeView() {
         mChatBgImageV = (ImageView) findViewById(R.id.chat_bg);
         mChatVm = (VUMeterView) findViewById(R.id.chat_vm);
-        mChatVm.setMediaRecord(mediaRecord);
+        mChatVm.setMediaRecord(ArmMediaRecord.getInstance());
         if (getIntent().hasExtra(Constant.Chat.CONSULTATION_TYPE)) {
             consultType = false;
         }
@@ -1451,11 +1449,11 @@ public class ChatActivity extends BaseTitleActivity implements OnClickListener, 
             @Override
             public void onResponse(ResponseBean resp) {
                 super.onResponse(resp);
-                if (resp.isSuccess()){
+                if (resp.isSuccess()) {
                     EChatClearHide event = new EChatClearHide();
                     event.id = mOrderId;
                     EventManager.post(event);
-                }else{
+                } else {
                     LogUtils.e("未读消息删除失败");
                 }
             }
@@ -1477,18 +1475,8 @@ public class ChatActivity extends BaseTitleActivity implements OnClickListener, 
         public boolean onProcess(byte[] bytes) throws IOException {
             if (bytes == null || bytes.length == 0) throw new IOException("Save file fail");
             String fileName = StorageUtils.getFileName(mEntity.getContent());
-            File file = StorageUtils.createVoiceFile(fileName);
-            if (file == null) throw new IOException("Save file fail");
-            FileOutputStream fileOutputStream = null;
-            try {
-                fileOutputStream = new FileOutputStream(file);
-                fileOutputStream.write(bytes);
-            } finally {
-                if (fileOutputStream != null) {
-                    fileOutputStream.flush();
-                    fileOutputStream.close();
-                }
-            }
+            File saveFile = new File(StorageUtils.getVoicePath(), fileName);
+            FileIOUtils.writeFileFromBytesByChannel(saveFile, bytes, true);
             return false;
         }
 
@@ -1796,20 +1784,13 @@ public class ChatActivity extends BaseTitleActivity implements OnClickListener, 
         saveMessage(entity);
         mChatAdapter.addNew(entity);
 
-//        //图文群聊
-//        if (ObjectType.TUWEN.equals(mObjectType)){
-//            mPushService.onSendChatMessage(entity, 3, MessageEntity.TYPE_VOICE);
-//        }else {
         mPushService.onSendChatMessage(entity, mGroupType, MessageEntity.TYPE_VOICE);
-//        }
 
         mListView.setSelection(mChatAdapter.getCount());
     }
 
-
     //list view长按事件
-    @SuppressWarnings("deprecation")
-    final GestureDetector mGestureDetector = new GestureDetector(new ChatGestureListener() {
+    @SuppressWarnings("deprecation") final GestureDetector mGestureDetector = new GestureDetector(new ChatGestureListener() {
         public void onLongPress(MotionEvent e) {
             boolean isEditor = mChatAdapter.isEditor();
             if (isEditor) {
@@ -2010,34 +1991,34 @@ public class ChatActivity extends BaseTitleActivity implements OnClickListener, 
         final Intent intent = getPackageManager().getLaunchIntentForPackage("com.moor.cc");
         if (intent != null) {
             DoubleBtnFragmentDialog.showDefault(getSupportFragmentManager(), "打开视频软件", "取消", "确定",
-                    new OnDilaogClickListener() {
-                        @Override
-                        public void onDismiss(DialogFragment fragment) {
-                        }
+                                                new OnDilaogClickListener() {
+                                                    @Override
+                                                    public void onDismiss(DialogFragment fragment) {
+                                                    }
 
-                        @Override
-                        public void onClick(DialogFragment fragment, View v) {
-                            startActivity(intent);
-                        }
-                    });
+                                                    @Override
+                                                    public void onClick(DialogFragment fragment, View v) {
+                                                        startActivity(intent);
+                                                    }
+                                                });
 
         } else {
             DoubleBtnFragmentDialog.showDefault(getSupportFragmentManager(), "您还没有该视频app，需要下载安装吗", "取消", "下载",
-                    new OnDilaogClickListener() {
-                        @Override
-                        public void onDismiss(DialogFragment fragment) {
-                        }
+                                                new OnDilaogClickListener() {
+                                                    @Override
+                                                    public void onDismiss(DialogFragment fragment) {
+                                                    }
 
-                        @Override
-                        public void onClick(DialogFragment fragment, View v) {
-                            long sdcardSize = SystemUtils.getAvailableExternalMemorySize();
-                            if (sdcardSize > 25 * 1024 * 1024) {
-                                ActivityHelper.downLoadApp(AppContext.getApplication(), getResources().getString(R.string.video_app_url));
-                            } else {
-                                SingleBtnFragmentDialog.showDefault(getSupportFragmentManager(), getResources().getString(R.string.sdcard_not_enough));
-                            }
-                        }
-                    });
+                                                    @Override
+                                                    public void onClick(DialogFragment fragment, View v) {
+                                                        long sdcardSize = SystemUtils.getAvailableExternalMemorySize();
+                                                        if (sdcardSize > 25 * 1024 * 1024) {
+                                                            ActivityHelper.downLoadApp(AppContext.getApplication(), getResources().getString(R.string.video_app_url));
+                                                        } else {
+                                                            SingleBtnFragmentDialog.showDefault(getSupportFragmentManager(), getResources().getString(R.string.sdcard_not_enough));
+                                                        }
+                                                    }
+                                                });
         }
     }
 

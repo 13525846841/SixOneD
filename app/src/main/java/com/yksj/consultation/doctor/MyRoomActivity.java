@@ -119,7 +119,7 @@ public class MyRoomActivity extends BaseTitleActivity implements AdapterView.OnI
      */
     private void startToLogin(){
         ToastUtil.showShort(ResourceHelper.getString(R.string.error_login_info_none));
-        Intent intent = new Intent(this, UserLoginActivity.class);
+        Intent intent = UserLoginActivity.getCallingIntent(this);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }

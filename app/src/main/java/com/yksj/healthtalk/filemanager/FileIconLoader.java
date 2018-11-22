@@ -212,7 +212,7 @@ public class FileIconLoader implements Callback {
             FileId p = new FileId(path, id, cate);
             mPendingRequests.put(view, p);
             if (!mPaused) {
-                // Send a request to start loading photos
+                // Send a request to startRecorder loading photos
                 requestLoading();
             }
         }
@@ -317,7 +317,7 @@ public class FileIconLoader implements Callback {
     }
 
     /**
-     * Sends a message to this thread itself to start loading images. If the
+     * Sends a message to this thread itself to startRecorder loading images. If the
      * current view contains multiple image views, all of those image views will
      * get a chance to request their respective photos before any of those
      * requests are executed. This allows us to load images in bulk.

@@ -36,7 +36,7 @@ public class TeamDataCache {
 
     public void buildCache() {
         final List<Team> teams = NIMClient.getService(TeamService.class).queryTeamListBlock();
-//        LogUtil.i(UIKitLogTag.TEAM_CACHE, "start build TeamDataCache");
+//        LogUtil.i(UIKitLogTag.TEAM_CACHE, "startRecorder build TeamDataCache");
 
         addOrUpdateTeam(teams);
 

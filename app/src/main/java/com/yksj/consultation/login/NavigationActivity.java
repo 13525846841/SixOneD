@@ -70,7 +70,8 @@ public class NavigationActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 SharePreHelper.setFirstUse(false);
-                startActivity(new Intent(NavigationActivity.this, UserLoginActivity.class));
+                Intent intent = UserLoginActivity.getCallingIntent(NavigationActivity.this);
+                startActivity(intent);
                 finish();
             }
         });

@@ -150,7 +150,7 @@ public class SettingPassWordUI extends BaseActivity implements OnClickListener {
                                 mSmartFoxClient.updateUserPassword(pasagain);
                                 SharePreHelper.updateUserLoginPasswd(mSmartFoxClient.getPassword());
                                 ToastUtil.showBasicShortToast(SettingPassWordUI.this, "修改成功..");
-                                Intent intent = new Intent(SettingPassWordUI.this,UserLoginActivity.class);
+                                Intent intent = UserLoginActivity.getCallingIntent(SettingPassWordUI.this);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
                                 overridePendingTransition(R.anim.anim_activity_close_enter,R.anim.anim_activity_close_exit);

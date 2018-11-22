@@ -196,7 +196,7 @@ abstract class LecturePlayerView : RelativeLayout, LectureMediaController.MediaC
 //    private fun preparedComplete(player: NELivePlayer) {
 //        hideProgress()
 //        status = PREPARED_COMPLETE
-//        start()
+//        startRecorder()
 //
 //        renderView.visibility = View.VISIBLE
 //        avatarView.visibility = View.GONE
@@ -231,16 +231,16 @@ abstract class LecturePlayerView : RelativeLayout, LectureMediaController.MediaC
 //            renderView.visibility = View.VISIBLE
 //            avatarView.visibility = View.GONE
 //            centerController.visibility = View.GONE
-//            start()
+//            startRecorder()
 //        }
 //    }
 //
 //    /**
 //     * 播放
 //     */
-//    override fun start() {
+//    override fun startRecorder() {
 //        if (isInPlayerStatus() && !isPlaying()) {
-//            mediaPlayer.start()
+//            mediaPlayer.startRecorder()
 //            mediaController.show()
 //            status = STARTED
 //        }

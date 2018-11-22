@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <item type="id" name="gridview" />
-    <item type="id" name="webview" />
-    <item type="id" name="scrollview" />
-    
-     <item name="welcome_logo_img" type="id" />
+    <item name="gridview" type="id" />
+    <item name="webview" type="id" />
+    <item name="scrollview" type="id" />
+
+    <item name="welcome_logo_img" type="id" />
     <item name="inputPhoneNum" type="id" />
     <item name="inputPone" type="id" />
     <item name="friend_findme" type="id" />
@@ -30,39 +30,43 @@
     <item name="feedback_line" type="id" />
     <item name="grade_line" type="id" />
     <item name="update_line" type="id" />
-    
-    <item type="id" name="main_scene" />
-    <item type="id" name="refresh_view"  />
-    <item type="id" name="fragment_tab_root" />
-    <item type="id" name="title_back" />
-    <item type="id" name="title_right" />
-    
-    
-    <item type="id" name="tree_expandable" />
-   <item type="id" name="tree_list" />
-   <item type="id" name="view_pager" />
-   
-   
-   <item type="id" name="chat_head"/>
-   <item type="id" name="chat_state" />
-   <item type="id" name="chat_progress" />
-   <item type="id" name="chat_txt_content" />
-   
-   <item name="action_view" type="id"/>
-    <item name="tool_view" type="id"/>
-    <item name="arror" type="id"/>
+
+    <item name="main_scene" type="id" />
+    <item name="refresh_view" type="id" />
+    <item name="fragment_tab_root" type="id" />
+    <item name="title_back" type="id" />
+    <item name="title_right" type="id" />
+
+
+    <item name="tree_expandable" type="id" />
+    <item name="tree_list" type="id" />
+    <item name="view_pager" type="id" />
+
+
+    <item name="chat_head" type="id" />
+    <item name="chat_state" type="id" />
+    <item name="chat_progress" type="id" />
+    <item name="chat_txt_content" type="id" />
+
+    <item name="action_view" type="id" />
+    <item name="tool_view" type="id" />
+    <item name="arror" type="id" />
 
     <!-- Messages IDs -->
-    <item name="auto_focus" type="id"/>
-    <item name="decode" type="id"/>
-    <item name="decode_failed" type="id"/>
-    <item name="decode_succeeded" type="id"/>
-    <item name="encode_failed" type="id"/>
-    <item name="encode_succeeded" type="id"/>
-    <item name="launch_product_query" type="id"/>
-    <item name="quit" type="id"/>
-    <item name="restart_preview" type="id"/>
-    <item name="return_scan_result" type="id"/>
-    <item name="search_book_contents_failed" type="id"/>
-    <item name="search_book_contents_succeeded" type="id"/>
+    <item name="auto_focus" type="id" />
+    <item name="decode" type="id" />
+    <item name="decode_failed" type="id" />
+    <item name="decode_succeeded" type="id" />
+    <item name="encode_failed" type="id" />
+    <item name="encode_succeeded" type="id" />
+    <item name="launch_product_query" type="id" />
+    <item name="quit" type="id" />
+    <item name="restart_preview" type="id" />
+    <item name="return_scan_result" type="id" />
+    <item name="search_book_contents_failed" type="id" />
+    <item name="search_book_contents_succeeded" type="id" />
+
+    <!--ClearEditTextView-->
+    <item name="edit_view" type="id" />
+    <item name="clear_view" type="id" />
 </resources>

@@ -6,31 +6,33 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/phone"
-        style="@style/item_white_bg_style"
-        android:hint="请输入手机号码"
-        android:inputType="number" />
+    <com.yksj.consultation.widget.ClearEditView
+        android:id="@+id/account_cev"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:background="@drawable/shape_edittext_input_bg_white"
+        android:layout_marginTop="@dimen/dp_10"
+        app:ceClearDrawable="@drawable/ic_edit_clear"
+        app:ceEditHint="请输入账号"
+        app:ceEditTextSize="@dimen/sp_16"
+        app:ceEditInputType="number"
+        app:ceEditTextColor="@color/tab_txt_name"/>
 
-    <LinearLayout style="@style/item_white_bg_style">
-
-        <EditText
-            android:id="@+id/pswd"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/bg_gray"
-            android:hint="请输入密码"
-            android:inputType="textPassword" />
-
-        <TextView
-            android:id="@+id/forget_pswd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="忘记密码?"
-            android:textColor="@color/red" />
-
-    </LinearLayout>
+    <com.yksj.consultation.widget.ClearEditView
+        android:id="@+id/password_cev"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:background="@drawable/shape_edittext_input_bg_white"
+        android:layout_marginTop="@dimen/dp_10"
+        app:ceClearDrawable="@drawable/ic_edit_clear"
+        app:ceEditHint="请输入密码"
+        app:ceEditTextSize="@dimen/sp_16"
+        app:ceEditInputType="password"
+        app:ceEditTextColor="@color/tab_txt_name"/>
 
     <com.library.base.widget.SuperButton
         android:id="@+id/login"

@@ -110,7 +110,7 @@
                     android:focusableInTouchMode="false"
                     android:listSelector="#00000000"
                     android:longClickable="true"
-                    ptr:ptrMode="pullFromStart"></org.handmark.pulltorefresh.library.PullToRefreshListView>
+                    ptr:ptrMode="pullFromStart" />
 
                 <FrameLayout
                     android:id="@+id/chat_vm_frame"
@@ -122,7 +122,7 @@
                         android:id="@+id/chat_vm"
                         android:layout_width="372dp"
                         android:layout_height="372dp"
-                        android:visibility="gone"></com.yksj.consultation.sonDoc.views.VUMeterView>
+                        android:visibility="gone" />
                 </FrameLayout>
             </FrameLayout>
 

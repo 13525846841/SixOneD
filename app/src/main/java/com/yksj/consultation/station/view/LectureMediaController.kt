@@ -225,7 +225,7 @@ class LectureMediaController : ConstraintLayout {
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> show(0) // show until hide is called
-            MotionEvent.ACTION_UP -> show(DEFAULT_HIDE) // start timeout
+            MotionEvent.ACTION_UP -> show(DEFAULT_HIDE) // startRecorder timeout
             MotionEvent.ACTION_CANCEL -> hide()
         }
         return true

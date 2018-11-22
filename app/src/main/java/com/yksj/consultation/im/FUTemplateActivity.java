@@ -1,5 +1,6 @@
 package com.yksj.consultation.im;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -39,6 +40,13 @@ public class FUTemplateActivity extends BaseTitleActivity implements BaseQuickAd
     private final static String flag = "0";//私有数据库
     public boolean isEdit = false;
     private List<String> mDeleteIds;
+    private String mSickId;//患者Id
+
+    public static Intent getCallingIntent(Context context, String sickId){
+        Intent intent = new Intent(context, FUTemplateActivity.class);
+        intent.putExtra("sick_id", sickId);
+        return intent;
+    }
 
     @Override
     public int createLayoutRes() {
@@ -49,6 +57,7 @@ public class FUTemplateActivity extends BaseTitleActivity implements BaseQuickAd
     public void initialize(Bundle bundle) {
         super.initialize(bundle);
         setTitle("随访模板");
+        mSickId = getIntent().getStringExtra("sick_id");
         initView();
     }
 
@@ -72,7 +81,7 @@ public class FUTemplateActivity extends BaseTitleActivity implements BaseQuickAd
      * 添加模块
      * @param v
      */
-    private void onAddTemplate(View v){
+    private void onAddTemplate(View v) {
         Intent intent = new Intent(FUTemplateActivity.this, CreateTempleteActivity.class);
         startActivity(intent);
     }
@@ -81,7 +90,7 @@ public class FUTemplateActivity extends BaseTitleActivity implements BaseQuickAd
      * 模版库
      * @param v
      */
-    private void onTemplateLibs(View v){
+    private void onTemplateLibs(View v) {
         Intent intent = new Intent(this, TemplatelibAty.class);
         startActivity(intent);
     }
@@ -99,7 +108,7 @@ public class FUTemplateActivity extends BaseTitleActivity implements BaseQuickAd
             setRight("编辑");
             mTemplateAdapter.setEditable(false);
             mDeleteIds = mTemplateAdapter.getSelectTemplate();
-            if (!mDeleteIds.isEmpty()){
+            if (!mDeleteIds.isEmpty()) {
                 requestDeleteTemplate();
             }
         }
@@ -116,9 +125,11 @@ public class FUTemplateActivity extends BaseTitleActivity implements BaseQuickAd
                     List<FollowTemplateBean> templates = resp.templates;
                     if (!templates.isEmpty()) {
                         // 有模版才能编辑
-                        setRight("编辑",FUTemplateActivity.this::onEditTemplate);
+                        setRight("编辑", FUTemplateActivity.this::onEditTemplate);
                         mTemplateAdapter.setNewData(templates);
                         mTemplateAdapter.setEditable(false);
+                    }else{
+                        setRight("");
                     }
                 }
             }
@@ -140,13 +151,11 @@ public class FUTemplateActivity extends BaseTitleActivity implements BaseQuickAd
             @Override
             public void onResponse(ResponseBean response) {
                 super.onResponse(response);
-                if (response.code == 0){
-                    ToastUtils.showShort("删除成功");
-                    if (mTemplateAdapter.getData().isEmpty()){
-                        setRight("");
-                    }
+                if (response.code == 0) {
+                    mTemplateAdapter.removeById(mDeleteIds);
+                    mDeleteIds.clear();
                     requestTemplateData();
-                }else{
+                } else {
                     ToastUtils.showShort("删除失败");
                 }
             }
@@ -156,10 +165,6 @@ public class FUTemplateActivity extends BaseTitleActivity implements BaseQuickAd
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         FollowTemplateBean item = mTemplateAdapter.getItem(position);
-        Intent intent = new Intent(this, AddTmpPlanActivity.class);
-        // intent.putExtra("type1","modify");
-        intent.putExtra("customer_id", DoctorHelper.getId());
-        intent.putExtra("follow_id", item.id);
-        startActivity(intent);
+        startActivity(AddTmpPlanActivity.getCallingIntent(this, mSickId, item.id));
     }
 }

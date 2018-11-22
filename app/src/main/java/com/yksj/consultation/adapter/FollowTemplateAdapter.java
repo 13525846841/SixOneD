@@ -35,6 +35,22 @@ public class FollowTemplateAdapter extends BaseQuickAdapter<FollowTemplateBean, 
     }
 
     /**
+     * 根据id删除
+     * @param ids
+     */
+    public void removeById(List<String> ids) {
+        for (int j = 0; j < ids.size(); j++) {
+            String deleteId = ids.get(j);
+            for (int i = 0; i < getData().size(); i++) {
+                FollowTemplateBean templateBean = getItem(i);
+                if (templateBean.id.equals(deleteId)) {
+                    remove(i);
+                }
+            }
+        }
+    }
+
+    /**
      * 设置是否可编辑
      * @param editable
      */

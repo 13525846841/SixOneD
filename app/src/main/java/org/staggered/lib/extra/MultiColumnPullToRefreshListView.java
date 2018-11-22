@@ -34,7 +34,7 @@ import android.widget.TextView;
  * <p/>
  * The using class can call setRefreshing() to set the state explicitly to refreshing. This
  * is useful when you want to show the spinner and 'Refreshing' text when the
- * refresh was not triggered by 'Pull to Refresh', for example on start.
+ * refresh was not triggered by 'Pull to Refresh', for example on startRecorder.
  * <p/>
  * For more information, visit the project page:
  * https://github.com/erikwt/PullToRefresh-ListView
@@ -163,7 +163,7 @@ public class MultiColumnPullToRefreshListView extends MultiColumnListView {
 	/**
 	 * Explicitly set the state to refreshing. This
 	 * is useful when you want to show the spinner and 'Refreshing' text when
-	 * the refresh was not triggered by 'pull to refresh', for example on start.
+	 * the refresh was not triggered by 'pull to refresh', for example on startRecorder.
 	 */
 	public void setRefreshing(){
 		state = State.REFRESHING;

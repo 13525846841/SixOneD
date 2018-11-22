@@ -70,7 +70,7 @@ public abstract class StaggerAdapterView<T extends Adapter> extends ViewGroup {
 	int mSpecificTop;
 
 	/**
-	 * Position from which to start looking for mSyncRowId
+	 * Position from which to startRecorder looking for mSyncRowId
 	 */
 	int mSyncPosition;
 

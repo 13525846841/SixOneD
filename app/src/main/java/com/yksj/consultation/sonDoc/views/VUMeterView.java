@@ -14,7 +14,7 @@ import android.view.View;
 
 import com.yksj.consultation.sonDoc.R;
 import com.yksj.healthtalk.media.ArmMediaRecord;
-import com.yksj.healthtalk.media.ArmMediaRecord.MediaState;
+import com.yksj.healthtalk.media.RecorderState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,8 +119,8 @@ public class VUMeterView extends View {
         width = mFrameDrawable0.getIntrinsicWidth();
         heigth = mFrameDrawable0.getIntrinsicHeight();
         mFrameRect.set(0, 0,
-                (bgDrawableRect.right - width) / 2,
-                (bgDrawableRect.bottom - heigth) / 2);
+                       (bgDrawableRect.right - width) / 2,
+                       (bgDrawableRect.bottom - heigth) / 2);
     }
 
     @Override
@@ -129,12 +129,12 @@ public class VUMeterView extends View {
         bgDrawable.draw(canvas);
         //退出
         if (mArmMediaRecord != null &&
-                mArmMediaRecord.getRecordState() == MediaState.STATE_CANCEL) {
+                mArmMediaRecord.getRecordState() == RecorderState.STATE_CANCEL) {
             canvas.setDrawFilter(paintFlagsDrawFilter);
             canvas.drawBitmap(((BitmapDrawable) (mCancelDrawable)).getBitmap(),
-                    mCancelRect.right,
-                    mCancelRect.bottom,
-                    null);
+                              mCancelRect.right,
+                              mCancelRect.bottom,
+                              null);
         } else {
             //音量
             float amplitude = getMaxAmplitude() / 32768f;
@@ -147,12 +147,13 @@ public class VUMeterView extends View {
             int frame = (int) (mCurrentAmplitude * 10);
             canvas.setDrawFilter(paintFlagsDrawFilter);
             canvas.drawBitmap(((BitmapDrawable) (mFrameList.get(frame))).getBitmap(),
-                    mFrameRect.right,
-                    mFrameRect.bottom,
-                    null);
+                              mFrameRect.right,
+                              mFrameRect.bottom,
+                              null);
         }
         if (mArmMediaRecord != null &&
-                (mArmMediaRecord.getRecordState() == MediaState.STATE_START || mArmMediaRecord.getRecordState() == MediaState.STATE_CANCEL))
+                (mArmMediaRecord.getRecordState() == RecorderState.STATE_START ||
+                        mArmMediaRecord.getRecordState() == RecorderState.STATE_CANCEL))
             postInvalidateDelayed(INTERVAL_TIME);
 
 //		int amplitude = (getMaxAmplitude()/32768)*10;

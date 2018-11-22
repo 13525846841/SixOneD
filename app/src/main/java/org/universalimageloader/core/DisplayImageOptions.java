@@ -17,7 +17,7 @@ import android.graphics.drawable.Drawable;
  * <ul>
  * <li>whether stub image will be displayed in {@link android.widget.ImageView ImageView} during image loading</li>
  * <li>whether stub image will be displayed in {@link android.widget.ImageView ImageView} if empty URI is passed</li>
- * <li>whether {@link android.widget.ImageView ImageView} should be reset before image loading start</li>
+ * <li>whether {@link android.widget.ImageView ImageView} should be reset before image loading startRecorder</li>
  * <li>whether loaded image will be cached in memory</li>
  * <li>whether loaded image will be cached on disc</li>
  * <li>image scale type</li>
@@ -195,7 +195,7 @@ public final class DisplayImageOptions {
 			return this;
 		}
 
-		/** {@link android.widget.ImageView ImageView} will be reset (set <b>null</b>) before image loading start */
+		/** {@link android.widget.ImageView ImageView} will be reset (set <b>null</b>) before image loading startRecorder */
 		public Builder resetViewBeforeLoading() {
 			resetViewBeforeLoading = true;
 			return this;

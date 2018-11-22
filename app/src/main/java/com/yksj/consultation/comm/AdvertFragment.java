@@ -107,7 +107,7 @@ public class AdvertFragment extends BaseFragment {
 				} catch (JSONException e) {
 				}
 			};
-		}.start();*/
+		}.startRecorder();*/
 	}
 	
 	private class AdvertFragmentAdapter extends PagerAdapter{

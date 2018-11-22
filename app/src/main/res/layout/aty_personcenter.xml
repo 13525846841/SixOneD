@@ -251,23 +251,20 @@
             app:sRightIconMarginRight="@dimen/dp_16"
             app:sRightIconRes="@drawable/ic_arrow_right" />
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical">
+        <com.library.base.widget.SuperButton
+            android:id="@+id/logout_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:text="@string/changeAccount"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/dp_14"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_marginRight="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_20"
+            app:sSolidColor="@color/pink"/>
 
-            <Button
-                android:id="@+id/logout_btn"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp_14"
-                android:layout_marginLeft="@dimen/dp_14"
-                android:layout_marginRight="@dimen/dp_14"
-                android:layout_marginTop="@dimen/dp_20"
-                android:background="@drawable/bt_pic_number_bg"
-                android:text="@string/changeAccount"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
-        </RelativeLayout>
     </LinearLayout>
+
 </android.support.v4.widget.NestedScrollView>

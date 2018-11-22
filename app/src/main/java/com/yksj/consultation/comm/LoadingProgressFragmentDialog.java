@@ -68,7 +68,7 @@ public class LoadingProgressFragmentDialog extends DialogFragment {
 //		loading_image = (ImageView)dialog.findViewById(R.id.loading_image);
 //		animationDrawable = (AnimationDrawable) loading_image.getBackground();
         textView.setText(content);
-//		animationDrawable.start();
+//		animationDrawable.startRecorder();
         return dialog;
     }
 

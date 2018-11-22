@@ -208,7 +208,6 @@ public class CreateTempleteActivity extends BaseTitleActivity implements BaseQui
             }
         }
 
-
         Map<String, String> map = new HashMap<>();
         map.put("customer_id", DoctorHelper.getId());
         map.put("template_name", name);

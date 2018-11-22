@@ -111,7 +111,7 @@
         <meta-data
             android:name="com.netease.nim.appKey"
             android:value="@string/nim_appkey" />
-        <!--友盟 start-->
+        <!--友盟 startRecorder-->
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="@string/umeng_app_key" />
@@ -937,7 +937,7 @@
         <activity android:name="com.yksj.consultation.doctor.ShareListActivity" />
 
 
-        <!--工作站 start-->
+        <!--工作站 startRecorder-->
         <activity
             android:name="com.yksj.consultation.station.StationCommentListActivity"
             android:screenOrientation="portrait" />
@@ -995,7 +995,7 @@
             android:screenOrientation="portrait" />
         <!--工作站 end-->
 
-        <!--医生联盟 start-->
+        <!--医生联盟 startRecorder-->
         <activity
             android:name="com.yksj.consultation.union.UnionListActivity"
             android:launchMode="standard"
@@ -1162,7 +1162,7 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <!--机构end-->
 
-        <!--支付宝 start-->
+        <!--支付宝 startRecorder-->
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
             android:configChanges="orientation|keyboardHidden|navigation|screenSize"
@@ -1182,7 +1182,7 @@
             android:windowSoftInputMode="adjustResize|stateHidden"></activity>
         <!--支付宝end-->
 
-        <!--网易IM start-->
+        <!--网易IM startRecorder-->
         <!-- 音视频 -->
         <activity
             android:name=".chatting.avchat.AVChatActivity"

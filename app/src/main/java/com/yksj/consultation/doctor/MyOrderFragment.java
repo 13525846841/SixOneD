@@ -251,7 +251,7 @@ public class MyOrderFragment extends BaseFragment {
 //
 //                    // 进入主界面
 ////                startActivity(new Intent(this,LoginA));
-////                MainActivity.start(LoginActivity.this, null);
+////                MainActivity.startRecorder(LoginActivity.this, null);
 ////                finish();
 ////                if (SharePreHelper.getisAvChatState()) {
 ////                    checkCall();
