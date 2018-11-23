@@ -1654,12 +1654,7 @@ public class ChatActivity extends BaseTitleActivity implements OnClickListener, 
         mChatAdapter.addNew(messageEntity);
         mListView.setSelection(mChatAdapter.getCount());
 
-//        //图文群聊
-//        if (ObjectType.TUWEN.equals(mObjectType)){
-//            mPushService.onSendChatMessage(messageEntity, 3, MessageEntity.TYPE_TEXT);
-//        }else {
         mPushService.onSendChatMessage(messageEntity, mGroupType, MessageEntity.TYPE_TEXT);
-//        }
     }
 
     @Override

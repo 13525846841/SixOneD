@@ -106,6 +106,15 @@ public class BaseTitleActivity extends BaseActivity {
         titleTextV.setText(titleRes);
     }
 
+    /**
+     * 设置菜单
+     */
+    public void setLeft(@DrawableRes int resId){
+        if (titleLeftBtn == null) return;
+        titleLeftBtn.setImageResource(resId);
+        titleLeftBtn.setVisibility(View.VISIBLE);
+    }
+
     public void setLeft(@DrawableRes int resId, OnClickListener listener) {
         if (titleLeftBtn == null) return;
         titleLeftBtn.setImageResource(resId);

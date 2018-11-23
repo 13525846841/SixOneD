@@ -28,14 +28,15 @@
         android:textColor="@color/color_text1"
         android:ellipsize="end"
         android:maxLines="3"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp" />
+        android:paddingLeft="@dimen/padding_left"
+        android:paddingRight="@dimen/padding_right"
+        android:paddingTop="@dimen/padding_top"
+        android:paddingBottom="@dimen/padding_bottom"/>
 
     <View
         android:id="@+id/view2"
         style="@style/common_split_line_6dp"
         android:layout_below="@+id/case_discuss_details_case" />
-
 
     <TextView
         android:id="@+id/tv_conE"
@@ -68,8 +69,10 @@
         android:ellipsize="end"
         android:maxLines="3"
         android:textColor="@color/color_text1"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp" />
+        android:paddingLeft="@dimen/padding_left"
+        android:paddingRight="@dimen/padding_right"
+        android:paddingTop="@dimen/padding_top"
+        android:paddingBottom="@dimen/padding_bottom" />
 
     <View
         android:id="@+id/view4"
@@ -80,10 +83,10 @@
         android:id="@+id/case_discuss_details_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="12dp"
-        android:paddingRight="16dp"
-        android:paddingTop="12dp"
-        android:paddingLeft="16dp"
+        android:paddingLeft="@dimen/padding_left"
+        android:paddingRight="@dimen/padding_right"
+        android:paddingTop="@dimen/padding_top"
+        android:paddingBottom="@dimen/padding_bottom"
         android:layout_below="@id/view4" />
 
     <View

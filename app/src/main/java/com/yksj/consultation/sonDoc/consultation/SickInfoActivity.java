@@ -27,13 +27,11 @@ import java.util.List;
 
 import okhttp3.Request;
 
-;
-
 /**
  * 患者个人信息
  * Created by zheng on 2015/9/17.
  */
-public class AtyPatientMassage extends BaseTitleActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
+public class SickInfoActivity extends BaseTitleActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
     private ImageView patientHeader;
     private TextView name;//名称
     private TextView agesex;//性别
@@ -155,7 +153,7 @@ public class AtyPatientMassage extends BaseTitleActivity implements View.OnClick
                         }
                         result = patientInfo.optJSONObject("patientInfo");
                         mInstance.displayImage(result.optString("CUSTOMER_SEX"), result.optString("CLIENT_ICON_BACKGROUND"), patientHeader);
-                        patientHeader.setOnClickListener(AtyPatientMassage.this);
+                        patientHeader.setOnClickListener(SickInfoActivity.this);
                         if ("null".equals(result.optString("REAL_NAME"))) {
                             nameStr = "暂无姓名";
                         } else {
@@ -306,7 +304,7 @@ public class AtyPatientMassage extends BaseTitleActivity implements View.OnClick
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//        Intent intent = new Intent(AtyPatientMassage.this, AtyOrderRecord.class);
+//        Intent intent = new Intent(SickInfoActivity.this, AtyOrderRecord.class);
 //        JSONObject object = mAdapter.datas.get(i);
 //        intent.putExtra("CONID", object.optInt("CONSULTATION_ID"));
 //        intent.putExtra("PERSONID", pid);

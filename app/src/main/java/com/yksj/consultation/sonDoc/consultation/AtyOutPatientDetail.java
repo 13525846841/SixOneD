@@ -115,7 +115,7 @@ public class AtyOutPatientDetail extends BaseActivity implements View.OnClickLis
                 onBackPressed();
                 break;
             case R.id.rl_patientinfo://患者个人信息查询
-                i = new Intent(AtyOutPatientDetail.this, AtyPatientMassage.class);
+                i = new Intent(AtyOutPatientDetail.this, SickInfoActivity.class);
                 i.putExtra("PID", cusId + "");
                 i.putExtra("ORDER", 0);
                 startActivity(i);

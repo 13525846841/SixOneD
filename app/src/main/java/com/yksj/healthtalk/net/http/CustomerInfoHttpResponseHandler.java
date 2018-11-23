@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 
 import com.yksj.consultation.dialog.WaitDialog;
-import com.yksj.consultation.sonDoc.consultation.AtyPatientMassage;
+import com.yksj.consultation.sonDoc.consultation.SickInfoActivity;
 import com.yksj.consultation.sonDoc.doctor.MyInfoActivity;
 import com.yksj.healthtalk.entity.CustomerInfoEntity;
 import com.yksj.healthtalk.utils.DataParseUtil;
@@ -52,7 +52,7 @@ public class CustomerInfoHttpResponseHandler extends ObjectHttpResponseHandler {
 				Intent intent = MyInfoActivity.getCallingIntent(mActivity, entity.getId());
 				mActivity.startActivity(intent);
 			}else{
-				Intent intent = new Intent(mActivity,AtyPatientMassage.class);
+				Intent intent = new Intent(mActivity,SickInfoActivity.class);
 				intent.putExtra("PID", entity.getId());
 				intent.putExtra("MAIN","main");
 				mActivity.startActivity(intent);

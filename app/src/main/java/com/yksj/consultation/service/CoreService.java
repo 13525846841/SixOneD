@@ -287,7 +287,7 @@ public class CoreService extends Service implements XsocketHanlder.XsocketHanlde
             int serverCode = jo.getInt("server_code");
             switch (serverCode) {
                 case SmartControlClient.SOCKET_HEART_CODE://心跳
-                    LogUtils.dTag(TAG, "======心跳======");
+                    LogUtils.d(TAG, "======心跳======");
                     keepCount = 0;
                     break;
                 case SmartControlClient.LOGIN_CODE://登录
@@ -306,6 +306,8 @@ public class CoreService extends Service implements XsocketHanlder.XsocketHanlde
                     break;
                 case SmartControlClient.CHATTING_MESSAGE_SENDSTATE://发送消息返回
                     onHandlerMesgeSendState(jo);
+                    break;
+                case SmartControlClient.SIX_ONE_SEND_MSG://群聊
                     break;
                 case SmartControlClient.CHATTING_SINGLE_MESSAGE_RECEIVE://单聊
                 case SmartControlClient.SERVICE_SINGLE_RECIEVE_MSG://特殊服务单聊返回
@@ -606,8 +608,8 @@ public class CoreService extends Service implements XsocketHanlder.XsocketHanlde
         if (null == wakeLock) {
             PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
             wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK
-                    | PowerManager.ON_AFTER_RELEASE, getClass()
-                    .getCanonicalName());
+                                              | PowerManager.ON_AFTER_RELEASE, getClass()
+                                              .getCanonicalName());
             if (null != wakeLock) {
                 wakeLock.acquire();
             }
@@ -628,7 +630,7 @@ public class CoreService extends Service implements XsocketHanlder.XsocketHanlde
     /**
      * 注册网络变化广播
      */
-    private void registerNetworkChangeReceiver(){
+    private void registerNetworkChangeReceiver() {
         IntentFilter filter = new IntentFilter();
         filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(mNetworkReceiver, filter);
@@ -905,47 +907,42 @@ public class CoreService extends Service implements XsocketHanlder.XsocketHanlde
         switch (type) {
             case MessageEntity.TYPE_TEXT:// 文本发送
                 SmartFoxClient.sendChatMessage(entity, type, 0);
-                if (groupType == 0) {
-                    Message msg = mHandler.obtainMessage();
-                    msg.obj = entity;
-                    msg.what = 3000;
-                    mHandler.sendMessageDelayed(msg, 1000 * 60);
+                if (groupType == 0) {//单聊设置发送超时
+                    setSendMsgTimeout(entity);
+                } else if (groupType == 1) {//群聊模拟延时设置发送成功`(服务器没有返回群聊是否发送成功回调)
+                    mHandler.postDelayed(() -> {
+                        entity.setSendState(MessageEntity.STATE_OK);
+                        onUpdateMesgeState(entity);
+                    }, 1000);
                 }
                 break;
             case MessageEntity.TYPE_VOICE:
-                ApiService.doHttpSendChatVoiceMesg(entity, groupType,
-                        new ChatVoiceUploadHttpHandler(entity, groupType > 0));
+                ApiService.doHttpSendChatVoiceMesg(entity, groupType, new ChatVoiceUploadHttpHandler(entity, groupType > 0));
                 break;
             case MessageEntity.TYPE_PICTURE:// 图片发送
                 ApiService.doHttpSendChatImageMesg(entity, groupType, new ChatImageUploadCallback(entity, groupType > 0));
                 break;
             case MessageEntity.TYPE_VIDEO:// 视频发送
-                ApiService.doHttpSendChatVideoMesg(entity, groupType,
-                        new ChatVideoUploadHttpHandler(entity, groupType > 0));
+                ApiService.doHttpSendChatVideoMesg(entity, groupType, new ChatVideoUploadHttpHandler(entity, groupType > 0));
                 break;
             case MessageEntity.TYPE_LOCATION:// 地图发送
                 SmartFoxClient.sendChatMessage(entity, type, 0);
                 if (groupType == 0) {
-                    Message msg = mHandler.obtainMessage();
-                    msg.obj = entity;
-                    msg.what = 3000;
-                    mHandler.sendMessageDelayed(msg, 1000 * 60);
+                    setSendMsgTimeout(entity);
                 }
                 break;
         }
     }
 
     /**
-     * 发送广播
-     * @param action
-     * @param value
+     * 设置消息发送超时
      */
-//	private void sendBroad(String action, String value) {
-//		Intent intent = new Intent(action);
-//		intent.putExtra(BROAD_KEY, value);
-//		sendBroadcast(intent);
-//	}
-
+    private void setSendMsgTimeout(MessageEntity entity) {
+        Message msg = mHandler.obtainMessage();
+        msg.obj = entity;
+        msg.what = 3000;
+        mHandler.sendMessageDelayed(msg, 1000 * 60);
+    }
 
     /**
      * 消息发送状态返回处理

@@ -41,8 +41,8 @@ import com.yksj.consultation.doctor.constant.ServiceType;
 import com.yksj.consultation.im.ChatActivity;
 import com.yksj.consultation.sonDoc.R;
 import com.yksj.consultation.sonDoc.consultation.AtyOutPatientDetail;
-import com.yksj.consultation.sonDoc.consultation.AtyPatientMassage;
 import com.yksj.consultation.sonDoc.consultation.PlayVideoActiviy;
+import com.yksj.consultation.sonDoc.consultation.SickInfoActivity;
 import com.yksj.consultation.sonDoc.consultation.consultationorders.AtyOrderDetails;
 import com.yksj.consultation.sonDoc.consultation.consultationorders.AtyOrdersDetails;
 import com.yksj.consultation.sonDoc.doctor.MyInfoActivity;
@@ -653,7 +653,7 @@ public class ChatAdapter extends BaseAdapter {
                     if (loginUserId.equals(userid)) {
                         intent = MyInfoActivity.getCallingIntent(mContext, DoctorHelper.getId());
                     } else {
-                        intent = new Intent(mContext, AtyPatientMassage.class);
+                        intent = new Intent(mContext, SickInfoActivity.class);
                         intent.putExtra("PID", userid);
                         intent.putExtra("MAIN", "main");
                     }
@@ -1003,8 +1003,7 @@ public class ChatAdapter extends BaseAdapter {
                 float voiceWeight = Math.min(0.8f, voiceLength / 60f);// 计算比重
                 widthP = (int) (voiceWeight * (widthP - layoutParams.height * 5));
                 widthP += layoutParams.height;
-                messageEntity.voiceLayoutWidth = Math.max(widthP,
-                                                          layoutParams.height);
+                messageEntity.voiceLayoutWidth = Math.max(widthP, layoutParams.height);
                 layoutParams.width = messageEntity.voiceLayoutWidth;
             } else {// 默认宽度
                 messageEntity.voiceLayoutWidth = layoutParams.height;
@@ -1012,10 +1011,15 @@ public class ChatAdapter extends BaseAdapter {
         }
     }
 
-    //发送状态
+    /**
+     * 发送状态
+     * @param state
+     * @param checkBox
+     */
     private void setSendState(int state, CheckBox checkBox) {
-        if (checkBox == null)
+        if (checkBox == null) {
             return;
+        }
         if (state == MessageEntity.STATE_FAIL) {
             checkBox.setChecked(false);
             checkBox.setText("发送失败");

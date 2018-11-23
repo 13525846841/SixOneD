@@ -42,8 +42,7 @@ public class UserLoginActivity extends BaseTitleActivity implements OnClickListe
         @Override
         public void onLoginSucees() {
             ToastUtils.showShort("登录成功");
-            Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
-            startActivity(intent);
+            startActivity(MainActivity.getCallingIntent(UserLoginActivity.this));
             finish();
         }
 
@@ -90,7 +89,7 @@ public class UserLoginActivity extends BaseTitleActivity implements OnClickListe
     public void initialize(Bundle bundle) {
         super.initialize(bundle);
         setTitle("登录");
-        setLeft(R.drawable.icon_cancel_delete, null);
+        setLeft(R.drawable.icon_cancel_delete);
         setRight("忘记密码?", this::onForgetPaswdClick);
         initView();
     }
@@ -157,6 +156,13 @@ public class UserLoginActivity extends BaseTitleActivity implements OnClickListe
         LoginBusiness.getInstance().login(mAccount, mPassword, "0", mLoginCallback);
     }
 
+    /**
+     * 账号、密码输入变化
+     * @param s
+     * @param start
+     * @param before
+     * @param count
+     */
     public void onTextChange(CharSequence s, int start, int before, int count) {
         final String phone = mPhoneView.getEditText().trim();
         final String psw = mPwdView.getEditText().trim();

@@ -14,7 +14,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 
-import com.yksj.consultation.sonDoc.consultation.AtyPatientMassage;
+import com.yksj.consultation.sonDoc.consultation.SickInfoActivity;
 import com.yksj.consultation.sonDoc.doctor.MyInfoActivity;
 import com.yksj.healthtalk.entity.CustomerInfoEntity;
 import com.yksj.healthtalk.net.socket.SmartFoxClient;
@@ -143,7 +143,7 @@ public class PersonInfoUtil {
 //			context.startActivity(intent);
 		}else{
 			Intent intent = new Intent();
-			intent.setClass(context, AtyPatientMassage.class);
+			intent.setClass(context, SickInfoActivity.class);
 			intent.putExtra("PID", id);
 			intent.putExtra("MAIN","main");
 			context.startActivity(intent);

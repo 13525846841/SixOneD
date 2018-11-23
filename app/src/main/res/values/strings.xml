@@ -338,7 +338,7 @@
     <string name="error_login_info_none">账号异常,请尝试重新登录</string>
     <string name="string_share_title">六一健康快车</string>
     <string name="string_share_content">我正在六一健康App，浏览新闻、探讨学术、为儿童患者会诊、义诊，邀请你一起来参加：＋网址。。。</string>
-    <string name="string_share_website">http://www.61120.net</string>
+    <string name="string_share_website">http://xz.61120.net/Evm/liuyi_qr_doc</string>
     <string name="more_expert">更多专家</string>
     <string name="code_tip1">可以关注我的微信工作室</string>
     <string name="code_tip2">长按识别二维码</string>

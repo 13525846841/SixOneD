@@ -32,28 +32,30 @@ import okhttp3.Request;
  * 病历讨论搜索结果
  * Created by zheng on 2015/7/21.
  */
-public class AtyDossierSearchResult extends BaseActivity implements View.OnClickListener ,PullToRefreshBase.OnRefreshListener2<ListView>{
+public class AtyDossierSearchResult extends BaseActivity implements View.OnClickListener, PullToRefreshBase.OnRefreshListener2<ListView> {
     private PullToRefreshListView mPullToRefreshListView;
     private ListView mListView;
-    private int pageSize=1;
+    private int pageSize = 1;
     private DiscussCaseAdapter mAdapter;
     private View nullView;
+
     @Override
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
         setContentView(R.layout.aty_dossier_search_result);
         initView();
     }
+
     private void initView() {
         initializeTitle();
         titleTextV.setText("搜索结果");
         titleLeftBtn.setOnClickListener(this);
-        mPullToRefreshListView= (PullToRefreshListView) findViewById(R.id.search_result);
-        nullView=findViewById(R.id.dossier_null_view);
-        mListView=mPullToRefreshListView.getRefreshableView();
-        mAdapter=new DiscussCaseAdapter(AtyDossierSearchResult.this);
+        mPullToRefreshListView = (PullToRefreshListView) findViewById(R.id.search_result);
+        nullView = findViewById(R.id.dossier_null_view);
+        mListView = mPullToRefreshListView.getRefreshableView();
+        mAdapter = new DiscussCaseAdapter(AtyDossierSearchResult.this);
         mListView.setAdapter(mAdapter);
-        String searchText=getIntent().getStringExtra("SEARCHTEXT");
+        String searchText = getIntent().getStringExtra("SEARCHTEXT");
         initSearchData(searchText);
         mPullToRefreshListView.setOnRefreshListener(this);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -61,26 +63,27 @@ public class AtyDossierSearchResult extends BaseActivity implements View.OnClick
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(AtyDossierSearchResult.this, CaseDiscussDetailsActivity.class);
                 intent.putExtra("recordId", mAdapter.datas.get(position - 1).MEDICAL_RECORD_ID + "");
-                startActivityForResult(intent,201);
+                startActivityForResult(intent, 201);
             }
         });
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.title_back:
                 onBackPressed();
                 break;
         }
     }
-    private void initSearchData(String searchStr){
+
+    private void initSearchData(String searchStr) {
 //DuoMeiHealth/ConsultationInfoSet?TYPE=medicalCaseDiscussionByName&PAGESIZE=&PAGENUM=&CONSULTATION_CENTER_ID=&NAME=
-        List<BasicNameValuePair> pairs=new ArrayList<>();
-        pairs.add(new BasicNameValuePair("TYPE","medicalCaseDiscussionByName"));
+        List<BasicNameValuePair> pairs = new ArrayList<>();
+        pairs.add(new BasicNameValuePair("TYPE", "medicalCaseDiscussionByName"));
         pairs.add(new BasicNameValuePair("CUSTOMERID", LoginBusiness.getInstance().getLoginEntity().getId()));
         pairs.add(new BasicNameValuePair("CONSULTATION_CENTER_ID", AppContext.APP_CONSULTATION_CENTERID));
-        pairs.add(new BasicNameValuePair("PAGESIZE", pageSize+""));
+        pairs.add(new BasicNameValuePair("PAGESIZE", pageSize + ""));
         pairs.add(new BasicNameValuePair("PAGENUM", "20"));
         pairs.add(new BasicNameValuePair("NAME", searchStr));
         ApiService.doGetConsultationInfoSet(pairs, new MyApiCallback<String>(this) {
@@ -123,12 +126,14 @@ public class AtyDossierSearchResult extends BaseActivity implements View.OnClick
         }, this);
 
     }
+
     @Override
     public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-        pageSize=1;
+        pageSize = 1;
         mAdapter.removeAll();
         initSearchData(getIntent().getStringExtra("SEARCHTEXT"));
     }
+
     @Override
     public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
         initSearchData(getIntent().getStringExtra("SEARCHTEXT"));
@@ -137,9 +142,9 @@ public class AtyDossierSearchResult extends BaseActivity implements View.OnClick
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode==RESULT_OK){
-            if (requestCode==201){
-                pageSize=1;
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 201) {
+                pageSize = 1;
                 mAdapter.removeAll();
                 initSearchData(getIntent().getStringExtra("SEARCHTEXT"));
             }

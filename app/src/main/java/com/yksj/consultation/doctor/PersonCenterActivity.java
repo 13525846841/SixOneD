@@ -7,12 +7,12 @@ import android.view.View;
 
 import com.library.base.base.BaseTitleActivity;
 import com.library.base.dialog.ConfirmDialog;
+import com.library.base.event.EExitApp;
 import com.library.base.imageLoader.ImageLoader;
-import com.library.base.utils.BeanCacheHelper;
+import com.library.base.utils.EventManager;
 import com.library.base.widget.SuperTextView;
 import com.yksj.consultation.agency.AgencyHomeActivity;
 import com.yksj.consultation.app.AppContext;
-import com.yksj.consultation.bean.LoginBean;
 import com.yksj.consultation.business.LoginBusiness;
 import com.yksj.consultation.constant.Constant;
 import com.yksj.consultation.event.EDoctorUpdata;
@@ -191,9 +191,9 @@ public class PersonCenterActivity extends BaseTitleActivity implements View.OnCl
                      .addListener(new ConfirmDialog.SimpleConfirmDialogListener(){
                     @Override public void onPositiveClick(ConfirmDialog dialog, View v) {
                         super.onPositiveClick(dialog, v);
+                        EventManager.post(new EExitApp());
                         startActivity(UserLoginActivity.getCallingIntent(PersonCenterActivity.this));
                         LoginBusiness.getInstance().loginOut();
-                        PersonCenterActivity.this.finish();
                     }
                 }).show(getSupportFragmentManager());
     }

@@ -5,25 +5,20 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/title"
-        layout="@layout/gray_title_layout" />
-
     <com.yksj.consultation.sonDoc.views.DrawableCenterCheckBox
         android:id="@+id/navigationbar_hospital"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
+        android:layout_height="@dimen/dp_40"
         android:layout_below="@+id/title"
         android:button="@null"
         android:drawablePadding="@dimen/dp_8"
         android:drawableRight="@drawable/navigationbar_drawable"
         android:ellipsize="end"
         android:maxLength="6"
-        android:padding="16dp"
         android:singleLine="true"
         android:text="分类"
         android:textColor="@drawable/selector_find_doctor_text_color"
-        android:textSize="12sp"
+        android:textSize="@dimen/sp_14"
         android:checked="false" />
 
     <include

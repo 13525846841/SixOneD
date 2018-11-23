@@ -785,11 +785,11 @@ public class ChatInputControlFragment extends BaseFragment implements OnClickLis
         this.isGroup = isGroup;
         this.groupId = id;
         if (canTalk) {
-            if (isGroup) {
-                getView().findViewById(R.id.selector_panel_video).setVisibility(View.VISIBLE);
-            } else {
-                getView().findViewById(R.id.selector_panel_video).setVisibility(View.GONE);
-            }
+//            if (isGroup) {
+//                getView().findViewById(R.id.selector_panel_video).setVisibility(View.VISIBLE);
+//            } else {
+//                getView().findViewById(R.id.selector_panel_video).setVisibility(View.GONE);
+//            }
         } else {
             getActivity().findViewById(R.id.chat_input_panel).setVisibility(View.GONE);
         }

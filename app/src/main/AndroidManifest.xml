@@ -581,7 +581,7 @@
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <!-- 患者个人信息 -->
         <activity
-            android:name=".consultation.AtyPatientMassage"
+            android:name=".consultation.SickInfoActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".wallet.WalletPswSettingActivity"

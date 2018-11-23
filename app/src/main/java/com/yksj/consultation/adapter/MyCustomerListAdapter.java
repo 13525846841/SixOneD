@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.library.base.imageLoader.ImageLoader;
 import com.yksj.consultation.app.AppContext;
 import com.yksj.consultation.sonDoc.R;
-import com.yksj.consultation.sonDoc.consultation.AtyPatientMassage;
+import com.yksj.consultation.sonDoc.consultation.SickInfoActivity;
 import com.yksj.consultation.sonDoc.consultation.PConsultMainActivity;
 
 import org.universalimageloader.core.DefaultConfigurationFactory;
@@ -86,9 +86,9 @@ public class MyCustomerListAdapter extends SimpleBaseAdapter<Map<String, String>
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, AtyPatientMassage.class);
+                Intent intent = new Intent(context, SickInfoActivity.class);
                 intent.putExtra("PID", (String) map.get("CUSTOMER_ID"));
-                intent.putExtra(AtyPatientMassage.OPEN_PLAN, 1);
+                intent.putExtra(SickInfoActivity.OPEN_PLAN, 1);
                 if ("0".equals((String) map.get("ISEX"))) {
                 } else {
                     intent.putExtra("MAIN", "main");

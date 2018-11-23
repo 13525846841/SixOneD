@@ -18,7 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.library.base.base.BaseActivity;
+import com.library.base.base.BaseTitleActivity;
 import com.yksj.consultation.adapter.DiscussCaseAdapter;
 import com.yksj.consultation.adapter.FamDocPopAdapter;
 import com.yksj.consultation.app.AppContext;
@@ -53,7 +53,7 @@ import okhttp3.Request;
  * 病历列表页
  * Created by zheng on 2015/9/17.
  */
-public class DiscussCaseListActivity extends BaseActivity implements View.OnClickListener,
+public class DiscussCaseListActivity extends BaseTitleActivity implements View.OnClickListener,
         PullToRefreshBase.OnRefreshListener2<ListView> {
     private PullToRefreshListView mPullToRefreshListView;
     private ListView mListview;
@@ -71,90 +71,21 @@ public class DiscussCaseListActivity extends BaseActivity implements View.OnClic
     private LinearLayout popupWLayout;
     private List<JSONObject> list = null;
     private String office_id;
+
     @Override
-    protected void onCreate(Bundle arg0) {
-        super.onCreate(arg0);
-        setContentView(R.layout.discuss_case_list_aty);
+    public int createLayoutRes() {
+        return R.layout.discuss_case_list_aty;
+    }
+
+    @Override
+    public void initialize(Bundle bundle) {
+        super.initialize(bundle);
+        setTitle("病例讨论");
+        setRight("上传", this::onUpload);
         initView();
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        pageSize = 1;
-        initData();
-    }
-
-    /**
-     * 初始化加载
-     */
-    private void initData() {
-        //DuoMeiHealth/ConsultationInfoSet?TYPE=medicalCaseDiscussion&PAGESIZE=1&PAGENUM=20&CONSULTATION_CENTER_ID=1&CUSTOMERID=225043
-        List<BasicNameValuePair> pairs = new ArrayList<>();
-        if (searchFlag) {
-            pairs.add(new BasicNameValuePair("TYPE", "medicalCaseDiscussionByName"));
-            pairs.add(new BasicNameValuePair("NAME", searchKey));
-        } else {
-            pairs.add(new BasicNameValuePair("TYPE", "medicalCaseDiscussion"));
-        }
-
-        pairs.add(new BasicNameValuePair("CUSTOMERID", DoctorHelper.getId()));
-        pairs.add(new BasicNameValuePair("CONSULTATION_CENTER_ID", AppContext.APP_CONSULTATION_CENTERID));
-        pairs.add(new BasicNameValuePair("PAGESIZE", pageSize + ""));
-        pairs.add(new BasicNameValuePair("PAGENUM", "20"));
-        pairs.add(new BasicNameValuePair("office_id", office_id));
-        ApiService.addHttpHeader("client_type", AppContext.CLIENT_TYPE);
-
-        ApiService.doGetConsultationInfoSet(pairs, new ApiCallback<String>() {
-            @Override
-            public void onError(Request request, Exception e) {
-
-            }
-
-            @Override
-            public void onResponse(String response) {
-                BaseBean bb = com.alibaba.fastjson.JSONObject.parseObject(response, BaseBean.class);
-                if ("1".equals(bb.code)) {
-                    if (pageSize == 1) {
-                        mAdapter.removeAll();
-                    }
-
-                    List<CaseBean> list = JSON.parseArray(bb.result, CaseBean.class);
-                    if (list != null && list.size() > 0) {
-                        mAdapter.addAll(list);
-                        pageSize++;
-                    } else {
-                        ToastUtil.showShort("未加载到数据");
-                    }
-
-                } else if (response != null && response instanceof String) {
-                    ToastUtil.showShort(bb.message);
-                }
-            }
-
-            @Override
-            public void onBefore(Request request) {
-                mPullToRefreshListView.setRefreshing();
-                super.onBefore(request);
-            }
-
-            @Override
-            public void onAfter() {
-                mPullToRefreshListView.onRefreshComplete();
-                super.onAfter();
-            }
-        }, this);
     }
 
     private void initView() {
-        initializeTitle();
-        titleTextV.setText("病例讨论");
-        titleLeftBtn.setOnClickListener(this);
-        titleRightBtn2.setVisibility(View.VISIBLE);
-        titleRightBtn2.setOnClickListener(this);
-        titleRightBtn2.setText("上传");
-
         mPullToRefreshListView = ((PullToRefreshListView) findViewById(R.id.case_discuss_list));
         mListview = mPullToRefreshListView.getRefreshableView();
         mAdapter = new DiscussCaseAdapter(this);
@@ -229,6 +160,86 @@ public class DiscussCaseListActivity extends BaseActivity implements View.OnClic
     }
 
     /**
+     * 上传病历
+     * @param v
+     */
+    public void onUpload(View v){
+        if (!"0".equals(LoginBusiness.getInstance().getLoginEntity().getDoctorPosition())) {
+            startActivity(new Intent(DiscussCaseListActivity.this, ExpertUploadCaseActivity.class));
+        } else {
+            ToastUtil.showShort(DiscussCaseListActivity.this, "暂未开通");
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pageSize = 1;
+        initData();
+    }
+
+    /**
+     * 初始化加载
+     */
+    private void initData() {
+        //DuoMeiHealth/ConsultationInfoSet?TYPE=medicalCaseDiscussion&PAGESIZE=1&PAGENUM=20&CONSULTATION_CENTER_ID=1&CUSTOMERID=225043
+        List<BasicNameValuePair> pairs = new ArrayList<>();
+        if (searchFlag) {
+            pairs.add(new BasicNameValuePair("TYPE", "medicalCaseDiscussionByName"));
+            pairs.add(new BasicNameValuePair("NAME", searchKey));
+        } else {
+            pairs.add(new BasicNameValuePair("TYPE", "medicalCaseDiscussion"));
+        }
+
+        pairs.add(new BasicNameValuePair("CUSTOMERID", DoctorHelper.getId()));
+        pairs.add(new BasicNameValuePair("CONSULTATION_CENTER_ID", AppContext.APP_CONSULTATION_CENTERID));
+        pairs.add(new BasicNameValuePair("PAGESIZE", pageSize + ""));
+        pairs.add(new BasicNameValuePair("PAGENUM", "20"));
+        pairs.add(new BasicNameValuePair("office_id", office_id));
+        ApiService.addHttpHeader("client_type", AppContext.CLIENT_TYPE);
+
+        ApiService.doGetConsultationInfoSet(pairs, new ApiCallback<String>() {
+            @Override
+            public void onError(Request request, Exception e) {
+
+            }
+
+            @Override
+            public void onResponse(String response) {
+                BaseBean bb = com.alibaba.fastjson.JSONObject.parseObject(response, BaseBean.class);
+                if ("1".equals(bb.code)) {
+                    if (pageSize == 1) {
+                        mAdapter.removeAll();
+                    }
+
+                    List<CaseBean> list = JSON.parseArray(bb.result, CaseBean.class);
+                    if (list != null && list.size() > 0) {
+                        mAdapter.addAll(list);
+                        pageSize++;
+                    } else {
+                        ToastUtil.showShort("未加载到数据");
+                    }
+
+                } else if (response != null && response instanceof String) {
+                    ToastUtil.showShort(bb.message);
+                }
+            }
+
+            @Override
+            public void onBefore(Request request) {
+                mPullToRefreshListView.setRefreshing();
+                super.onBefore(request);
+            }
+
+            @Override
+            public void onAfter() {
+                mPullToRefreshListView.onRefreshComplete();
+                super.onAfter();
+            }
+        }, this);
+    }
+
+    /**
      * 加载病例讨论分类数据
      */
     private void initPopData() {
@@ -271,6 +282,7 @@ public class DiscussCaseListActivity extends BaseActivity implements View.OnClic
             }
         });
     }
+
     //关闭popupwindow
     private void outPopup() {
         if (classify.isChecked()){
@@ -279,25 +291,6 @@ public class DiscussCaseListActivity extends BaseActivity implements View.OnClic
             classify.setChecked(true);
         }
         popupWLayout.setVisibility(View.GONE);
-    }
-    @Override
-    public void onClick(View view) {
-        Intent intent = null;
-        switch (view.getId()) {
-            case R.id.title_back:
-                onBackPressed();
-                break;
-            case R.id.title_right2://上传病历
-                if (!"0".equals(LoginBusiness.getInstance().getLoginEntity().getDoctorPosition())) {
-                    intent = new Intent(DiscussCaseListActivity.this, ExpertUploadCaseActivity.class);
-                    startActivity(intent);
-                } else {
-                    ToastUtil.showShort(DiscussCaseListActivity.this, "暂未开通");
-                }
-//                intent = new Intent(DiscussCaseListActivity.this,AtyDossierSearch.class);
-//                startActivity(intent);
-                break;
-        }
     }
 
     @Override
