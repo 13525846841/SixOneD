@@ -11,11 +11,11 @@ class CLRoundLayout : ConstraintLayout {
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         val array = context.obtainStyledAttributes(attrs, R.styleable.CLRoundLayout)
-        var radiiTopLeft = array.getDimensionPixelOffset(R.styleable.CLRoundLayout_rRadii_top_left, 0).toFloat()
-        var radiiTopRight = array.getDimensionPixelOffset(R.styleable.CLRoundLayout_rRadii_top_right, 0).toFloat()
-        var radiiBottomLeft = array.getDimensionPixelOffset(R.styleable.CLRoundLayout_rRadii_bottom_left, 0).toFloat()
-        var radiiBottomRight = array.getDimensionPixelOffset(R.styleable.CLRoundLayout_rRadii_bottom_right, 0).toFloat()
-        val radiu = array.getDimensionPixelOffset(R.styleable.CLRoundLayout_rRadii, 0).toFloat()
+        var radiiTopLeft = array.getDimensionPixelSize(R.styleable.CLRoundLayout_rRadii_top_left, 0).toFloat()
+        var radiiTopRight = array.getDimensionPixelSize(R.styleable.CLRoundLayout_rRadii_top_right, 0).toFloat()
+        var radiiBottomLeft = array.getDimensionPixelSize(R.styleable.CLRoundLayout_rRadii_bottom_left, 0).toFloat()
+        var radiiBottomRight = array.getDimensionPixelSize(R.styleable.CLRoundLayout_rRadii_bottom_right, 0).toFloat()
+        val radiu = array.getDimensionPixelSize(R.styleable.CLRoundLayout_rRadii, 0).toFloat()
         if (radiu != 0f) {
             radiiTopLeft = radiu
             radiiTopRight = radiiTopLeft

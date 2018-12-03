@@ -11,11 +11,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.blankj.utilcode.util.LogUtils;
 import com.library.base.base.BaseTitleActivity;
+import com.library.base.widget.SuperTextView;
 import com.yksj.consultation.adapter.SixOneAdapter;
 import com.yksj.consultation.app.AppData;
 import com.yksj.consultation.constant.Constant;
@@ -49,13 +47,12 @@ import java.util.Map;
  */
 public class SixOneClassActivity extends BaseTitleActivity implements AdapterView.OnItemClickListener {
 
-    private RelativeLayout add_friend;
-    private RelativeLayout rl_chat;
+    private SuperTextView add_friend;
+    private SuperTextView rl_chat;
     private ListView mLv;
     private View header;
     private SixOneAdapter adapter;
     private int num = 9;
-    private TextView gc_number;//群聊数字
 
     private EditText mEditText;
     private View mEmpty;
@@ -79,24 +76,10 @@ public class SixOneClassActivity extends BaseTitleActivity implements AdapterVie
     private void initView() {
         mLv = (ListView) findViewById(R.id.chat_lv);
         header = View.inflate(SixOneClassActivity.this, R.layout.sixone_head, null);
-        add_friend = (RelativeLayout) header.findViewById(R.id.add_friend);
-        rl_chat = (RelativeLayout) header.findViewById(R.id.rl_chat);
-        gc_number = (TextView) header.findViewById(R.id.gc_number);
+        add_friend = header.findViewById(R.id.add_friend);
+        rl_chat = header.findViewById(R.id.rl_chat);
         mEmpty = findViewById(R.id.empty_view);
         mEditText = (EditText) findViewById(R.id.include_search).findViewById(R.id.edit_search_top);
-//        if (num > 0) {
-//            gc_number.setVisibility(View.VISIBLE);
-//            if (num > 0 && num < 10) {
-//                gc_number.setText(num + "");
-//                gc_number.setSelected(false);
-//            } else if (num > 99) {
-//                gc_number.setText(99 + "+");
-//                gc_number.setSelected(true);
-//            } else if (num > 10 && num < 100) {
-//                gc_number.setText(num + "");
-//                gc_number.setSelected(true);
-//            }
-//        }
 
         mEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -157,7 +140,6 @@ public class SixOneClassActivity extends BaseTitleActivity implements AdapterVie
 
     /**
      * 加载医生友 (搜素好友)
-     *
      * @param searchContent 查询key
      *                      //     * @param type          0 医生好友 1 患者好友列表
      */
@@ -183,13 +165,11 @@ public class SixOneClassActivity extends BaseTitleActivity implements AdapterVie
                         if (HttpResult.SUCCESS.endsWith(object.optString("code"))) {
                             int groupNum = object.getJSONObject("result").optInt("group_msg_number");
                             if (groupNum > 99) {
-                                gc_number.setVisibility(View.VISIBLE);
-                                gc_number.setText("99+个群有新消息");
+                                rl_chat.setRightString("99+个群有新消息");
                             } else if (groupNum == 0) {
-                                gc_number.setVisibility(View.GONE);
+                                rl_chat.setRightString("");
                             } else {
-                                gc_number.setVisibility(View.VISIBLE);
-                                gc_number.setText(groupNum + "个群有新消息");
+                                rl_chat.setRightString(groupNum + "个群有新消息");
                             }
                             //群提醒
                             JSONArray arrayIds = object.getJSONObject("result").getJSONArray("group_msg");
@@ -229,14 +209,13 @@ public class SixOneClassActivity extends BaseTitleActivity implements AdapterVie
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String chatId=adapter.mData.get(position - 1).optString("REL_CUSTOMER_ID");
-        String name=adapter.mData.get(position - 1).optString("CUSTOMER_NICKNAME");
-        FriendHttpUtil.chatFromPerson(this, chatId,name);
+        String chatId = adapter.mData.get(position - 1).optString("REL_CUSTOMER_ID");
+        String name = adapter.mData.get(position - 1).optString("CUSTOMER_NICKNAME");
+        FriendHttpUtil.chatFromPerson(this, chatId, name);
     }
 
     /**
      * 新消息
-     *
      * @param event
      */
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -305,13 +284,11 @@ public class SixOneClassActivity extends BaseTitleActivity implements AdapterVie
                 case 2://新群消息
                     int groupSize = mListIds.size();
                     if (groupSize > 99) {
-                        gc_number.setVisibility(View.VISIBLE);
-                        gc_number.setText("99+个群有新消息");
+                        rl_chat.setRightString("99+个群有新消息");
                     } else if (groupSize == 0) {
-                        gc_number.setVisibility(View.GONE);
+                        rl_chat.setRightString("");
                     } else {
-                        gc_number.setVisibility(View.VISIBLE);
-                        gc_number.setText(groupSize + "个群有新消息");
+                        rl_chat.setRightString(groupSize + "个群有新消息");
                     }
                     break;
                 case 3://新单聊
@@ -361,7 +338,6 @@ public class SixOneClassActivity extends BaseTitleActivity implements AdapterVie
 
     /**
      * 更新单聊未读
-     *
      * @param id
      */
     private void updateData(String id) {

@@ -13,11 +13,11 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.text.DecimalFormat;
 
-public class ArmMediaRecord implements OnInfoListener {
+public class MediaRecordHelper implements OnInfoListener {
 
-    public static String TAG = ArmMediaRecord.class.getName();
+    public static String TAG = MediaRecordHelper.class.getName();
 
-    private static ArmMediaRecord INSTANCE = null;
+    private static MediaRecordHelper INSTANCE = null;
     private final DecimalFormat mDecimalFormat2 = new DecimalFormat("0.00");
     private final DecimalFormat mDecimalFormat = new DecimalFormat("00.00");
     private int mState = RecorderState.STATE_IDLE;//初始状态
@@ -28,7 +28,7 @@ public class ArmMediaRecord implements OnInfoListener {
     private OnErrorListener mOnRecorderErrorListener = new OnErrorListener() {
         @Override
         public void onError(MediaRecorder mr, int what, int extra) {
-            ArmMediaRecord.this.onError(RecorderState.ERROR_UNKNOWN);
+            MediaRecordHelper.this.onError(RecorderState.ERROR_UNKNOWN);
         }
     };
 
@@ -56,12 +56,12 @@ public class ArmMediaRecord implements OnInfoListener {
         }
     };
 
-    private ArmMediaRecord(){}
-    public static ArmMediaRecord getInstance(){
+    private MediaRecordHelper(){}
+    public static MediaRecordHelper getInstance(){
         if (INSTANCE == null) {
-            synchronized (ArmMediaRecord.class) {
+            synchronized (MediaRecordHelper.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new ArmMediaRecord();
+                    INSTANCE = new MediaRecordHelper();
                 }
             }
         }
@@ -226,7 +226,7 @@ public class ArmMediaRecord implements OnInfoListener {
         @Override
         public void run() {
             super.run();
-            synchronized (ArmMediaRecord.this) {
+            synchronized (MediaRecordHelper.this) {
                 try {
                     if (getRecordState() != RecorderState.STATE_IDLE) {
                         mRecorder.prepare();

@@ -3,22 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    android:orientation="vertical"
-    android:paddingTop="2dp">
+    android:orientation="vertical">
+
+    <View style="@style/common_split_line" />
 
     <LinearLayout
         android:id="@+id/chat_input_panel"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
         android:background="@drawable/chat_bg"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="2dp"
-        android:paddingRight="3dp">
+        android:paddingLeft="@dimen/dp_6"
+        android:paddingRight="@dimen/dp_6">
 
         <LinearLayout
             android:id="@+id/input_mesg_panel"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:baselineAligned="false">
 
@@ -34,7 +35,6 @@
                     android:id="@+id/chat_send_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
                     android:background="@drawable/chat_voce_btn" />
 
                 <ImageButton
@@ -46,67 +46,61 @@
 
                 <LinearLayout
                     android:id="@+id/txt_panel"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical">
 
                     <LinearLayout
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:paddingLeft="3dp"
-                        android:paddingRight="3dp">
+                        android:layout_marginLeft="@dimen/dp_6"
+                        android:layout_marginRight="@dimen/dp_6">
 
                         <FrameLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
                             android:layout_weight="1.0"
-                            android:minHeight="30dp"
-                            android:paddingBottom="2dp"
-                            android:paddingTop="2dp">
+                            android:minHeight="@dimen/dp_30">
 
                             <EditText
                                 android:id="@+id/chat_edit"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:background="@drawable/bg_chat_input_bg"
-                                android:hint="1000字"
                                 android:imeOptions="actionSend"
                                 android:inputType="text"
                                 android:maxLength="1000"
                                 android:maxLines="3"
-                                android:minHeight="30dp"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="20dp"
+                                android:textSize="@dimen/sp_16"
+                                android:paddingLeft="@dimen/dp_6"
+                                android:paddingRight="@dimen/dp_6"
                                 android:textColorHint="#afafaf" />
 
                             <RelativeLayout
                                 android:id="@+id/recod_panel"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="@dimen/dp_6"
+                                android:layout_marginTop="@dimen/dp_6"
                                 android:visibility="gone">
 
                                 <TextView
                                     android:id="@+id/chat_recod_btn"
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerInParent="true"
-                                    android:layout_marginBottom="5dp"
-                                    android:layout_marginLeft="20dp"
-                                    android:layout_marginRight="20dp"
-                                    android:layout_marginTop="5dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:background="@drawable/chat_recod_selector"
                                     android:gravity="center"
+                                    android:textSize="@dimen/sp_16"
                                     android:text="@string/speaking"
                                     android:textColor="#979797" />
+
                             </RelativeLayout>
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="fill_parent"
+                                android:layout_height="match_parent"
                                 android:layout_gravity="right"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginRight="3dp"
@@ -122,7 +116,7 @@
                                 <LinearLayout
                                     android:id="@+id/quick_button"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="fill_parent"
+                                    android:layout_height="match_parent"
                                     android:gravity="center_vertical"
                                     android:visibility="gone">
 
@@ -145,14 +139,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="@dimen/dp_6"
                 android:background="@drawable/chat_face_btn" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginRight="5dp"
                 android:paddingBottom="0dp">
 
                 <CheckBox
@@ -174,17 +167,17 @@
 
         <LinearLayout
             android:id="@+id/delete_panel"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:padding="5dp"
+            android:padding="@dimen/dp_6"
             android:visibility="gone">
 
             <Button
                 android:id="@+id/chat_delete_btn3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="@dimen/dp_6"
                 android:layout_weight="1.0"
                 android:background="@drawable/bt_short_orange"
                 android:text="删除选中(0)"
@@ -194,7 +187,7 @@
                 android:id="@+id/chat_delete_cancle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="@dimen/dp_6"
                 android:layout_weight="1.0"
                 android:background="@drawable/bt_short_green"
                 android:text="取消"
@@ -232,7 +225,7 @@
 
     <LinearLayout
         android:id="@+id/chat_box_panel"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:baselineAligned="false"
@@ -337,7 +330,7 @@
 
     <FrameLayout
         android:id="@+id/face_panel"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="180dp"
         android:background="@drawable/send_btn_pressed_background"
         android:visibility="gone">
@@ -345,7 +338,7 @@
         <fragment
             android:id="@+id/face_fragment"
             android:name="com.yksj.consultation.comm.FacePanelFragment"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:tag="face_fragment" />
     </FrameLayout>

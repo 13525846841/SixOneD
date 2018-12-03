@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.library.base.base.BaseActivity;
+import com.library.base.base.BaseTitleActivity;
 import com.library.base.umeng.UmengShare;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -18,7 +18,7 @@ import com.yksj.consultation.sonDoc.chatting.sixoneclass.group.ContactInfoActivi
 /**
  * 添加朋友界面
  */
-public class AddDoctorActivity extends BaseActivity {
+public class AddDoctorActivity extends BaseTitleActivity {
 
     private RelativeLayout rl_phone;
     private RelativeLayout rl_wechat;
@@ -46,17 +46,18 @@ public class AddDoctorActivity extends BaseActivity {
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_doctor);
+    public int createLayoutRes() {
+        return R.layout.activity_add_doctor;
+    }
+
+    @Override
+    public void initialize(Bundle bundle) {
+        super.initialize(bundle);
+        setTitle("添加好友");
         initView();
     }
 
     private void initView() {
-        initializeTitle();
-        titleTextV.setText("添加好友");
-        titleLeftBtn.setOnClickListener(this);
-
         rl_phone = (RelativeLayout) findViewById(R.id.rl_phone);
         rl_wechat = (RelativeLayout) findViewById(R.id.rl_wechat);
         rl_qq = (RelativeLayout) findViewById(R.id.rl_qq);
@@ -73,9 +74,6 @@ public class AddDoctorActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.title_back:
-                onBackPressed();
-                break;
             case R.id.edit_search_top:
                 startActivity(new Intent(this, SixOneAddClassActivity.class));
                 break;

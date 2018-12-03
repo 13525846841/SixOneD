@@ -8,10 +8,6 @@
     tools:activity="com.yksj.consultation.main.AddDoctorActivity">
 
     <include
-        android:id="@+id/title"
-        layout="@layout/gray_title_layout" />
-
-    <include
         android:id="@+id/include_search"
         layout="@layout/edit_search_top_layout"
         android:layout_width="match_parent"

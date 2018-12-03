@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.yksj.consultation.sonDoc.R;
-import com.yksj.healthtalk.media.ArmMediaRecord;
+import com.yksj.healthtalk.media.MediaRecordHelper;
 import com.yksj.healthtalk.media.RecorderState;
 
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class VUMeterView extends View {
     Drawable mFrameDrawable0;
 
     final PaintFlagsDrawFilter paintFlagsDrawFilter = new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
-    ArmMediaRecord mArmMediaRecord;
+    MediaRecordHelper mMediaRecordHelper;
     //Paint mTextPaint;
     float mCurrentAmplitude;//当前的音量幅度
 
@@ -51,21 +51,21 @@ public class VUMeterView extends View {
         init(context);
     }
 
-    public void setMediaRecord(ArmMediaRecord mediaRecorder) {
-        this.mArmMediaRecord = mediaRecorder;
+    public void setMediaRecord(MediaRecordHelper mediaRecorder) {
+        this.mMediaRecordHelper = mediaRecorder;
         invalidate();
     }
 
     private int getMaxAmplitude() {
-        if (mArmMediaRecord != null) {
-            return mArmMediaRecord.getMaxAmplitude();
+        if (mMediaRecordHelper != null) {
+            return mMediaRecordHelper.getMaxAmplitude();
         }
         return 0;
     }
 
     private String getRecordDuration() {
-        if (mArmMediaRecord != null) {
-            return mArmMediaRecord.getRecordDuration();
+        if (mMediaRecordHelper != null) {
+            return mMediaRecordHelper.getRecordDuration();
         }
         return "00:00";
     }
@@ -128,8 +128,8 @@ public class VUMeterView extends View {
         super.onDraw(canvas);
         bgDrawable.draw(canvas);
         //退出
-        if (mArmMediaRecord != null &&
-                mArmMediaRecord.getRecordState() == RecorderState.STATE_CANCEL) {
+        if (mMediaRecordHelper != null &&
+                mMediaRecordHelper.getRecordState() == RecorderState.STATE_CANCEL) {
             canvas.setDrawFilter(paintFlagsDrawFilter);
             canvas.drawBitmap(((BitmapDrawable) (mCancelDrawable)).getBitmap(),
                               mCancelRect.right,
@@ -151,9 +151,9 @@ public class VUMeterView extends View {
                               mFrameRect.bottom,
                               null);
         }
-        if (mArmMediaRecord != null &&
-                (mArmMediaRecord.getRecordState() == RecorderState.STATE_START ||
-                        mArmMediaRecord.getRecordState() == RecorderState.STATE_CANCEL))
+        if (mMediaRecordHelper != null &&
+                (mMediaRecordHelper.getRecordState() == RecorderState.STATE_START ||
+                        mMediaRecordHelper.getRecordState() == RecorderState.STATE_CANCEL))
             postInvalidateDelayed(INTERVAL_TIME);
 
 //		int amplitude = (getMaxAmplitude()/32768)*10;
@@ -205,7 +205,7 @@ public class VUMeterView extends View {
         canvas.drawText(getRecordDuration(),150f,260f, mTextPaint);
       */
       /*  
-		if(mArmMediaRecord != null && mArmMediaRecord.getRecordState() == MediaState.STATE_START)
+		if(mMediaRecordHelper != null && mMediaRecordHelper.getRecordState() == MediaState.STATE_START)
 			postInvalidateDelayed(INTERVAL_TIME);*/
 
     }

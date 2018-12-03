@@ -79,7 +79,7 @@ import com.yksj.healthtalk.entity.GroupInfoEntity;
 import com.yksj.healthtalk.entity.MessageEntity;
 import com.yksj.healthtalk.media.ArmMediaPlay;
 import com.yksj.healthtalk.media.ArmMediaPlay.ArmMediaPlayListener;
-import com.yksj.healthtalk.media.ArmMediaRecord;
+import com.yksj.healthtalk.media.MediaRecordHelper;
 import com.yksj.healthtalk.net.http.ApiCallback;
 import com.yksj.healthtalk.net.http.ApiCallbackWrapper;
 import com.yksj.healthtalk.net.http.ApiService;
@@ -255,7 +255,7 @@ public class ChatActivity extends BaseTitleActivity implements OnClickListener, 
     private void initializeView() {
         mChatBgImageV = (ImageView) findViewById(R.id.chat_bg);
         mChatVm = (VUMeterView) findViewById(R.id.chat_vm);
-        mChatVm.setMediaRecord(ArmMediaRecord.getInstance());
+        mChatVm.setMediaRecord(MediaRecordHelper.getInstance());
         if (getIntent().hasExtra(Constant.Chat.CONSULTATION_TYPE)) {
             consultType = false;
         }
