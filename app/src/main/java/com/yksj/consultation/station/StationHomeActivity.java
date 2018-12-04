@@ -140,8 +140,11 @@ public class StationHomeActivity extends BaseTitleActivity implements StationMem
         mMemberRcv.setAdapter(mMemberAdapter);
     }
 
+    /**
+     * 根据工作站类型显示或隐藏界面
+     */
     private void visibalByType() {
-        switch (mHomeType) {//根据工作站类型显示或隐藏界面
+        switch (mHomeType) {
             case StationType.STATION_HOME_CREATE:
             case StationType.STATION_HOME_JOIN:
                 setRight("订单管理", this::onOrderHandle);
