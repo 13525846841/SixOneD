@@ -14,6 +14,9 @@ import kotlinx.android.synthetic.main.layout_agency_add_active.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * 机构首页添加活动View
+ */
 class AgencyAddActiveView : NestedScrollView {
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)

@@ -103,7 +103,7 @@ public class SocketManager {
             write(jsonObject.toString());
             if (SERVICE_CODE == 100) {
             } else {
-                LogUtils.json(jsonObject.toString());
+                LogUtils.d(jsonObject.toString());
             }
         } catch (JSONException e) {
             LogUtils.e(e.toString());

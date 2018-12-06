@@ -10,18 +10,24 @@ import com.yksj.consultation.adapter.UnionIncidentAdapter
 import com.yksj.consultation.bean.ResponseBean
 import com.yksj.consultation.bean.UnionIncidentListBean
 import com.yksj.consultation.sonDoc.R
-import com.yksj.healthtalk.net.http.ApiService
 import com.yksj.healthtalk.net.http.ApiCallbackWrapper
+import com.yksj.healthtalk.net.http.ApiService
 import kotlinx.android.synthetic.main.layout_empty.view.*
 import kotlinx.android.synthetic.main.layout_union_incident_tree.view.*
 
+/**
+ * 医生联盟大事件时间轴界面
+ */
 class UnionIncidentTreeView : LinearLayout {
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
+    // 时间轴适配器
     var adapter: UnionIncidentAdapter
+    // 联盟ID
     var unionId = ""
+    // 事件分页页面
     var pageIndex = 1
 
     init {
@@ -30,7 +36,7 @@ class UnionIncidentTreeView : LinearLayout {
         orientation = LinearLayout.VERTICAL
         adapter = UnionIncidentAdapter()
         val header = inflater(context, R.layout.item_union_incodent_header, null)
-        adapter?.addHeaderView(header)
+        adapter.addHeaderView(header)
         adapter.setOnLoadMoreListener({ requestIncident(this.unionId, true) }, rey_incodent)
         rey_incodent.adapter = adapter
     }
@@ -51,23 +57,23 @@ class UnionIncidentTreeView : LinearLayout {
         ApiService.OkHttpUnionIncident(unionId, pageIndex, object : ApiCallbackWrapper<ResponseBean<UnionIncidentListBean>>() {
             override fun onResponse(response: ResponseBean<UnionIncidentListBean>) {
                 super.onResponse(response)
-                if (response.isSuccess) {
+                if (response.isSuccess) {//加载成功
                     val incidentBeans = response.result.list
                     pageIndex++
-                    if (isMore) {
+                    if (isMore) {// 加载更多
                         if (incidentBeans.isEmpty())
-                            adapter?.loadMoreEnd() else {
-                            adapter?.addData(incidentBeans)
-                            adapter?.loadMoreComplete()
+                            adapter.loadMoreEnd() else {
+                            adapter.addData(incidentBeans)
+                            adapter.loadMoreComplete()
                         }
-                    } else {
+                    } else {// 刷新
                         if (incidentBeans.isEmpty()) {
                             rey_incodent.visibility = View.GONE
                             empty_layout.visibility = View.VISIBLE
                         } else {
                             rey_incodent.visibility = View.VISIBLE
                             empty_layout.visibility = View.GONE
-                            adapter?.setNewData(incidentBeans)
+                            adapter.setNewData(incidentBeans)
                         }
                     }
                 }

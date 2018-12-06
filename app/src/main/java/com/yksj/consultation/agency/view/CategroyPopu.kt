@@ -1,4 +1,4 @@
-package com.yksj.consultation.agency.view
+package com.yksj.doctorhome.agency.view
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -26,6 +26,9 @@ class CategroyPopu(context: Context) : PopupWindow(ViewGroup.LayoutParams.WRAP_C
         isFocusable = true
     }
 
+    /**
+     * 创建适配器
+     */
     private fun createAdapter(categroys: List<String>): BaseQuickAdapter<String, BaseViewHolder> {
         return object : BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_choose_station, categroys) {
             override fun convert(helper: BaseViewHolder, item: String) {
@@ -34,6 +37,9 @@ class CategroyPopu(context: Context) : PopupWindow(ViewGroup.LayoutParams.WRAP_C
         }
     }
 
+    /**
+     * 适配器点击事件
+     */
     fun setOnItemClickListener(listener: OnItemClickListener){
         adapter.setOnItemClickListener { adapter, view, position ->
             val item: String = adapter.getItem(position) as String

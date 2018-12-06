@@ -18,6 +18,9 @@ class AgencyDescView(context: Context, p: IPresenter): NestedScrollView(context)
         inflater(context, R.layout.layout_agency_info_desc, this)
     }
 
+    /**
+     * 绑定显示数据
+     */
     fun bindData(data: AgencyBean){
         angency_name.text = data.name
         angency_location.text = data.address + data.detailAddredd

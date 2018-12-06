@@ -42,12 +42,15 @@ import org.json.JSONObject;
 import org.reactivestreams.Subscription;
 
 import java.lang.ref.WeakReference;
+import java.net.ConnectException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import io.reactivex.Flowable;
-import io.reactivex.FlowableSubscriber;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 登录,退出,
@@ -55,7 +58,7 @@ import io.reactivex.functions.Consumer;
  */
 public class LoginBusiness extends IMManager {
     private static final String TAG = LoginBusiness.class.getSimpleName();
-    public boolean isVisitor = true;//默认是游客
+    private static final int LOGIN_TIME_OUT = 30;//登陆超时时间
     private String userName = "";//登录名
     private String password = "";//登录密码
     private String userId = "";//用户id
@@ -63,8 +66,7 @@ public class LoginBusiness extends IMManager {
     private CustomerInfoEntity mLoginEntity = null;//用户实例
     public LoginStatus mLoginState = LoginStatus.NONE;//登录状态-1未登录,0登录中,1登录成功,2资料加载完成
     private SocketManager manager;
-    private static final int LOGIN_TIME_OUT = 2000 * 10;
-    private WeakReference<OnLogingCallback> mWeakCallback;
+    private WeakReference<SimpleLoginCallback> mWeakCallback;
     private static LoginBusiness INSTANCE = null;
     private Subscription mTimerSubscription;
     private SocketManager.SimpleConnectListener mConnectListener = new SocketManager.SimpleConnectListener() {
@@ -97,7 +99,7 @@ public class LoginBusiness extends IMManager {
      * ACCOUNT		账号或手机
      * PASSWORD	密码
      */
-    public void login(String userName, String password, String loginType, OnLogingCallback callback) {
+    public void login(String userName, String password, String loginType, SimpleLoginCallback callback) {
         this.userName = userName;
         this.password = password;
 //        this.userId = userId;
@@ -176,7 +178,6 @@ public class LoginBusiness extends IMManager {
         }
         NIMManager.doLogout();
         mLoginEntity = null;
-        isVisitor = true;//设为游客
         SharePreHelper.updateLoginState(false);
         AppContext.clearAll();
         mLoginState = LoginStatus.NONE;
@@ -203,21 +204,27 @@ public class LoginBusiness extends IMManager {
      * jo.put("server_params", result);//
      */
     public void dealLoginInfo(final JSONObject jo) {
-        if (!jo.has("code")) {
-            return;
-        }
-        int code = jo.optInt("code");
-        if (code == 1) {//登陆成功
-            dealSucees(jo);
-            stopTimeOutTask();
-        } else if (code == 0) {//登陆出错
-            dealError(jo);
-            stopTimeOutTask();
-        } else if (code == 2) {//异地登陆
-            dealOffsite(jo);
-        }
-        if (manager != null) {// 移除socket事件监听
-            manager.removeConnectionListener(mConnectListener);
+        try {
+            if (!jo.has("code")) {
+                return;
+            }
+            int code = jo.optInt("code");
+            if (code == 1) {//登陆成功
+                dealSucees(jo);
+                stopTimeOutTask();
+            } else if (code == 0) {//登陆出错
+                dealError(jo);
+                stopTimeOutTask();
+            } else if (code == 2) {//异地登陆
+                dealOffsite(jo);
+            }
+            if (manager != null) {// 移除socket事件监听
+                manager.removeConnectionListener(mConnectListener);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            EventManager.post(new EDoctorLogin("登陆失败", LoginStatus.LOGIN_ERROR));
+            LogUtils.e("登陆失败：" + e);
         }
     }
 
@@ -266,7 +273,8 @@ public class LoginBusiness extends IMManager {
      */
     private void dealSucees(JSONObject jo) {
         try {
-            mLoginState = LoginStatus.LOGIN_OK;//改变状态
+            //改变状态
+            mLoginState = LoginStatus.LOGIN_OK;
             EventManager.post(new EDoctorLogin("登陆成功", LoginStatus.LOGIN_OK));
             //保存登录用户信息
             saveLogin(this.userName, this.password, LoginStatus.LOGIN_OK);
@@ -280,7 +288,6 @@ public class LoginBusiness extends IMManager {
                 ApiService.addHttpHeader("password", this.password);
                 ApiService.addHttpHeader("client_type", AppContext.CLIENT_TYPE);
             }
-            isVisitor = false;
             if (mWeakCallback != null && mWeakCallback.get() != null) {
                 mWeakCallback.get().onLoginSucees();
                 mWeakCallback.clear();
@@ -325,39 +332,42 @@ public class LoginBusiness extends IMManager {
     /**
      * 开始登陆超时任务
      */
+    @SuppressLint("CheckResult")
     private void startTimeOutTask() {
-        Flowable.timer(LOGIN_TIME_OUT, TimeUnit.MILLISECONDS)
+        if (mTimerSubscription != null) {
+            mTimerSubscription.cancel();
+            mTimerSubscription = null;
+        }
+        Flowable.timer(LOGIN_TIME_OUT, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(new Consumer<Subscription>() {
                     @Override
                     public void accept(Subscription subscription) throws Exception {
                         if (mWeakCallback != null && mWeakCallback.get() != null) {
                             mWeakCallback.get().onLoginStart();
                         }
+                        mTimerSubscription = subscription;
                     }
                 })
-                .subscribe(new FlowableSubscriber<Long>() {
+                .subscribe(new Consumer<Long>() {
                     @Override
-                    public void onSubscribe(Subscription s) {
-                        mTimerSubscription = s;
-                    }
-
-                    @Override
-                    public void onNext(Long aLong) {
+                    public void accept(Long aLong) throws Exception {
                         if (mWeakCallback != null && mWeakCallback.get() != null && mLoginState == LoginStatus.LOGINING) {
                             mLoginState = LoginStatus.NONE;
                             mWeakCallback.get().onLoginError(new TimeoutException("登陆超时，请稍后重试"));
                         }
                     }
-
+                }, new Consumer<Throwable>() {
                     @Override
-                    public void onError(Throwable t) {
+                    public void accept(Throwable throwable) throws Exception {
                         if (mWeakCallback != null && mWeakCallback.get() != null) {
-                            mWeakCallback.get().onLoginError(new IllegalStateException(t.getMessage()));
+                            mWeakCallback.get().onLoginError(new ConnectException("登陆出错"));
                         }
                     }
-
+                }, new Action() {
                     @Override
-                    public void onComplete() {
+                    public void run() throws Exception {
                         if (mWeakCallback != null && mWeakCallback.get() != null) {
                             mWeakCallback.get().onLoginFinish();
                         }
@@ -378,31 +388,16 @@ public class LoginBusiness extends IMManager {
         }
     }
 
-    public static abstract class SimpleLoginCallback implements OnLogingCallback {
-        @Override
-        public void onLoginStart() {
-        }
+    /**
+     * 登陆回调
+     */
+    public static abstract class SimpleLoginCallback {
+        public void onLoginStart() { }
 
-        @Override
-        public void onLoginSucees() {
-        }
+        public void onLoginSucees() { }
 
-        @Override
-        public void onLoginError(Exception e) {
-        }
+        public void onLoginError(Exception e) { }
 
-        @Override
-        public void onLoginFinish() {
-        }
-    }
-
-    public interface OnLogingCallback {
-        void onLoginStart();
-
-        void onLoginSucees();
-
-        void onLoginError(Exception e);
-
-        void onLoginFinish();
+        public void onLoginFinish() { }
     }
 }

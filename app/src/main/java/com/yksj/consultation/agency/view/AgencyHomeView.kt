@@ -16,6 +16,8 @@ import com.yksj.consultation.agency.constant.AgencyCategroy
 import com.yksj.consultation.agency.fragment.AgencyCategroySubFragment
 import com.yksj.consultation.bean.AgencyBean
 import com.yksj.consultation.sonDoc.R
+import com.yksj.doctorhome.agency.view.LocationPopu
+import com.yksj.doctorhome.agency.view.MenuPopu
 import kotlinx.android.synthetic.main.layout_agency_home.view.*
 
 /**
@@ -42,6 +44,7 @@ class AgencyHomeView(context: Context, p: IPresenter) : LinearLayout(context) {
         rehabilitation_active.setOnClickListener { presenter.onRehabilitationClick(it, locationCode) }
         interest_active.setOnClickListener { presenter.onInterestClick(it, locationCode) }
 
+        // 监听滑动事件 动态改变Z轴变化
         scrollable.setStickedChangeListener { direction, isSticked ->
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 tab_layout.elevation = if (isSticked && direction == ScrollableLayout.DIRECTION.UP) {
@@ -64,6 +67,9 @@ class AgencyHomeView(context: Context, p: IPresenter) : LinearLayout(context) {
                 .startLocation()
     }
 
+    /**
+     * 初始化Page
+     */
     private fun initPager(code: String) {
         categroy_view.initialize(AgencyCategroy.RECOMMENT, code)
         tab_layout.setViewPager(categroy_view.getPager())

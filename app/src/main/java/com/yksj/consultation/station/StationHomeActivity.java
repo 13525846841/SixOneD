@@ -284,35 +284,37 @@ public class StationHomeActivity extends BaseTitleActivity implements StationMem
      */
     @OnLongClick(R.id.iv_cover)
     public boolean onCoverLongClick(View v) {
-        if (mHomeType == StationType.STATION_HOME_CREATE) {
-            SelectorDialog.newInstance(new String[]{"本地照片", "拍摄"})
-                          .setOnItemClickListener(new SelectorDialog.OnMenuItemClickListener() {
-                              @Override
-                              public void onItemClick(SelectorDialog dialog, int position) {
-                                  switch (position) {
-                                      case 1:
-                                          RxChooseHelper.captureImage(StationHomeActivity.this, 3, 2)
-                                                        .subscribe(new Consumer<String>() {
-                                                            @Override
-                                                            public void accept(String capturePath) throws Exception {
-                                                                requestUpdataBg(capturePath);
-                                                            }
-                                                        });
-                                          break;
-                                      case 0:
-                                          RxChooseHelper.chooseImage(StationHomeActivity.this, 3, 2)
-                                                        .subscribe(new Consumer<String>() {
-                                                            @Override
-                                                            public void accept(String s) throws Exception {
-                                                                requestUpdataBg(s);
-                                                            }
-                                                        });
-                                          break;
-                                  }
-                              }
-                          })
-                          .show(getSupportFragmentManager());
+        if (mHomeType != StationType.STATION_HOME_CREATE) {
+            return false;
         }
+        SelectorDialog
+                .newInstance(new String[]{"本地照片", "拍摄"})
+                .setOnItemClickListener(new SelectorDialog.OnMenuItemClickListener() {
+                    @Override
+                    public void onItemClick(SelectorDialog dialog, int position) {
+                        switch (position) {
+                            case 1:
+                                RxChooseHelper.captureImage(StationHomeActivity.this, 3, 2)
+                                              .subscribe(new Consumer<String>() {
+                                                  @Override
+                                                  public void accept(String capturePath) throws Exception {
+                                                      requestUpdataBg(capturePath);
+                                                  }
+                                              });
+                                break;
+                            case 0:
+                                RxChooseHelper.chooseImage(StationHomeActivity.this, 3, 2)
+                                              .subscribe(new Consumer<String>() {
+                                                  @Override
+                                                  public void accept(String s) throws Exception {
+                                                      requestUpdataBg(s);
+                                                  }
+                                              });
+                                break;
+                        }
+                    }
+                })
+                .show(getSupportFragmentManager());
         return true;
     }
 

@@ -93,7 +93,7 @@ android {
     flavorDimensions "dimensions"
     productFlavors {
         shanghai {
-            applicationId "com.yksj.consultation.sonDoc"
+            applicationId rootProject.ext.android.applicationId
             versionCode rootProject.ext.android.versionCode
             versionName rootProject.ext.android.versionName
             buildConfigField "String", "WEB_IP", '"http://220.194.46.204"'
@@ -104,7 +104,7 @@ android {
         }
 
         market {
-            applicationId "com.yksj.consultation.sonDoc"
+            applicationId rootProject.ext.android.applicationId
             versionCode rootProject.ext.android.versionCode
             versionName rootProject.ext.android.versionName
             buildConfigField "String", "WEB_IP", '"https://www.61120.cn"'
@@ -115,7 +115,7 @@ android {
         }
 
         localhost {
-            applicationId "com.yksj.consultation.sonDoc"
+            applicationId rootProject.ext.android.applicationId
             versionCode rootProject.ext.android.versionCode
             versionName rootProject.ext.android.versionName
             buildConfigField "String", "WEB_IP", '"http://192.168.1.110:8080"'
@@ -126,6 +126,7 @@ android {
         }
     }
 
+    // 设置打包签名文件名
     android.applicationVariants.all { variant ->
         variant.outputs.all {
             outputFileName = "${variant.productFlavors[0].name}-${variant.productFlavors[0].versionName}-${nowDate()}.apk"

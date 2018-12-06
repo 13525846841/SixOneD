@@ -1,4 +1,4 @@
-package com.yksj.consultation.agency.view
+package com.yksj.doctorhome.agency.view
 
 import android.content.Context
 import android.graphics.Color
@@ -37,6 +37,9 @@ class MenuPopu(context: Context, menus: List<String>) : PopupWindow(ViewGroup.La
         }
     }
 
+    /**
+     * 菜单列表点击事件
+     */
     fun setOnItemClickListener(listener: OnMenuItemClickListener){
         adapter.setOnItemClickListener { adapter, view, position ->
             listener.onItemClick(this@MenuPopu, position, adapter.getItem(position) as String)

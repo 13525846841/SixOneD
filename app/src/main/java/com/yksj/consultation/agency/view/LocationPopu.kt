@@ -1,4 +1,4 @@
-package com.yksj.consultation.agency.view
+package com.yksj.doctorhome.agency.view
 
 import android.content.Context
 import android.graphics.Color
@@ -116,6 +116,9 @@ class LocationPopu(context: Context) : PopupWindow(ViewGroup.LayoutParams.MATCH_
      */
     fun getLocationCode(): String = cityCode
 
+    /**
+     * 显示在屏幕底部
+     */
     fun showScreenBottom(v: View) {
         val contentContainer = contentView.findViewById<ViewGroup>(R.id.content_container)
         val lp: FrameLayout.LayoutParams = contentContainer.layoutParams as FrameLayout.LayoutParams
@@ -123,16 +126,25 @@ class LocationPopu(context: Context) : PopupWindow(ViewGroup.LayoutParams.MATCH_
         showAtLocation(v, Gravity.BOTTOM, 0, 0)
     }
 
+    /**
+     * 设置地址变化监听
+     */
     fun setOnChangeListener(changeListener: OnChangeListener): LocationPopu {
         this.changeListener = changeListener
         return this
     }
 
+    /**
+     * 设置显示\隐藏监听
+     */
     fun setOnVisibleListener(visibleListener: OnVisibleListener): LocationPopu{
         this.visibleListener = visibleListener
         return this
     }
 
+    /**
+     * 省级适配器
+     */
     inner class ProvinceAdapter(itemRes: Int) : BaseQuickAdapter<Map<String, String>, BaseViewHolder>(itemRes) {
         private var selectedItem: View? = null
         override fun convert(helper: BaseViewHolder, item: Map<String, String>) {
@@ -151,6 +163,9 @@ class LocationPopu(context: Context) : PopupWindow(ViewGroup.LayoutParams.MATCH_
         }
     }
 
+    /**
+     * 市级适配器
+     */
     inner class CityAdapter(itemRes: Int) : BaseQuickAdapter<Map<String, String>, BaseViewHolder>(itemRes) {
         override fun convert(helper: BaseViewHolder, item: Map<String, String>) {
             helper.setText(R.id.menu_text, item.getValue("name"))

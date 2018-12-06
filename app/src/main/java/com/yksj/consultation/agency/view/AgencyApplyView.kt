@@ -11,6 +11,8 @@ import com.library.base.kt.dp2px
 import com.library.base.kt.inflater
 import com.yksj.consultation.bean.AgencyBean
 import com.yksj.consultation.sonDoc.R
+import com.yksj.doctorhome.agency.view.CategroyPopu
+import com.yksj.doctorhome.agency.view.LocationPopu
 import kotlinx.android.synthetic.main.layout_agency_apply.view.*
 
 /**

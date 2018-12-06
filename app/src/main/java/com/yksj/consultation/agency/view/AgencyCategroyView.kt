@@ -14,6 +14,9 @@ import com.yksj.consultation.agency.fragment.AgencyCategroySubFragment
 import com.yksj.consultation.sonDoc.R
 import kotlinx.android.synthetic.main.layout_agency_interest.view.*
 
+/**
+ * 机构分类View
+ */
 class AgencyCategroyView : FrameLayout {
 
     constructor(context: Context):this(context, null)

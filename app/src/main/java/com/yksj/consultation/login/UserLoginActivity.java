@@ -36,7 +36,7 @@ public class UserLoginActivity extends BaseTitleActivity implements OnClickListe
     private LoginBusiness.SimpleLoginCallback mLoginCallback = new LoginBusiness.SimpleLoginCallback() {
         @Override
         public void onLoginStart() {
-            showWait();
+            showLoginWait();
         }
 
         @Override
@@ -61,12 +61,12 @@ public class UserLoginActivity extends BaseTitleActivity implements OnClickListe
             } else {
                 ToastUtils.showShort(e.getMessage());
             }
-            hideWait();
+            hideLoginWait();
         }
 
         @Override
         public void onLoginFinish() {
-            hideWait();
+            hideLoginWait();
         }
     };
 
@@ -108,7 +108,10 @@ public class UserLoginActivity extends BaseTitleActivity implements OnClickListe
         mLoginView.setEnabled(enable);
     }
 
-    private void showWait() {
+    /**
+     * 显示登陆等待
+     */
+    private void showLoginWait() {
         if (mWaitDialog == null) {
             mWaitDialog = DialogManager.getWaitDialog("登陆中...");
         }
@@ -117,7 +120,10 @@ public class UserLoginActivity extends BaseTitleActivity implements OnClickListe
         }
     }
 
-    private void hideWait() {
+    /**
+     * 隐藏登陆等待
+     */
+    private void hideLoginWait() {
         if (mWaitDialog != null && mWaitDialog.isShowing()) {
             mWaitDialog.dismissAllowingStateLoss();
         }
@@ -172,7 +178,7 @@ public class UserLoginActivity extends BaseTitleActivity implements OnClickListe
 
     @Override
     protected void onDestroy() {
-        hideWait();
+        hideLoginWait();
         mLoginCallback = null;
         super.onDestroy();
     }

@@ -12,20 +12,11 @@ import android.widget.TextView;
 
 import com.library.base.base.BaseTitleActivity;
 import com.yksj.consultation.sonDoc.R;
-import com.yksj.consultation.utils.DoctorHelper;
-import com.yksj.healthtalk.net.http.ApiService;
-import com.yksj.healthtalk.net.http.HttpResult;
-import com.yksj.healthtalk.net.http.ApiCallbackWrapper;
 import com.yksj.healthtalk.utils.HStringUtil;
 import com.yksj.healthtalk.utils.ToastUtil;
 import com.yksj.healthtalk.views.MaxLengthWatcher;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.lang.ref.WeakReference;
-import java.util.HashMap;
-import java.util.Map;
 
 import butterknife.BindView;
 
@@ -78,6 +69,10 @@ public class AddTextActivity extends BaseTitleActivity {
         }
     }
 
+    /**
+     * 右侧菜单点击事件
+     * @param view
+     */
     private void onRightClick(View view) {
         String content = mContentView.getText().toString();
         if (mBuild.listener != null) {
@@ -86,6 +81,9 @@ public class AddTextActivity extends BaseTitleActivity {
         onClickConfrim();
     }
 
+    /**
+     * 根据类型初始化View//1 群名称 2群公告 3记事本内容 4回复评价 5医生集团加入申请
+     */
     private void initViewByType() {
         if (mBuild.type == 0) {
             return;
@@ -128,6 +126,9 @@ public class AddTextActivity extends BaseTitleActivity {
         }
     }
 
+    /**
+     * 右侧菜单点击事件
+     */
     private void onClickConfrim() {
         switch (mBuild.type) {
             case 3:
@@ -195,6 +196,7 @@ public class AddTextActivity extends BaseTitleActivity {
             return this;
         }
 
+        @Deprecated
         public Build setInputType(int inputType) {
             this.inputType = inputType;
             return this;

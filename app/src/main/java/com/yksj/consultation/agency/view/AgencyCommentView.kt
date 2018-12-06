@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.layout_agency_comment.view.*
 
 /**
  * 机构详情 评论View
+ * TODO 暂时没有接口
  */
 class AgencyCommentView(context: Context, presenter: IPresenter):FrameLayout(context){
 

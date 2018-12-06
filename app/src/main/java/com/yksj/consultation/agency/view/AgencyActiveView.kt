@@ -11,6 +11,9 @@ import com.yksj.consultation.bean.AgencyActiveBean
 import com.yksj.consultation.sonDoc.R
 import kotlinx.android.synthetic.main.layout_angency_active.view.*
 
+/**
+ * 机构首页活动列表View
+ */
 class AgencyActiveView(context: Context, p: IPresenter) : FrameLayout(context) {
 
     private val presenter = p
