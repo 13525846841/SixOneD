@@ -148,8 +148,7 @@ public class VideoUploadDelegate {
                     public void onResponse(VideoQueryBean response) {
                         super.onResponse(response);
                         if (response.isSucees()) {
-                            String vid = response.ret.list.get(0).vid;
-                            space.vid = vid;
+                            space.vid = response.ret.list.get(0).vid;
                             emitter.onNext(space);
                         }else{
                             emitter.onError(new IllegalStateException());
