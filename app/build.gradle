@@ -107,8 +107,8 @@ android {
             applicationId rootProject.ext.android.applicationId
             versionCode rootProject.ext.android.versionCode
             versionName rootProject.ext.android.versionName
-            buildConfigField "String", "WEB_IP", '"https://www.61120.cn"'
-            buildConfigField "String", "SOCKET_IP", '"www.61120.cn"'
+            buildConfigField "String", "WEB_IP", '"https://61120.vip"'
+            buildConfigField "String", "SOCKET_IP", '"61120.vip"'
             buildConfigField "int", "SOCKET_PORT", '8014'
             buildConfigField "String", "SHARE_WEB", '"www.61120.cn"'
             signingConfig signingConfigs.marketRelease
