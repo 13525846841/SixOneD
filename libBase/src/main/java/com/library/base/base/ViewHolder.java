@@ -4,6 +4,10 @@ import android.util.SparseArray;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * 有必要的话，请使用{@link com.chad.library.adapter.base.BaseQuickAdapter}
+ */
+@Deprecated
 public class ViewHolder {
 
     private SparseArray<View> views;

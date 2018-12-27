@@ -20,25 +20,25 @@ android {
 
 //    设置签名文件信息
     signingConfigs {
-        debug{
+        debug{//蒲公英签名文件
             storeFile file("../signing/childDoc.jks")
             storePassword "yijiankang518"
             keyAlias "childhospitaldoc"
             keyPassword "yijiankang518"
         }
-        shanghaiRelease {
+        shanghaiRelease {//蒲公英签名文件
             storeFile file("../signing/childPatient.jks")
             storePassword "yijiankang518"
             keyAlias "childhospital"
             keyPassword "yijiankang518"
         }
-        marketRelease {
+        marketRelease {//发布应用市场签名文件
             storeFile file("../signing/childDoc.jks")
             storePassword "yijiankang518"
             keyAlias "childhospitaldoc"
             keyPassword "yijiankang518"
         }
-        localhostRelease {
+        localhostRelease {//测试签名文件
             storeFile file("../signing/childDoc.jks")
             storePassword "yijiankang518"
             keyAlias "childhospitaldoc"
@@ -110,7 +110,7 @@ android {
             buildConfigField "String", "WEB_IP", '"https://61120.vip"'
             buildConfigField "String", "SOCKET_IP", '"61120.vip"'
             buildConfigField "int", "SOCKET_PORT", '8014'
-            buildConfigField "String", "SHARE_WEB", '"www.61120.cn"'
+            buildConfigField "String", "SHARE_WEB", '"www.61120.vip"'
             signingConfig signingConfigs.marketRelease
         }
 

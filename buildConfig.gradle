@@ -23,7 +23,7 @@ ext {
             minSdkVersion    : 16,
             targetSdkVersion : 27,
             versionCode      : 51,
-            versionName      : '4.4.6',
+            versionName      : '4.4.7',
             applicationId    : "com.yksj.consultation.sonDoc",
             compileSdkVersion: 28,
             buildToolsVersion: "28.0.2"

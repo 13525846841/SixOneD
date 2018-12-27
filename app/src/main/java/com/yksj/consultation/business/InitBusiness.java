@@ -22,10 +22,14 @@ import com.yksj.consultation.utils.IPDebugHelper;
 import com.yksj.healthtalk.utils.AppCashHandler;
 
 /**
- * 初始化业务
+ * 应用初始化相关操作，应用启动时如果需要初始化一些第三方SDK，请在该类中初始化
  */
 public class InitBusiness {
 
+    /**
+     * 初始化
+     * @param app
+     */
     public void init(Application app) {
         //初始化网易音视频
         NIMManager.init(app);

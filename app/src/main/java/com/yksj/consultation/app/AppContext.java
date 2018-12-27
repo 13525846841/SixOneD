@@ -1,5 +1,6 @@
 package com.yksj.consultation.app;
 
+import com.blankj.utilcode.util.Utils;
 import com.library.base.base.BaseApplication;
 import com.library.base.event.EExitApp;
 import com.library.base.utils.EventManager;
@@ -9,6 +10,9 @@ import com.yksj.consultation.service.CoreService;
 import com.yksj.healthtalk.net.http.ApiRepository;
 import com.yksj.healthtalk.net.http.ApiService;
 
+/**
+ * 应用全局上下文
+ */
 public class AppContext extends BaseApplication {
 
     public static final String TAG = "AppContext";
@@ -21,8 +25,8 @@ public class AppContext extends BaseApplication {
     private static ApiRepository mApiRepository;
 
     // 全局数据
+    @Deprecated
     private static AppData appData;
-    private InitBusiness mInitBusiness;
 
     public void onCreate() {
         super.onCreate();
@@ -31,8 +35,8 @@ public class AppContext extends BaseApplication {
     }
 
     private void init() {
-        mInitBusiness = new InitBusiness();
-        mInitBusiness.init(this);
+        InitBusiness initBusiness = new InitBusiness();
+        initBusiness.init(this);
         if (mApiRepository == null) mApiRepository = new ApiRepository(Configs.WEB_IP);
         if (appData == null) appData = new AppData();
         ApiService.setmRepository(mApiRepository);
@@ -52,14 +56,29 @@ public class AppContext extends BaseApplication {
         }
     }
 
+    /**
+     * 历史遗留代码
+     * 请使用{@link Utils#getApp()}
+     * @return
+     */
+    @Deprecated
     public static AppContext getHTalkApplication() {
         return mApplication;
     }
 
+    /**
+     * 历史遗留代码，具体用途不清楚
+     * @return
+     */
+    @Deprecated
     public static AppData getAppData() {
         return appData;
     }
 
+    /**
+     * 获取服务器接口类，该类中存有应用类所有接口
+     * @return
+     */
     public static ApiRepository getApiRepository() {
         return mApplication.mApiRepository;
     }

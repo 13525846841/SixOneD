@@ -28,21 +28,29 @@ import org.greenrobot.eventbus.ThreadMode;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+/**
+ * activity基类，新建activity应该继承该类
+ * 如果需要代表标题的activity，请使用{@link com.library.base.base.BaseTitleActivity}
+ */
 public class BaseActivity extends AppCompatActivity implements OnClickListener {
 
-    public ImageView titleLeftBtn;
-    public ImageView titleRightBtn;
-    public TextView titleRightBtn2;
-    public TextView titleTextV;
-    public RelativeLayout title;
-    public RadioButton leftRadio, rightRadio;
-    public RadioGroup radioGroup;
-    public EditText editSearch;
-    public ImageView mImageView;
-    public ImageView mImageViewD;
-    public ImageView mImageViewP;
+    @Deprecated public ImageView titleLeftBtn;
+    @Deprecated public ImageView titleRightBtn;
+    @Deprecated public TextView titleRightBtn2;
+    @Deprecated public TextView titleTextV;
+    @Deprecated public RelativeLayout title;
+    @Deprecated public RadioButton leftRadio, rightRadio;
+    @Deprecated public RadioGroup radioGroup;
+    @Deprecated public EditText editSearch;
+    @Deprecated public ImageView mImageView;
+    @Deprecated public ImageView mImageViewD;
+    @Deprecated public ImageView mImageViewP;
     private Unbinder mButterBind;
 
+    /**
+     * 如果需要代表标题的activity，请使用{@link com.library.base.base.BaseTitleActivity}
+     */
+    @Deprecated
     public final void initializeTitle() {
         titleLeftBtn = bindView(R.id.title_back);
         titleRightBtn = bindView(R.id.title_right);
@@ -55,6 +63,8 @@ public class BaseActivity extends AppCompatActivity implements OnClickListener {
     }
 
     /**
+     * 如果需要代表标题的activity，请使用{@link com.library.base.base.BaseTitleActivity}
+     * 设置标题
      * @param txt
      */
     public void setTitle(String txt) {
@@ -62,7 +72,7 @@ public class BaseActivity extends AppCompatActivity implements OnClickListener {
     }
 
     /**
-     * 绑定view
+     * 根据ID获取View实体
      * @param id  view Id
      * @param <T>
      * @return
@@ -72,6 +82,7 @@ public class BaseActivity extends AppCompatActivity implements OnClickListener {
     }
 
     /**
+     * 如果需要代表标题的activity，请使用{@link com.library.base.base.BaseTitleActivity}
      * @param txt
      * @param listener
      */
@@ -160,7 +171,6 @@ public class BaseActivity extends AppCompatActivity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-
     }
 
     /**

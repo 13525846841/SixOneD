@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.library.base.R;
 import com.library.base.event.EExitApp;
 import com.library.base.utils.EventManager;
 
@@ -23,9 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- *
- *
- * @author origin
+ * Fragment基类，新建的fragment应当继承该基类
  */
 public class BaseFragment extends Fragment {
     private static final String TAG = BaseFragment.class.getName();
@@ -49,10 +46,18 @@ public class BaseFragment extends Fragment {
         return mContentView;
     }
 
+    /**
+     * 内容ID，R.layout.****
+     * @return
+     */
     public int createLayoutRes() {
         return 0;
     }
 
+    /**
+     * 内容View，new *****Layout()
+     * @return
+     */
     public View createLayout(){
         return null;
     }
@@ -65,9 +70,17 @@ public class BaseFragment extends Fragment {
         initialize(view);
     }
 
+    /**
+     * 初始化方法，之类可实现该方法，初始化相关操作
+     * @param view
+     */
     public void initialize(View view) {
     }
 
+    /**
+     * 应用退出事件接收，之类可实现该方法，在应用退出时执行相关操作
+     * @param e
+     */
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onExitAppEvent(EExitApp e) {
     }
@@ -105,8 +118,7 @@ public class BaseFragment extends Fragment {
     }
 
     /**
-     * title 返回按钮
-     *
+     * 返回按钮点击事件
      * @param view
      */
     public void onBackPressed(View view) {
@@ -115,12 +127,5 @@ public class BaseFragment extends Fragment {
         } else {
             getActivity().onBackPressed();
         }
-    }
-
-    public void initTitleView(View view) {
-        titleLeftBtn = (ImageView) view.findViewById(R.id.title_back);
-        titleRightBtn = (ImageView) view.findViewById(R.id.title_right);
-        titleTextV = (TextView) view.findViewById(R.id.title_lable);
-        titleRightBtn2 = (TextView) view.findViewById(R.id.title_right2);
     }
 }

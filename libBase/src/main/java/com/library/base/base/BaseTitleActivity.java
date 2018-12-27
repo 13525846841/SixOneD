@@ -15,27 +15,58 @@ import android.widget.TextView;
 import com.library.base.R;
 
 /**
- * 带有titlebar的基础类
+ * 带有标题的Activity基础类
  */
 public class BaseTitleActivity extends BaseActivity {
 
+    /**
+     * 标题左边菜单按钮
+     */
     public ImageView titleLeftBtn;
 
+    /**
+     * 标题右边菜单按钮
+     */
     public TextView titleRightBtn;
 
+    /**
+     * 标题右边图片菜单按钮
+     */
     public ImageView titleRightImage;
 
+    /**
+     * 历史遗留代码，不清楚用途
+     */
     public Button titleRightBtn2;
 
+    /**
+     * 标题
+     */
     public TextView titleTextV;
 
+    /**
+     * 历史遗留代码，不清楚用途
+     */
     public ImageView mImageViewD;
 
+    /**
+     * 标题右边图片菜单按钮
+     */
     public ImageView mImageViewP;
 
+    /**
+     * 返回按钮
+     */
     public View mBackView;
 
+    /**
+     * 标题根View
+     */
     protected View mTitleView;
+
+    /**
+     * 内容根view
+     */
     protected View mContentView;
 
     @Override
@@ -65,10 +96,18 @@ public class BaseTitleActivity extends BaseActivity {
         return view;
     }
 
+    /**
+     * 获取标题根View
+     * @return
+     */
     public View getTitleView(){
         return mTitleView;
     }
 
+    /**
+     * 之类可复写该方法实现不同的标题
+     * @return
+     */
     @Override
     public int createTitleLayoutRes() {
         return R.layout.base_title_layout;
@@ -96,18 +135,26 @@ public class BaseTitleActivity extends BaseActivity {
         mBackView = titleView.findViewById(R.id.title_back);
     }
 
+    /**
+     * 设置标题
+     * @param txt
+     */
     public void setTitle(String txt) {
         if (titleTextV == null) return;
         titleTextV.setText(txt);
     }
 
+    /**
+     * 设置标题
+     * @param titleRes
+     */
     public void setTitle(@StringRes int titleRes) {
         if (titleTextV == null) return;
         titleTextV.setText(titleRes);
     }
 
     /**
-     * 设置菜单
+     * 设置左边菜单
      */
     public void setLeft(@DrawableRes int resId){
         if (titleLeftBtn == null) return;
@@ -115,6 +162,11 @@ public class BaseTitleActivity extends BaseActivity {
         titleLeftBtn.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * 设置左边菜单
+     * @param resId
+     * @param listener
+     */
     public void setLeft(@DrawableRes int resId, OnClickListener listener) {
         if (titleLeftBtn == null) return;
         titleLeftBtn.setImageResource(resId);
@@ -124,7 +176,7 @@ public class BaseTitleActivity extends BaseActivity {
     }
 
     /**
-     * 设置菜单
+     * 设置右边菜单
      * @param str
      */
     public void setRight(String str){
@@ -133,21 +185,40 @@ public class BaseTitleActivity extends BaseActivity {
         titleRightBtn.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * 设置右边菜单
+     * @param res
+     */
     public void setRight(@StringRes int res){
         if (titleRightBtn == null) return;
         titleRightBtn.setText(res);
         titleRightBtn.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * 设置右边菜单
+     * @param txt
+     * @param listener
+     */
     public void setRight(String txt, OnClickListener listener) {
         setRight(txt, true, listener);
     }
 
+    /**
+     * 设置右边菜单
+     * @param enable
+     */
     public void setRightEnable(boolean enable){
         if (titleRightBtn == null) return;
         titleRightBtn.setEnabled(enable);
     }
 
+    /**
+     * 设置右边菜单
+     * @param txt
+     * @param enable
+     * @param listener
+     */
     public void setRight(String txt, boolean enable, OnClickListener listener) {
         if (titleRightBtn == null) return;
         setRight(txt);
@@ -155,6 +226,11 @@ public class BaseTitleActivity extends BaseActivity {
         if (listener != null) titleRightBtn.setOnClickListener(listener);
     }
 
+    /**
+     * 设置右边菜单
+     * @param res
+     * @param listener
+     */
     public void setRight(@DrawableRes int res, OnClickListener listener) {
         if (mImageViewP == null) return;
         mImageViewP.setVisibility(View.VISIBLE);
@@ -162,6 +238,11 @@ public class BaseTitleActivity extends BaseActivity {
         mImageViewP.setOnClickListener(listener);
     }
 
+    /**
+     * 设置右边菜单
+     * @param res
+     * @param listener
+     */
     public void setRightImg(@DrawableRes int res, OnClickListener listener){
         if (titleRightImage == null)return;
         titleRightImage.setVisibility(View.VISIBLE);
@@ -169,6 +250,10 @@ public class BaseTitleActivity extends BaseActivity {
         titleRightImage.setOnClickListener(listener);
     }
 
+    /**
+     * 设置标题栏背景颜色，之类可复写该方法实现不通标题栏背景颜色
+     * @return
+     */
     public int getTitleBackgroundColor() {
         return R.color.title_color;
     }
