@@ -1,8 +1,11 @@
 package com.library.base.base;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.IdRes;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +49,8 @@ public class BaseActivity extends AppCompatActivity implements OnClickListener {
     @Deprecated public ImageView mImageViewD;
     @Deprecated public ImageView mImageViewP;
     private Unbinder mButterBind;
+    private String mStartActivityTimeTarget;
+    private long mLastStartActivityTime;
 
     /**
      * 如果需要代表标题的activity，请使用{@link com.library.base.base.BaseTitleActivity}
@@ -188,6 +193,36 @@ public class BaseActivity extends AppCompatActivity implements OnClickListener {
      */
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onDoctorOffsite(EOffsiteLogin e) {
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode, @Nullable Bundle options) {
+        if (startActivitySafeCheck(intent)) {
+            super.startActivityForResult(intent, requestCode, options);
+        }
+    }
+
+    /**
+     * 检查当前 Activity 是否重复跳转了，不需要检查则重写此方法并返回 true 即可
+     * @param intent
+     * @return
+     */
+    private boolean startActivitySafeCheck(Intent intent) {
+        boolean result = true;
+        String tempTarget;
+        if (intent.getComponent() != null) {
+            tempTarget = intent.getComponent().getClassName();
+        } else if (intent.getAction() != null) {
+            tempTarget = intent.getAction();
+        } else {
+            return result;
+        }
+        if (tempTarget.equals(mStartActivityTimeTarget) && mLastStartActivityTime >= SystemClock.uptimeMillis() - 500){
+            result = false;
+        }
+        mStartActivityTimeTarget = tempTarget;
+        mLastStartActivityTime = SystemClock.uptimeMillis();
+        return result;
     }
 
     /**
