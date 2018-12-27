@@ -34,6 +34,9 @@ public class AppContext extends BaseApplication {
         init();
     }
 
+    /**
+     * 初始化
+     */
     private void init() {
         InitBusiness initBusiness = new InitBusiness();
         initBusiness.init(this);
@@ -43,6 +46,11 @@ public class AppContext extends BaseApplication {
         ApiService.addHttpHeader("client_type", AppContext.CLIENT_TYPE);
     }
 
+    /**
+     * {@link Utils#getApp()}
+     * @return
+     */
+    @Deprecated
     public static AppContext getApplication() {
         return mApplication;
     }
