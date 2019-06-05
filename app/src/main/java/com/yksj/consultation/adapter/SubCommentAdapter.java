@@ -28,6 +28,8 @@ public class SubCommentAdapter extends BaseQuickAdapter<CommentBean, BaseViewHol
         helper.setText(R.id.assess_time, TimeUtil.format(item.EVALUATE_TIME));
         helper.setGone(R.id.ll_reply, TextUtils.isEmpty(item.REPLY_CONTENT));
         helper.setText(R.id.assess_text, item.REPLY_CONTENT);
+      helper.addOnClickListener(R.id.txt_reply);
+
         //图片展示
         String avatarPath = AppContext.getApiRepository().URL_QUERYHEADIMAGE + item.BIG_ICON_BACKGROUND;
         ImageLoader.load(avatarPath).into((ImageView) helper.getView(R.id.image_head));

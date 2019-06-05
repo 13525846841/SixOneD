@@ -105,7 +105,7 @@ public class RegisterActivity extends BaseTitleActivity implements View.OnClickL
                 break;
             case R.id.register_ptotocol:
                 Intent intent = new Intent(this, SettingWebUIActivity.class);
-                intent.putExtra("url", ResourceHelper.getString(R.string.agent_path_2));
+                intent.putExtra("url", ResourceHelper.getString(R.string.agent_path_1));
                 intent.putExtra("title", "用户协议与隐私条款");
                 startActivity(intent);
                 break;

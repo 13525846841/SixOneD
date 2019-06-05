@@ -23,7 +23,7 @@ class AgencyDescView(context: Context, p: IPresenter): NestedScrollView(context)
      */
     fun bindData(data: AgencyBean){
         angency_name.text = data.name
-        angency_location.text = data.address + data.detailAddredd
+        angency_location.text = data.address +"\n"+ data.detailAddredd
         angency_traffic.text = data.address + data.detailAddredd
         angency_desc.text = data.desc
         angency_telephone.setOnClickListener { presenter.callPhone(data.telephone) }

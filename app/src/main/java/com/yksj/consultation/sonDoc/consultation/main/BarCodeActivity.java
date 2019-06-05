@@ -85,8 +85,8 @@ public class BarCodeActivity extends BaseTitleActivity {
         super.initialize(bundle);
 
         setTitle(TextUtils.isEmpty(mSpace.name) ? "二维码名片" : mSpace.name);
-        setRight("分享", this::onShareClick);
-
+//        setRight("分享", this::onShareClick);
+//
         ImageLoader.load(mSpace.avatarPath).into(mAvatarView);
 
         if (!TextUtils.isEmpty(mSpace.name)) {

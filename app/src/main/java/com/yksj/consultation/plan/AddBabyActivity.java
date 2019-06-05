@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.library.base.base.BaseActivity;
 import com.library.base.utils.StorageUtils;
@@ -52,6 +53,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -207,7 +210,7 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
                 birthday.setText(birthday1);
             }
 
-            tv_height.setText(height +"cm");
+            tv_height.setText(height + "cm");
             tv_weight.setText(weight + "kg");
             mTV_text.setText(remark);
             //图片展示
@@ -278,7 +281,7 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
             case R.id.iv_picture:
                 //showuploadPopWindow();
                 WheelUtils.setPopeWindow(AddBabyActivity.this, v,
-                        listpop);
+                                         listpop);
                 break;
             case R.id.rl_name://姓名
                 initMDDialog();
@@ -292,7 +295,7 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
             case R.id.rl_time://出生时间
                 CURRENTVIEW = birthday;
                 initBirthdayDialog();
-               //timeDialog.show();
+                //timeDialog.show();
                 break;
             case R.id.rl_height://身高
                 CURRENTVIEW = tv_height;
@@ -340,7 +343,7 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
                 listpop.dismiss();
                 if (!SystemUtils.getScdExit()) {
                     ToastUtil.showShort(AddBabyActivity.this,
-                            "SD卡拔出,六一健康用户头像,语音,图片等功能不可用");
+                                        "SD卡拔出,六一健康用户头像,语音,图片等功能不可用");
                     return;
                 }
                 intent = CropUtils.createPickForFileIntent();
@@ -355,18 +358,18 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
     private void setText() {
         if (CURRENTVIEW.equals(tv_sex)) {
             tv_sex.setText(WheelUtils.getCurrent());
-            if ("男".equals(tv_sex.getText())){
+            if ("男".equals(tv_sex.getText())) {
                 sex = "1";
-            }else if ("女".equals(tv_sex.getText())){
+            } else if ("女".equals(tv_sex.getText())) {
                 sex = "0";
             }
         } else if (CURRENTVIEW.equals(tv_weight)) {
-          //  weight = WheelUtils.getCurrent();
-            weight = WheelUtils.getCurrent1()+"."+WheelUtils.getCurrent2();
+            //  weight = WheelUtils.getCurrent();
+            weight = WheelUtils.getCurrent1() + "." + WheelUtils.getCurrent2();
             tv_weight.setText(weight + "kg");
         } else if (CURRENTVIEW.equals(tv_height)) {
 //            height = WheelUtils.getCurrent();
-            height = WheelUtils.getCurrent1()+"."+WheelUtils.getCurrent2();
+            height = WheelUtils.getCurrent1() + "." + WheelUtils.getCurrent2();
             tv_height.setText(height + "cm");
         }
     }
@@ -379,9 +382,9 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
         text = mTV_text.getText().toString();
         birthdayNote = birthday.getText().toString();
 
-        if (tv_sex.getText().toString().equals("女")){
+        if (tv_sex.getText().toString().equals("女")) {
             sex = "0";
-        }else if (tv_sex.getText().toString().equals("男")){
+        } else if (tv_sex.getText().toString().equals("男")) {
             sex = "1";
         }
 
@@ -413,14 +416,24 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
             ToastUtil.showShort(this, R.string.getway_error_note);
             return;
         }
+        String name3 = "";
+        String text3 = "";
+        String birthdayNote3="";
+        try {
+            name3 = URLEncoder.encode(name, "UTF-8");
+            text3 = URLEncoder.encode(text, "UTF-8");
+            birthdayNote3 = URLEncoder.encode(birthdayNote, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
         ApiConnection.Param[] params = new ApiConnection.Param[]{new ApiConnection.Param("children_hight", height)
                 , new ApiConnection.Param("children_weight", weight)
-                , new ApiConnection.Param("children_name", name)
+                , new ApiConnection.Param("children_name", name3)
                 , new ApiConnection.Param("children_id", children_id)
                 , new ApiConnection.Param("customer_id", customer_id)
-                , new ApiConnection.Param("children_remark", text)
-                , new ApiConnection.Param("children_birthday", birthdayNote)
+                , new ApiConnection.Param("children_remark", text3)
+                , new ApiConnection.Param("children_birthday", birthdayNote3)
                 , new ApiConnection.Param("op", "updateChildren")
                 , new ApiConnection.Param("children_sex", sex)};
         ApiService.OKHttpModityInformation("photo", headerFile, params, new ApiCallback<String>() {
@@ -483,7 +496,7 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
         View mainView = inflater.inflate(R.layout.interest_content, null);
         if (addPhotoPop == null) {
             addPhotoPop = new PopupWindow(view, ViewGroup.LayoutParams.FILL_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT);
+                                          ViewGroup.LayoutParams.WRAP_CONTENT);
             addPhotoPop.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         }
         WheelUtils.setPopeWindow(this, mainView, addPhotoPop);
@@ -500,7 +513,7 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
     private void initSexDialog() {
         String[] xingbie = getResources().getStringArray(R.array.sex);
         WheelUtils.setSingleWheel(this, xingbie, mainView, pop, wheelView,
-                false);
+                                  false);
 
 //        ArrayList<String> sexlist = new ArrayList<>();
 //        sexlist.add("男");
@@ -556,16 +569,27 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
             return;
         }
 
-        if (headerFile==null){
+        if (headerFile == null) {
             ToastUtil.showToastPanl("请选择照片");
             return;
         }
-        ApiConnection.Param[] params = new ApiConnection.Param[]{new ApiConnection.Param("children_hight", height)
+        String name2 = "";
+        String text2 = "";
+        String birthdayNote2="";
+        try {
+            name2 = URLEncoder.encode(name, "UTF-8");
+            text2 = URLEncoder.encode(text, "UTF-8");
+            birthdayNote2 = URLEncoder.encode(birthdayNote, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        ApiConnection.Param[] params = new ApiConnection.Param[]{
+                new ApiConnection.Param("children_hight", height)
                 , new ApiConnection.Param("children_weight", weight)
-                , new ApiConnection.Param("children_name", name)
+                , new ApiConnection.Param("children_name", name2)
                 , new ApiConnection.Param("customer_id", customer_id)
-                , new ApiConnection.Param("children_remark", text)
-                , new ApiConnection.Param("children_birthday", birthdayNote)
+                , new ApiConnection.Param("children_remark", text2)
+                , new ApiConnection.Param("children_birthday", birthdayNote2)
                 , new ApiConnection.Param("op", "addChildren")
                 , new ApiConnection.Param("children_sex", sex)};
         ApiService.OKHttpSaveInformation("photo", headerFile, params, new ApiCallback<String>() {
@@ -573,6 +597,7 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
             public void onError(Request request, Exception e) {
 
             }
+
             @Override
             public void onResponse(String content) {
                 if (!HStringUtil.isEmpty(content)) {
@@ -595,8 +620,8 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
      * 生日dialog
      */
     private void initBirthdayDialog() {
-        if(birPop == null ){
-            birPop= WheelUtils.showThreeBabyDateWheel(this, mainView, new View.OnClickListener() {
+        if (birPop == null) {
+            birPop = WheelUtils.showThreeBabyDateWheel(this, mainView, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     switch (v.getId()) {
@@ -608,9 +633,9 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
                     }
                 }
             });
-        }else if(birPop.isShowing()){
+        } else if (birPop.isShowing()) {
             birPop.dismiss();
-        }else{
+        } else {
             birPop.showAtLocation(mainView, Gravity.BOTTOM, 0, 0);
         }
 
@@ -685,11 +710,12 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
         }
 
         WheelUtils.setDoubleWheel1(AddBabyActivity.this, numberList, mUnit, mainView, pop,
-                wheelView);
+                                   wheelView);
     }
 
     private List<Map<String, String>> numberList = new ArrayList<Map<String, String>>();
-    private List<Map<String, String>> mUnit = new ArrayList<Map<String, String>>();;
+    private List<Map<String, String>> mUnit = new ArrayList<Map<String, String>>();
+    ;
 
     /**
      * 身高的dialog
@@ -726,7 +752,7 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
         }
 
         WheelUtils.setDoubleWheel1(AddBabyActivity.this, numberList, mUnit, mainView, pop,
-                wheelView);
+                                   wheelView);
     }
 
     /**
@@ -742,9 +768,9 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
                     @Override
                     public void clickButton(View view) {
                         text = dialog.edittext();
-                        if (text.length()>10){
+                        if (text.length() > 10) {
                             ToastUtil.showShort("备注名称不超过10个字");
-                        }else {
+                        } else {
                             mTV_text.setText(text);
                             dialog.dismiss();
                         }
@@ -766,9 +792,9 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
                     @Override
                     public void clickButton(View view) {
                         name = dialog.edittext();
-                        if (name.length()>5){
+                        if (name.length() > 5) {
                             ToastUtil.showShort("名称字数不超过5个字");
-                        }else{
+                        } else {
                             mName.setText(name);
                             dialog.dismiss();
                         }
@@ -861,7 +887,6 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
 
     /**
      * 图片裁剪
-     *
      * @param path
      */
     private void onHandlerCropImage(String path) {
@@ -882,7 +907,6 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
 
     /**
      * 根据uri查询相册所对应的图片地址
-     *
      * @param uri
      * @return
      */
@@ -925,8 +949,8 @@ public class AddBabyActivity extends BaseActivity implements View.OnClickListene
                 if (resultCode == Activity.RESULT_OK) {
                     if (resultCode == RESULT_OK) {
                         Bitmap bitmap = BitmapUtils.decodeBitmap(headerFile.getAbsolutePath(),
-                                CropUtils.HEADER_WIDTH,
-                                CropUtils.HEADER_HEIGTH);
+                                                                 CropUtils.HEADER_WIDTH,
+                                                                 CropUtils.HEADER_HEIGTH);
                         addHeadView.setImageBitmap(bitmap);
                     } else {
                         if (headerFile != null) headerFile.deleteOnExit();

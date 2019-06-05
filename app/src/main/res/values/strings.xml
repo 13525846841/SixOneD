@@ -485,11 +485,12 @@
 
     <!--strings-chatroom-->
     <string name="online">正在直播</string>
-    
+
     <!--不知道怎么会有这么多用户协议和隐私条款-->
-    <string name="agent_path_1">http://www.yijiankangv.com/JumpPage/ETYY_Doctor_Agreement_100.html</string>
+    <string name="agent_path_1">https://61120.vip/DuoMeiHealth/html/11.html</string>
     <string name="agent_path_2">http://www.yijiankangv.com/JumpPage/Consultation_Agreement_Cus_1_100.html</string>
     <string name="agent_path_3">http://yijiankangv.com/JumpPage/ETYY_Doctor_Agreement_100.html</string>
+    <string name="title_activity_reply">ReplyActivity</string>
 </resources>
 
 

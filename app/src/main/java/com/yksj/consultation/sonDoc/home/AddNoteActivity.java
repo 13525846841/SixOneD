@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
@@ -23,6 +24,8 @@ import com.yksj.healthtalk.utils.ToastUtil;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import okhttp3.Request;
+
 /**
  * 添加提醒界面
  */
@@ -34,6 +37,8 @@ public class AddNoteActivity extends BaseTitleActivity {
     private Calendar mNowDate;
     private String mWarnContent;
     private String mWarnDate;
+    private String date1;
+    private String time;
 
     @Override
     public int createLayoutRes() {
@@ -56,7 +61,9 @@ public class AddNoteActivity extends BaseTitleActivity {
         rl_select_data.setOnClickListener(this);
         rl_select_time.setOnClickListener(this);
         rl_write_text.setOnClickListener(this);
+        date1 = TimeUtils.millis2String(mNowDate.getTimeInMillis(), new SimpleDateFormat("yyyyMMdd"));
         rl_select_data.setRightString(TimeUtils.millis2String(mNowDate.getTimeInMillis(), new SimpleDateFormat("yyyy年MM月dd日")));
+        time = TimeUtils.millis2String(mNowDate.getTimeInMillis(), new SimpleDateFormat("HHmm"));
         rl_select_time.setRightString(TimeUtils.millis2String(mNowDate.getTimeInMillis(), new SimpleDateFormat("HH:mm")));
     }
 
@@ -118,6 +125,7 @@ public class AddNoteActivity extends BaseTitleActivity {
                 temp.set(Calendar.MINUTE, minute);
                 if (temp.getTimeInMillis() >= mNowDate.getTimeInMillis()) {
                     String date = TimeUtils.millis2String(temp.getTimeInMillis(), new SimpleDateFormat("HH:mm"));
+                  time= TimeUtils.millis2String(temp.getTimeInMillis(), new SimpleDateFormat("HHmm"));
                     rl_select_time.setRightString(date);
                     temp = null;
                 }
@@ -137,6 +145,7 @@ public class AddNoteActivity extends BaseTitleActivity {
                 temp.set(year, month, dayOfMonth, 0, 0, 0);
                 if (temp.getTimeInMillis() >= mNowDate.getTimeInMillis()) {
                     String date = TimeUtils.millis2String(temp.getTimeInMillis(), new SimpleDateFormat("yyyy年MM月dd日"));
+                    date1 = TimeUtils.millis2String(temp.getTimeInMillis(), new SimpleDateFormat("yyyyMMdd"));
                     rl_select_data.setRightString(date);
                     temp = null;
                 }
@@ -153,7 +162,7 @@ public class AddNoteActivity extends BaseTitleActivity {
             ToastUtil.showToastPanl("请填写提醒内容");
             return;
         }
-        mWarnDate = rl_select_data.getRightString() + rl_select_time.getRightString();
+        mWarnDate = date1+ time;
         ApiService.notAddPlan(mWarnDate, mWarnContent, new ApiCallbackWrapper<ResponseBean>() {
             @Override
             public void onResponse(ResponseBean response) {
@@ -162,6 +171,12 @@ public class AddNoteActivity extends BaseTitleActivity {
                     finish();
                 }
                 ToastUtils.showShort(response.message);
+            }
+
+            @Override
+            public void onError(Request request, Exception e) {
+                super.onError(request, e);
+                Log.e("2222222", "onError: "+e.toString() );
             }
         });
     }

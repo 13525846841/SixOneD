@@ -2,6 +2,7 @@ package com.yksj.healthtalk.net.http;
 
 import android.app.Activity;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.LogUtils;
@@ -93,6 +94,7 @@ public abstract class ApiCallbackWrapper<T> extends ApiCallback<T> {
     @Override
     public void onError(Request request, Exception e) {
         LogUtils.e(e.toString());
+
         if (e == null || e.getCause() instanceof ConnectException) {
             ToastUtils.showShort("网络不给力或连接中断，请在设置中退出登录并重新登录。");
         } else if (e instanceof IllegalStateException) {

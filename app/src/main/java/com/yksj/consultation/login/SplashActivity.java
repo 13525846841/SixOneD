@@ -77,7 +77,7 @@ public class SplashActivity extends BaseActivity {
     @SuppressLint("CheckResult")
     private void startJump() {
         //延迟跳转
-        Observable.timer(2000, TimeUnit.MILLISECONDS)
+        Observable.timer(4000, TimeUnit.MILLISECONDS)
                 .map(aLong -> BeanCacheHelper.load(SplashActivity.this, LoginBean.class) != null)
                 .subscribe(b -> {
                     if (b) {

@@ -1,16 +1,24 @@
 package com.yksj.consultation.sonDoc.order;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.blankj.utilcode.util.ToastUtils;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.library.base.base.BaseFragment;
 import com.library.base.widget.DividerListItemDecoration;
+import com.library.base.widget.SpaceItemDecoration;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.yksj.consultation.adapter.SubCommentAdapter;
 import com.yksj.consultation.bean.CommentSubTab;
 import com.yksj.consultation.bean.ResponseBean;
+import com.yksj.consultation.doctor.ReplyActivity;
 import com.yksj.consultation.sonDoc.R;
 import com.yksj.consultation.utils.DoctorHelper;
 import com.yksj.healthtalk.bean.CommentBean;
@@ -64,6 +72,12 @@ public class SubCommentFeagment extends BaseFragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        requestData();
+    }
+
+    @Override
     public void initialize(View view) {
         super.initialize(view);
         mTab = (CommentSubTab) getArguments().getSerializable(TAB_EXTRA);
@@ -73,9 +87,27 @@ public class SubCommentFeagment extends BaseFragment {
                 .setEnableLoadMore(false)
                 .setOnRefreshListener(refreshLayout -> requestData())
                 .autoRefresh();
-
         mRecyclerView.setAdapter(mAdapter = new SubCommentAdapter());
-        mRecyclerView.addItemDecoration(new DividerListItemDecoration());
+        mRecyclerView.addItemDecoration(new SpaceItemDecoration(0,15));
+        mRecyclerView.addOnItemTouchListener(new OnItemChildClickListener(){
+            @Override
+            public void onSimpleItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+
+            }
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                super.onItemChildClick(adapter, view, position);
+                int itemViewId = view.getId();
+                switch (itemViewId) {
+                    case R.id.txt_reply:
+                        Intent intentShop=new Intent(getActivity(), ReplyActivity.class);
+                        intentShop.putExtra("id",mAdapter.getData().get(position).EVALUATE_ID);
+                        startActivity(intentShop);
+                        break;
+
+                }
+            }
+        });
 
         if (getActivity().getIntent().hasExtra(SITE)) {
             site_id = getActivity().getIntent().getStringExtra(SITE);
@@ -93,7 +125,7 @@ public class SubCommentFeagment extends BaseFragment {
             @Override
             public void onResponse(ResponseBean<List<CommentBean>> response) {
                 super.onResponse(response);
-                if (response.code == 0) {// MMP
+                if (response.code == 1) {// MMP
                     List<CommentBean> result = response.result;
                     mAdapter.setNewData(result);
                     mRefreshLayout.finishRefresh();

@@ -7,4 +7,5 @@
     <dimen name="padding_bottom">@dimen/dp_8</dimen>
     <dimen name="tab_text_size">@dimen/sp_14</dimen>
     <dimen name="tab_height">@dimen/dp_36</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

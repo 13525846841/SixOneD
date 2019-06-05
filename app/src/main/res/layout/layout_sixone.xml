@@ -14,6 +14,7 @@
             android:id="@+id/image"
             android:layout_width="@dimen/headView_w"
             android:layout_height="@dimen/headView_h"
+            android:src="@drawable/bg_reply"
             android:layout_centerVertical="true"
             android:scaleType="centerInside" />
 
@@ -33,12 +34,14 @@
                 android:id="@+id/doc_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="123333333"
                 android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/doc_room"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="123333333"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/tab_txt_gray"
                 android:textSize="12sp" />

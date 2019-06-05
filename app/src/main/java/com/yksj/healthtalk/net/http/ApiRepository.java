@@ -678,6 +678,7 @@ public class ApiRepository {
     //六一班
     public String INFOCENTERSERVLET;//
     public String DOCTORFINDOFFICE;//病例分类
+    public String DELETEFRIEND;//删除朋友
     //记事本
     public String ADDPLAN;
     public String CONSULTATION;
@@ -741,7 +742,7 @@ public class ApiRepository {
     public String DOWNLOADGROUPFILESERVLET;//六一班群文件下载地址
     public String DOCTORQUERYCOMMENT;//查询详细内容，评论信息
     public String DOCTORADDCOMMENT;//添加评论
-
+    public String DOCTORCOMMENT;
     public ApiRepository(String webRoot) {
         setupWebRoot(webRoot);
     }
@@ -1156,6 +1157,7 @@ public class ApiRepository {
         EMBODY = WEB_ROOT + "/DuoMeiHealth/WithdrawServlet?";
         DOCTORGETMONEY = WEB_ROOT + "/DuoMeiHealth/InfoCenterServlet?op=queryAvailableBalance";
         DOCTORFINDOFFICE = WEB_ROOT + "/DuoMeiHealth/see.do?op=findOffice";
+        DELETEFRIEND=WEB_ROOT+"/DuoMeiHealth/InfoCenterServlet";
         BARCODE = WEB_ROOT + "/DuoMeiHealth/see.do?op=getDoctorQr";
 
         FINDTEMPLATE = WEB_ROOT + "/DuoMeiHealth/see.do?op=findFollowTemplate";
@@ -1196,7 +1198,7 @@ public class ApiRepository {
         DOWNLOADGROUPFILESERVLET = WEB_ROOT + "/DuoMeiHealth/DownLoadGroupFileServlet";//
         DOCTORQUERYCOMMENT = WEB_ROOT + "/DuoMeiHealth/see.do?op=findNewById";
         DOCTORADDCOMMENT = WEB_ROOT + "/DuoMeiHealth/see.do?op=addComment";
-
+        DOCTORCOMMENT=WEB_ROOT+"/DuoMeiHealth/InfoCenterServlet";
         LECTURE_LIST = WEB_ROOT + "/DuoMeiHealth/dss";
         LECTURE = WEB_ROOT + "/DuoMeiHealth/PersonClassroom";
         LECTURE_TOKEN = WEB_ROOT + "/DuoMeiHealth/CreatToken";

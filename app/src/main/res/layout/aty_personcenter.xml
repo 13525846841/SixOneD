@@ -65,6 +65,7 @@
 
         <com.library.base.widget.SuperTextView
             android:id="@+id/rl_agency"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_45"
             app:sDividerLineColor="@color/divider"
@@ -86,6 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_45"
             app:sDividerLineColor="@color/divider"
+            android:visibility="gone"
             app:sDividerLineHeight="@dimen/dp_0_5"
             app:sDividerLineType="top"
             app:sLeftIconMarginLeft="@dimen/dp_16"

@@ -109,7 +109,8 @@ public class StationOrderAdapter extends BaseQuickAdapter<ServiceOrderBean, Base
         helper.setText(R.id.darkbacktext, item.getStatus());
 
         helper.setGone(R.id.tv_sex, false);
-        helper.setText(R.id.tv_sex, item.CUSTOMER_SEX.equals("W") ? "女" : "男");
+//        helper.setText(R.id.tv_sex, item.CUSTOMER_SEX.equals("W") ? "女" : "男");
+        helper.setText(R.id.tv_sex,  "女" );
 
         helper.setGone(R.id.tv_year, item.AGE != 0);
         helper.setText(R.id.tv_year, String.format("%s岁", item.AGE));

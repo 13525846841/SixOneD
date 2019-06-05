@@ -2884,7 +2884,12 @@ public class ApiService {
         params.add(new BasicNameValuePair("CONSULTATIONID", conId));
         ApiConnection.getAsyn(mRepository.DUOMEIHEALTH, params, callback, tag);
     }
-
+    /**
+     * 删除朋友
+     */
+    public static void OKHttpDeleteFriend(List<BasicNameValuePair> params,ApiCallback callback, Object tag){
+        ApiConnection.getAsyn(mRepository.DELETEFRIEND,params,callback,tag);
+    }
     /**
      * 绑定手机
      * @param customerid
@@ -3030,9 +3035,15 @@ public class ApiService {
      * @param callback
      */
     public static void notAddPlan(String warnDate, String warnContent, ApiCallbackWrapper callback) {
+//        RequestParams params = new RequestParams();
+//        params.put("doctor_id", adverid);
+//        params.put("CUSTOMERID", userid);
+//        params.put("ADVERID", adverid);
+//        params.put("CUSTOMERID", userid);
         Map<String, String> map = new HashMap<>();
         map.put("doctor_id", DoctorHelper.getId());
-        map.put("op", "addNotepadRecord");
+        map.put("op", "addNotepadRecord" +
+                "");
         map.put("notepad_time", warnDate);
         map.put("notepad_content", warnContent);
         ApiConnection.postAsyn(mRepository.ADDPLAN, map, callback);
@@ -4040,7 +4051,15 @@ public class ApiService {
         params.put("customer_id", doctorId);
         ApiConnection.postAsyn(mRepository.BUYDOCTORSERVICE, params, callback, callback);
     }
-
+    /**
+     * 回复评论
+     * @param params
+     * @param tag
+     * @param callback
+     */
+    public static void OkHttpAddReply(List<BasicNameValuePair> params, ApiCallback callback, Object tag) {
+        ApiConnection.getAsyn(mRepository.DOCTORCOMMENT,params,callback,tag);
+    }
     /**
      * ConsultationCouponsCount
      * 支付获取可用优惠券数量

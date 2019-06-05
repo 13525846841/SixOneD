@@ -97,7 +97,8 @@
         android:label="@string/app_name"
         android:persistent="true"
         android:theme="@style/AppTheme">
-        <!--百度地图第三方AK-->
+
+        <!-- 百度地图第三方AK -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="UQijNPYN4O3VV03QApXQRhetIIcWrUnP" />
@@ -111,14 +112,14 @@
         <meta-data
             android:name="com.netease.nim.appKey"
             android:value="@string/nim_appkey" />
-        <!--友盟 startRecorder-->
+        <!-- 友盟 startRecorder -->
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="@string/umeng_app_key" />
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="@string/umeng_channel" />
-        <!--友盟 end-->
+        <!-- 友盟 end -->
         <activity
             android:name="com.yksj.consultation.login.InitializeActivity"
             android:label="@string/app_name"
@@ -190,12 +191,11 @@
             </intent-filter>
         </service>
 
-        <!--app更新服务-->
+        <!-- app更新服务 -->
         <service
             android:name="com.yksj.consultation.service.AppUpdataService"
             android:enabled="true"
             android:exported="false" />
-
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
@@ -551,12 +551,12 @@
         <activity
             android:name="com.yksj.consultation.login.RegisterActivity"
             android:screenOrientation="portrait" />
-        <!--个人中心-->
+        <!-- 个人中心 -->
         <activity
             android:name="com.yksj.consultation.doctor.PersonCenterActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppBaseTheme.PersonCenter" />
-        <!--我的服务-->
+        <!-- 我的服务 -->
         <activity
             android:name="com.yksj.consultation.doctor.DoctorServiceActivity"
             android:screenOrientation="portrait" />
@@ -821,42 +821,42 @@
 
         <!-- 微信start -->
         <activity
-            android:name="com.yksj.consultation.sonDoc.wxapi.WXEntryActivity"
+            android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name="com.yksj.consultation.sonDoc.wxapi.WXPayEntryActivity"
+            android:name=".wxapi.WXPayEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!--微信end-->
-        <!--新浪start-->
+        <!-- 微信end -->
+        <!-- 新浪start -->
         <activity
             android:name="com.umeng.socialize.media.WBShareCallBackActivity"
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity"
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </activity>
-        <!--新浪end-->
-        <!--QQstart-->
+        <!-- 新浪end -->
+        <!-- QQstart -->
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -874,7 +874,7 @@
             android:name="com.tencent.connect.common.AssistActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!--QQend-->
+        <!-- QQend -->
         <activity
             android:name="com.yksj.consultation.doctor.MyOrderActivity"
             android:screenOrientation="portrait" />
@@ -936,92 +936,78 @@
             android:theme="@style/AppBaseTheme.Transparent" />
         <activity android:name="com.yksj.consultation.doctor.ShareListActivity" />
 
-
-        <!--工作站 startRecorder-->
+        <!-- 工作站 startRecorder -->
         <activity
             android:name="com.yksj.consultation.station.StationCommentListActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.yksj.consultation.station.StationListActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.yksj.consultation.station.StationCreateActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.yksj.consultation.doctor.DoctorToolsListActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.yksj.consultation.station.StationMemberActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.yksj.consultation.station.StationMemberChoiceAty"
             android:screenOrientation="portrait" />
-        <!--医生主页-->
+        <!-- 医生主页 -->
         <activity
             android:name="com.yksj.consultation.doctor.DoctorHomeActivity"
             android:screenOrientation="portrait" />
-        <!--个人讲堂-->
+        <!-- 个人讲堂 -->
         <activity
             android:name="com.yksj.consultation.doctor.DoctorLectureListActivity"
             android:screenOrientation="portrait" />
-        <!--课程评论列表-->
+        <!-- 课程评论列表 -->
         <activity
             android:name="com.yksj.consultation.station.LectureCommentListActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.yksj.consultation.doctor.DoctorStationListActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".consultation.main.InviteMemActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".consultation.main.QueryDoctorActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.yksj.consultation.station.StationPriceSettingActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.yksj.consultation.station.LectureReleaseArticleActivity"
             android:screenOrientation="portrait" />
-        <!--工作站 end-->
+        <!-- 工作站 end -->
 
-        <!--医生联盟 startRecorder-->
+
+        <!-- 医生联盟 startRecorder -->
         <activity
             android:name="com.yksj.consultation.union.UnionListActivity"
             android:launchMode="standard"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.yksj.consultation.union.UnionHomeActivity"
             android:launchMode="standard"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.yksj.consultation.union.UnionMemberListActivity"
             android:launchMode="standard"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.yksj.consultation.union.UnionIncidentActivity"
             android:launchMode="standard"
             android:screenOrientation="portrait" />
-        <!--医生联盟 end-->
-        <!--图片剪切-->
+        <!-- 医生联盟 end -->
+        <!-- 图片剪切 -->
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
         <activity
             android:name=".shopping.ShopActivity"
             android:screenOrientation="portrait" />
@@ -1052,12 +1038,10 @@
             android:name="com.library.base.docloader.DocChooseActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.yksj.consultation.im.GroupFileTypeChooseActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.yksj.consultation.im.GroupStartUploadActivity"
             android:exported="false"
@@ -1068,31 +1052,31 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <!--健康讲堂 发布设置-->
+        <!-- 健康讲堂 发布设置 -->
         <activity
             android:name="com.yksj.consultation.station.LectureReleaseSetupActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
-        <!--健康讲堂 课件支付-->
+        <!-- 健康讲堂 课件支付 -->
         <activity
             android:name="com.yksj.consultation.station.LectureDescActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
-        <!--健康讲堂 视频详情-->
+        <!-- 健康讲堂 视频详情 -->
         <activity
             android:name="com.yksj.consultation.station.LectureVideoInfoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-        <!--健康讲堂 图文详情-->
+        <!-- 健康讲堂 图文详情 -->
         <activity
             android:name="com.yksj.consultation.station.LectureArticleInfoActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
-        <!--健康讲堂 图文详情-->
+        <!-- 健康讲堂 图文详情 -->
         <activity
             android:name="com.yksj.consultation.station.LecturePayActivity"
             android:exported="false"
@@ -1133,7 +1117,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat" />
 
-        <!--机构start-->
+        <!-- 机构start -->
         <activity
             android:name="com.yksj.consultation.agency.AgencyHomeActivity"
             android:exported="false"
@@ -1160,15 +1144,16 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <!--机构end-->
+        <!-- 机构end -->
 
-        <!--支付宝 startRecorder-->
+
+        <!-- 支付宝 startRecorder -->
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
             android:configChanges="orientation|keyboardHidden|navigation|screenSize"
             android:exported="false"
             android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name="com.alipay.sdk.auth.AuthActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
@@ -1179,10 +1164,11 @@
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
             android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
-        <!--支付宝end-->
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- 支付宝end -->
 
-        <!--网易IM startRecorder-->
+
+        <!-- 网易IM startRecorder -->
         <!-- 音视频 -->
         <activity
             android:name=".chatting.avchat.AVChatActivity"
@@ -1204,7 +1190,7 @@
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"
             android:process=":core" />
-        <!-- 网易云通信SDK的监视系统启动和网络变化的广播接收器，用户开机自启动以及网络变化时候重新登录,保持和 NimService 同一进程-->
+        <!-- 网易云通信SDK的监视系统启动和网络变化的广播接收器，用户开机自启动以及网络变化时候重新登录,保持和 NimService 同一进程 -->
         <receiver
             android:name="com.netease.nimlib.service.NimReceiver"
             android:exported="false"
@@ -1218,12 +1204,14 @@
         <receiver android:name="com.netease.nimlib.service.ResponseReceiver" />
         <!-- 网易云通信进程间通信service -->
         <service android:name="com.netease.nimlib.service.ResponseService" />
+
         <provider
             android:name="com.netease.nimlib.ipc.NIMContentProvider"
             android:authorities="com.yksj.consultation.sonDoc.ipc.provider"
             android:exported="false"
             android:process=":core" />
-        <!--网易Im end-->
+        <!-- 网易Im end -->
+
 
         <!-- 申明本地电话状态（通话状态）的广播接收器，第三方APP集成时音视频模块时，如果需要在App中处理网络通话与本地电话的交互请加上此接收器 -->
         <!-- 在Demo的示例代码中是在Application进行了网络通话与本地电话的互斥处理 -->
@@ -1233,7 +1221,7 @@
             </intent-filter>
         </receiver>
 
-        <!--适配android7.0应用私有目录被限制的访问-->
+        <!-- 适配android7.0应用私有目录被限制的访问 -->
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.yksj.consultation.sonDoc.fileProvider"
@@ -1248,6 +1236,10 @@
             android:name="com.yksj.consultation.station.StationServiceActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yksj.consultation.doctor.ReplyActivity"
+            android:label="@string/title_activity_reply"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

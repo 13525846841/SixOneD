@@ -2,6 +2,7 @@ package com.yksj.consultation.main;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.View;
 
 import com.blankj.utilcode.util.ScreenUtils;
@@ -201,6 +202,7 @@ public class MainBannerFragment extends BaseFragment implements OnBuyTicketHandl
             @Override
             public void onResponse(ResponseBean<MainBannerBean> response) {
                 super.onResponse(response);
+                Log.e("qwewqe", "onResponse: "+response.toString() );
                 if (response.isSuccess()) {
                     MainBannerBean result = response.result;
                     mBanners = result.info;

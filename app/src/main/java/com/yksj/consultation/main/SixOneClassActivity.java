@@ -1,19 +1,30 @@
 package com.yksj.consultation.main;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.baoyz.swipemenulistview.SwipeMenu;
+import com.baoyz.swipemenulistview.SwipeMenuCreator;
+import com.baoyz.swipemenulistview.SwipeMenuItem;
+import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.library.base.base.BaseTitleActivity;
 import com.library.base.widget.SuperTextView;
+import com.umeng.socialize.media.Base;
 import com.yksj.consultation.adapter.SixOneAdapter;
 import com.yksj.consultation.app.AppData;
 import com.yksj.consultation.constant.Constant;
@@ -31,6 +42,7 @@ import com.yksj.healthtalk.utils.ThreadManager;
 import com.yksj.healthtalk.utils.ToastUtil;
 import com.yksj.healthtalk.utils.WeakHandler;
 
+import org.apache.http.message.BasicNameValuePair;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONArray;
@@ -49,7 +61,7 @@ public class SixOneClassActivity extends BaseTitleActivity implements AdapterVie
 
     private SuperTextView add_friend;
     private SuperTextView rl_chat;
-    private ListView mLv;
+    private SwipeMenuListView mLv;
     private View header;
     private SixOneAdapter adapter;
     private int num = 9;
@@ -60,7 +72,8 @@ public class SixOneClassActivity extends BaseTitleActivity implements AdapterVie
     private List<String> mListIds = null;//群聊id集合
     private static final int GROUP_CHANGE = 1004;//群聊提示
     public static final int SINGLE_CHANGE = 1005;//单聊提示
-
+    private String relation_customer_id="";
+    String id="";
     @Override
     public int createLayoutRes() {
         return R.layout.activity_six_one_class;
@@ -74,7 +87,7 @@ public class SixOneClassActivity extends BaseTitleActivity implements AdapterVie
     }
 
     private void initView() {
-        mLv = (ListView) findViewById(R.id.chat_lv);
+        mLv = findViewById(R.id.chat_lv);
         header = View.inflate(SixOneClassActivity.this, R.layout.sixone_head, null);
         add_friend = header.findViewById(R.id.add_friend);
         rl_chat = header.findViewById(R.id.rl_chat);
@@ -120,6 +133,55 @@ public class SixOneClassActivity extends BaseTitleActivity implements AdapterVie
         add_friend.setOnClickListener(this);
         mList = new ArrayList<>();
         mListIds = new ArrayList<>();
+        mLv.setMenuCreator(new SwipeMenuCreator() {
+            @Override
+            public void create(SwipeMenu menu) {
+
+                SwipeMenuItem openItem = new SwipeMenuItem(
+                        getApplicationContext());
+                // set item background
+                openItem.setBackground(new ColorDrawable(Color.BLUE));
+                // set item width
+                openItem.setWidth(180);
+                // set item title
+                openItem.setTitle("删除");
+                // set item title fontsize
+                openItem.setTitleSize(18);
+                // set item title font color
+                openItem.setTitleColor(Color.WHITE);
+                // add to menu
+                menu.addMenuItem(openItem);
+            }
+        });
+        mLv.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                List<BasicNameValuePair>  params = new ArrayList<>();
+                params.add(new BasicNameValuePair("op","deleteFriends"));
+                params.add(new BasicNameValuePair("customer_id",DoctorHelper.getId()));
+                params.add(new BasicNameValuePair("relation_customer_id",id));
+                ApiService.OKHttpDeleteFriend(params, new ApiCallbackWrapper<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        super.onResponse(response);
+                        if (!TextUtils.isEmpty(response)){
+                            JSONObject object = null;
+                            try {
+                                object = new JSONObject(response);
+                            if (HttpResult.SUCCESS.endsWith(object.optString("code"))) {
+                                mList.remove(position);
+                                adapter.onBoundData(mList);
+                                Toast.makeText(SixOneClassActivity.this, ""+object.optString("message"), Toast.LENGTH_SHORT).show();
+                            }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                },this);
+                return false;
+            }
+        });
 
     }
 
@@ -162,6 +224,7 @@ public class SixOneClassActivity extends BaseTitleActivity implements AdapterVie
                             mList.clear();
                         }
                         JSONObject object = new JSONObject(response);
+                        Log.e("123", "onResponse: "+object.toString());
                         if (HttpResult.SUCCESS.endsWith(object.optString("code"))) {
                             int groupNum = object.getJSONObject("result").optInt("group_msg_number");
                             if (groupNum > 99) {
@@ -187,6 +250,7 @@ public class SixOneClassActivity extends BaseTitleActivity implements AdapterVie
                             if (count > 0) {
                                 for (int i = 0; i < count; i++) {
                                     JSONObject obj = array.getJSONObject(i);
+                                    id=obj.optString("REL_CUSTOMER_ID");
                                     mList.add(obj);
                                 }
                                 mEmpty.setVisibility(View.GONE);
@@ -256,6 +320,7 @@ public class SixOneClassActivity extends BaseTitleActivity implements AdapterVie
                             customerId = obj.optString("customerId");
                             for (int i = 0; i < mList.size(); i++) {
                                 if (customerId.equals(mList.get(i).optString("REL_CUSTOMER_ID"))) {
+
                                     newMsgSingleFlag = 1;
                                     int num = mList.get(i).optInt("msg_number");
                                     try {

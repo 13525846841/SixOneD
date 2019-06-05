@@ -20,6 +20,13 @@ public class MainBannerBean {
         public String PAGE_TITLE;
     }
 
+    @Override
+    public String toString() {
+        return "MainBannerBean{" +
+                "info=" + info +
+                '}';
+    }
+
     public List getImages(){
         List images = new ArrayList();
         for (BannerInfo info : info) {

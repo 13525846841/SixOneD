@@ -3,13 +3,16 @@ package com.yksj.consultation.sonDoc.doctor;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.KeyboardUtils;
@@ -105,7 +108,7 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
     private String mHospitalCode;
     private List<OfficeBean> mOfficeDatas;
 
-    public static Intent getCallingIntent(Context context, String doctorId){
+    public static Intent getCallingIntent(Context context, String doctorId) {
         Intent intent = new Intent(context, MyInfoActivity.class);
         intent.putExtra("mDoctorId", doctorId);
         return intent;
@@ -134,16 +137,22 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
     }
 
     private void requestData() {
-        if (TextUtils.isEmpty(mDoctorId)){
+        if (TextUtils.isEmpty(mDoctorId)) {
             return;
         }
         ApiService.doctorInfo(mDoctorId, new ApiCallbackWrapper<String>(true) {
-            @Override public void onResponse(String response) {
+            @Override
+            public void onResponse(String response) {
                 super.onResponse(response);
                 try {
                     JSONObject obj = new JSONObject(response);
+                    Log.i("qqqq", "onResponse: " + obj.toString());
                     if ("1".equals(obj.optString("code"))) {
                         mCusInfoEctity = DataParseUtil.JsonToDocCustmerInfo(obj.getJSONObject("result"));
+                        SharedPreferences myPreference = getSharedPreferences("myPreference", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = myPreference.edit();
+                        editor.putString("id", obj.optString("centerId"));
+                        editor.commit();
                         onBoundData();
                         if ("0".equals(LoginBusiness.getInstance().getLoginEntity().getDoctorPosition()))
                             loadComment();
@@ -181,13 +190,13 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
 
         mCertificatePath = AppContext.getApiRepository().URL_QUERYHEADIMAGE + mCusInfoEctity.getDoctorCertificate();
         ImageLoader.load(mCertificatePath).into(mCertificateImg);
-
-        if (HStringUtil.isEmpty(mCusInfoEctity.getIntroduction())) {
-            findViewById(R.id.rl_jianjie).setVisibility(View.GONE);
-        }
-        if (HStringUtil.isEmpty(mCusInfoEctity.getSpecial())) {
-            findViewById(R.id.rl_special).setVisibility(View.GONE);
-        }
+//
+//        if (HStringUtil.isEmpty(mCusInfoEctity.getIntroduction())) {
+//            findViewById(R.id.rl_jianjie).setVisibility(View.GONE);
+//        }
+//        if (HStringUtil.isEmpty(mCusInfoEctity.getSpecial())) {
+//            findViewById(R.id.rl_special).setVisibility(View.GONE);
+//        }
 
         if (!"40".equals(mCusInfoEctity.getVerifyFlag())) {
             if (888 != mCusInfoEctity.getRoldid()) {//审核中
@@ -236,16 +245,17 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
     @OnClick(R.id.nickname_stv)
     public void onNickname(View view) {
         AddTextActivity.from(this)
-                .setTitle("请输入昵称")
-                .setContent(((SuperTextView) view).getRightString())
-                .setListener(new AddTextActivity.OnAddTextClickListener() {
-                    @Override public void onConfrimClick(View v, String content, AddTextActivity activity) {
-                        activity.finish();
-                        mNicknameStv.setRightString(content);
-                        requestUpdate();
-                    }
-                })
-                .startActivity();
+                       .setTitle("请输入昵称")
+                       .setContent(((SuperTextView) view).getRightString())
+                       .setListener(new AddTextActivity.OnAddTextClickListener() {
+                           @Override
+                           public void onConfrimClick(View v, String content, AddTextActivity activity) {
+                               activity.finish();
+                               mNicknameStv.setRightString(content);
+                               requestUpdate();
+                           }
+                       })
+                       .startActivity();
     }
 
     /**
@@ -258,7 +268,8 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
 
         LocationPopu locationPopu = new LocationPopu(this);
         locationPopu.setOnChangeListener(new LocationPopu.OnChangeListener() {
-            @Override public void onChanged(@NotNull String completeCity, @NotNull String city, @NotNull String code) {
+            @Override
+            public void onChanged(@NotNull String completeCity, @NotNull String city, @NotNull String code) {
                 mAddressStv.setRightString(completeCity);
                 mHospitalStv.setRightString("");
                 mAddressCode = code;
@@ -287,7 +298,8 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
     public void onOffice(View view) {
         PublishSubject<List<OfficeBean>> subject = PublishSubject.create();
         ApiService.requestOffice(AppContext.APP_CONSULTATION_CENTERID, new ApiCallbackWrapper<ResponseBean<List<OfficeBean>>>() {
-            @Override public void onResponse(ResponseBean<List<OfficeBean>> response) {
+            @Override
+            public void onResponse(ResponseBean<List<OfficeBean>> response) {
                 super.onResponse(response);
                 if (response.isSuccess()) {
                     mOfficeDatas = response.result;
@@ -298,7 +310,8 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
             }
         });
         subject.map(new Function<List<OfficeBean>, String[]>() {
-            @Override public String[] apply(List<OfficeBean> offices) throws Exception {
+            @Override
+            public String[] apply(List<OfficeBean> offices) throws Exception {
                 String[] titles = new String[offices.size()];
                 for (int i = 0; i < offices.size(); i++) {
                     titles[i] = offices.get(i).OFFICE_NAME;
@@ -306,19 +319,22 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
                 return titles;
             }
         }).doOnSubscribe(new Consumer<Disposable>() {
-            @Override public void accept(Disposable disposable) throws Exception {
+            @Override
+            public void accept(Disposable disposable) throws Exception {
                 KeyboardUtils.hideSoftInput(view);
             }
         }).subscribe(new Consumer<String[]>() {
-            @Override public void accept(String[] titles) throws Exception {
+            @Override
+            public void accept(String[] titles) throws Exception {
                 SelectorDialog.newInstance(titles)
-                        .setOnItemClickListener(new SelectorDialog.OnMenuItemClickListener() {
-                            @Override public void onItemClick(SelectorDialog dialog, int position) {
-                                mOfficeCode = mOfficeDatas.get(position).OFFICE_CODE;
-                                mOfficeStv.setRightString(mOfficeDatas.get(position).OFFICE_NAME);
-                                requestUpdate();
-                            }
-                        }).show(getSupportFragmentManager());
+                              .setOnItemClickListener(new SelectorDialog.OnMenuItemClickListener() {
+                                  @Override
+                                  public void onItemClick(SelectorDialog dialog, int position) {
+                                      mOfficeCode = mOfficeDatas.get(position).OFFICE_CODE;
+                                      mOfficeStv.setRightString(mOfficeDatas.get(position).OFFICE_NAME);
+                                      requestUpdate();
+                                  }
+                              }).show(getSupportFragmentManager());
             }
         });
     }
@@ -334,7 +350,7 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
 
         // 获取职称数据
         LinkedHashMap<String, String> job = DictionaryHelper.getInstance(this)
-                .querydoctorTitles(this);
+                                                            .querydoctorTitles(this);
         job.remove("未知");
 
         // map转list
@@ -345,13 +361,14 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
 
         // 显示选择dailog
         SelectorDialog.newInstance(titles)
-                .setOnItemClickListener(new SelectorDialog.OnMenuItemClickListener() {
-                    @Override public void onItemClick(SelectorDialog dialog, int position) {
-                        mJobCode = job.get(titles[position]);
-                        mJobTitleStv.setRightString(titles[position]);
-                        requestUpdate();
-                    }
-                }).show(getSupportFragmentManager());
+                      .setOnItemClickListener(new SelectorDialog.OnMenuItemClickListener() {
+                          @Override
+                          public void onItemClick(SelectorDialog dialog, int position) {
+                              mJobCode = job.get(titles[position]);
+                              mJobTitleStv.setRightString(titles[position]);
+                              requestUpdate();
+                          }
+                      }).show(getSupportFragmentManager());
     }
 
     /**
@@ -361,16 +378,17 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
     @OnClick(R.id.expertise_stv)
     public void onExpertise(View view) {
         AddTextActivity.from(this)
-                .setTitle("请输入专长")
-                .setContent(((SuperTextView) view).getRightString())
-                .setListener(new AddTextActivity.OnAddTextClickListener() {
-                    @Override public void onConfrimClick(View v, String content, AddTextActivity activity) {
-                        activity.finish();
-                        mExpertiseStv.setRightString(content);
-                        requestUpdate();
-                    }
-                })
-                .startActivity();
+                       .setTitle("请输入专长")
+                       .setContent(((SuperTextView) view).getRightString())
+                       .setListener(new AddTextActivity.OnAddTextClickListener() {
+                           @Override
+                           public void onConfrimClick(View v, String content, AddTextActivity activity) {
+                               activity.finish();
+                               mExpertiseStv.setRightString(content);
+                               requestUpdate();
+                           }
+                       })
+                       .startActivity();
     }
 
     /**
@@ -380,16 +398,17 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
     @OnClick(R.id.description_stv)
     public void onDescription(View view) {
         AddTextActivity.from(this)
-                .setTitle("请输入简介")
-                .setContent(((SuperTextView) view).getRightString())
-                .setListener(new AddTextActivity.OnAddTextClickListener() {
-                    @Override public void onConfrimClick(View v, String content, AddTextActivity activity) {
-                        activity.finish();
-                        mDescriptionStv.setRightString(content);
-                        requestUpdate();
-                    }
-                })
-                .startActivity();
+                       .setTitle("请输入简介")
+                       .setContent(((SuperTextView) view).getRightString())
+                       .setListener(new AddTextActivity.OnAddTextClickListener() {
+                           @Override
+                           public void onConfrimClick(View v, String content, AddTextActivity activity) {
+                               activity.finish();
+                               mDescriptionStv.setRightString(content);
+                               requestUpdate();
+                           }
+                       })
+                       .startActivity();
     }
 
     /**
@@ -399,16 +418,17 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
     @OnClick(R.id.receipt_stv)
     public void onReceipt(View view) {
         AddTextActivity.from(this)
-                .setTitle("请输入收款人")
-                .setContent(((SuperTextView) view).getRightString())
-                .setListener(new AddTextActivity.OnAddTextClickListener() {
-                    @Override public void onConfrimClick(View v, String content, AddTextActivity activity) {
-                        activity.finish();
-                        mReceiptStv.setRightString(content);
-                        requestUpdate();
-                    }
-                })
-                .startActivity();
+                       .setTitle("请输入收款人")
+                       .setContent(((SuperTextView) view).getRightString())
+                       .setListener(new AddTextActivity.OnAddTextClickListener() {
+                           @Override
+                           public void onConfrimClick(View v, String content, AddTextActivity activity) {
+                               activity.finish();
+                               mReceiptStv.setRightString(content);
+                               requestUpdate();
+                           }
+                       })
+                       .startActivity();
     }
 
     /**
@@ -418,17 +438,18 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
     @OnClick(R.id.receipt_phone_stv)
     public void onReceiptPhone(View view) {
         AddTextActivity.from(this)
-                .setTitle("请输入收款人手机")
-                .setContent(((SuperTextView) view).getRightString())
-                .setInputType(InputType.TYPE_CLASS_NUMBER)
-                .setListener(new AddTextActivity.OnAddTextClickListener() {
-                    @Override public void onConfrimClick(View v, String content, AddTextActivity activity) {
-                        activity.finish();
-                        mReceiptPhoneStv.setRightString(content);
-                        requestUpdate();
-                    }
-                })
-                .startActivity();
+                       .setTitle("请输入收款人手机")
+                       .setContent(((SuperTextView) view).getRightString())
+                       .setInputType(InputType.TYPE_CLASS_NUMBER)
+                       .setListener(new AddTextActivity.OnAddTextClickListener() {
+                           @Override
+                           public void onConfrimClick(View v, String content, AddTextActivity activity) {
+                               activity.finish();
+                               mReceiptPhoneStv.setRightString(content);
+                               requestUpdate();
+                           }
+                       })
+                       .startActivity();
     }
 
     /**
@@ -438,17 +459,18 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
     @OnClick(R.id.bank_account_stv)
     public void onBankAccount(View view) {
         AddTextActivity.from(this)
-                .setTitle("请输入银行卡(账)号")
-                .setContent(((SuperTextView) view).getRightString())
-                .setInputType(InputType.TYPE_CLASS_NUMBER)
-                .setListener(new AddTextActivity.OnAddTextClickListener() {
-                    @Override public void onConfrimClick(View v, String content, AddTextActivity activity) {
-                        activity.finish();
-                        mBankAcountStv.setRightString(content);
-                        requestUpdate();
-                    }
-                })
-                .startActivity();
+                       .setTitle("请输入银行卡(账)号")
+                       .setContent(((SuperTextView) view).getRightString())
+                       .setInputType(InputType.TYPE_CLASS_NUMBER)
+                       .setListener(new AddTextActivity.OnAddTextClickListener() {
+                           @Override
+                           public void onConfrimClick(View v, String content, AddTextActivity activity) {
+                               activity.finish();
+                               mBankAcountStv.setRightString(content);
+                               requestUpdate();
+                           }
+                       })
+                       .startActivity();
     }
 
     /**
@@ -458,16 +480,17 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
     @OnClick(R.id.bank_stv)
     public void onBank(View view) {
         AddTextActivity.from(this)
-                .setTitle("请输入开户银行")
-                .setContent(((SuperTextView) view).getRightString())
-                .setListener(new AddTextActivity.OnAddTextClickListener() {
-                    @Override public void onConfrimClick(View v, String content, AddTextActivity activity) {
-                        activity.finish();
-                        mBankStv.setRightString(content);
-                        requestUpdate();
-                    }
-                })
-                .startActivity();
+                       .setTitle("请输入开户银行")
+                       .setContent(((SuperTextView) view).getRightString())
+                       .setListener(new AddTextActivity.OnAddTextClickListener() {
+                           @Override
+                           public void onConfrimClick(View v, String content, AddTextActivity activity) {
+                               activity.finish();
+                               mBankStv.setRightString(content);
+                               requestUpdate();
+                           }
+                       })
+                       .startActivity();
     }
 
     /**
@@ -477,16 +500,17 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
     @OnClick(R.id.bank_branch_stv)
     public void onBankBranch(View view) {
         AddTextActivity.from(this)
-                .setTitle("请输入开户支行")
-                .setContent(((SuperTextView) view).getRightString())
-                .setListener(new AddTextActivity.OnAddTextClickListener() {
-                    @Override public void onConfrimClick(View v, String content, AddTextActivity activity) {
-                        activity.finish();
-                        mBankBranchStv.setRightString(content);
-                        requestUpdate();
-                    }
-                })
-                .startActivity();
+                       .setTitle("请输入开户支行")
+                       .setContent(((SuperTextView) view).getRightString())
+                       .setListener(new AddTextActivity.OnAddTextClickListener() {
+                           @Override
+                           public void onConfrimClick(View v, String content, AddTextActivity activity) {
+                               activity.finish();
+                               mBankBranchStv.setRightString(content);
+                               requestUpdate();
+                           }
+                       })
+                       .startActivity();
     }
 
     /**
@@ -536,11 +560,11 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
      * @param v
      */
     @OnClick(R.id.my_info_img_real)
-    public void onSelfImgClick(View v){
+    public void onSelfImgClick(View v) {
         if (!TextUtils.isEmpty(mSelfPath)) {
             ImageBrowserActivity.from(this)
-                    .setImagePath(mSelfPath)
-                    .startActivity();
+                                .setImagePath(mSelfPath)
+                                .startActivity();
         }
     }
 
@@ -549,11 +573,11 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
      * @param v
      */
     @OnClick(R.id.my_info_img_qualification)
-    public void onCertificateImgClick(View v){
+    public void onCertificateImgClick(View v) {
         if (!TextUtils.isEmpty(mCertificatePath)) {
             ImageBrowserActivity.from(this)
-                    .setImagePath(mCertificatePath)
-                    .startActivity();
+                                .setImagePath(mCertificatePath)
+                                .startActivity();
         }
     }
 
@@ -625,38 +649,39 @@ public class MyInfoActivity extends BaseTitleActivity implements View.OnClickLis
         String versionInfo = AppUtils.getAppVersionName();// 版本号
 
         ApiService.doctorUpdate(id,
-                docName,
-                officeCode,
-                AppContext.APP_CONSULTATION_CENTERID,
-                docTitleCode,
-                doctorPicture,
-                clientPicture,
-                certificate,
-                hospitalCode,
-                hospitalName,
-                docSpecial,
-                addrCode,
-                strAddr,
-                docDesc,
-                versionInfo,
-                editGetName,
-                editGetTele,
-                editBankName,
-                editCode,
-                editAddrs,
-                TextUtils.isEmpty(mSelfPath) ? null : new File(mSelfPath),
-                TextUtils.isEmpty(mCertificatePath) ? null : new File(mCertificatePath),
-                new ApiCallbackWrapper<ResponseBean<DoctorInfoBean>>(true) {
-                    @Override public void onResponse(ResponseBean<DoctorInfoBean> response) {
-                        super.onResponse(response);
-                        if (response.isSuccess()) {
-                            updataLocalInfo();
-                            ToastUtils.showLong(response.message);
-                        } else {
-                            ToastUtils.showShort(response.message);
-                        }
-                    }
-                });
+                                docName,
+                                officeCode,
+                                AppContext.APP_CONSULTATION_CENTERID,
+                                docTitleCode,
+                                doctorPicture,
+                                clientPicture,
+                                certificate,
+                                hospitalCode,
+                                hospitalName,
+                                docSpecial,
+                                addrCode,
+                                strAddr,
+                                docDesc,
+                                versionInfo,
+                                editGetName,
+                                editGetTele,
+                                editBankName,
+                                editCode,
+                                editAddrs,
+                                TextUtils.isEmpty(mSelfPath) ? null : new File(mSelfPath),
+                                TextUtils.isEmpty(mCertificatePath) ? null : new File(mCertificatePath),
+                                new ApiCallbackWrapper<ResponseBean<DoctorInfoBean>>(true) {
+                                    @Override
+                                    public void onResponse(ResponseBean<DoctorInfoBean> response) {
+                                        super.onResponse(response);
+                                        if (response.isSuccess()) {
+                                            updataLocalInfo();
+                                            ToastUtils.showLong(response.message);
+                                        } else {
+                                            ToastUtils.showShort(response.message);
+                                        }
+                                    }
+                                });
     }
 
     /**

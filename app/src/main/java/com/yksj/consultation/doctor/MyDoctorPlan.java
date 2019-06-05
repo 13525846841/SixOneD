@@ -56,6 +56,7 @@ public class MyDoctorPlan extends BaseTitleActivity implements View.OnClickListe
         initData();
     }
 
+
     private void initView() {
         setTitle("医教计划");
         setRight("添加计划", this::onAddPlanClick);

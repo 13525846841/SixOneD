@@ -19,11 +19,12 @@ android {
     }
 
 //    设置签名文件信息
+//    蒲公英与应用宝发布签名是不一样的   蒲公英与应用宝发布签名是不一样的   蒲公英与应用宝发布签名是不一样的
     signingConfigs {
-        debug{//蒲公英签名文件
-            storeFile file("../signing/childDoc.jks")
+        debug {//测试
+            storeFile file("../signing/childPatient.jks")
             storePassword "yijiankang518"
-            keyAlias "childhospitaldoc"
+            keyAlias "childhospital"
             keyPassword "yijiankang518"
         }
         shanghaiRelease {//蒲公英签名文件
@@ -51,18 +52,17 @@ android {
             minifyEnabled false
             shrinkResources false
             zipAlignEnabled false
-
             buildConfigField "String", "WEB_IP", '"http://220.194.46.204"'
             buildConfigField "String", "SOCKET_IP", '"220.194.46.204"'
             buildConfigField "int", "SOCKET_PORT", '8014'
             buildConfigField "String", "SHARE_WEB", '"http://220.194.46.204"'
         }
-
         release {
             shrinkResources false
             zipAlignEnabled true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.marketRelease
         }
     }
 
@@ -158,8 +158,11 @@ dependencies {
     implementation files('libs/xSocket-2.8.15.jar')
     implementation 'org.adw.library:discrete-seekbar:1.0.1'
     implementation 'me.leolin:ShortcutBadger:1.1.17@aar'
+    implementation 'com.baoyz.swipemenulistview:library:1.3.0'
     implementation files('libs/nama.jar')
     implementation 'com.googlecode.mp4parser:isoparser:1.1.21'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:design:28.0.0'
     debugImplementation rootProject.ext.dependencies.leakcanary
     releaseImplementation rootProject.ext.dependencies.leakcanary_no_op
     debugImplementation rootProject.ext.dependencies.debug_db
@@ -174,6 +177,6 @@ dependencies {
  * 获取当前时间(用于打包)
  * @return
  */
-static def nowDate(){
+static def nowDate() {
     return new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("GMT+8"))
 }

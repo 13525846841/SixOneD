@@ -20,6 +20,11 @@ public class AgencyCategroyAdapter extends BaseQuickAdapter<AgencyBean, BaseView
         ImageLoader.load(picturePath).into(helper.getView(R.id.agency_cover));
         helper.setText(R.id.agency_name, item.name);
         helper.setText(R.id.agency_type, item.typeToString());
-        helper.setText(R.id.agency_address, TextUtils.isEmpty(item.address) ? "火星" : item.address);
+        try {
+            String add=item.address.substring(0,6);
+            helper.setText(R.id.agency_address, TextUtils.isEmpty(item.address) ? "火星" : add+"...");
+        }catch (Exception e){
+
+        }
     }
 }

@@ -796,7 +796,8 @@ public class ChatActivity extends BaseTitleActivity implements OnClickListener, 
             Intent intent = new Intent(this, ChatMapActivity.class);
             String[] str = messageEntity.getContent().split("&");
             intent.putExtra("lo", str[0]);
-            intent.putExtra("la", str[1]);
+            intent.putExtra("la", str[
+                    1]);
             startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();
